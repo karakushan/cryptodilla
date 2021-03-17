@@ -1,43 +1,87 @@
 <template>
     <v-row>
         <v-col md="2">
-            <v-card
-                class="mx-auto">
-                <v-toolbar dark>
-                    <v-app-bar-nav-icon></v-app-bar-nav-icon>
-                    <v-toolbar-title>Ордера</v-toolbar-title>
-                </v-toolbar>
-                <v-simple-table dark>
-                    <template v-slot:default>
-                        <thead>
-                        <tr>
-                            <th class="text-left">
-                                Цена USDT
-                            </th>
-                            <th class="text-left">
-                                Кол-во 1INCH
-                            </th>
-                            <th class="text-left">
-                                Всего USDT
-                            </th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr
-                            v-for="(order,key) in orders"
-                            :key="key"
-                            :class="{'green':order.m, 'darken-1':true, 'red':!order.m,}"
-                        >
-                            <td >{{ order.p }}</td>
-                            <td>{{ order.q }}</td>
-                            <td>{{ order.p }}</td>
-                        </tr>
-                        </tbody>
-                    </template>
-                </v-simple-table>
-            </v-card>
+            <OrdersWidget/>
         </v-col>
         <v-col md="8">
+            <v-card class="mx-auto">
+                <v-toolbar dark>
+                    <v-row>
+                        <v-col md="2">
+                            <v-autocomplete
+                                v-model="exchange"
+                                :items="exchanges"
+                                item-text="name"
+                                item-value="slug"
+                                label="Выберите биржу"
+                                solo
+
+                            >
+                                <template v-slot:selection="data">
+                                    <v-chip
+                                        v-bind="data.attrs"
+                                        :input-value="data.selected"
+                                        close
+                                        @click="data.select"
+                                        @click:close="remove(data.item)"
+                                    >
+                                        <v-img left class="mr-2" max-width="20">
+                                            <v-img :src="data.item.logo"></v-img>
+                                        </v-img>
+
+                                        {{ data.item.name }}
+                                    </v-chip>
+                                </template>
+                                <template v-slot:item="{ item }">
+                                    <v-img left class="mr-2" max-width="20">
+                                        <v-img :src="item.logo"></v-img>
+                                    </v-img>
+                                    <v-list-item-content>
+                                        <v-list-item-title v-text="item.name"></v-list-item-title>
+                                    </v-list-item-content>
+
+                                </template>
+                            </v-autocomplete>
+                        </v-col>
+                        <v-col md="2">
+                            <v-autocomplete
+                                v-model="exchange"
+                                :items="exchanges"
+                                item-text="name"
+                                item-value="slug"
+                                label="Выберите биржу"
+                                solo
+
+                            >
+                                <template v-slot:selection="data,key">
+                                    <v-chip
+                                        v-bind="data.attrs"
+                                        :input-value="data.selected"
+                                        close
+                                        @click="data.select"
+                                        @click:close="remove(data.item)"
+                                    >
+                                        <v-img left class="mr-2" max-width="20">
+                                            <v-img :src="data.item.logo"></v-img>
+                                        </v-img>
+
+                                        {{ data.item.name }}
+                                    </v-chip>
+                                </template>
+                                <template v-slot:item="{ item }">
+                                    <v-img left class="mr-2" max-width="20">
+                                        <v-img :src="item.logo"></v-img>
+                                    </v-img>
+                                    <v-list-item-content>
+                                        <v-list-item-title v-text="item.name"></v-list-item-title>
+                                    </v-list-item-content>
+
+                                </template>
+                            </v-autocomplete>
+                        </v-col>
+                    </v-row>
+                </v-toolbar>
+            </v-card>
             <TradingView/>
         </v-col>
         <v-col md="2">
@@ -48,54 +92,71 @@
 
 <script>
 import TradingView from "../components/TradingView";
-
+import OrdersWidget from "../components/OrdersWidget";
 export default {
     name: "Trading",
-    data: () => ({
-        connection: null,
-        orders: []
-    }),
+    data: function () {
+        return {
+            exchange: 'binance',
+            exchanges: [],
+            pairs: []
+        }
+    },
     components: {
-        TradingView
+        TradingView,
+        OrdersWidget
+    },
+    props: {},
+    methods: {
+        getCurrentExchange() {
+            if (!this.exchanges.length || !this.exchange) return null;
+
+            let exchange = this.exchanges.filter((item) => {
+                return item.slug == this.exchange
+            })
+
+            if (exchange.length) return exchange[0]
+        },
+        getExchangeInfo(exchange) {
+
+
+        },
+
+        getExchanges() {
+            return new Promise((resolve, reject) => {
+                axios
+                    .post('/terminal/exchanges', {})
+                    .then(response => {
+                        if (response.status == 200 && response.data) {
+                            this.exchanges = response.data
+                            resolve(response.data)
+                        }
+                    })
+                    .catch(error => {
+                        // console.log(error.response);
+                        console.log(error.response.data);
+                        reject(error)
+                    });
+            })
+
+        }
     },
     mounted() {
-        let app = this
-        this.socket = new WebSocket("wss://stream.binance.com:9443/ws/bnbusdt@trade");
+        this.getExchanges().then(()=>{
+            let exchange = this.getCurrentExchange()
+            console.log(exchange);
+            this.getExchangeInfo(exchange)
+        })
 
-        this.socket.onopen = function (e) {
-            console.log("[open] Соединение установлено");
-        };
-
-        this.socket.onmessage = function (event) {
-            let trade = JSON.parse(event.data)
-            app.orders.unshift(trade)
-            if (app.orders.length>10){
-                app.orders.splice(10,app.orders.length-10)
-            }
-        };
-
-        this.socket.onclose = function (event) {
-            if (event.wasClean) {
-                console.log(`[close] Соединение закрыто чисто, код=${event.code} причина=${event.reason}`);
-            } else {
-                // например, сервер убил процесс или сеть недоступна
-                // обычно в этом случае event.code 1006
-                console.log('[close] Соединение прервано');
-            }
-        };
-
-        this.socket.onerror = function (error) {
-            console.log(`[error] ${error.message}`);
-        };
     }
 }
 </script>
 
 <style scoped>
-.v-data-table>.v-data-table__wrapper>table>tbody>tr>td, .v-data-table>.v-data-table__wrapper>table>tbody>tr>th, .v-data-table>.v-data-table__wrapper>table>tfoot>tr>td, .v-data-table>.v-data-table__wrapper>table>tfoot>tr>th, .v-data-table>.v-data-table__wrapper>table>thead>tr>td, .v-data-table>.v-data-table__wrapper>table>thead>tr>th {
+.v-data-table > .v-data-table__wrapper > table > tbody > tr > td, .v-data-table > .v-data-table__wrapper > table > tbody > tr > th, .v-data-table > .v-data-table__wrapper > table > tfoot > tr > td, .v-data-table > .v-data-table__wrapper > table > tfoot > tr > th, .v-data-table > .v-data-table__wrapper > table > thead > tr > td, .v-data-table > .v-data-table__wrapper > table > thead > tr > th {
     text-align: center;
     padding: 0 4px;
-    transition: height .2s cubic-bezier(.4,0,.6,1);
-    font-size: 13px!important;
+    transition: height .2s cubic-bezier(.4, 0, .6, 1);
+    font-size: 13px !important;
 }
 </style>

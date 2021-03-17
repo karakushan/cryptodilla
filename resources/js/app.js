@@ -21,16 +21,11 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 const routes = [
-    {path: '/', component: Dashboard, name: 'Панель'},
-    {path: '/trading', component: Trading, name: 'Торговля'},
+    {path: '/', component: Trading, name: 'Торговля'},
 ]
 const router = new VueRouter({
     routes // сокращённая запись для `routes: routes`
 })
-
-// export default new Vuetify({
-//     theme: { dark: true },
-// })
 
 /**
  * The following block of code may be used to automatically register your
@@ -44,6 +39,7 @@ const router = new VueRouter({
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('app', require('./components/App').default);
+
 
 
 /**

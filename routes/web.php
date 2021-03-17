@@ -18,7 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/terminal', [TerminalController::class, 'index'])->middleware(['auth']);
+Route::middleware(['auth'])->prefix('terminal')->group(function (){
+    Route::get('/', [TerminalController::class, 'index'])->name('terminal.index');
+    Route::post('/exchanges', [TerminalController::class, 'getExchanges']);
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard-crypto');
