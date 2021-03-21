@@ -19,11 +19,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth'])->prefix('terminal')->group(function (){
+Route::middleware(['auth'])->prefix('terminal')->group(function () {
     Route::get('/', [TerminalController::class, 'index'])->name('terminal.index');
     Route::post('/exchanges', [TerminalController::class, 'getExchanges']);
+    //  BINANCE
     Route::post('/binance/get-info/', [BinanceController::class, 'getExchangeInfo']);
-
+    Route::post('/binance/account/', [BinanceController::class, 'getAccount']);
+    Route::post('/binance/order-test/', [BinanceController::class, 'orderOpenTest']);
+    Route::post('/binance/get-orders/', [BinanceController::class, 'getOrders']);
 });
 
 

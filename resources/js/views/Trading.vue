@@ -163,7 +163,6 @@
                                     label="К-во"
                                     hide-details="auto"
                                     v-model="order.quantity"
-                                    :rules="orderQuantityRules"
                                     reqiured
                                 >
                                     <template v-slot:append>
@@ -171,6 +170,7 @@
                                     </template>
                                 </v-text-field>
                             </v-list-item>
+
 
                             <v-list-item>
                                 <v-btn
@@ -185,8 +185,6 @@
                                     }}
                                 </v-btn>
                             </v-list-item>
-
-
                         </v-list>
                     </v-container>
                 </v-form>
@@ -198,7 +196,7 @@
                 </v-toolbar>
 
                 <v-container>
-                    <v-simple-table>
+                    <v-simple-table v-if="typeof account.balances!=='undefined' && account.balances.length">
                         <template v-slot:default>
                             <thead>
                             <tr>
@@ -214,14 +212,18 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td></td>
-                                <td></td>
+                            <tr v-for="balance in account.balances">
+                                <td>{{ balance.asset }}</td>
+                                <td>{{ balance.locked }}</td>
+                                <td>{{ balance.free }}</td>
                             </tr>
                             </tbody>
                         </template>
                     </v-simple-table>
-
+                    <v-card-text>{{
+                            $__("Ваш баланс нулевой. Нужно пополнить счет или привязать свой аккаунт Binance.")
+                        }}
+                    </v-card-text>
                 </v-container>
 
             </v-card>
@@ -249,7 +251,9 @@ export default {
                 type: 'buy',
                 type2: 'market',
                 quantity: 0
-            }
+            },
+            orders: [],
+            account: {}
         }
     },
     components: {
@@ -258,13 +262,48 @@ export default {
         OrdersHistoryWidget
     },
     props: {},
-    watch: {},
+    watch: {
+        'symbol.symbol':function (newValue){
+            if (newValue){
+                this.getOrders()
+            }
+        }
+    },
     methods: {
+        getOrders() {
+            axios
+                .post('/terminal/' + this.exchange + '/get-orders', {
+                    symbol:this.symbol.symbol
+                })
+                .then(response => {
+                    if (response.status == 200 && response.data) {
+                        this.orders = response.data
+                    }
+                })
+                .catch(error => {
+                    // console.log(error.response);
+                    console.log(error.response.data);
+                });
+        },
         orderQuantityRules() {
 
         },
         openOrder() {
-
+            axios
+                .post('/terminal/' + this.exchange + '/order-test', {
+                    symbol: this.symbol.symbol,
+                    price: 0.030000,
+                    ...this.order
+                })
+                .then(response => {
+                    if (response.status == 200 && response.data) {
+                        console.log(response);
+                    }
+                })
+                .catch(error => {
+                    // console.log(error.response);
+                    console.log(error.response.data);
+                });
         },
         getCurrentExchange() {
             if (!this.exchanges.length || !this.exchange) return null;
@@ -289,7 +328,19 @@ export default {
                     console.log(error.response.data);
                 });
         },
-
+        getAccount(exchange) {
+            axios
+                .post('/terminal/' + exchange + '/account', {})
+                .then(response => {
+                    if (response.status == 200 && response.data) {
+                        this.account = response.data
+                    }
+                })
+                .catch(error => {
+                    // console.log(error.response);
+                    console.log(error.response.data);
+                });
+        },
         getExchanges() {
             return new Promise((resolve, reject) => {
                 axios
@@ -314,15 +365,16 @@ export default {
             if (!this.symbol) return 'ETH:BTC'
 
             return this.symbol.symbol;
-        }
+        },
     },
     mounted() {
         this.getExchanges().then(() => {
             let exchange = this.getCurrentExchange()
             console.log(exchange.slug);
             this.getExchangeInfo(exchange.slug)
+            this.getAccount(exchange.slug)
+            this.getOrders()
         })
-
     }
 }
 </script>

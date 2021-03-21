@@ -1892,6 +1892,60 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "App",
   data: function data() {
@@ -1899,7 +1953,8 @@ __webpack_require__.r(__webpack_exports__);
       projectName: 'HyperTrade',
       links: ['Home', 'About Us', 'Team', 'Services', 'Blog', 'Contact Us'],
       items: [],
-      right: null
+      right: null,
+      user: {}
     };
   },
   components: {
@@ -2241,6 +2296,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_TradingView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/TradingView */ "./resources/js/components/TradingView.vue");
 /* harmony import */ var _components_OrdersWidget__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/OrdersWidget */ "./resources/js/components/OrdersWidget.vue");
 /* harmony import */ var _components_OrdersHistoryWidget__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/OrdersHistoryWidget */ "./resources/js/components/OrdersHistoryWidget.vue");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
 //
 //
 //
@@ -2490,7 +2553,9 @@ __webpack_require__.r(__webpack_exports__);
         type: 'buy',
         type2: 'market',
         quantity: 0
-      }
+      },
+      orders: [],
+      account: {}
     };
   },
   components: {
@@ -2499,26 +2564,70 @@ __webpack_require__.r(__webpack_exports__);
     OrdersHistoryWidget: _components_OrdersHistoryWidget__WEBPACK_IMPORTED_MODULE_2__.default
   },
   props: {},
-  watch: {},
+  watch: {
+    'symbol.symbol': function symbolSymbol(newValue) {
+      if (newValue) {
+        this.getOrders();
+      }
+    }
+  },
   methods: {
-    orderQuantityRules: function orderQuantityRules() {},
-    openOrder: function openOrder() {},
-    getCurrentExchange: function getCurrentExchange() {
+    getOrders: function getOrders() {
       var _this = this;
+
+      axios.post('/terminal/' + this.exchange + '/get-orders', {
+        symbol: this.symbol.symbol
+      }).then(function (response) {
+        if (response.status == 200 && response.data) {
+          _this.orders = response.data;
+        }
+      })["catch"](function (error) {
+        // console.log(error.response);
+        console.log(error.response.data);
+      });
+    },
+    orderQuantityRules: function orderQuantityRules() {},
+    openOrder: function openOrder() {
+      axios.post('/terminal/' + this.exchange + '/order-test', _objectSpread({
+        symbol: this.symbol.symbol,
+        price: 0.030000
+      }, this.order)).then(function (response) {
+        if (response.status == 200 && response.data) {
+          console.log(response);
+        }
+      })["catch"](function (error) {
+        // console.log(error.response);
+        console.log(error.response.data);
+      });
+    },
+    getCurrentExchange: function getCurrentExchange() {
+      var _this2 = this;
 
       if (!this.exchanges.length || !this.exchange) return null;
       var exchange = this.exchanges.filter(function (item) {
-        return item.slug == _this.exchange;
+        return item.slug == _this2.exchange;
       });
       if (exchange.length) return exchange[0];
     },
     getExchangeInfo: function getExchangeInfo(exchange) {
-      var _this2 = this;
+      var _this3 = this;
 
       axios.post('/terminal/' + exchange + '/get-info', {}).then(function (response) {
         if (response.status == 200 && response.data) {
-          _this2.symbols = response.data;
-          _this2.symbol = _this2.symbols[0];
+          _this3.symbols = response.data;
+          _this3.symbol = _this3.symbols[0];
+        }
+      })["catch"](function (error) {
+        // console.log(error.response);
+        console.log(error.response.data);
+      });
+    },
+    getAccount: function getAccount(exchange) {
+      var _this4 = this;
+
+      axios.post('/terminal/' + exchange + '/account', {}).then(function (response) {
+        if (response.status == 200 && response.data) {
+          _this4.account = response.data;
         }
       })["catch"](function (error) {
         // console.log(error.response);
@@ -2526,12 +2635,12 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     getExchanges: function getExchanges() {
-      var _this3 = this;
+      var _this5 = this;
 
       return new Promise(function (resolve, reject) {
         axios.post('/terminal/exchanges', {}).then(function (response) {
           if (response.status == 200 && response.data) {
-            _this3.exchanges = response.data;
+            _this5.exchanges = response.data;
             resolve(response.data);
           }
         })["catch"](function (error) {
@@ -2549,14 +2658,18 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    var _this4 = this;
+    var _this6 = this;
 
     this.getExchanges().then(function () {
-      var exchange = _this4.getCurrentExchange();
+      var exchange = _this6.getCurrentExchange();
 
       console.log(exchange.slug);
 
-      _this4.getExchangeInfo(exchange.slug);
+      _this6.getExchangeInfo(exchange.slug);
+
+      _this6.getAccount(exchange.slug);
+
+      _this6.getOrders();
     });
   }
 });
@@ -2597,6 +2710,14 @@ var routes = [{
   path: '/',
   component: _views_Trading__WEBPACK_IMPORTED_MODULE_2__.default,
   name: 'Торговля'
+}, {
+  path: '/bots',
+  component: _views_Trading__WEBPACK_IMPORTED_MODULE_2__.default,
+  name: 'Боты'
+}, {
+  path: '/exchanges',
+  component: _views_Trading__WEBPACK_IMPORTED_MODULE_2__.default,
+  name: 'Мои биржи'
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_4__.default({
   routes: routes // сокращённая запись для `routes: routes`
@@ -39147,7 +39268,7 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "v-toolbar-items",
-                { staticClass: "hidden-sm-and-down" },
+                { staticClass: "hidden-sm-and-down d-flex align-items-center" },
                 [
                   _vm._l(_vm.items, function(item, key) {
                     return _c("v-btn", { key: key, attrs: { to: item.path } }, [
@@ -39159,14 +39280,133 @@ var render = function() {
                     ])
                   }),
                   _vm._v(" "),
-                  _c("v-avatar", [
-                    _c("img", {
+                  _c(
+                    "v-menu",
+                    {
+                      staticClass: "ml-3",
                       attrs: {
-                        src: "https://cdn.vuetifyjs.com/images/john.jpg",
-                        alt: "John"
-                      }
-                    })
-                  ])
+                        bottom: "",
+                        "min-width": "200px",
+                        rounded: "",
+                        "offset-y": ""
+                      },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "activator",
+                          fn: function(ref) {
+                            var on = ref.on
+                            return [
+                              _c(
+                                "v-btn",
+                                _vm._g(
+                                  { attrs: { icon: "", "x-large": "" } },
+                                  on
+                                ),
+                                [
+                                  _c(
+                                    "v-avatar",
+                                    { attrs: { color: "brown", size: "42" } },
+                                    [
+                                      _c("img", {
+                                        attrs: {
+                                          src:
+                                            "https://cdn.vuetifyjs.com/images/john.jpg",
+                                          alt: "John"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ],
+                                1
+                              )
+                            ]
+                          }
+                        }
+                      ])
+                    },
+                    [
+                      _vm._v(" "),
+                      _c(
+                        "v-card",
+                        [
+                          _c(
+                            "v-list-item-content",
+                            { staticClass: "justify-center" },
+                            [
+                              _c(
+                                "div",
+                                { staticClass: "mx-auto text-center" },
+                                [
+                                  _c(
+                                    "v-avatar",
+                                    { attrs: { color: "brown", size: "42" } },
+                                    [
+                                      _c("img", {
+                                        attrs: {
+                                          src:
+                                            "https://cdn.vuetifyjs.com/images/john.jpg",
+                                          alt: "John"
+                                        }
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("h3", [_vm._v(_vm._s(_vm.user.fullName))]),
+                                  _vm._v(" "),
+                                  _c("p", { staticClass: "caption mt-1" }, [
+                                    _vm._v(
+                                      "\n                                    " +
+                                        _vm._s(_vm.user.email) +
+                                        "\n                                "
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("v-divider", { staticClass: "my-3" }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-btn",
+                                    {
+                                      attrs: {
+                                        depressed: "",
+                                        rounded: "",
+                                        text: ""
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                    Edit Account\n                                "
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("v-divider", { staticClass: "my-3" }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "v-btn",
+                                    {
+                                      attrs: {
+                                        depressed: "",
+                                        rounded: "",
+                                        text: ""
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                    Disconnect\n                                "
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              )
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
                 ],
                 2
               )
@@ -39989,7 +40229,6 @@ var render = function() {
                                       type: "number",
                                       label: "К-во",
                                       "hide-details": "auto",
-                                      rules: _vm.orderQuantityRules,
                                       reqiured: ""
                                     },
                                     scopedSlots: _vm._u(
@@ -40087,49 +40326,83 @@ var render = function() {
               _c(
                 "v-container",
                 [
-                  _c("v-simple-table", {
-                    scopedSlots: _vm._u([
-                      {
-                        key: "default",
-                        fn: function() {
-                          return [
-                            _c("thead", [
-                              _c("tr", [
-                                _c("th", { staticClass: "text-left" }, [
-                                  _vm._v(
-                                    "\n                                " +
-                                      _vm._s(_vm.$__("Валюта")) +
-                                      "\n                            "
+                  typeof _vm.account.balances !== "undefined" &&
+                  _vm.account.balances.length
+                    ? _c("v-simple-table", {
+                        scopedSlots: _vm._u(
+                          [
+                            {
+                              key: "default",
+                              fn: function() {
+                                return [
+                                  _c("thead", [
+                                    _c("tr", [
+                                      _c("th", { staticClass: "text-left" }, [
+                                        _vm._v(
+                                          "\n                                " +
+                                            _vm._s(_vm.$__("Валюта")) +
+                                            "\n                            "
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("th", { staticClass: "text-left" }, [
+                                        _vm._v(
+                                          "\n                                " +
+                                            _vm._s(_vm.$__("В торговле")) +
+                                            "\n                            "
+                                        )
+                                      ]),
+                                      _vm._v(" "),
+                                      _c("th", { staticClass: "text-left" }, [
+                                        _vm._v(
+                                          "\n                                " +
+                                            _vm._s(_vm.$__("Доступно")) +
+                                            "\n                            "
+                                        )
+                                      ])
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _c(
+                                    "tbody",
+                                    _vm._l(_vm.account.balances, function(
+                                      balance
+                                    ) {
+                                      return _c("tr", [
+                                        _c("td", [
+                                          _vm._v(_vm._s(balance.asset))
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("td", [
+                                          _vm._v(_vm._s(balance.locked))
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("td", [_vm._v(_vm._s(balance.free))])
+                                      ])
+                                    }),
+                                    0
                                   )
-                                ]),
-                                _vm._v(" "),
-                                _c("th", { staticClass: "text-left" }, [
-                                  _vm._v(
-                                    "\n                                " +
-                                      _vm._s(_vm.$__("В торговле")) +
-                                      "\n                            "
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c("th", { staticClass: "text-left" }, [
-                                  _vm._v(
-                                    "\n                                " +
-                                      _vm._s(_vm.$__("Доступно")) +
-                                      "\n                            "
-                                  )
-                                ])
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("tbody", [
-                              _c("tr", [_c("td"), _vm._v(" "), _c("td")])
-                            ])
-                          ]
-                        },
-                        proxy: true
-                      }
-                    ])
-                  })
+                                ]
+                              },
+                              proxy: true
+                            }
+                          ],
+                          null,
+                          false,
+                          2292790038
+                        )
+                      })
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("v-card-text", [
+                    _vm._v(
+                      _vm._s(
+                        _vm.$__(
+                          "Ваш баланс нулевой. Нужно пополнить счет или привязать свой аккаунт Binance."
+                        )
+                      ) + "\n                "
+                    )
+                  ])
                 ],
                 1
               )

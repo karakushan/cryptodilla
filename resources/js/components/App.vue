@@ -4,16 +4,70 @@
             <v-toolbar dense>
                 <v-toolbar-title>{{ projectName }}</v-toolbar-title>
                 <v-spacer></v-spacer>
-                <v-toolbar-items class="hidden-sm-and-down">
+                <v-toolbar-items class="hidden-sm-and-down d-flex align-items-center">
                     <v-btn :to="item.path" :key="key" v-for="(item,key) in items">
                         {{ item.name }}
                     </v-btn>
-                    <v-avatar
-                    ><img
-                        src="https://cdn.vuetifyjs.com/images/john.jpg"
-                        alt="John"
+                    <v-menu
+                        class="ml-3"
+                        bottom
+                        min-width="200px"
+                        rounded
+                        offset-y
                     >
-                    </v-avatar>
+                        <template v-slot:activator="{ on }">
+                            <v-btn
+                                icon
+                                x-large
+                                v-on="on"
+                            >
+                                <v-avatar
+                                    color="brown"
+                                    size="42"
+                                >
+                                    <img
+                                        src="https://cdn.vuetifyjs.com/images/john.jpg"
+                                        alt="John"
+                                    >
+                                </v-avatar>
+                            </v-btn>
+                        </template>
+                        <v-card>
+                            <v-list-item-content class="justify-center">
+                                <div class="mx-auto text-center">
+                                    <v-avatar
+                                        color="brown"
+                                        size="42"
+                                    >
+                                        <img
+                                            src="https://cdn.vuetifyjs.com/images/john.jpg"
+                                            alt="John"
+                                        >
+                                    </v-avatar>
+                                    <h3>{{ user.fullName }}</h3>
+                                    <p class="caption mt-1">
+                                        {{ user.email }}
+                                    </p>
+                                    <v-divider class="my-3"></v-divider>
+                                    <v-btn
+                                        depressed
+                                        rounded
+                                        text
+                                    >
+                                        Edit Account
+                                    </v-btn>
+                                    <v-divider class="my-3"></v-divider>
+                                    <v-btn
+                                        depressed
+                                        rounded
+                                        text
+                                    >
+                                        Disconnect
+                                    </v-btn>
+                                </div>
+                            </v-list-item-content>
+                        </v-card>
+                    </v-menu>
                 </v-toolbar-items>
             </v-toolbar>
 
@@ -61,6 +115,7 @@ export default {
             ],
             items: [],
             right: null,
+            user:{}
         }
     },
     components: {

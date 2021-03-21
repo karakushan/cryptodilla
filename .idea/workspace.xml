@@ -19,25 +19,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="выпадающий список валют">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/BinanceController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/ca.pem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/OrdersHistoryWidget.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/cryptotrade.loc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cryptotrade.loc.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="добавил панель открытия ордера">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BinanceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BinanceController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/OrdersWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/OrdersWidget.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/TradingView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/TradingView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/views/Trading.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/Trading.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -276,7 +266,7 @@
       <workItem from="1615803792988" duration="18996000" />
       <workItem from="1615917123060" duration="11885000" />
       <workItem from="1616184700459" duration="13232000" />
-      <workItem from="1616316068496" duration="6400000" />
+      <workItem from="1616316068496" duration="17840000" />
     </task>
     <task id="LOCAL-00001" summary="подключил vue router">
       <created>1615840605110</created>
@@ -292,7 +282,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615976813019</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="добавил панель открытия ордера">
+      <created>1616322598296</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1616322598296</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -316,7 +313,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="подключил vue router" />
     <MESSAGE value="выпадающий список валют" />
-    <option name="LAST_COMMIT_MESSAGE" value="выпадающий список валют" />
+    <MESSAGE value="добавил панель открытия ордера" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавил панель открытия ордера" />
   </component>
   <component name="WindowStateProjectService">
     <state x="678" y="178" key="#Servers" timestamp="1616187219542">
@@ -331,22 +329,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1616277096084" />
-    <state width="1877" height="181" key="GridCell.Tab.0.bottom" timestamp="1616188690237">
+    <state width="1877" height="180" key="GridCell.Tab.0.bottom" timestamp="1616359279242">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="181" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1616188690237" />
-    <state width="1877" height="181" key="GridCell.Tab.0.center" timestamp="1616188690237">
+    <state width="1877" height="180" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1616359279242" />
+    <state width="1877" height="180" key="GridCell.Tab.0.center" timestamp="1616359279242">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="181" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1616188690237" />
-    <state width="1877" height="181" key="GridCell.Tab.0.left" timestamp="1616188690237">
+    <state width="1877" height="180" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1616359279242" />
+    <state width="1877" height="180" key="GridCell.Tab.0.left" timestamp="1616359279240">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="181" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1616188690237" />
-    <state width="1877" height="181" key="GridCell.Tab.0.right" timestamp="1616188690237">
+    <state width="1877" height="180" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1616359279240" />
+    <state width="1877" height="180" key="GridCell.Tab.0.right" timestamp="1616359279242">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="181" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1616188690237" />
+    <state width="1877" height="180" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1616359279242" />
     <state width="1877" height="250" key="GridCell.Tab.1.bottom" timestamp="1616188681055">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -383,10 +381,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1615922795182" />
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1615976815251">
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1616322600521">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1615976815251" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1616322600521" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1615817393937">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

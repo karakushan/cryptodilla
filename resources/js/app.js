@@ -22,6 +22,9 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 const routes = [
     {path: '/', component: Trading, name: 'Торговля'},
+    {path: '/bots', component: Trading, name: 'Боты'},
+    {path: '/exchanges', component: Trading, name: 'Мои биржи'},
+
 ]
 const router = new VueRouter({
     routes // сокращённая запись для `routes: routes`
