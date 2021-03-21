@@ -12,6 +12,7 @@
     "dependencies": {
         "binance": "^1.3.5",
         "binance-api-node": "^0.10.34",
+        "crypto": "^1.0.1",
         "vue": "^2.6.12",
         "vue-router": "^3.5.1",
         "vuetify": "^2.4.0"

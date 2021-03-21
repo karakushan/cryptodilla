@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BinanceController;
 use App\Http\Controllers\TerminalController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,7 +22,10 @@ Route::get('/', function () {
 Route::middleware(['auth'])->prefix('terminal')->group(function (){
     Route::get('/', [TerminalController::class, 'index'])->name('terminal.index');
     Route::post('/exchanges', [TerminalController::class, 'getExchanges']);
+    Route::post('/binance/get-info/', [BinanceController::class, 'getExchangeInfo']);
+
 });
+
 
 Route::get('/dashboard', function () {
     return view('dashboard-crypto');

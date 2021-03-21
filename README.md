@@ -17,6 +17,9 @@
 Фронтент простроен с помощью [Vue](https://ru.vuejs.org/v2/guide/)
 
 Для страницы торгового терминала используется фреймворк под Vue [Vuetify](https://vuetifyjs.com) 
+
+## Биржи и торговые площадки
+[Binance](https://binance-docs.github.io/apidocs/spot/en/#change-log)
   
 
 

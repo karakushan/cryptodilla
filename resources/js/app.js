@@ -40,7 +40,13 @@ const router = new VueRouter({
 
 Vue.component('app', require('./components/App').default);
 
+Vue.prototype.$__ = function (trans) {
+    if (typeof window.langs !== 'undefined' && typeof window.langs[trans] !== 'undefined') {
+        return window.langs[trans]
+    }
 
+    return trans
+}
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

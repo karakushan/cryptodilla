@@ -1,22 +1,22 @@
 <template>
     <v-card
-        class="mx-auto">
+        class="mx-auto mb-2 orders-widget">
         <v-toolbar dark>
             <v-app-bar-nav-icon></v-app-bar-nav-icon>
-            <v-toolbar-title>Ордера</v-toolbar-title>
+            <v-toolbar-title>{{ title }}</v-toolbar-title>
         </v-toolbar>
-        <v-simple-table dark>
+        <v-simple-table v-if="orders.length" dark>
             <template v-slot:default>
                 <thead>
                 <tr>
-                    <th class="text-left">
-                        Цена USDT
+                    <th>
+                        Цена {{ symbol.quoteAsset }}
                     </th>
-                    <th class="text-left">
-                        Кол-во 1INCH
+                    <th>
+                        Кол-во {{ symbol.baseAsset }}
                     </th>
-                    <th class="text-left">
-                        Всего USDT
+                    <th>
+                        Всего {{ symbol.quoteAsset }}
                     </th>
                 </tr>
                 </thead>
@@ -24,7 +24,7 @@
                 <tr
                     v-for="(order,key) in orders"
                     :key="key"
-                    :class="{'green':order.m, 'darken-1':true, 'red':!order.m,}"
+
                 >
                     <td>{{ order.p }}</td>
                     <td>{{ order.q }}</td>
@@ -33,6 +33,7 @@
                 </tbody>
             </template>
         </v-simple-table>
+        <v-card-text v-else>{{ $__("Нет отрытых сделок по данному инструменту") }}</v-card-text>
     </v-card>
 </template>
 
@@ -40,51 +41,85 @@
 export default {
     name: "OrdersWidget",
     data: () => ({
-        connection: null,
         orders: [],
+        socket: null
     }),
     props: {
         limit: {
             type: Number,
-            default: 5
+            default: 6
         },
-        pair: {
+        symbol: {
+            type: Object,
+            default() {
+                return {}
+            }
+        },
+        title: {
             type: String,
-            default: 'bnbusdt'
+            default: 'Ордера'
         },
     },
+    watch: {
+        symbol(newValue, oldValue) {
+
+                if (this.socket)
+                    this.socket.close()
+
+                this.orders = []
+                this.connectWS()
+
+
+        }
+    },
+    methods: {
+        connectWS() {
+            let app = this
+            let apiUrl=process.env.MIX_BINANCE_WS_URL + this.symbol.symbol.toLowerCase() + "@trade"
+
+            this.socket = new WebSocket(apiUrl);
+            this.socket.onopen = function (e) {
+                console.log("[open] Соединение установлено");
+            };
+
+            this.socket.onmessage = function (event) {
+                let trade = JSON.parse(event.data)
+                app.orders.unshift(trade)
+                if (app.orders.length > app.limit) {
+                    app.orders.splice(app.limit, app.orders.length - app.limit)
+                }
+            };
+
+            this.socket.onclose = function (event) {
+                if (event.wasClean) {
+                    console.log(`[close] Соединение закрыто чисто, код=${event.code} причина=${event.reason}`);
+                } else {
+                    // например, сервер убил процесс или сеть недоступна
+                    // обычно в этом случае event.code 1006
+                    console.log('[close] Соединение прервано');
+                }
+            };
+
+            this.socket.onerror = function (error) {
+                console.log(`[error] ${error.message}`);
+            };
+        }
+    },
+    computed: {
+
+    },
     mounted() {
-        let app = this
-        this.socket = new WebSocket(process.env.MIX_BINANCE_WS_URL+"bnbusdt@trade");
-        this.socket.onopen = function (e) {
-            console.log("[open] Соединение установлено");
-        };
-
-        this.socket.onmessage = function (event) {
-            let trade = JSON.parse(event.data)
-            app.orders.unshift(trade)
-            if (app.orders.length > app.limit) {
-                app.orders.splice(app.limit, app.orders.length - app.limit)
-            }
-        };
-
-        this.socket.onclose = function (event) {
-            if (event.wasClean) {
-                console.log(`[close] Соединение закрыто чисто, код=${event.code} причина=${event.reason}`);
-            } else {
-                // например, сервер убил процесс или сеть недоступна
-                // обычно в этом случае event.code 1006
-                console.log('[close] Соединение прервано');
-            }
-        };
-
-        this.socket.onerror = function (error) {
-            console.log(`[error] ${error.message}`);
-        };
+        // this.connectWS()
     }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.orders-widget{
+    .v-data-table>.v-data-table__wrapper>table>tbody>tr>td, .v-data-table>.v-data-table__wrapper>table>tbody>tr>th, .v-data-table>.v-data-table__wrapper>table>tfoot>tr>td, .v-data-table>.v-data-table__wrapper>table>tfoot>tr>th, .v-data-table>.v-data-table__wrapper>table>thead>tr>td, .v-data-table>.v-data-table__wrapper>table>thead>tr>th {
+        padding: 0 3px;
+        text-align: center;
+    }
+}
 
 </style>
