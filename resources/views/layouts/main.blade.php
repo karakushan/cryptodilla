@@ -15,6 +15,7 @@
     <!-- Start CSS -->
     @yield('style')
     <link href="{{ asset('assets/plugins/switchery/switchery.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/plugins/pnotify/css/pnotify.custom.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/flag-icon.min.css') }}" rel="stylesheet" type="text/css">
@@ -86,8 +87,10 @@
 <script src="{{ asset('assets/js/detect.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.slimscroll.js') }}"></script>
 <script src="{{ asset('assets/js/vertical-menu.js') }}"></script>
+<script src="{{ asset('assets/plugins/pnotify/js/pnotify.custom.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/switchery/switchery.min.js') }}"></script>
 @yield('script')
+<x-status-message/>
 <!-- Core JS -->
 <script src="{{ asset('assets/js/core.js') }}"></script>
 <!-- End JS -->

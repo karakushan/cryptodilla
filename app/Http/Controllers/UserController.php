@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserAvatarRequest;
+use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Response;
@@ -28,7 +29,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.user.create');
     }
 
     /**
@@ -37,9 +38,16 @@ class UserController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
+        $user = new User();
+        $user->fill($request->all());
+        $user->save();
+
+        session()->flash('status', 'success');
+        session()->flash('message', __('Новый пользователь успешно создан!'));
+
+        return redirect()->route('users.index');
     }
 
     /**
@@ -73,9 +81,16 @@ class UserController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->fill($request->all());
+        $user->save();
+
+        $request->session()->flash('status', 'success');
+        $request->session()->flash('message', __('Данные пользователя успешно обновленны!'));
+
+        return redirect()->route('users.index');
     }
 
     /**

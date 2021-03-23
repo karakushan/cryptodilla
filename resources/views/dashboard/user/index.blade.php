@@ -52,9 +52,12 @@
                                     <tr>
                                         <th scope="row">{{ $user->id }}</th>
                                         <td>
-
-                                            <img src="{{ Storage::url('public/'.$user->avatar) }}" class="img-fluid" width="35"
-                                                 alt="product">
+                                            @if ($user->avatar)
+                                                <img src="{{ Storage::url('public/'.$user->avatar) }}" class="img-fluid rounded-circle" width="66" height="66"
+                                                     alt="{{$user->name}}">
+                                            @else
+                                                <img src="{{ asset('assets/images/users/profile.svg') }}" class="img-fluid rounded-circle" alt="profile" width="66" height="66">
+                                            @endif
                                         </td>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>

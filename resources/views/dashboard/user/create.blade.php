@@ -1,5 +1,5 @@
 @section('title')
-    {{ __("Изменение данных пользователя") }}
+    {{ __("Создание пользователя") }}
 @endsection
 @extends('layouts.main')
 @section('style')
@@ -18,9 +18,9 @@
                         <h5 class="card-title">{{ __("Данные пользователя") }}</h5>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('users.update',$user) }}" method="post">
+                        <form action="{{ route('users.store') }}" method="post">
                             @csrf
-                            @method('PUT')
+                            @method('POST')
                             <div class="form-group row">
                                 <label for="user-name" class="col-sm-12 col-form-label">{{ __("Имя") }}</label>
                                 <div class="col-sm-12">
@@ -48,6 +48,17 @@
                                            placeholder="{{ __("E-mail") }}"
                                            value="{{ old('email',isset($user) && isset($user->email) ? $user->email : '') }}">
                                     @error('email')
+                                    <div class="invalid-feedback" style="display: block;">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="user-password" class="col-sm-12 col-form-label">{{ __("Пароль") }}</label>
+                                <div class="col-sm-12">
+                                    <input type="password" name="password" class="form-control" id="user-password"
+                                           placeholder="{{ __("Пароль") }}"
+                                           value="">
+                                    @error('password')
                                     <div class="invalid-feedback" style="display: block;">{{ $message }}</div>
                                     @enderror
                                 </div>
