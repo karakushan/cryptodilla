@@ -15,7 +15,7 @@ jobs:
       - name: FTP-Deploy-Action
         uses: SamKirkland/FTP-Deploy-Action@3.1.0
         with:
-          ftp-server: ftp://95.216.208.43/web/pv51.ru/public_html/
+          ftp-server: ftp://185.25.116.236/web/ex.profglobal.top/public_html
           ftp-username: ${{ secrets.FTP_USERNAME_PROD }}
           ftp-password: ${{ secrets.FTP_PASSWORD_PROD }}
 
