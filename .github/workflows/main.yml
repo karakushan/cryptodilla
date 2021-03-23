@@ -1,0 +1,28 @@
+on:
+  push:
+    branches:
+      - master
+name: Deploy to Production
+jobs:
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
+
+      - name: FTP-Deploy-Action
+        uses: SamKirkland/FTP-Deploy-Action@3.1.0
+        with:
+          ftp-server: ftp://95.216.208.43/web/pv51.ru/public_html/
+          ftp-username: ${{ secrets.FTP_USERNAME_PROD }}
+          ftp-password: ${{ secrets.FTP_PASSWORD_PROD }}
+
+#      - name: Send Telegram Message
+#        uses: appleboy/telegram-action@master
+#        with:
+#          to: ${{ secrets.TELEGRAM_TO }}
+#          token: ${{ secrets.TELEGRAM_TOKEN }}
+#          args: 👨🏻 Пользователь ${{github.actor}} сделал ‍💻 ${{ github.event_name }} в ветку MASTER в репозиторий ${{ github.repository }}. Сообщение коммита - ${{ github.event.head_commit.message }}.
+
