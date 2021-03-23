@@ -1,13 +1,13 @@
-@section('title') 
+@section('title')
 Form Uploads
-@endsection 
+@endsection
 @extends('layouts.main')
 @section('style')
 <!-- Dropzone css -->
 <link href="{{ asset('assets/plugins/dropzone/dist/dropzone.css') }}" rel="stylesheet" type="text/css">
-@endsection 
+@endsection
 @section('rightbar-content')
-<!-- Start Contentbar -->    
+<!-- Start Contentbar -->
 <div class="contentbar">
     <!-- Start row -->
     <div class="row">
@@ -18,7 +18,7 @@ Form Uploads
                     <h5 class="card-title">File upload</h5>
                 </div>
                 <div class="card-body">
-                    <form action="#" class="dropzone">
+                    <form action="{{ url('user/upload')}}" class="dropzone">
                         <div class="fallback">
                             <input name="file" type="file" multiple="multiple">
                         </div>
@@ -27,15 +27,15 @@ Form Uploads
                         <button type="button" class="btn btn-primary">Upload File</button>
                     </div>
                 </div>
-            </div>                        
+            </div>
         </div>
         <!-- End col -->
-    </div> 
+    </div>
     <!-- End row -->
 </div>
 <!-- End Contentbar -->
-@endsection 
+@endsection
 @section('script')
 <!-- Dropzone js -->
 <script src="{{ asset('assets/plugins/dropzone/dist/dropzone.js') }}"></script>
-@endsection 
+@endsection
