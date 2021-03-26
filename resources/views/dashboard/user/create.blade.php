@@ -8,6 +8,9 @@
 @endsection
 @section('rightbar-content')
     <!-- Start Contentbar -->
+    <form action="{{ route('users.store') }}" method="post">
+        @csrf
+        @method('POST')
     <div class="contentbar">
         <!-- Start row -->
         <div class="row">
@@ -18,9 +21,6 @@
                         <h5 class="card-title">{{ __("Данные пользователя") }}</h5>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('users.store') }}" method="post">
-                            @csrf
-                            @method('POST')
                             <div class="form-group row">
                                 <label for="user-name" class="col-sm-12 col-form-label">{{ __("Имя") }}</label>
                                 <div class="col-sm-12">
@@ -93,7 +93,7 @@
                                     {{ __("Сохранить") }}
                                 </button>
                             </div>
-                        </form>
+
                     </div>
                 </div>
 
@@ -106,13 +106,9 @@
                         <h5 class="card-title">{{ __("Аватар") }}</h5>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('users.upload-avatar') }}" class="dropzone">
-                            @csrf
-                            <div class="fallback">
-                                <input name="file" type="file"
-                                       value="{{isset($user) && isset($user->avatar) ? $user->avatar :''  }}">
-                            </div>
-                        </form>
+                        <div class="app">
+                            <filepond name="avatar"/>
+                        </div>
                         {{--<div class="text-center m-t-15">
                             <button type="button" class="btn btn-primary">Upload File</button>
                         </div>--}}
@@ -124,6 +120,7 @@
         </div>
         <!-- End row -->
     </div>
+    </form>
     <!-- End Contentbar -->
 @endsection
 @section('script')

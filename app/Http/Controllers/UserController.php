@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UserAvatarRequest;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -17,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::orderBy('id','desc')->get();
 
         return view('dashboard.user.index', compact('users'));
     }
@@ -81,16 +80,16 @@ class UserController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UserRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $user = User::findOrFail($id);
+        $user = User::find($id);
         $user->fill($request->all());
         $user->save();
 
-        $request->session()->flash('status', 'success');
-        $request->session()->flash('message', __('Данные пользователя успешно обновленны!'));
-
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with([
+            'status' => 'success',
+            'message' => __('Данные пользователя успешно обновленны!')
+        ]);
     }
 
     /**
@@ -102,20 +101,5 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function uploadAvatar(UserAvatarRequest $request)
-    {
-        $path = $request->file('file')->store('avatars', ['disk' => 'public']);
-
-        $user = auth()->user();
-        $user->avatar = $path;
-        $user->save();
-
-        if ($path) {
-            return Response::json('success', 200);
-        } else {
-            return Response::json('error', 400);
-        }
     }
 }

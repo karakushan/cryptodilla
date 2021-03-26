@@ -1,12 +1,14 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\FilepondController;
 use App\Http\Controllers\BinanceController;
 use App\Http\Controllers\ExchangeController;
 use App\Http\Controllers\TerminalController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserGroupController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+require __DIR__ . '/auth.php';
+Auth::routes();
+
 /* LANDING PAGE */
 Route::get('/', function () {
     return view('welcome');
@@ -45,7 +51,10 @@ Route::middleware(['auth'])->prefix('dashboard')->group(function () {
     ]);
 });
 
-require __DIR__ . '/auth.php';
-Auth::routes();
+Route::prefix('filepond')->group(function () {
+    Route::post('/process', [FilepondController::class, 'upload'])->name('filepond.upload');
+    Route::post('/process', [FilepondController::class, 'upload'])->name('filepond.upload');
+    Route::get('/', [FilepondController::class, 'load'])->name('filepond.load');
+});
 
 

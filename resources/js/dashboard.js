@@ -8,27 +8,7 @@ require('./bootstrap');
 
 window.Vue = require('vue').default;
 
-import Vuetify from 'vuetify'
-import 'vuetify/dist/vuetify.min.css'
-
-Vue.use(Vuetify)
-
-// Views
-import Trading from "./views/Trading";
-import Dashboard from "./views/Dashboard";
-
-import VueRouter from 'vue-router' 
-
-Vue.use(VueRouter)
-const routes = [
-    {path: '/', component: Trading, name: 'Торговля'},
-    {path: '/bots', component: Trading, name: 'Боты'},
-    {path: '/exchanges', component: Trading, name: 'Мои биржи'},
-
-]
-const router = new VueRouter({
-    routes // сокращённая запись для `routes: routes`
-})
+Vue.component('filepond', require('./components/Filepond').default);
 
 /**
  * The following block of code may be used to automatically register your
@@ -40,8 +20,6 @@ const router = new VueRouter({
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
-Vue.component('app', require('./components/App').default);
 
 Vue.prototype.$__ = function (trans) {
     if (typeof window.langs !== 'undefined' && typeof window.langs[trans] !== 'undefined') {
@@ -57,9 +35,5 @@ Vue.prototype.$__ = function (trans) {
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 const app = new Vue({
-    router,
-    vuetify: new Vuetify({
-        theme: {dark: true},
-    }),
-    el: '#app'
+    el: '.app'
 });

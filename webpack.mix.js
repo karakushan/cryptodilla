@@ -13,6 +13,7 @@ require('dotenv').config();
  */
 
 mix.js('resources/js/app.js', 'public/js')
+    .js('resources/js/dashboard.js', 'public/js')
     .vue()
     .sass('resources/sass/app.scss', 'public/css');
 

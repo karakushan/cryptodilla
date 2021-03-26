@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="Orbiter is a bootstrap minimal & clean admin template">
     <meta name="keywords"
           content="admin, admin panel, admin template, admin dashboard, responsive, bootstrap 4, ui kits, ecommerce, web app, crm, cms, html, sass support, scss">
@@ -89,6 +91,7 @@
 <script src="{{ asset('assets/js/vertical-menu.js') }}"></script>
 <script src="{{ asset('assets/plugins/pnotify/js/pnotify.custom.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/switchery/switchery.min.js') }}"></script>
+<script src="{{ asset('js/dashboard.js') }}"></script>
 @yield('script')
 <x-status-message/>
 <!-- Core JS -->
