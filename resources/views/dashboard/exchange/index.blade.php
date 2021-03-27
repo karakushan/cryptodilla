@@ -41,6 +41,7 @@
                                     <th>ID</th>
                                     <th>{{ __("Лого") }}</th>
                                     <th>{{ __("Название") }}</th>
+                                    <th>{{ __("Слаг") }}</th>
                                     <th>{{ __("Дата добавления") }}</th>
                                     <th>{{ __("Статус") }}</th>
                                     <th>{{ __("Действие") }}</th>
@@ -62,14 +63,19 @@
                                             @endif
                                         </td>
                                         <td>{{ $item->name }}</td>
+                                        <td>{{ $item->slug }}</td>
                                         <td>{{ $item->created_at }}</td>
-                                        <td>{{ $item->status }}</td>
+                                        <td>{!! $item->status_text !!}</td>
                                         <td>
                                             <div class="button-list">
                                                 <a href="{{ route('exchanges.edit',$item) }}"
+                                                   title="{{ __('Изменить данные') }}"
                                                    class="btn btn-success-rgba"><i
                                                         class="feather icon-edit-2"></i></a>
-                                                <form action="{{ route('exchanges.destroy',$item) }}" method="post" style="display: inline-block;">
+                                                <form title="{{ __('Удалить') }}"
+                                                      onsubmit="return confirm('{{ __('Вы точно намерены это сделать?') }}');"
+                                                      action="{{ route('exchanges.destroy',$item) }}" method="post"
+                                                      style="display: inline-block;">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger-rgba"><i

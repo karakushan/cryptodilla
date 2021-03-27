@@ -32,11 +32,32 @@
                                 </div>
                             </div>
 
+                            <div class="form-group row">
+                                <label for="slug" class="col-sm-12 col-form-label">{{ __("Слаг") }}</label>
+                                <div class="col-sm-12">
+                                    <input type="text" name="slug" class="form-control" id="slug"
+                                           value="{{ old('slug',isset($item) && isset($item->slug) ? $item->slug : '') }}">
+                                    @error('slug')
+                                    <div class="invalid-feedback" style="display: block;">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="description" class="col-sm-12 col-form-label">{{ __("Описание") }}</label>
+                                <div class="col-sm-12">
+                                    <textarea name="description" class="form-control" id="description">{!!old('description',isset($item) && isset($item->description) ? $item->description : '')  !!}</textarea>
+                                    @error('slug')
+                                    <div class="invalid-feedback" style="display: block;">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+
 
                             <div class="form-group row">
                                 <label for="user-address" class="col-sm-12 col-form-label">{{ __("Статус") }}</label>
                                 <div class="col-sm-12">
-                                    <input type="checkbox" class="js-switch"
+                                    <input name="status" type="checkbox" class="js-switch"
                                            value="1" {{  $item->status ? 'checked':''  }} />
                                 </div>
                             </div>

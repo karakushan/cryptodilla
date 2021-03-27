@@ -13,7 +13,7 @@ class BinanceController extends Controller
         $this->api = new \Binance\API(env('MIX_BINANCE_API_KEY'), env('MIX_BINANCE_API_SECRET'));
     }
 
-    public function getExchangeInfo(Request $request)
+    public function binanceGetInfo(Request $request)
     {
         $info = $this->api->exchangeInfo();
         return response()->json(array_values($info['symbols']));

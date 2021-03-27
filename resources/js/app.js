@@ -13,11 +13,15 @@ import 'vuetify/dist/vuetify.min.css'
 
 Vue.use(Vuetify)
 
+import Vuex from 'vuex'
+Vue.use(Vuex)
+import store from "./store/app"
+
 // Views
 import Trading from "./views/Trading";
 import Dashboard from "./views/Dashboard";
 
-import VueRouter from 'vue-router' 
+import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 const routes = [
@@ -27,7 +31,7 @@ const routes = [
 
 ]
 const router = new VueRouter({
-    routes // сокращённая запись для `routes: routes`
+    routes
 })
 
 /**
@@ -58,6 +62,7 @@ Vue.prototype.$__ = function (trans) {
  */
 const app = new Vue({
     router,
+    store,
     vuetify: new Vuetify({
         theme: {dark: true},
     }),

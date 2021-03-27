@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ExchangeRequest;
 use App\Models\Exchange;
+use App\Traits\Binance;
 use Illuminate\Http\Request;
 
 class ExchangeController extends Controller
 {
+    use Binance;
+
     /**
      * Display a listing of the resource.
      *
@@ -87,6 +90,7 @@ class ExchangeController extends Controller
     {
         $item = Exchange::findOrFail($id);
         $item->fill($request->all());
+        $item->status = $request->has('status') ? intval($request->input('status')) : 0;
         $item->save();
 
         return redirect()->route('exchanges.index')->with([
@@ -109,5 +113,45 @@ class ExchangeController extends Controller
             'status' => 'success',
             'message' => 'Объект успешно удален!'
         ]);
+    }
+
+    /**
+     * Возвращает данные {$slug} биржи
+     * @param $slug
+     * @return int
+     */
+    public function getExchangeInfo($slug)
+    {
+        try {
+            return response()->json($this->{$slug . 'GetInfo'}());
+        } catch (\Exception $exception) {
+            return response($exception->getMessage())
+                ->status(419);
+        }
+    }
+
+    /**
+     * Возвращает данные {$slug} биржи
+     * @param $slug
+     * @return int
+     */
+    public function getOrders($slug, Request $request)
+    {
+        try {
+            return response()->json($this->{$slug . 'GetOrders'}($request->input('symbol')));
+        } catch (\Exception $exception) {
+            return response($exception->getMessage())
+                ->status(419);
+        }
+    }
+
+    public function getAccount($slug)
+    {
+        try {
+            return $this->{$slug . 'GetAccount'}();
+        } catch (\Exception $exception) {
+            return response($exception->getMessage())
+                ->status(419);
+        }
     }
 }

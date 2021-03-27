@@ -11,12 +11,11 @@
                         <v-col md="3">
                             <v-autocomplete
                                 v-model="exchange"
-                                :items="exchanges"
+                                :items="appData.exchanges"
                                 item-text="name"
                                 item-value="slug"
                                 label="Выберите биржу"
                                 solo
-
                             >
                                 <template v-slot:selection="data">
                                     <v-chip
@@ -27,7 +26,7 @@
                                         @click:close="remove(data.item)"
                                     >
                                         <v-img left class="mr-2" max-width="20">
-                                            <v-img :src="data.item.logo"></v-img>
+                                            <v-img :src="data.item.logo_url"></v-img>
                                         </v-img>
 
                                         {{ data.item.name }}
@@ -35,7 +34,7 @@
                                 </template>
                                 <template v-slot:item="{ item }">
                                     <v-img left class="mr-2" max-width="20">
-                                        <v-img :src="item.logo"></v-img>
+                                        <v-img :src="item.logo_url"></v-img>
                                     </v-img>
                                     <v-list-item-content>
                                         <v-list-item-title v-text="item.name"></v-list-item-title>
@@ -235,13 +234,13 @@
 import TradingView from "../components/TradingView";
 import OrdersWidget from "../components/OrdersWidget";
 import OrdersHistoryWidget from "../components/OrdersHistoryWidget";
+import {mapGetters} from 'vuex'
 
 export default {
     name: "Trading",
     data: function () {
         return {
             exchange: 'binance',
-            exchanges: [],
             pairs: [],
             symbol: null,
             symbols: [],
@@ -263,8 +262,8 @@ export default {
     },
     props: {},
     watch: {
-        'symbol.symbol':function (newValue){
-            if (newValue){
+        'symbol.symbol': function (newValue) {
+            if (newValue) {
                 this.getOrders()
             }
         }
@@ -272,8 +271,8 @@ export default {
     methods: {
         getOrders() {
             axios
-                .post('/terminal/' + this.exchange + '/get-orders', {
-                    symbol:this.symbol.symbol
+                .post('/terminal/exchange/get-orders/' + this.exchange, {
+                    symbol: this.symbol.symbol
                 })
                 .then(response => {
                     if (response.status == 200 && response.data) {
@@ -314,9 +313,9 @@ export default {
 
             if (exchange.length) return exchange[0]
         },
-        getExchangeInfo(exchange) {
+        getExchangeInfo() {
             axios
-                .post('/terminal/' + exchange + '/get-info', {})
+                .post('/terminal/exchange/get-info/' + this.exchange)
                 .then(response => {
                     if (response.status == 200 && response.data) {
                         this.symbols = response.data
@@ -328,9 +327,9 @@ export default {
                     console.log(error.response.data);
                 });
         },
-        getAccount(exchange) {
+        getAccount() {
             axios
-                .post('/terminal/' + exchange + '/account', {})
+                .post('/terminal/exchange/account/'+this.exchange, {})
                 .then(response => {
                     if (response.status == 200 && response.data) {
                         this.account = response.data
@@ -361,6 +360,7 @@ export default {
         }
     },
     computed: {
+        ...mapGetters(['appData']),
         tradingViewPair() {
             if (!this.symbol) return 'ETH:BTC'
 
@@ -368,13 +368,9 @@ export default {
         },
     },
     mounted() {
-        this.getExchanges().then(() => {
-            let exchange = this.getCurrentExchange()
-            console.log(exchange.slug);
-            this.getExchangeInfo(exchange.slug)
-            this.getAccount(exchange.slug)
-            this.getOrders()
-        })
+        this.getExchangeInfo()
+        this.getAccount()
+        this.getOrders()
     }
 }
 </script>

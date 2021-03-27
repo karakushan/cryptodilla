@@ -100,6 +100,8 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex'
+
 export default {
     name: "App",
     data() {
@@ -115,8 +117,22 @@ export default {
             ],
             items: [],
             right: null,
-            user:{}
+            user: {}
         }
+    },
+    props: {
+        data: {
+            type: Object,
+            default() {
+                return {}
+            }
+        },
+    },
+    mounted() {
+        this.setData(this.data)
+    },
+    methods: {
+        ...mapActions(['setData'])
     },
     components: {
         TradingView

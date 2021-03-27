@@ -23,7 +23,8 @@
         "filepond-plugin-image-transform": "^3.7.6",
         "vue": "^2.6.12",
         "vue-router": "^3.5.1",
-        "vuetify": "^2.4.0"
+        "vuetify": "^2.4.0",
+        "vuex": "^3.6.2"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.2.1",

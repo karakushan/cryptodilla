@@ -1,5 +1,5 @@
 @extends('layouts.terminal')
 
 @section('content')
-<app/>
+<app :data='@json($data)'/>
 @endsection
