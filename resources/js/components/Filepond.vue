@@ -61,7 +61,7 @@ export default {
         },
         accept: {
             type: String,
-            default: 'image/png, image/jpeg, image/gif'
+            default: 'image/png, image/jpeg, image/gif, image/svg+xml'
         },
         value: {
             type: String,

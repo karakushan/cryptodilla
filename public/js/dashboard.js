@@ -1924,7 +1924,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     accept: {
       type: String,
-      "default": 'image/png, image/jpeg, image/gif'
+      "default": 'image/png, image/jpeg, image/gif, image/svg+xml'
     },
     value: {
       type: String,
@@ -71851,7 +71851,13 @@ Vue.prototype.$__ = function (trans) {
 
 
 var app = new Vue({
-  el: '.app'
+  el: '.app',
+  mounted: function mounted() {
+    var success = document.querySelector('.js-switch');
+    var switchery = new Switchery(success, {
+      color: '#18d26b'
+    });
+  }
 });
 })();
 

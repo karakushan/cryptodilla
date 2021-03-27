@@ -27,15 +27,20 @@
                     <ul class="vertical-submenu">
                         <li><a href="{{ route('users.index') }}">{{ __("Список") }}</a></li>
                         <li><a href="{{ route('users.create') }}">{{ __("Добавить") }}</a></li>
-                        <li><a href="{{ route('user-groups.index') }}">{{ __("Группы") }}</a></li>
-                        <li><a href="{{ route('user-groups.create') }}">{{ __("Добавить группу") }}</a></li>
+                     {{--   <li><a href="{{ route('user-groups.index') }}">{{ __("Группы") }}</a></li>
+                        <li><a href="{{ route('user-groups.create') }}">{{ __("Добавить группу") }}</a></li>--}}
                     </ul>
                 </li>
                 <li>
                     <a href="{{ route('exchanges.index') }}">
                         <img src="{{ asset('assets/images/svg-icon/widgets.svg') }}" class="img-fluid"
                              alt="dashboard"><span>{{ __("Биржи") }}</span>
+                        <i class="feather icon-chevron-right pull-right"></i>
                     </a>
+                    <ul class="vertical-submenu">
+                        <li><a href="{{ route('exchanges.index') }}">{{ __("Список") }}</a></li>
+                        <li><a href="{{ route('exchanges.create') }}">{{ __("Добавить") }}</a></li>
+                    </ul>
                 </li>
 
             </ul>
