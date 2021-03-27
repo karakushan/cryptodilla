@@ -20,6 +20,7 @@ import store from "./store/app"
 // Views
 import Trading from "./views/Trading";
 import Dashboard from "./views/Dashboard";
+import Exchanges from "./views/Exchanges";
 
 import VueRouter from 'vue-router'
 
@@ -27,7 +28,7 @@ Vue.use(VueRouter)
 const routes = [
     {path: '/', component: Trading, name: 'Торговля'},
     {path: '/bots', component: Trading, name: 'Боты'},
-    {path: '/exchanges', component: Trading, name: 'Мои биржи'},
+    {path: '/exchanges', component: Exchanges, name: 'Мои биржи'},
 
 ]
 const router = new VueRouter({

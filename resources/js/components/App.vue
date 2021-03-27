@@ -78,6 +78,7 @@
             <v-footer
                 dark
                 padless
+                fixed
             >
                 <v-row
                     justify="center"
