@@ -15,6 +15,7 @@
                                 item-text="name"
                                 item-value="slug"
                                 label="Выберите биржу"
+
                                 solo
                             >
                                 <template v-slot:selection="data">
@@ -30,6 +31,7 @@
                                         </v-img>
 
                                         {{ data.item.name }}
+
                                     </v-chip>
                                 </template>
                                 <template v-slot:item="{ item }">
@@ -38,8 +40,9 @@
                                     </v-img>
                                     <v-list-item-content>
                                         <v-list-item-title v-text="item.name"></v-list-item-title>
-                                    </v-list-item-content>
 
+                                    </v-list-item-content>
+                                    <v-btn to="/exchanges" text v-if="!item.credentials" class="ml-2">Подключить аккаунт</v-btn>
                                 </template>
                             </v-autocomplete>
                         </v-col>
@@ -329,7 +332,7 @@ export default {
         },
         getAccount() {
             axios
-                .post('/terminal/exchange/account/'+this.exchange, {})
+                .post('/terminal/exchange/account/' + this.exchange, {})
                 .then(response => {
                     if (response.status == 200 && response.data) {
                         this.account = response.data

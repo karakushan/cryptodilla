@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ExchangeRequest;
 use App\Models\Exchange;
+use App\Models\UserExchange;
 use App\Traits\Binance;
 use Illuminate\Http\Request;
 
@@ -153,5 +154,48 @@ class ExchangeController extends Controller
             return response($exception->getMessage())
                 ->status(419);
         }
+    }
+
+    /**
+     * Добавляет данные биржи к пользователю
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function attachUserExchange(Request $request)
+    {
+        $credentials = $request->json('credentials');
+
+        UserExchange::updateOrInsert(
+            ['user_id' => auth()->id(), 'exchange_id' => $request->input('exchange_id')],
+            ['credentials' => json_encode($credentials)]
+        );
+
+        return response()->json(['message' => __('Данные биржи успешно привязаны к Вашему аккаунту!')]);
+    }
+
+    /**
+     * Удаляет связь пользователя с биржой
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function deattachUserExchange(Request $request)
+    {
+        $exchange = UserExchange::where(['user_id' => auth()->id(), 'exchange_id' => $request->input('exchange_id')])->first();
+        $exchange->delete();
+
+        return response()->json(['message' => __('Биржа успешно отвязана!')]);
+    }
+
+    /**
+     * Получает список бирж
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getExchanges()
+    {
+        $exchanges = Exchange::where('status', 1)->get();
+        return response()->json(compact('exchanges'));
     }
 }

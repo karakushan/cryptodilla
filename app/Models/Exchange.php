@@ -15,15 +15,15 @@ class Exchange extends Model
     protected $table = 'exchanges';
 
     protected $fillable = [
-        'name', 'logo', 'status', 'slug', 'description'
+        'name', 'logo', 'status', 'slug', 'description',
     ];
 
     protected $appends = [
-        'logo_url', 'status_text'
+        'logo_url', 'status_text', 'credentials'
     ];
 
     protected $casts = [
-        'status' => 'boolean'
+        'status' => 'boolean',
     ];
 
 
@@ -40,5 +40,12 @@ class Exchange extends Model
     public function getStatusTextAttribute()
     {
         return $this->attributes['status'] ? '<span class="badge badge-pill badge-success">' . __('Вкл.') . '</span>' : '<span class="badge badge-pill badge-danger">' . __('Выкл.') . '</span>';
+    }
+
+    public function getCredentialsAttribute()
+    {
+        $exchange = UserExchange::where(['user_id' => auth()->id(), 'exchange_id' => $this->id])->first();
+
+        return $exchange && isset($exchange->credentials) ? $exchange->credentials : null;
     }
 }

@@ -32,7 +32,9 @@ Route::get('/', function () {
 /* РОУТЫ ТОРГОВОГО ТЕРМИНАЛА */
 Route::middleware(['auth'])->prefix('terminal')->group(function () {
     Route::get('/', [TerminalController::class, 'index'])->name('terminal.index');
-    Route::post('/exchanges', [TerminalController::class, 'getExchanges']);
+    Route::get('/exchanges', [ExchangeController::class, 'getExchanges']);
+    Route::post('/attach-exchange', [ExchangeController::class, 'attachUserExchange']);
+    Route::post('/deattach-exchange', [ExchangeController::class, 'deattachUserExchange']);
     //  BINANCE
     Route::post('/exchange/get-info/{slug}', [ExchangeController::class, 'getExchangeInfo']);
     Route::post('/exchange/account/{slug}', [ExchangeController::class, 'getAccount']);
