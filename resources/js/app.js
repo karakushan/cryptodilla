@@ -13,6 +13,10 @@ import 'vuetify/dist/vuetify.min.css'
 
 Vue.use(Vuetify)
 
+import VueChatScroll from 'vue-chat-scroll';
+
+Vue.use(VueChatScroll);
+
 import Vuex from 'vuex'
 Vue.use(Vuex)
 import store from "./store/app"

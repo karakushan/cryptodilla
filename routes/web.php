@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ChatsController;
 use App\Http\Controllers\FilepondController;
 use App\Http\Controllers\BinanceController;
 use App\Http\Controllers\ExchangeController;
@@ -35,11 +36,16 @@ Route::middleware(['auth'])->prefix('terminal')->group(function () {
     Route::get('/exchanges', [ExchangeController::class, 'getExchanges']);
     Route::post('/attach-exchange', [ExchangeController::class, 'attachUserExchange']);
     Route::post('/deattach-exchange', [ExchangeController::class, 'deattachUserExchange']);
+
     //  BINANCE
     Route::post('/exchange/get-info/{slug}', [ExchangeController::class, 'getExchangeInfo']);
     Route::post('/exchange/account/{slug}', [ExchangeController::class, 'getAccount']);
     Route::post('/exchange/order-test/{slug}', [BinanceController::class, 'orderOpenTest']);
     Route::post('/exchange/get-orders/{slug}', [ExchangeController::class, 'getOrders']);
+
+    // CHAT
+    Route::get('/chat-messages', [ChatsController::class,'fetchMessages']);
+    Route::post('/chat-messages', [ChatsController::class,'sendMessage']);
 });
 
 /* РОУТЫ АДМИНКИ */

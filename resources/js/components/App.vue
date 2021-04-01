@@ -94,6 +94,7 @@
                     </v-col>
                 </v-row>
             </v-footer>
+            <Chat></Chat>
         </v-main>
     </v-app>
 
@@ -102,6 +103,7 @@
 
 <script>
 import {mapActions} from 'vuex'
+import Chat from "./Chat";
 
 export default {
     name: "App",
@@ -136,7 +138,8 @@ export default {
         ...mapActions(['setData'])
     },
     components: {
-        TradingView
+        TradingView,
+        Chat
     },
     created() {
         this.$router.options.routes.forEach(route => {
