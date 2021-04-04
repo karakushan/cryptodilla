@@ -2,15 +2,18 @@
 
 namespace App\Events;
 
+namespace App\Events;
+
 use App\Models\User;
-use App\Models\Message;
+use \App\Models\Message;
 use Illuminate\Broadcasting\Channel;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Broadcasting\PresenceChannel;
-use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Broadcasting\PresenceChannel;
+use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Queue\SerializesModels;
+
 
 class MessageSent implements ShouldBroadcast
 {
@@ -19,14 +22,14 @@ class MessageSent implements ShouldBroadcast
     /**
      * User that sent the message
      *
-     * @var \App\User
+     * @var User
      */
     public $user;
 
     /**
      * Message details
      *
-     * @var \App\Message
+     * @var Message
      */
     public $message;
 
@@ -49,6 +52,6 @@ class MessageSent implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PresenceChannel('chat');
+        return new PrivateChannel('chat');
     }
 }

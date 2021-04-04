@@ -5,6 +5,14 @@
   */
 
 /*!
+ * Pusher JavaScript Library v7.0.3
+ * https://pusher.com/
+ *
+ * Copyright 2020, Pusher
+ * Released under the MIT licence.
+ */
+
+/*!
  * Sizzle CSS Selector Engine v2.3.6
  * https://sizzlejs.com/
  *
@@ -33,6 +41,12 @@
  * https://jquery.org/license
  *
  * Date: 2021-03-02T17:08Z
+ */
+
+/*!
+ * perfect-scrollbar v1.5.0
+ * Copyright 2020 Hyunje Jun, MDBootstrap and Contributors
+ * Licensed under MIT
  */
 
 /*!

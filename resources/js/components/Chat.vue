@@ -1,5 +1,5 @@
 <template>
-    <v-card class="app-chat overflow-hidden">
+    <v-card :class="{'app-chat':true, 'overflow-hidden':true, 'active':chatOpen}">
         <v-app-bar
             color="deep-purple accent-4"
             dark
@@ -11,47 +11,60 @@
             <v-toolbar-title>Чат</v-toolbar-title>
 
             <v-spacer></v-spacer>
-            <v-icon>mdi-keyboard-arrow-down</v-icon>
+            <v-btn
+                icon
+                @click="chatOpen=!chatOpen">
+                <v-icon v-if="!chatOpen">mdi-menu-down</v-icon>
+                <v-icon v-else>mdi-menu-up</v-icon>
+            </v-btn>
+
 
         </v-app-bar>
 
 
         <v-container>
-            <v-sheet max-height="244" class="overflow-y-auto" v-chat-scroll>
-                <v-list three-line>
-                    <template v-for="(item, index) in messages">
-                        <v-subheader
-                            v-if="item.header"
-                            :key="item.header"
-                            v-text="item.header"
-                        ></v-subheader>
+            <vue-custom-scrollbar class="scroll-area" :settings="settings" v-show="messages.length" v-chat-scroll>
+                <v-sheet
 
-                        <v-divider
-                            :key="index"
-                        ></v-divider>
+                >
 
-                        <v-list-item
-                            :key="item.title"
-                        >
-                            <v-list-item-avatar>
-                                <v-img :src="item.user.avatar_url"></v-img>
-                            </v-list-item-avatar>
+                    <v-list three-line>
+                        <template v-for="(item, index) in messages">
+                            <v-subheader
+                                v-if="item.header"
+                                :key="item.header"
+                                v-text="item.header"
+                            ></v-subheader>
 
-                            <v-list-item-content>
-                                <v-list-item-title v-html="item.user.name"></v-list-item-title>
-                                <v-list-item-subtitle v-html="item.message"></v-list-item-subtitle>
-                            </v-list-item-content>
-                        </v-list-item>
-                    </template>
-                </v-list>
-            </v-sheet>
-            <v-form>
+                            <v-divider
+                                :key="index"
+                            ></v-divider>
+
+                            <v-list-item
+                                :key="item.title"
+                            >
+                                <v-list-item-avatar>
+                                    <v-img :src="item.user.avatar_url"></v-img>
+                                </v-list-item-avatar>
+
+                                <v-list-item-content>
+                                    <v-list-item-title v-html="item.user.name"></v-list-item-title>
+                                    <v-list-item-subtitle v-html="item.message"></v-list-item-subtitle>
+                                </v-list-item-content>
+                            </v-list-item>
+                        </template>
+                    </v-list>
+                </v-sheet>
+            </vue-custom-scrollbar>
+
+            <v-form @submit.prevent="addMessage()">
                 <v-text-field
                     name="input-7-1"
                     label="Сообщение"
                     v-model="message"
+                    @keyup.enter.prevent="addMessage()"
+                    hint="Нажмите Enter для отправки"
                 ></v-text-field>
-                <v-btn @click="addMessage()">Отправить</v-btn>
             </v-form>
         </v-container>
 
@@ -60,12 +73,21 @@
 </template>
 
 <script>
+import vueCustomScrollbar from 'vue-custom-scrollbar'
+import "vue-custom-scrollbar/dist/vueScrollbar.css"
+
 export default {
     name: "Chat",
     data: () => ({
         message: '',
         messages: [],
         users: [],
+        chatOpen: localStorage.getItem('chatOpen') == '1' ? true : false,
+        settings: {
+            suppressScrollY: false,
+            suppressScrollX: false,
+            wheelPropagation: false
+        }
     }),
     methods: {
         fetchMessages() {
@@ -76,13 +98,22 @@ export default {
 
         addMessage() {
 
-            axios.post('/terminal/chat-messages', {message: this.message}).then(response => {
-                console.log(response.data);
-                this.message = ''
+            if (!this.message.length) return;
+
+
+            let message = this.message
+            this.message = ''
+
+            axios.post('/terminal/chat-messages', {message: message}).then(response => {
                 this.fetchMessages()
             });
 
 
+        }
+    },
+    watch: {
+        chatOpen(newValue, oldValue) {
+            localStorage.setItem('chatOpen', newValue ? 1 : 0)
         }
     },
     mounted() {
@@ -120,6 +151,9 @@ export default {
                 });
             });
     },
+    components: {
+        vueCustomScrollbar
+    }
 }
 </script>
 
@@ -130,6 +164,38 @@ export default {
     right: 0;
     z-index: 99999999999;
     width: 312px;
-    height: 434px;
+    height: 64px;
+    -webkit-transition: all .4s;
+    -moz-transition: all .4s;
+    -ms-transition: all .4s;
+    -o-transition: all .4s;
+    transition: all .4s;
+
+    .v-list--three-line .v-list-item, .v-list-item--three-line {
+        min-height: 0;
+    }
+
+    .v-list--three-line .v-list-item .v-list-item__avatar:not(.v-list-item__avatar--horizontal), .v-list--three-line .v-list-item .v-list-item__icon, .v-list--two-line .v-list-item .v-list-item__avatar:not(.v-list-item__avatar--horizontal), .v-list--two-line .v-list-item .v-list-item__icon, .v-list-item--three-line .v-list-item__avatar:not(.v-list-item__avatar--horizontal), .v-list-item--three-line .v-list-item__icon, .v-list-item--two-line .v-list-item__avatar:not(.v-list-item__avatar--horizontal), .v-list-item--two-line .v-list-item__icon {
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
+
+
+    hr {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    &.active {
+        height: 434px;
+    }
+
+    .scroll-area {
+        position: relative;
+        margin: auto;
+        width: auto;
+        height: 283px;
+    }
+
 }
 </style>

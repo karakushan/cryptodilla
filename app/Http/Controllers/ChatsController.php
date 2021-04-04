@@ -15,11 +15,12 @@ class ChatsController extends Controller
 
     public function sendMessage(Request $request)
     {
-        $message = auth()->user()->messages()->create([
-            'message' => $request->message
-        ]);
-
-        broadcast(new MessageSent(auth()->user(), $message))->toOthers();
+        if ($request->message){
+            $message = auth()->user()->messages()->create([
+                'message' => $request->message
+            ]);
+            broadcast(new MessageSent(auth()->user(), $message))->toOthers();
+        }
 
         return ['status' => 'Message Sent!'];
     }
