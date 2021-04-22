@@ -12,6 +12,7 @@ class TerminalController extends Controller
     {
         $data = [
             'exchanges' => Exchange::where('status', 1)->get(),
+            'user' => auth()->user(),
         ];
         return view('terminal', compact('data'));
     }

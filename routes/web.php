@@ -37,11 +37,13 @@ Route::middleware(['auth'])->prefix('terminal')->group(function () {
     Route::post('/attach-exchange', [ExchangeController::class, 'attachUserExchange']);
     Route::post('/deattach-exchange', [ExchangeController::class, 'deattachUserExchange']);
 
-    //  BINANCE
-    Route::post('/exchange/get-info/{slug}', [ExchangeController::class, 'getExchangeInfo']);
-    Route::post('/exchange/account/{slug}', [ExchangeController::class, 'getAccount']);
-    Route::post('/exchange/order-test/{slug}', [BinanceController::class, 'orderOpenTest']);
-    Route::post('/exchange/get-orders/{slug}', [ExchangeController::class, 'getOrders']);
+    //  EXCHANGES
+    Route::prefix('exchange')->group(function (){
+        Route::post('get-info/{slug}', [ExchangeController::class, 'getExchangeInfo']);
+        Route::post('account/{slug}', [ExchangeController::class, 'getAccount']);
+        Route::post('create-order/{slug}', [ExchangeController::class, 'createOrder']);
+        Route::post('get-orders/{slug}', [ExchangeController::class, 'getOrders']);
+    });
 
     // CHAT
     Route::get('/chat-messages', [ChatsController::class,'fetchMessages']);

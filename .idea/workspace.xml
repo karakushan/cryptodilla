@@ -19,13 +19,30 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="pusher js chat">
+    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="fix chat">
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/CreateOrderRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Traits/BinanceApi.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/ActiveOrders.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/views/Profile.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/cryptotrade.loc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cryptotrade.loc.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Events/MessageSent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Events/MessageSent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/broadcasting.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/broadcasting.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExchangeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExchangeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TerminalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TerminalController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Traits/Binance.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/Binance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Chat.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Chat.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/OrdersWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/OrdersWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/Trading.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/Trading.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +51,9 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution />
+    <execution>
+      <executable path="composer" />
+    </execution>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -50,10 +69,16 @@
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="8863cb0f-0aed-413c-92bd-ef2ddb6b4ebc" />
   </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
-  <component name="PhpDebugGeneral" xdebug_debug_port="9001" />
+  <component name="PhpDebugGeneral" xdebug_debug_port="9001" notify_if_session_was_finished_without_being_paused="false" />
   <component name="PhpServers">
     <servers>
       <server host="cryptotrade.loc" id="b38de53e-9e18-4c54-95b4-86098ab1ee60" name="cryptotrade.loc" />
@@ -86,7 +111,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/process" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
       <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/string" />
       <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
       <path value="$PROJECT_DIR$/vendor/symfony/finder" />
       <path value="$PROJECT_DIR$/vendor/sebastian/version" />
@@ -142,7 +166,6 @@
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
       <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
       <path value="$PROJECT_DIR$/vendor/phar-io/version" />
-      <path value="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir" />
       <path value="$PROJECT_DIR$/vendor/fideloper/proxy" />
       <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
       <path value="$PROJECT_DIR$/vendor/psr/http-message" />
@@ -169,30 +192,14 @@
       <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
       <path value="$PROJECT_DIR$/vendor/laravel/breeze" />
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
-      <path value="$PROJECT_DIR$/vendor/evenement/evenement" />
-      <path value="$PROJECT_DIR$/vendor/jaggedsoft/php-binance-api" />
-      <path value="$PROJECT_DIR$/vendor/react/cache" />
-      <path value="$PROJECT_DIR$/vendor/react/dns" />
-      <path value="$PROJECT_DIR$/vendor/react/stream" />
-      <path value="$PROJECT_DIR$/vendor/react/promise-timer" />
-      <path value="$PROJECT_DIR$/vendor/react/socket" />
-      <path value="$PROJECT_DIR$/vendor/react/event-loop" />
-      <path value="$PROJECT_DIR$/vendor/react/promise" />
-      <path value="$PROJECT_DIR$/vendor/ratchet/rfc6455" />
-      <path value="$PROJECT_DIR$/vendor/ratchet/pawl" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
       <path value="$PROJECT_DIR$/vendor/symfony/debug" />
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
       <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
-      <path value="$PROJECT_DIR$/vendor/react/promise-stream" />
-      <path value="$PROJECT_DIR$/vendor/react/http" />
-      <path value="$PROJECT_DIR$/vendor/ringcentral/psr7" />
       <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
-      <path value="$PROJECT_DIR$/vendor/symfony/psr-http-message-bridge" />
       <path value="$PROJECT_DIR$/vendor/paragonie/sodium_compat" />
       <path value="$PROJECT_DIR$/vendor/pusher/pusher-php-server" />
-      <path value="$PROJECT_DIR$/vendor/cboden/ratchet" />
-      <path value="$PROJECT_DIR$/vendor/beyondcode/laravel-websockets" />
+      <path value="$PROJECT_DIR$/vendor/symfony/string" />
     </include_path>
   </component>
   <component name="PhpXdebugProxy" ide_key="PHPSTORM" host="localhost" />
@@ -222,7 +229,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="settings.editor.selected.configurable" value="settings.php.debug.servers" />
     <property name="ts.external.directory.path" value="C:\Users\Vitaliy\AppData\Local\JetBrains\Toolbox\apps\PhpStorm\ch-0\202.7660.42\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -235,6 +242,7 @@
       <recent name="E:\OSPanel\domains\cryptotrade.loc" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\public" />
       <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\dashboard\user" />
     </key>
   </component>
@@ -319,7 +327,13 @@
       <workItem from="1617113961331" duration="169000" />
       <workItem from="1617268137875" duration="26639000" />
       <workItem from="1617347181827" duration="5031000" />
-      <workItem from="1617524537872" duration="7465000" />
+      <workItem from="1617524537872" duration="19341000" />
+      <workItem from="1617554716818" duration="7424000" />
+      <workItem from="1617609187789" duration="157000" />
+      <workItem from="1617647583088" duration="611000" />
+      <workItem from="1618160053684" duration="6385000" />
+      <workItem from="1618205698371" duration="7000" />
+      <workItem from="1619077266676" duration="19677000" />
     </task>
     <task id="LOCAL-00001" summary="подключил vue router">
       <created>1615840605110</created>
@@ -447,7 +461,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617531776222</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="fix chat">
+      <created>1617532809774</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1617532809774</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -487,13 +508,14 @@
     <MESSAGE value="чат" />
     <MESSAGE value="ws" />
     <MESSAGE value="pusher js chat" />
-    <option name="LAST_COMMIT_MESSAGE" value="pusher js chat" />
+    <MESSAGE value="fix chat" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix chat" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="178" key="#Deployment" timestamp="1617351323788">
+    <state x="552" y="178" key="#Deployment" timestamp="1617532832266">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="178" key="#Deployment/0.0.1920.1040@0.0.1920.1040" timestamp="1617351323788" />
+    <state x="552" y="178" key="#Deployment/0.0.1920.1040@0.0.1920.1040" timestamp="1617532832266" />
     <state x="678" y="178" key="#Servers" timestamp="1616187219542">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -506,74 +528,78 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616858318801" />
+    <state x="736" y="432" width="447" height="265" key="ComposerInitDialogKey" timestamp="1619082520372">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="736" y="432" width="447" height="265" key="ComposerInitDialogKey/0.0.1920.1040@0.0.1920.1040" timestamp="1619082520372" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1616277096084">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1616277096084" />
-    <state width="1877" height="166" key="GridCell.Tab.0.bottom" timestamp="1617532615816">
+    <state width="1877" height="249" key="GridCell.Tab.0.bottom" timestamp="1619097594961">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="166" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1617532615816" />
-    <state width="1877" height="166" key="GridCell.Tab.0.center" timestamp="1617532615816">
+    <state width="1877" height="249" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1619097594961" />
+    <state width="1877" height="249" key="GridCell.Tab.0.center" timestamp="1619097594961">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="166" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1617532615816" />
-    <state width="1877" height="166" key="GridCell.Tab.0.left" timestamp="1617532615815">
+    <state width="1877" height="249" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1619097594961" />
+    <state width="1877" height="249" key="GridCell.Tab.0.left" timestamp="1619097594960">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="166" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1617532615815" />
-    <state width="1877" height="166" key="GridCell.Tab.0.right" timestamp="1617532615816">
+    <state width="1877" height="249" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1619097594960" />
+    <state width="1877" height="249" key="GridCell.Tab.0.right" timestamp="1619097594961">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="166" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1617532615816" />
-    <state width="938" height="146" key="GridCell.Tab.1.bottom" timestamp="1617315928325">
+    <state width="1877" height="249" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1619097594961" />
+    <state width="1877" height="132" key="GridCell.Tab.1.bottom" timestamp="1619088862900">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="938" height="146" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1617315928325" />
-    <state width="938" height="146" key="GridCell.Tab.1.center" timestamp="1617315928325">
+    <state width="1877" height="132" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1619088862900" />
+    <state width="1877" height="132" key="GridCell.Tab.1.center" timestamp="1619088862900">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="938" height="146" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1617315928325" />
-    <state width="938" height="146" key="GridCell.Tab.1.left" timestamp="1617315928325">
+    <state width="1877" height="132" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1619088862900" />
+    <state width="1877" height="132" key="GridCell.Tab.1.left" timestamp="1619088862900">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="938" height="146" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1617315928325" />
-    <state width="938" height="146" key="GridCell.Tab.1.right" timestamp="1617315928325">
+    <state width="1877" height="132" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1619088862900" />
+    <state width="1877" height="132" key="GridCell.Tab.1.right" timestamp="1619088862900">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="938" height="146" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1617315928325" />
-    <state width="938" height="146" key="GridCell.Tab.2.bottom" timestamp="1617315928325">
+    <state width="1877" height="132" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1619088862900" />
+    <state width="1877" height="132" key="GridCell.Tab.2.bottom" timestamp="1619088862901">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="938" height="146" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1617315928325" />
-    <state width="938" height="146" key="GridCell.Tab.2.center" timestamp="1617315928325">
+    <state width="1877" height="132" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1619088862901" />
+    <state width="1877" height="132" key="GridCell.Tab.2.center" timestamp="1619088862900">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="938" height="146" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1617315928325" />
-    <state width="938" height="146" key="GridCell.Tab.2.left" timestamp="1617315928325">
+    <state width="1877" height="132" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1619088862900" />
+    <state width="1877" height="132" key="GridCell.Tab.2.left" timestamp="1619088862900">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="938" height="146" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1617315928325" />
-    <state width="938" height="146" key="GridCell.Tab.2.right" timestamp="1617315928325">
+    <state width="1877" height="132" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1619088862900" />
+    <state width="1877" height="132" key="GridCell.Tab.2.right" timestamp="1619088862900">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="938" height="146" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1617315928325" />
-    <state x="757" y="243" key="NewPhpClassDialog" timestamp="1616852150572">
+    <state width="1877" height="132" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1619088862900" />
+    <state x="757" y="243" key="NewPhpClassDialog" timestamp="1619085247579">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="757" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616852150572" />
+    <state x="757" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619085247579" />
     <state x="794" y="443" key="NewPhpFileDialog" timestamp="1617312764237">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1617312764237" />
-    <state x="461" y="165" key="SettingsEditor" timestamp="1616794439020">
+    <state x="461" y="165" key="SettingsEditor" timestamp="1617554831153">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1616794439020" />
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1617531833833">
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1617554831153" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1617532811535">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1617531833833" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1617532811535" />
     <state x="859" y="394" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1616884798046">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -594,5 +620,16 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1616517520814" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/vendor/jaggedsoft/php-binance-api/php-binance-api.php</url>
+          <line>459</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

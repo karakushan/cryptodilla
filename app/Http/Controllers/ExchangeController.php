@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateOrderRequest;
 use App\Http\Requests\ExchangeRequest;
 use App\Models\Exchange;
 use App\Models\UserExchange;
@@ -138,8 +139,12 @@ class ExchangeController extends Controller
      */
     public function getOrders($slug, Request $request)
     {
+        $allOrders = $this->{$slug . 'GetOrders'}($request->input('symbol'));
+
         try {
-            return response()->json($this->{$slug . 'GetOrders'}($request->input('symbol')));
+            $allOrders = $this->{$slug . 'GetOrders'}($request->input('symbol'));
+
+            return response()->json($allOrders);
         } catch (\Exception $exception) {
             return response($exception->getMessage())
                 ->status(419);
@@ -150,6 +155,31 @@ class ExchangeController extends Controller
     {
         try {
             return $this->{$slug . 'GetAccount'}();
+        } catch (\Exception $exception) {
+            return response($exception->getMessage())
+                ->status(419);
+        }
+    }
+
+    /**
+     * Создание ордера
+     *
+     * @param $slug
+     * @param CreateOrderRequest $request
+     * @return int
+     */
+    public function createOrder($slug, CreateOrderRequest $request)
+    {
+        try {
+            if ($request->input('mode') == 'buy') {
+                return $this->{$slug . 'CreateOrderBuy'}($request->all());
+            } elseif ($request->input('mode') == 'buy') {
+                return $this->{$slug . 'CreateOrderSell'}($request->all());
+            } else {
+                return response(__('Неизвестный тип ордера'))
+                    ->status(419);
+            }
+
         } catch (\Exception $exception) {
             return response($exception->getMessage())
                 ->status(419);

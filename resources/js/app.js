@@ -8,6 +8,13 @@ require('./bootstrap');
 
 window.Vue = require('vue').default;
 
+const moment = require('moment')
+require('moment/locale/ru')
+
+Vue.use(require('vue-moment'), {
+    moment
+})
+
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 
@@ -18,13 +25,23 @@ import VueChatScroll from 'vue-chat-scroll';
 Vue.use(VueChatScroll);
 
 import Vuex from 'vuex'
+
 Vue.use(Vuex)
 import store from "./store/app"
+
+Vue.prototype.$__ = function (trans) {
+    if (typeof window.langs !== 'undefined' && typeof window.langs[trans] !== 'undefined') {
+        return window.langs[trans]
+    }
+
+    return trans
+}
 
 // Views
 import Trading from "./views/Trading";
 import Dashboard from "./views/Dashboard";
 import Exchanges from "./views/Exchanges";
+import Profile from "./views/Profile";
 
 import VueRouter from 'vue-router'
 
@@ -33,6 +50,7 @@ const routes = [
     {path: '/', component: Trading, name: 'Торговля'},
     {path: '/bots', component: Trading, name: 'Боты'},
     {path: '/exchanges', component: Exchanges, name: 'Мои биржи'},
+    {path: '/profile', component: Profile, name: 'Мои данные'},
 
 ]
 const router = new VueRouter({
@@ -52,13 +70,7 @@ const router = new VueRouter({
 
 Vue.component('app', require('./components/App').default);
 
-Vue.prototype.$__ = function (trans) {
-    if (typeof window.langs !== 'undefined' && typeof window.langs[trans] !== 'undefined') {
-        return window.langs[trans]
-    }
 
-    return trans
-}
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

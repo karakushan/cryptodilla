@@ -26,7 +26,8 @@
                     :key="key"
 
                 >
-                    <td>{{ order.p }}</td>
+                    <td><span
+                        :class="{'red--text':!order.m,'green--text':order.m }">{{ order.p }}</span></td>
                     <td>{{ order.q }}</td>
                     <td>{{ order.p }}</td>
                 </tr>
@@ -42,7 +43,8 @@ export default {
     name: "OrdersWidget",
     data: () => ({
         orders: [],
-        socket: null
+        socket: null,
+        url:'wss://stream.binance.com:9443/ws/'
     }),
     props: {
         limit: {
@@ -75,7 +77,7 @@ export default {
     methods: {
         connectWS() {
             let app = this
-            let apiUrl=process.env.MIX_BINANCE_WS_URL + this.symbol.symbol.toLowerCase() + "@trade"
+            let apiUrl=this.url +this.symbol.symbol.toLowerCase() + "@aggTrade"
 
             this.socket = new WebSocket(apiUrl);
             this.socket.onopen = function (e) {
@@ -109,7 +111,7 @@ export default {
 
     },
     mounted() {
-        // this.connectWS()
+        this.connectWS()
     }
 }
 </script>

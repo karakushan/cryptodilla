@@ -5,8 +5,8 @@
                 <v-toolbar-title>{{ projectName }}</v-toolbar-title>
                 <v-spacer></v-spacer>
                 <v-toolbar-items class="hidden-sm-and-down d-flex align-items-center">
-                    <v-btn :to="item.path" :key="key" v-for="(item,key) in items">
-                        {{ item.name }}
+                    <v-btn :to="item.path" :key="key" v-for="(item,key) in items" v-if="item.path!='/profile'">
+                        {{ $__(item.name) }}
                     </v-btn>
                     <v-menu
                         class="ml-3"
@@ -26,8 +26,8 @@
                                     size="42"
                                 >
                                     <img
-                                        src="https://cdn.vuetifyjs.com/images/john.jpg"
-                                        alt="John"
+                                        :src="data.user.avatar_url"
+                                        :alt="data.user.name"
                                     >
                                 </v-avatar>
                             </v-btn>
@@ -40,8 +40,8 @@
                                         size="42"
                                     >
                                         <img
-                                            src="https://cdn.vuetifyjs.com/images/john.jpg"
-                                            alt="John"
+                                            :src="data.user.avatar_url"
+                                            :alt="data.user.name"
                                         >
                                     </v-avatar>
                                     <h3>{{ user.fullName }}</h3>
@@ -53,16 +53,18 @@
                                         depressed
                                         rounded
                                         text
+                                        to="/profile"
                                     >
-                                        Edit Account
+                                        Профиль
                                     </v-btn>
                                     <v-divider class="my-3"></v-divider>
                                     <v-btn
                                         depressed
                                         rounded
                                         text
+                                        @click="logout"
                                     >
-                                        Disconnect
+                                        Выйти
                                     </v-btn>
                                 </div>
                             </v-list-item-content>
@@ -78,7 +80,6 @@
             <v-footer
                 dark
                 padless
-                fixed
             >
                 <v-row
                     justify="center"
@@ -135,7 +136,20 @@ export default {
         this.setData(this.data)
     },
     methods: {
-        ...mapActions(['setData'])
+        ...mapActions(['setData']),
+        logout(){
+             axios
+              .post('/logout', {
+
+              })
+              .then(response => {
+                  location.reload()
+              })
+              .catch(error => {
+                 // console.log(error.response);
+              	console.log(error.response.data);
+              });
+        }
     },
     components: {
         TradingView,

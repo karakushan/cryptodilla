@@ -1,5 +1,6 @@
 <template>
     <v-card :class="{'app-chat':true, 'overflow-hidden':true, 'active':chatOpen}">
+
         <v-app-bar
             color="deep-purple accent-4"
             dark
@@ -11,6 +12,7 @@
             <v-toolbar-title>Чат</v-toolbar-title>
 
             <v-spacer></v-spacer>
+
             <v-btn
                 icon
                 @click="chatOpen=!chatOpen">
@@ -18,11 +20,10 @@
                 <v-icon v-else>mdi-menu-up</v-icon>
             </v-btn>
 
-
         </v-app-bar>
 
-
         <v-container>
+
             <vue-custom-scrollbar class="scroll-area" :settings="settings" v-show="messages.length" v-chat-scroll>
                 <v-sheet
 
@@ -60,14 +61,14 @@
             <v-form @submit.prevent="addMessage()">
                 <v-text-field
                     name="input-7-1"
-                    label="Сообщение"
+                    :label="$__('Сообщение')"
                     v-model="message"
                     @keyup.enter.prevent="addMessage()"
-                    hint="Нажмите Enter для отправки"
+                    :hint="$__('Нажмите Enter для отправки')"
                 ></v-text-field>
             </v-form>
-        </v-container>
 
+        </v-container>
 
     </v-card>
 </template>
@@ -95,7 +96,6 @@ export default {
                 this.messages = response.data;
             });
         },
-
         addMessage() {
 
             if (!this.message.length) return;
