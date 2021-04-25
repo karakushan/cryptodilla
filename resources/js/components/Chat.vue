@@ -91,6 +91,10 @@ export default {
         }
     }),
     methods: {
+        playSound() {
+            let audio = new Audio('/audio/message.mp3')
+            audio.play();
+        },
         fetchMessages() {
             axios.get('/terminal/chat-messages').then(response => {
                 this.messages = response.data;
@@ -130,6 +134,7 @@ export default {
                 this.users = this.users.filter(u => u.id !== user.id);
             })
             .listenForWhisper('typing', ({id, name}) => {
+
                 this.users.forEach((user, index) => {
                     if (user.id === id) {
                         user.typing = true;
@@ -138,6 +143,8 @@ export default {
                 });
             })
             .listen('MessageSent', (event) => {
+                this.playSound()
+
                 this.messages.push({
                     message: event.message.message,
                     user: event.user

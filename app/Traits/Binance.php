@@ -3,6 +3,7 @@
 
 namespace App\Traits;
 
+use Lin\Binance\Exceptions\Exception;
 use Lin\Exchange\Exchanges;
 use Illuminate\Support\Facades\Http;
 
@@ -12,16 +13,12 @@ trait Binance
     private $url;
     private $apiKey;
     private $apiSecret;
-    private $testnet = true;
+    private $use_testnet = true;
     private $id = 'binance';
-    private $baseUrl = 'https://api.binance.com/api';
-    private $testnetBaseUrl = 'https://testnet.binance.vision/api';
+    private $baseUrl = 'https://api.binance.com';
+    private $testnetBaseUrl = 'https://testnet.binance.vision';
     private $time = null;
-
-    public function __construct()
-    {
-        $this->setCredentials();
-    }
+    private $timeout = 10;
 
     /**
      * Отправляет запрос на указанный endpoint
@@ -33,36 +30,49 @@ trait Binance
      */
     protected function send(string $endpoint, $query_params = [], $method = 'get')
     {
-        if (!isset($query_params['timestamp'])) {
-            $timestamp = Http::get($this->url . '/v3/time')->json()['serverTime'];
-            $query_params['timestamp'] = $timestamp;
-        }
+//        if (!isset($query_params['timestamp'])) {
+//            $timestamp = Http::get($this->url . '/api/v3/time')->json()['serverTime'];
+//            $query_params['timestamp'] = $timestamp;
+//        }
+
+
+        $query_params['timestamp'] = number_format(microtime(true) * 1000, 0, '.', '');
 
         $query = http_build_query($query_params, '', '&');
 
-        $query_params['signature'] = hash_hmac('sha256', $query, $this->apiSecret);
+        $query_params['signature'] = hash_hmac('sha256', $query, $this->getApiSecret());
 
-        $response = Http::withHeaders([
-            'X-MBX-APIKEY' => $this->apiKey,
-        ])->{$method}($this->url.$endpoint , $query_params);
+        $response = Http::timeout($this->timeout)->withHeaders([
+            'X-MBX-APIKEY' => $this->getApiKey(),
+        ])->{$method}($this->getUrl() . $endpoint, $query_params);
 
         return $response->json();
     }
 
+    /**
+     * @return mixed
+     */
+    public function getUrl()
+    {
+        return $this->use_testnet ? $this->testnetBaseUrl : $this->baseUrl;
+    }
 
     /**
-     * Устанавливает секретные данные запроса
+     * @return mixed
      */
-    public function setCredentials()
+    public function getApiSecret()
     {
-        $this->url = env('MIX_BINANCE_TEST_BASE_URL');
-        $this->apiKey = env('MIX_BINANCE_API_KEY');
-        $this->apiSecret = env('MIX_BINANCE_API_SECRET');
-        if ($this->testnet) {
-            $this->url = $this->testnetBaseUrl;
-        } else {
-            $this->url = $this->baseUrl;
-        }
+        return env('MIX_BINANCE_API_SECRET', "ZVmAv8CzhzeXf4rkLaG4SONW7cpTbRsayKCP79QI0h9tV76jHpO81jRilwJX2ZPV");
+    }
+
+
+    /**
+     * Устанавливает связь с биржей
+     * @return Exchanges
+     */
+    protected function connector()
+    {
+        return new Exchanges($this->id, $this->getApiKey(), $this->getApiSecret(), $this->getUrl());
     }
 
     /**
@@ -74,7 +84,7 @@ trait Binance
      */
     public function binanceGetInfo()
     {
-        return Http::get($this->url . '/v3/exchangeInfo')->json();
+        return Http::get($this->getUrl() . '/api/v3/exchangeInfo')->json();
     }
 
     /**
@@ -85,8 +95,27 @@ trait Binance
      */
     public function binanceGetOrders($symbol)
     {
-        return $this->send('/v3/allOrders', ['symbol' => $symbol]);
+        return $this->connector()
+            ->getPlatform('spot')
+            ->user()
+            ->getAllOrders(['symbol' => $symbol]);
     }
+
+    /**
+     * Get all account orders; active, canceled, or filled.
+     *
+     * @param $symbol
+     * @return \GuzzleHttp\Promise\PromiseInterface|\Illuminate\Http\Client\Response
+     */
+    public function binanceGetOpenOrders($symbol)
+    {
+
+        return $this->connector()
+            ->getPlatform('spot')
+            ->user()
+            ->getOpenOrders(['symbol' => $symbol]);
+    }
+
 
     /**
      * Get current account information
@@ -97,7 +126,7 @@ trait Binance
      */
     public function binanceGetAccount()
     {
-        return $this->send('/v3/account');
+        return $this->send('/api/v3/account');
     }
 
     /**
@@ -106,36 +135,50 @@ trait Binance
      * @param array $data
      * @return array|array[]
      */
-    public function binanceCreateOrderBuy($data = [])
+    public function binanceCreateOrder($data = [])
     {
-        $data = array_merge([
-            'timeInForce' => 'GTC',
-        ], $data);
+        $valid_params = [
+            'MARKET' => ['quantity', 'quoteOrderQty'],
+            'LIMIT' => ['timeInForce', 'quantity', 'price'],
+            'STOP_LOSS' => ['quantity', 'stopPrice'],
+            'LIMIT_MAKER' => ['quantity', 'price'],
+            'TAKE_PROFIT' => ['quantity', 'stopPrice'],
+            'STOP_LOSS_LIMIT' => ['timeInForce', 'quantity', 'price', 'stopPrice'],
+            'TAKE_PROFIT_LIMIT' => ['timeInForce', 'quantity', 'price', 'stopPrice'],
+        ];
 
-        if ($data['type'] == 'MARKET') {
-            $data = array_filter($data, function ($item) {
-                return in_array($item, ['symbol', 'type', 'quantity']);
-            }, ARRAY_FILTER_USE_KEY);
+        $data = array_filter($data, function ($item) use ($valid_params, $data) {
+            $params = array_merge($valid_params[$data['type']], ['symbol', 'side', 'type', 'newClientOrderId', 'icebergQty', 'newOrderRespType']);
+            return in_array($item, $params);
+        }, ARRAY_FILTER_USE_KEY);
+
+        try {
+            $order = $this->connector()->getPlatform('spot')->trade()->postOrder($data);
+            $msg = __('Ордер успешно создан');
+
+            return response()->json(compact('order', 'msg'));
+        } catch (Exception $e) {
+            return response()->json(json_decode($e->getMessage(), true), 419);
         }
+    }
 
-        return $this->api->trader()->buy($data);
+    function binanceCancelOrder($data)
+    {
+        try {
+            $order = $this->connector()->getPlatform('spot')->trade()->deleteOrder($data);
+            $msg = __('Ордер успешно отменен');
+
+            return response()->json(compact('order', 'msg'));
+        } catch (Exception $e) {
+            return response()->json(json_decode($e->getMessage(), true), 419);
+        }
     }
 
     /**
-     * Создание sell ордера
-     *
-     * @param array $data
-     * @return array|array[]
+     * @return mixed
      */
-    public function binanceCreateOrderSell($data = [])
+    public function getApiKey()
     {
-        $data = array_merge([
-            'timeInForce' => 'GTC',
-        ], $data);
-
-        $this->api->trader()->sell($data);
-        return $this->api->trader()->buy($data);
+        return env('MIX_BINANCE_API_KEY', "Ik7gOQWFfdYxwGr7QqK4Iw8JsfV3QVCfUeSINpOz9SmQMb1TJLMPVCX2nhJn5J4T");
     }
-
-
 }

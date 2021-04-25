@@ -4,7 +4,7 @@
             <v-col md="2">
                 <OrdersWidget :symbol="this.symbol" :limit="7" v-if="symbol" title="Ордера"/>
                 <OrdersWidget :symbol="this.symbol" :limit="7" v-if="symbol" title="История торгов"/>
-                <!--<OrdersHistoryWidget/>-->
+                <!--                <OrdersHistoryWidget/>-->
             </v-col>
             <v-col md="8">
                 <v-card class="mx-auto mb-2">
@@ -44,7 +44,8 @@
                                             <v-list-item-title v-text="item.name"></v-list-item-title>
 
                                         </v-list-item-content>
-                                        <v-btn to="/exchanges" text v-if="!item.credentials" class="ml-2">Подключить</v-btn>
+                                        <v-btn to="/exchanges" text v-if="!item.credentials" class="ml-2">Подключить
+                                        </v-btn>
                                     </template>
                                 </v-autocomplete>
                             </v-col>
@@ -98,10 +99,79 @@
                             <v-tabs-items v-model="tab">
                                 <v-tab-item>
                                     <v-card color="basil" flat>
-                                        <ActiveOrders :symbol="symbol.symbol" v-if="symbol"/>
-                                        <v-card-text>
-                                            {{ $__("Нет открытых ордеров") }}
-                                        </v-card-text>
+                                        <v-container>
+                                            <vue-custom-scrollbar class="scroll-area">
+                                                <v-simple-table v-if="openOrders.length">
+                                                    <template v-slot:default>
+                                                        <thead>
+                                                        <tr>
+                                                            <th class="text-left">
+                                                                {{ $__("Пара") }}
+                                                            </th>
+                                                            <th>
+                                                                {{ $__("Тип") }}
+                                                            </th>
+                                                            <th>
+                                                                {{ $__("Side") }}
+                                                            </th>
+                                                            <th>
+                                                                {{ $__("Средняя цена") }}
+                                                            </th>
+                                                            <th>
+                                                                {{ $__("К-во") }}
+                                                            </th>
+                                                            <th>
+                                                                {{ $__("Цена") }}
+                                                            </th>
+                                                            <th>{{ $__("Дата") }}</th>
+                                                            <th>{{ $__("Действие") }}</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr v-for="(order,i) in openOrders">
+                                                            <td class="text-left">
+                                                                {{ order.symbol }}
+                                                            </td>
+                                                            <td>
+                                                                {{ order.type }}
+                                                            </td>
+                                                            <td>
+                                                            <span
+                                                                :class="{'red--text':order.side =='SELL','green--text':order.side =='BUY' }"> {{
+                                                                    order.side
+                                                                }}</span>
+                                                            </td>
+                                                            <td>
+                                                                {{ order.price }}
+                                                            </td>
+                                                            <td>
+                                                                {{ order.origQty }}
+                                                            </td>
+                                                            <td>
+                                                                {{ order.price }}
+                                                            </td>
+                                                            <td>{{ $moment(order.time).format('DD.MM.YYYY H:mm:ss') }}
+                                                            </td>
+                                                            <td>
+                                                                <v-btn
+                                                                    outlined
+                                                                    x-small
+                                                                    color="error"
+                                                                    @click="cancelOrder(order)"
+                                                                >
+                                                                    Отменить
+                                                                </v-btn>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </template>
+                                                </v-simple-table>
+
+                                                <v-card-text v-else>
+                                                    {{ $__("Нет открытых ордеров") }}
+                                                </v-card-text>
+                                            </vue-custom-scrollbar>
+                                        </v-container>
                                     </v-card>
                                 </v-tab-item>
                                 <v-tab-item>
@@ -114,65 +184,67 @@
                                 <v-tab-item>
                                     <v-card color="basil" flat>
                                         <v-container>
-                                            <v-simple-table v-if="orders.length">
-                                                <template v-slot:default>
-                                                    <thead>
-                                                    <tr>
-                                                        <th class="text-left">
-                                                            {{ $__("Пара") }}
-                                                        </th>
-                                                        <th>
-                                                            {{ $__("Тип") }}
-                                                        </th>
-                                                        <th>
-                                                            {{ $__("Side") }}
-                                                        </th>
-                                                        <th>
-                                                            {{ $__("Средняя цена") }}
-                                                        </th>
-                                                        <th>
-                                                            {{ $__("К-во") }}
-                                                        </th>
-                                                        <th>
-                                                            {{ $__("Цена") }}
-                                                        </th>
-                                                        <th>{{ $__("Дата") }}</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <tr v-for="order in orders">
-                                                        <td class="text-left">
-                                                            {{ order.symbol }}
-                                                        </td>
-                                                        <td>
-                                                            -
-                                                        </td>
-                                                        <td>
+                                            <vue-custom-scrollbar class="scroll-area">
+                                                <v-simple-table v-if="orders.length">
+                                                    <template v-slot:default>
+                                                        <thead>
+                                                        <tr>
+                                                            <th class="text-left">
+                                                                {{ $__("Пара") }}
+                                                            </th>
+                                                            <th>
+                                                                {{ $__("Тип") }}
+                                                            </th>
+                                                            <th>
+                                                                {{ $__("Side") }}
+                                                            </th>
+                                                            <th>
+                                                                {{ $__("Средняя цена") }}
+                                                            </th>
+                                                            <th>
+                                                                {{ $__("К-во") }}
+                                                            </th>
+                                                            <th>
+                                                                {{ $__("Цена") }}
+                                                            </th>
+                                                            <th>{{ $__("Дата") }}</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr v-for="order in orders">
+                                                            <td class="text-left">
+                                                                {{ order.symbol }}
+                                                            </td>
+                                                            <td>
+                                                                {{ order.type }}
+                                                            </td>
+                                                            <td>
                                                             <span
                                                                 :class="{'red--text':order.side =='SELL','green--text':order.side =='BUY' }"> {{
                                                                     order.side
                                                                 }}</span>
-                                                        </td>
-                                                        <td>
-                                                            {{ order.price }}
-                                                        </td>
-                                                        <td>
-                                                            {{ order.executedQty }}
-                                                        </td>
-                                                        <td>
-                                                            {{ order.price }}
-                                                        </td>
-                                                        <td>{{ $moment(order.time).format('DD.MM.YYYY H:mm:ss') }}</td>
-                                                    </tr>
-                                                    </tbody>
-                                                </template>
-                                            </v-simple-table>
-                                            <v-card-text v-else>
-                                                {{ $__("Нет истории") }}
-                                            </v-card-text>
+                                                            </td>
+                                                            <td>
+                                                                {{ order.price }}
+                                                            </td>
+                                                            <td>
+                                                                {{ order.origQty }}
+                                                            </td>
+                                                            <td>
+                                                                {{ order.price }}
+                                                            </td>
+                                                            <td>{{ $moment(order.time).format('DD.MM.YYYY H:mm:ss') }}
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </template>
+                                                </v-simple-table>
+
+                                                <v-card-text v-else>
+                                                    {{ $__("Нет истории") }}
+                                                </v-card-text>
+                                            </vue-custom-scrollbar>
                                         </v-container>
-
-
                                     </v-card>
                                 </v-tab-item>
                             </v-tabs-items>
@@ -193,14 +265,14 @@
                                 two-line
                             >
                                 <v-list-item>
-                                    <v-radio-group v-model="order.mode" row>
+                                    <v-radio-group v-model="order.side" row>
                                         <v-radio
                                             :label="$__('Покупка')"
-                                            value="buy"
+                                            value="BUY"
                                         ></v-radio>
                                         <v-radio
                                             :label="$__('Продажа')"
-                                            value="sell"
+                                            value="SELL"
                                         ></v-radio>
                                     </v-radio-group>
                                 </v-list-item>
@@ -231,8 +303,9 @@
                                         </v-slide-item>
                                     </v-slide-group>
                                 </v-list-item>
-                                <v-list-item class="mb-2">
+                                <v-list-item class="mb-2" v-if="['MARKET'].indexOf(order.type)===-1">
                                     <v-text-field
+
                                         type="number"
                                         label="Цена"
                                         hide-details="auto"
@@ -259,25 +332,26 @@
                                 </v-list-item>
 
                                 <v-alert
-                                    v-if="orderError"
+                                    v-if="orderMessage"
                                     dense
                                     outlined
-                                    type="error"
+                                    :type="orderMessageStatus"
                                 >
-                                    {{ orderError }}
+                                    {{ orderMessage }}
                                 </v-alert>
 
 
                                 <v-list-item>
                                     <v-btn
                                         x-large
-                                        :color="order.mode=='buy'? 'success' : 'error'"
+                                        :color="order.side=='BUY'? 'success' : 'error'"
                                         dark
                                         block
                                         type="submit"
                                     >
                                         {{
-                                            order.mode == 'buy' ? 'Купить ' + symbol.baseAsset : 'Продать ' + symbol.baseAsset
+                                        order.side == 'BUY' ? 'Купить ' + symbol.baseAsset : 'Продать ' +
+                                        symbol.baseAsset
                                         }}
                                     </v-btn>
                                 </v-list-item>
@@ -330,6 +404,8 @@ import OrdersWidget from "../components/OrdersWidget";
 import OrdersHistoryWidget from "../components/OrdersHistoryWidget";
 import ActiveOrders from "../components/ActiveOrders";
 import {mapGetters} from 'vuex'
+import vueCustomScrollbar from 'vue-custom-scrollbar'
+import "vue-custom-scrollbar/dist/vueScrollbar.css"
 
 export default {
     name: "Trading",
@@ -342,13 +418,15 @@ export default {
             tab: null,
             tabOrder: null,
             order: {
-                mode: 'buy',
-                type: 'market',
+                side: 'BUY',
+                type: 'MARKET',
                 quantity: 0,
                 price: 0,
             },
-            orderError: '',
+            orderMessage: '',
+            orderMessageStatus: 'success',
             orders: [],
+            openOrders: [],
             account: {}
         }
     },
@@ -356,13 +434,15 @@ export default {
         TradingView,
         OrdersWidget,
         OrdersHistoryWidget,
-        ActiveOrders
+        ActiveOrders,
+        vueCustomScrollbar
     },
     props: {},
     watch: {
         'symbol': function (newValue) {
             if (newValue) {
                 this.getOrders()
+                this.getOpenOrders()
             }
         },
         'symbol.orderTypes': function (newValue) {
@@ -372,6 +452,29 @@ export default {
         },
     },
     methods: {
+        cancelOrder(order) {
+            if (!confirm('Вы действительно хотите отменить ордер?')) return
+
+            axios
+                .post('/terminal/exchange/cancel-order/' + this.exchange, {
+                    symbol: this.symbol.symbol,
+                    orderId: order.orderId
+                })
+                .then(response => {
+                    if (response.status == 200 && response.data) {
+                        this.getOpenOrders()
+                    }
+                })
+                .catch(error => {
+                    // console.log(error.response);
+                    console.log(error.response.data);
+                });
+
+        },
+        playSound() {
+            let audio = new Audio('/audio/event.mp3')
+            audio.play();
+        },
         orderTypeName(name) {
             return name.replace(/_/g, ' ')
         },
@@ -384,7 +487,35 @@ export default {
                 })
                 .then(response => {
                     if (response.status == 200 && response.data) {
-                        this.orders = response.data
+                        this.orders = response.data.filter((item) => {
+                            return item.status !== 'NEW'
+                        })
+                            .sort((a, b) => {
+                                if (a.time > b.time) return -1
+                                if (a.time < b.time) return 1
+                                return 0
+                            })
+                    }
+                })
+                .catch(error => {
+                    // console.log(error.response);
+                    console.log(error.response.data);
+                });
+        },
+        getOpenOrders() {
+            if (!this.symbol) return
+
+            axios
+                .post('/terminal/exchange/get-open-orders/' + this.exchange, {
+                    symbol: this.symbol.symbol
+                })
+                .then(response => {
+                    if (response.status == 200 && response.data) {
+                        this.openOrders = response.data.sort((a, b) => {
+                            if (a.time > b.time) return -1
+                            if (a.time < b.time) return 1
+                            return 0
+                        })
                     }
                 })
                 .catch(error => {
@@ -404,15 +535,21 @@ export default {
                 })
                 .then(response => {
                     if (response.status == 200 && response.data) {
-                        if (response.data._error && response.data._error.msg.length) {
-                            this.orderError = response.data._error.msg
+                        if (response.data.msg) {
+                            this.orderMessage = response.data.msg
+                            this.orderMessageStatus = 'success'
                         }
-                        console.log(response);
+                        this.playSound()
+                        this.getOrders()
+                        this.getOpenOrders()
                     }
                 })
                 .catch(error => {
-                    // console.log(error.response);
-                    console.log(error.response.data);
+                    // console.log(error.response.data);
+                    if (error.response.data.msg.length) {
+                        this.orderMessage = error.response.data.msg
+                        this.orderMessageStatus = 'error'
+                    }
                 });
         },
         getCurrentExchange() {
@@ -476,21 +613,27 @@ export default {
             if (!this.symbol) return 'ETH:BTC'
 
             return this.symbol.symbol;
-        },
+        }
     },
     mounted() {
         this.getExchangeInfo()
         this.getAccount()
         this.getOrders()
+        this.getOpenOrders()
     }
 }
 </script>
 
 <style lang="scss">
 .app-trading {
+    .scroll-area {
+        max-height: 345px;
+    }
+
     .v-toolbar .v-input {
         height: 48px;
     }
+
     .v-data-table > .v-data-table__wrapper > table > tbody > tr > td, .v-data-table > .v-data-table__wrapper > table > tbody > tr > th, .v-data-table > .v-data-table__wrapper > table > tfoot > tr > td, .v-data-table > .v-data-table__wrapper > table > tfoot > tr > th, .v-data-table > .v-data-table__wrapper > table > thead > tr > td, .v-data-table > .v-data-table__wrapper > table > thead > tr > th {
         text-align: center;
         padding: 0 4px;

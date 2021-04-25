@@ -43,6 +43,8 @@ Route::middleware(['auth'])->prefix('terminal')->group(function () {
         Route::post('account/{slug}', [ExchangeController::class, 'getAccount']);
         Route::post('create-order/{slug}', [ExchangeController::class, 'createOrder']);
         Route::post('get-orders/{slug}', [ExchangeController::class, 'getOrders']);
+        Route::post('get-open-orders/{slug}', [ExchangeController::class, 'getOpenOrders']);
+        Route::post('cancel-order/{slug}', [ExchangeController::class, 'cancelOrder']);
     });
 
     // CHAT

@@ -38,6 +38,25 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/commonmark" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/flysystem" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/mime-type-detection" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/linwj/bigone" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/linwj/binance" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/linwj/bitfinex" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/linwj/bitget" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/linwj/bitmex" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/linwj/bittrex" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/linwj/bybit" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/linwj/coinbase" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/linwj/coinbene" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/linwj/crex24" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/linwj/exchanges" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/linwj/gate" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/linwj/huobi" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/linwj/kraken" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/linwj/kucoin" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/linwj/mxc" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/linwj/okex" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/linwj/poloniex" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/linwj/zb" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/maximebf/debugbar" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/mockery/mockery" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/monolog/monolog" />
@@ -123,6 +142,8 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/workerman/globaldata" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/workerman/workerman" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -116,6 +116,27 @@
       <path value="$PROJECT_DIR$/vendor/paragonie/sodium_compat" />
       <path value="$PROJECT_DIR$/vendor/pusher/pusher-php-server" />
       <path value="$PROJECT_DIR$/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/vendor/linwj/bigone" />
+      <path value="$PROJECT_DIR$/vendor/linwj/gate" />
+      <path value="$PROJECT_DIR$/vendor/linwj/huobi" />
+      <path value="$PROJECT_DIR$/vendor/linwj/crex24" />
+      <path value="$PROJECT_DIR$/vendor/linwj/exchanges" />
+      <path value="$PROJECT_DIR$/vendor/linwj/mxc" />
+      <path value="$PROJECT_DIR$/vendor/linwj/okex" />
+      <path value="$PROJECT_DIR$/vendor/linwj/kraken" />
+      <path value="$PROJECT_DIR$/vendor/linwj/kucoin" />
+      <path value="$PROJECT_DIR$/vendor/linwj/bitget" />
+      <path value="$PROJECT_DIR$/vendor/linwj/bitmex" />
+      <path value="$PROJECT_DIR$/vendor/linwj/binance" />
+      <path value="$PROJECT_DIR$/vendor/linwj/bitfinex" />
+      <path value="$PROJECT_DIR$/vendor/linwj/coinbase" />
+      <path value="$PROJECT_DIR$/vendor/linwj/coinbene" />
+      <path value="$PROJECT_DIR$/vendor/linwj/bittrex" />
+      <path value="$PROJECT_DIR$/vendor/linwj/bybit" />
+      <path value="$PROJECT_DIR$/vendor/linwj/poloniex" />
+      <path value="$PROJECT_DIR$/vendor/linwj/zb" />
+      <path value="$PROJECT_DIR$/vendor/workerman/globaldata" />
+      <path value="$PROJECT_DIR$/vendor/workerman/workerman" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />

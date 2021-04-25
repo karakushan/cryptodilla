@@ -26,7 +26,7 @@ class CreateOrderRequest extends FormRequest
         return [
             'symbol' => ['required'],
             'type' => ['required'],
-            'mode' => ['required'],
+            'side' => ['required'],
             'quantity' => ['required', 'numeric'],
             'price' => ['required', 'numeric'],
         ];

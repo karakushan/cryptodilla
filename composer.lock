@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e9e3b67108816cebf52065d0bd674089",
+    "content-hash": "15330d9d22f76114eac5f65a768f3f3c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1205,6 +1205,936 @@
             ],
             "description": "Mime-type detection for Flysystem",
             "time": "2021-01-18T20:58:21+00:00"
+        },
+        {
+            "name": "linwj/bigone",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zhouaini528/bigone-php.git",
+                "reference": "91d786590898b866e9b540fc7bf0a52b590b27a2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zhouaini528/bigone-php/zipball/91d786590898b866e9b540fc7bf0a52b590b27a2",
+                "reference": "91d786590898b866e9b540fc7bf0a52b590b27a2",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "*",
+                "php": ">=7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lin\\Bigone\\": "./src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "linwenjun",
+                    "email": "465382251@qq.com"
+                }
+            ],
+            "description": "Bigone API Like the official document interface, Support for arbitrary extension.",
+            "keywords": [
+                "BitMEX",
+                "Huobi",
+                "OKEX",
+                "bigone",
+                "binance",
+                "coinbase",
+                "gate",
+                "kucoin",
+                "kumex"
+            ],
+            "time": "2020-10-21T07:47:08+00:00"
+        },
+        {
+            "name": "linwj/binance",
+            "version": "2.0.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zhouaini528/binance-php.git",
+                "reference": "84cb1ba7eb15a3d1d841d5acd2d5721d4a0aebd3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zhouaini528/binance-php/zipball/84cb1ba7eb15a3d1d841d5acd2d5721d4a0aebd3",
+                "reference": "84cb1ba7eb15a3d1d841d5acd2d5721d4a0aebd3",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "*",
+                "php": ">=7.0",
+                "workerman/globaldata": "*",
+                "workerman/workerman": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lin\\Binance\\": "./src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "linwenjun",
+                    "email": "465382251@qq.com"
+                }
+            ],
+            "description": "Binance API Like the official document interface, Support for arbitrary extension.",
+            "keywords": [
+                "BitMEX",
+                "Huobi",
+                "OKEX",
+                "binance",
+                "kucoin",
+                "kumex"
+            ],
+            "time": "2021-04-20T06:51:55+00:00"
+        },
+        {
+            "name": "linwj/bitfinex",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zhouaini528/bitfinex-php.git",
+                "reference": "2aa9478fc248924362b4a0b8083640e16c24960a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zhouaini528/bitfinex-php/zipball/2aa9478fc248924362b4a0b8083640e16c24960a",
+                "reference": "2aa9478fc248924362b4a0b8083640e16c24960a",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "*",
+                "php": ">=7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lin\\Bitfinex\\": "./src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "linwenjun",
+                    "email": "465382251@qq.com"
+                }
+            ],
+            "description": "Bitfinex API Like the official document interface, Support for arbitrary extension.",
+            "keywords": [
+                "BitMEX",
+                "Huobi",
+                "OKEX",
+                "binance",
+                "bitfinex",
+                "coinbase",
+                "kucoin",
+                "kumex",
+                "zb"
+            ],
+            "time": "2020-10-21T07:48:25+00:00"
+        },
+        {
+            "name": "linwj/bitget",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zhouaini528/bitget-php.git",
+                "reference": "75c5a36d6fbb7041a18e4ecb35f91b3e5e629a13"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zhouaini528/bitget-php/zipball/75c5a36d6fbb7041a18e4ecb35f91b3e5e629a13",
+                "reference": "75c5a36d6fbb7041a18e4ecb35f91b3e5e629a13",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "*",
+                "php": ">=7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lin\\Bitget\\": "./src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "linwenjun",
+                    "email": "465382251@qq.com"
+                }
+            ],
+            "description": "Bitget API Like the official document interface, Support for arbitrary extension.",
+            "keywords": [
+                "BitMEX",
+                "Huobi",
+                "OKEX",
+                "bigone",
+                "binance",
+                "bitget",
+                "coinbase",
+                "coinbene",
+                "gate",
+                "kucoin",
+                "kumex"
+            ],
+            "time": "2021-03-15T07:25:19+00:00"
+        },
+        {
+            "name": "linwj/bitmex",
+            "version": "2.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zhouaini528/bitmex-php.git",
+                "reference": "d4e692ccbe7a4c10fcc72f52509617a53bb8c411"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zhouaini528/bitmex-php/zipball/d4e692ccbe7a4c10fcc72f52509617a53bb8c411",
+                "reference": "d4e692ccbe7a4c10fcc72f52509617a53bb8c411",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "*",
+                "php": ">=7.0",
+                "workerman/globaldata": "*",
+                "workerman/workerman": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lin\\Bitmex\\": "./src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "linwenjun",
+                    "email": "465382251@qq.com"
+                }
+            ],
+            "description": "Bitmex API Like the official document interface, Support for arbitrary extension.",
+            "keywords": [
+                "BitMEX",
+                "Huobi",
+                "OKEX",
+                "binance",
+                "kucoin",
+                "kumex"
+            ],
+            "time": "2021-01-26T09:14:07+00:00"
+        },
+        {
+            "name": "linwj/bittrex",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zhouaini528/bittrex-php.git",
+                "reference": "13589d0285e024fc6caa7ee9132718c51852482b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zhouaini528/bittrex-php/zipball/13589d0285e024fc6caa7ee9132718c51852482b",
+                "reference": "13589d0285e024fc6caa7ee9132718c51852482b",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "*",
+                "php": ">=7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lin\\Bittrex\\": "./src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "linwenjun",
+                    "email": "465382251@qq.com"
+                }
+            ],
+            "description": "Bittrex API Like the official document interface, Support for arbitrary extension.",
+            "keywords": [
+                "BitMEX",
+                "Huobi",
+                "OKEX",
+                "binance",
+                "bitfinex",
+                "bittrex",
+                "coinbase",
+                "kucoin",
+                "kumex",
+                "zb"
+            ],
+            "time": "2020-10-21T07:49:29+00:00"
+        },
+        {
+            "name": "linwj/bybit",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zhouaini528/bybit-php.git",
+                "reference": "dd9f319d154eeb68eec7c0f22492785976ccb2f0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zhouaini528/bybit-php/zipball/dd9f319d154eeb68eec7c0f22492785976ccb2f0",
+                "reference": "dd9f319d154eeb68eec7c0f22492785976ccb2f0",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "*",
+                "php": ">=7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lin\\Bybit\\": "./src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "linwenjun",
+                    "email": "465382251@qq.com"
+                }
+            ],
+            "description": "Bybit API Like the official document interface, Support for arbitrary extension.",
+            "keywords": [
+                "BitMEX",
+                "Huobi",
+                "OKEX",
+                "binance",
+                "bybit",
+                "crex24",
+                "kucoin",
+                "kumex"
+            ],
+            "time": "2021-01-04T07:42:33+00:00"
+        },
+        {
+            "name": "linwj/coinbase",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zhouaini528/coinbase-php.git",
+                "reference": "ee367bb570f8c13b47c80f95fab7ab2c989d3c79"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zhouaini528/coinbase-php/zipball/ee367bb570f8c13b47c80f95fab7ab2c989d3c79",
+                "reference": "ee367bb570f8c13b47c80f95fab7ab2c989d3c79",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "*",
+                "php": ">=7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lin\\Coinbase\\": "./src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "linwenjun",
+                    "email": "465382251@qq.com"
+                }
+            ],
+            "description": "Coinbase API Like the official document interface, Support for arbitrary extension.",
+            "keywords": [
+                "BitMEX",
+                "Huobi",
+                "OKEX",
+                "binance",
+                "coinbase",
+                "kucoin",
+                "kumex"
+            ],
+            "time": "2021-03-26T08:54:40+00:00"
+        },
+        {
+            "name": "linwj/coinbene",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zhouaini528/coinbene-php.git",
+                "reference": "c0f1be9b7a6511bb053b595a01c6dd3a18990fab"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zhouaini528/coinbene-php/zipball/c0f1be9b7a6511bb053b595a01c6dd3a18990fab",
+                "reference": "c0f1be9b7a6511bb053b595a01c6dd3a18990fab",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "*",
+                "php": ">=7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lin\\Coinbene\\": "./src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "linwenjun",
+                    "email": "465382251@qq.com"
+                }
+            ],
+            "description": "Coinbene API Like the official document interface, Support for arbitrary extension.",
+            "keywords": [
+                "BitMEX",
+                "Huobi",
+                "OKEX",
+                "bigone",
+                "binance",
+                "coinbase",
+                "coinbene",
+                "gate",
+                "kucoin",
+                "kumex"
+            ],
+            "time": "2021-03-09T06:13:40+00:00"
+        },
+        {
+            "name": "linwj/crex24",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zhouaini528/crex24-php.git",
+                "reference": "17794ef1fd9b23cf8756f63a3399667c57b5faad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zhouaini528/crex24-php/zipball/17794ef1fd9b23cf8756f63a3399667c57b5faad",
+                "reference": "17794ef1fd9b23cf8756f63a3399667c57b5faad",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "*",
+                "php": ">=7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lin\\Crex\\": "./src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "linwenjun",
+                    "email": "465382251@qq.com"
+                }
+            ],
+            "description": "Crex24 API Like the official document interface, Support for arbitrary extension.",
+            "keywords": [
+                "BitMEX",
+                "Huobi",
+                "OKEX",
+                "binance",
+                "crex24",
+                "kucoin",
+                "kumex"
+            ],
+            "time": "2020-10-21T07:50:24+00:00"
+        },
+        {
+            "name": "linwj/exchanges",
+            "version": "1.3.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zhouaini528/exchanges-php.git",
+                "reference": "c514c18134fef92aadac29eac9fb6d5cf3ebf0b3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zhouaini528/exchanges-php/zipball/c514c18134fef92aadac29eac9fb6d5cf3ebf0b3",
+                "reference": "c514c18134fef92aadac29eac9fb6d5cf3ebf0b3",
+                "shasum": ""
+            },
+            "require": {
+                "linwj/bigone": "*",
+                "linwj/binance": "*",
+                "linwj/bitfinex": "*",
+                "linwj/bitget": "*",
+                "linwj/bitmex": "*",
+                "linwj/bittrex": "*",
+                "linwj/bybit": "*",
+                "linwj/coinbase": "*",
+                "linwj/coinbene": "*",
+                "linwj/crex24": "*",
+                "linwj/gate": "*",
+                "linwj/huobi": "*",
+                "linwj/kraken": "*",
+                "linwj/kucoin": "*",
+                "linwj/mxc": "*",
+                "linwj/okex": "*",
+                "linwj/poloniex": "*",
+                "linwj/zb": "*",
+                "php": ">=7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lin\\Exchange\\": "./src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "linwenjun",
+                    "email": "465382251@qq.com"
+                }
+            ],
+            "description": "This is a virtual currency SDK that brings together multiple exchanges",
+            "keywords": [
+                "BitMEX",
+                "Huobi",
+                "OKEX",
+                "Poloniex",
+                "bigone",
+                "binance",
+                "bitfinex",
+                "bitget",
+                "bittrex",
+                "bybit",
+                "coinbase",
+                "coinbene",
+                "crex24",
+                "exchange",
+                "gate",
+                "kraken",
+                "kucoin",
+                "kumex",
+                "mxc",
+                "zb"
+            ],
+            "time": "2021-03-18T08:46:22+00:00"
+        },
+        {
+            "name": "linwj/gate",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zhouaini528/gate-php.git",
+                "reference": "d274dfb00f5eb36ae5576e2225b2553106e154e4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zhouaini528/gate-php/zipball/d274dfb00f5eb36ae5576e2225b2553106e154e4",
+                "reference": "d274dfb00f5eb36ae5576e2225b2553106e154e4",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "*",
+                "php": ">=7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lin\\Gate\\": "./src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "linwenjun",
+                    "email": "465382251@qq.com"
+                }
+            ],
+            "description": "Gate API Like the official document interface, Support for arbitrary extension.",
+            "keywords": [
+                "BitMEX",
+                "Huobi",
+                "OKEX",
+                "binance",
+                "coinbase",
+                "gate",
+                "kucoin",
+                "kumex"
+            ],
+            "time": "2020-10-21T07:50:39+00:00"
+        },
+        {
+            "name": "linwj/huobi",
+            "version": "2.0.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zhouaini528/huobi-php.git",
+                "reference": "e1939a6853e270f4520b4dcc6f4c17ddf1ee4de7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zhouaini528/huobi-php/zipball/e1939a6853e270f4520b4dcc6f4c17ddf1ee4de7",
+                "reference": "e1939a6853e270f4520b4dcc6f4c17ddf1ee4de7",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "*",
+                "php": ">=7.0",
+                "workerman/globaldata": "*",
+                "workerman/workerman": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lin\\Huobi\\": "./src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "linwenjun",
+                    "email": "465382251@qq.com"
+                }
+            ],
+            "description": "Huobi API Like the official document interface, Support for arbitrary extension.",
+            "keywords": [
+                "BitMEX",
+                "Huobi",
+                "OKEX",
+                "binance",
+                "kucoin",
+                "kumex"
+            ],
+            "time": "2021-04-13T05:53:16+00:00"
+        },
+        {
+            "name": "linwj/kraken",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zhouaini528/kraken-php.git",
+                "reference": "69cb6f0964a87f2849ad5435bd2788b550809319"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zhouaini528/kraken-php/zipball/69cb6f0964a87f2849ad5435bd2788b550809319",
+                "reference": "69cb6f0964a87f2849ad5435bd2788b550809319",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "*",
+                "php": ">=7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lin\\Kraken\\": "./src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "linwenjun",
+                    "email": "465382251@qq.com"
+                }
+            ],
+            "description": "Kraken API Like the official document interface, Support for arbitrary extension.",
+            "keywords": [
+                "BitMEX",
+                "Huobi",
+                "OKEX",
+                "binance",
+                "coinbase",
+                "kraken",
+                "kucoin",
+                "kumex",
+                "zb"
+            ],
+            "time": "2020-10-21T07:51:12+00:00"
+        },
+        {
+            "name": "linwj/kucoin",
+            "version": "1.0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zhouaini528/kucoin-php.git",
+                "reference": "33f6d81f69d0a7a4075659870f3c655027ade7ff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zhouaini528/kucoin-php/zipball/33f6d81f69d0a7a4075659870f3c655027ade7ff",
+                "reference": "33f6d81f69d0a7a4075659870f3c655027ade7ff",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "*",
+                "php": ">=7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lin\\Ku\\": "./src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "linwenjun",
+                    "email": "465382251@qq.com"
+                }
+            ],
+            "description": "Kucoin API Like the official document interface, Support for arbitrary extension.",
+            "keywords": [
+                "BitMEX",
+                "Huobi",
+                "OKEX",
+                "binance",
+                "kucoin",
+                "kumex"
+            ],
+            "time": "2021-03-26T01:34:58+00:00"
+        },
+        {
+            "name": "linwj/mxc",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zhouaini528/mxc-php.git",
+                "reference": "0eaca0e0e4098e94452fae5a778dee0988123cb0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zhouaini528/mxc-php/zipball/0eaca0e0e4098e94452fae5a778dee0988123cb0",
+                "reference": "0eaca0e0e4098e94452fae5a778dee0988123cb0",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "*",
+                "php": ">=7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lin\\Mxc\\": "./src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "linwenjun",
+                    "email": "465382251@qq.com"
+                }
+            ],
+            "description": "Mxc API Like the official document interface, Support for arbitrary extension.",
+            "keywords": [
+                "BitMEX",
+                "Huobi",
+                "OKEX",
+                "binance",
+                "kucoin",
+                "kumex",
+                "mxc"
+            ],
+            "time": "2021-03-23T07:09:22+00:00"
+        },
+        {
+            "name": "linwj/okex",
+            "version": "2.0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zhouaini528/okex-php.git",
+                "reference": "634485d730ce9cd32b1c8533450826e361be02a2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zhouaini528/okex-php/zipball/634485d730ce9cd32b1c8533450826e361be02a2",
+                "reference": "634485d730ce9cd32b1c8533450826e361be02a2",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "*",
+                "php": ">=7.0",
+                "workerman/globaldata": "*",
+                "workerman/workerman": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lin\\Okex\\": "./src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "linwenjun",
+                    "email": "465382251@qq.com"
+                }
+            ],
+            "description": "Okex API Like the official document interface, Support for arbitrary extension.",
+            "keywords": [
+                "BitMEX",
+                "Huobi",
+                "OKEX",
+                "binance",
+                "kucoin",
+                "kumex"
+            ],
+            "time": "2021-03-25T02:18:08+00:00"
+        },
+        {
+            "name": "linwj/poloniex",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zhouaini528/poloniex-php.git",
+                "reference": "730915e2c71572ee1946b57acd112a096a3c0d8f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zhouaini528/poloniex-php/zipball/730915e2c71572ee1946b57acd112a096a3c0d8f",
+                "reference": "730915e2c71572ee1946b57acd112a096a3c0d8f",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "*",
+                "php": ">=7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lin\\Poloniex\\": "./src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "linwenjun",
+                    "email": "465382251@qq.com"
+                }
+            ],
+            "description": "Poloniex API Like the official document interface, Support for arbitrary extension.",
+            "keywords": [
+                "BitMEX",
+                "Huobi",
+                "OKEX",
+                "Poloniex",
+                "bigone",
+                "binance",
+                "coinbase",
+                "coinbene",
+                "gate",
+                "kucoin",
+                "kumex"
+            ],
+            "time": "2021-03-18T08:36:04+00:00"
+        },
+        {
+            "name": "linwj/zb",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zhouaini528/zb-php.git",
+                "reference": "87f2f07ef27c264b1ddea22a20470b916dc6d878"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zhouaini528/zb-php/zipball/87f2f07ef27c264b1ddea22a20470b916dc6d878",
+                "reference": "87f2f07ef27c264b1ddea22a20470b916dc6d878",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "*",
+                "php": ">=7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lin\\Zb\\": "./src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "linwenjun",
+                    "email": "465382251@qq.com"
+                }
+            ],
+            "description": "ZB API Like the official document interface, Support for arbitrary extension.",
+            "keywords": [
+                "BitMEX",
+                "Huobi",
+                "OKEX",
+                "binance",
+                "coinbase",
+                "kucoin",
+                "kumex",
+                "zb"
+            ],
+            "time": "2020-10-21T07:52:18+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -4313,6 +5243,82 @@
                 "validate"
             ],
             "time": "2021-03-09T10:59:23+00:00"
+        },
+        {
+            "name": "workerman/globaldata",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/walkor/GlobalData.git",
+                "reference": "baf3b7af338f329e88136ebe92266dfe40dd00a7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/walkor/GlobalData/zipball/baf3b7af338f329e88136ebe92266dfe40dd00a7",
+                "reference": "baf3b7af338f329e88136ebe92266dfe40dd00a7",
+                "shasum": ""
+            },
+            "require": {
+                "workerman/workerman": ">=3.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "GlobalData\\": "./src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "homepage": "http://www.workerman.net",
+            "time": "2018-08-16T03:59:34+00:00"
+        },
+        {
+            "name": "workerman/workerman",
+            "version": "v4.0.19",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/walkor/Workerman.git",
+                "reference": "af6025976fba817eeb4d5fbf8d0c1059a5819da3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/walkor/Workerman/zipball/af6025976fba817eeb4d5fbf8d0c1059a5819da3",
+                "reference": "af6025976fba817eeb4d5fbf8d0c1059a5819da3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "suggest": {
+                "ext-event": "For better performance. "
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Workerman\\": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "walkor",
+                    "email": "walkor@workerman.net",
+                    "homepage": "http://www.workerman.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "An asynchronous event driven PHP framework for easily building fast, scalable network applications.",
+            "homepage": "http://www.workerman.net",
+            "keywords": [
+                "asynchronous",
+                "event-loop"
+            ],
+            "time": "2021-03-05T06:44:28+00:00"
         }
     ],
     "packages-dev": [

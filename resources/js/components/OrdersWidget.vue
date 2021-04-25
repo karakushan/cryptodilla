@@ -81,7 +81,7 @@ export default {
 
             this.socket = new WebSocket(apiUrl);
             this.socket.onopen = function (e) {
-                console.log("[open] Соединение установлено");
+                // console.log("[open] Соединение установлено");
             };
 
             this.socket.onmessage = function (event) {

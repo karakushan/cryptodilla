@@ -139,10 +139,25 @@ class ExchangeController extends Controller
      */
     public function getOrders($slug, Request $request)
     {
-        $allOrders = $this->{$slug . 'GetOrders'}($request->input('symbol'));
-
         try {
             $allOrders = $this->{$slug . 'GetOrders'}($request->input('symbol'));
+
+            return response()->json($allOrders);
+        } catch (\Exception $exception) {
+            return response($exception->getMessage())
+                ->status(419);
+        }
+    }
+
+    /**
+     * Возвращает данные {$slug} биржи
+     * @param $slug
+     * @return int
+     */
+    public function getOpenOrders($slug, Request $request)
+    {
+        try {
+            $allOrders = $this->{$slug . 'GetOpenOrders'}($request->input('symbol'));
 
             return response()->json($allOrders);
         } catch (\Exception $exception) {
@@ -170,20 +185,7 @@ class ExchangeController extends Controller
      */
     public function createOrder($slug, CreateOrderRequest $request)
     {
-        try {
-            if ($request->input('mode') == 'buy') {
-                return $this->{$slug . 'CreateOrderBuy'}($request->all());
-            } elseif ($request->input('mode') == 'buy') {
-                return $this->{$slug . 'CreateOrderSell'}($request->all());
-            } else {
-                return response(__('Неизвестный тип ордера'))
-                    ->status(419);
-            }
-
-        } catch (\Exception $exception) {
-            return response($exception->getMessage())
-                ->status(419);
-        }
+       return $this->{$slug . 'CreateOrder'}($request->all());
     }
 
     /**
@@ -227,5 +229,9 @@ class ExchangeController extends Controller
     {
         $exchanges = Exchange::where('status', 1)->get();
         return response()->json(compact('exchanges'));
+    }
+
+    public function cancelOrder($slug,Request $request){
+        return $this->{$slug . 'CancelOrder'}($request->all());
     }
 }
