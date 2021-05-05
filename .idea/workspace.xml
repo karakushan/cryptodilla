@@ -19,226 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="отмена ордера">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PageController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/vendor.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/app-store-badge.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/benefits_analytics.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/benefits_bitcoin.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/benefits_chart.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/benefits_file.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/benefits_native-currency.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/benefits_network.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/benefits_password.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/benefits_tablet.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/bring-trading-bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/bring-trading-img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/btn-play.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/circle-blocks_blockchain.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/circle-blocks_boss.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/circle-blocks_circuit.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/circle-blocks_programming.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/coming-soon-img.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/crypto-icon/ada.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/crypto-icon/bch.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/crypto-icon/bnb.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/crypto-icon/btc.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/crypto-icon/dot.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/crypto-icon/eth.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/crypto-icon/link.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/crypto-icon/ltc.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/crypto-icon/luna.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/crypto-icon/theta.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/crypto-icon/uni.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/crypto-icon/uscf.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/crypto-icon/usdt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/crypto-icon/xrp.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/disconnect.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/email/email-bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/email/email-facebook.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/email/email-img-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/email/email-img-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/email/email-telegram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/email/email-twitter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/examples/article-img-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/examples/article-img-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/examples/chart-minus.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/examples/chart-plus.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/examples/charts-example.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/examples/contact-map.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/examples/news-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/examples/news-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/examples/news-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/examples/qr-example.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/examples/recaptcha.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/examples/user-photo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/free-trade-img.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/google-play-badge.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/hero-img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/hero-img.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/icon/card-filter_search.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/icon/chat.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/icon/check.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/icon/dash-input_success.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/icon/graph-line.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/icon/lock-open.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/icon/mail.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/icon/progress-arrow-up.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/icon/send.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/icon/star.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/icon/sun-solid.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/icon/user.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/img-check.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/logo-binance.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/logo-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/logo-kucoin.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/logo-liquid.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/logo-okex.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/registration-bg.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/social/c-soc-facebook.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/social/c-soc-mail.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/social/c-soc-telegram.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/social/c-soc-twitter.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/social/c-soc-wat.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/social/contacts-location.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/social/contacts-mail.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/social/contacts-telegram.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/social/w-social-facebook.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/social/w-social-mail.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/social/w-social-watsapp.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/social/w-social_linkedin.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/social/w-social_telegram.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/social/w-social_twitter.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/social/w-social_youtube.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/vendor.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/landing.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/dashboard-auth.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/dashboard.blade.php" afterDir="false" />
+    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="создал служебные страницы регистрации, входа и сброса пароля">
+      <change afterPath="$PROJECT_DIR$/resources/lang/ru.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/advanced-ui-kits-image-crop.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/advanced-ui-kits-image-crop.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/advanced-ui-kits-jquery-confirm.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/advanced-ui-kits-jquery-confirm.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/advanced-ui-kits-nestable.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/advanced-ui-kits-nestable.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/advanced-ui-kits-pnotify.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/advanced-ui-kits-pnotify.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/advanced-ui-kits-range-slider.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/advanced-ui-kits-range-slider.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/advanced-ui-kits-ratings.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/advanced-ui-kits-ratings.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/advanced-ui-kits-session-timeout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/advanced-ui-kits-session-timeout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/advanced-ui-kits-sweet-alerts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/advanced-ui-kits-sweet-alerts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/advanced-ui-kits-switchery.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/advanced-ui-kits-switchery.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/advanced-ui-kits-toolbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/advanced-ui-kits-toolbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/advanced-ui-kits-tour.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/advanced-ui-kits-tour.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/advanced-ui-kits-treeview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/advanced-ui-kits-treeview.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/apps-calender.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/apps-calender.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/apps-chat.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/apps-chat.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/apps-email-compose.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/apps-email-compose.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/apps-email-inbox.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/apps-email-inbox.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/apps-email-open.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/apps-email-open.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/apps-kanban-board.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/apps-kanban-board.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/apps-onboarding-screens.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/apps-onboarding-screens.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/basic-ui-kits-alerts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/basic-ui-kits-alerts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/basic-ui-kits-badges.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/basic-ui-kits-badges.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/basic-ui-kits-buttons.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/basic-ui-kits-buttons.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/basic-ui-kits-cards.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/basic-ui-kits-cards.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/basic-ui-kits-carousel.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/basic-ui-kits-carousel.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/basic-ui-kits-collapse.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/basic-ui-kits-collapse.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/basic-ui-kits-dropdowns.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/basic-ui-kits-dropdowns.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/basic-ui-kits-embeds.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/basic-ui-kits-embeds.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/basic-ui-kits-grids.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/basic-ui-kits-grids.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/basic-ui-kits-images.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/basic-ui-kits-images.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/basic-ui-kits-media.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/basic-ui-kits-media.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/basic-ui-kits-modals.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/basic-ui-kits-modals.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/basic-ui-kits-paginations.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/basic-ui-kits-paginations.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/basic-ui-kits-popovers.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/basic-ui-kits-popovers.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/basic-ui-kits-progressbars.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/basic-ui-kits-progressbars.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/basic-ui-kits-spinners.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/basic-ui-kits-spinners.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/basic-ui-kits-tabs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/basic-ui-kits-tabs.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/basic-ui-kits-toasts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/basic-ui-kits-toasts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/basic-ui-kits-tooltips.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/basic-ui-kits-tooltips.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/basic-ui-kits-typography.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/basic-ui-kits-typography.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/chart-apex.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/chart-apex.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/chart-c3.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/chart-c3.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/chart-chartistjs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/chart-chartistjs.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/chart-chartjs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/chart-chartjs.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/chart-flot.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/chart-flot.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/chart-knob.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/chart-knob.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/chart-morris.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/chart-morris.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/chart-piety.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/chart-piety.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/chart-sparkline.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/chart-sparkline.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard-crypto.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard-crypto.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard-ecommerce.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard-ecommerce.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard-hospital.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard-hospital.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard-school.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard-school.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/ecommerce-cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/ecommerce-cart.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/ecommerce-checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/ecommerce-checkout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/ecommerce-myaccount.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/ecommerce-myaccount.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/ecommerce-order-detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/ecommerce-order-detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/ecommerce-order-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/ecommerce-order-list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/ecommerce-product-detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/ecommerce-product-detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/ecommerce-product-list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/ecommerce-product-list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/ecommerce-shop.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/ecommerce-shop.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/ecommerce-single-product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/ecommerce-single-product.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/ecommerce-thankyou.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/ecommerce-thankyou.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/error-404.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/error-404.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/error-500.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/error-500.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/error-comingsoon.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/error-comingsoon.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/error-maintenance.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/error-maintenance.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/form-colorpickers.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/form-colorpickers.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/form-datepickers.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/form-datepickers.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/form-editors.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/form-editors.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/form-file-uploads.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/form-file-uploads.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/form-groups.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/form-groups.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/form-input-mask.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/form-input-mask.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/form-inputs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/form-inputs.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/form-layouts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/form-layouts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/form-maxlength.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/form-maxlength.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/form-selects.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/form-selects.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/form-touchspin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/form-touchspin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/form-validations.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/form-validations.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/form-wizards.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/form-wizards.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/form-xeditable.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/form-xeditable.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/icon-dripicons.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/icon-dripicons.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/icon-feather.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/icon-feather.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/icon-flag.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/icon-flag.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/icon-font-awesome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/icon-font-awesome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/icon-ionicons.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/icon-ionicons.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/icon-line-awesome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/icon-line-awesome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/icon-material-design.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/icon-material-design.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/icon-simple-line.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/icon-simple-line.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/icon-socicon.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/icon-socicon.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/icon-svg.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/icon-svg.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/icon-themify.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/icon-themify.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/icon-typicons.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/icon-typicons.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/map-google.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/map-google.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/map-vector.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/map-vector.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/page-blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/page-blog.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/page-faq.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/page-faq.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/page-gallery.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/page-gallery.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/page-invoice.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/page-invoice.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/page-pricing.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/page-pricing.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/page-starter.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/page-starter.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/page-timeline.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/page-timeline.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/table-bootstrap.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/table-bootstrap.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/table-datatable.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/table-datatable.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/table-editable.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/table-editable.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/table-footable.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/table-footable.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/table-rwdtable.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/table-rwdtable.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/terminal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/terminal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user-forgotpsw.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/user-forgotpsw.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user-lock-screen.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/user-lock-screen.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user-login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/user-login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user-register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/user-register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/welcome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/widgets.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/widgets.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -556,7 +341,7 @@
       <workItem from="1619161522309" duration="21000" />
       <workItem from="1619363032464" duration="19004000" />
       <workItem from="1619412720804" duration="27000" />
-      <workItem from="1620195109553" duration="5153000" />
+      <workItem from="1620195109553" duration="6403000" />
     </task>
     <task id="LOCAL-00001" summary="подключил vue router">
       <created>1615840605110</created>
@@ -705,7 +490,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619383974458</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="создал служебные страницы регистрации, входа и сброса пароля">
+      <created>1620200361114</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1620200361114</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -748,13 +540,14 @@
     <MESSAGE value="fix chat" />
     <MESSAGE value="подключил вкладку  - история торгов" />
     <MESSAGE value="отмена ордера" />
-    <option name="LAST_COMMIT_MESSAGE" value="отмена ордера" />
+    <MESSAGE value="создал служебные страницы регистрации, входа и сброса пароля" />
+    <option name="LAST_COMMIT_MESSAGE" value="создал служебные страницы регистрации, входа и сброса пароля" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="178" key="#Deployment" timestamp="1617532832266">
+    <state x="552" y="178" key="#Deployment" timestamp="1620201336342">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="178" key="#Deployment/0.0.1920.1040@0.0.1920.1040" timestamp="1617532832266" />
+    <state x="552" y="178" key="#Deployment/0.0.1920.1040@0.0.1920.1040" timestamp="1620201336342" />
     <state x="678" y="178" key="#Servers" timestamp="1616187219542">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -839,10 +632,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1617554831153" />
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1619383978674">
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1620200363256">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1619383978674" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1620200363256" />
     <state x="859" y="394" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1616884798046">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
