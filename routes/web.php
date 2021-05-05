@@ -5,6 +5,7 @@ use App\Http\Controllers\ChatsController;
 use App\Http\Controllers\FilepondController;
 use App\Http\Controllers\BinanceController;
 use App\Http\Controllers\ExchangeController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\TerminalController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserGroupController;
@@ -26,9 +27,7 @@ require __DIR__ . '/auth.php';
 Auth::routes();
 
 /* LANDING PAGE */
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PageController::class, 'homePage'])->name('homepage');
 
 /* РОУТЫ ТОРГОВОГО ТЕРМИНАЛА */
 Route::middleware(['auth'])->prefix('terminal')->group(function () {
@@ -38,7 +37,7 @@ Route::middleware(['auth'])->prefix('terminal')->group(function () {
     Route::post('/deattach-exchange', [ExchangeController::class, 'deattachUserExchange']);
 
     //  EXCHANGES
-    Route::prefix('exchange')->group(function (){
+    Route::prefix('exchange')->group(function () {
         Route::post('get-info/{slug}', [ExchangeController::class, 'getExchangeInfo']);
         Route::post('account/{slug}', [ExchangeController::class, 'getAccount']);
         Route::post('create-order/{slug}', [ExchangeController::class, 'createOrder']);
@@ -48,8 +47,8 @@ Route::middleware(['auth'])->prefix('terminal')->group(function () {
     });
 
     // CHAT
-    Route::get('/chat-messages', [ChatsController::class,'fetchMessages']);
-    Route::post('/chat-messages', [ChatsController::class,'sendMessage']);
+    Route::get('/chat-messages', [ChatsController::class, 'fetchMessages']);
+    Route::post('/chat-messages', [ChatsController::class, 'sendMessage']);
 });
 
 /* РОУТЫ АДМИНКИ */
