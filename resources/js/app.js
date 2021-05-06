@@ -15,11 +15,6 @@ Vue.use(require('vue-moment'), {
     moment
 })
 
-import Vuetify from 'vuetify'
-import 'vuetify/dist/vuetify.min.css'
-
-Vue.use(Vuetify)
-
 import VueChatScroll from 'vue-chat-scroll';
 
 Vue.use(VueChatScroll);
@@ -42,6 +37,14 @@ import Trading from "./views/Trading";
 import Dashboard from "./views/Dashboard";
 import Exchanges from "./views/Exchanges";
 import Profile from "./views/Profile";
+import Preferences from "./components/Preferences";
+import TwoFactorAuth from "./views/TwoFactorAuth";
+import TwoFactorAuthStep1 from "./views/TwoFactorAuthStep1";
+import TwoFactorAuthStep2 from "./views/TwoFactorAuthStep2";
+import TwoFactorAuthStep3 from "./views/TwoFactorAuthStep3";
+import TwoFactorAuthStep4 from "./views/TwoFactorAuthStep4";
+import SelectExchange from "./views/SelectExchange";
+import ExchangeConnect from "./views/ExchangeConnect";
 
 import VueRouter from 'vue-router'
 
@@ -51,6 +54,15 @@ const routes = [
     {path: '/bots', component: Trading, name: 'Боты'},
     {path: '/exchanges', component: Exchanges, name: 'Мои биржи'},
     {path: '/profile', component: Profile, name: 'Мои данные'},
+    {path: '/preferences', component: Preferences, name: 'Preferences'},
+    {path: '/2fa', component: TwoFactorAuth, name: '2 Factor Authentication'},
+    {path: '/2fa-step-1', component: TwoFactorAuthStep1, name: '2 Factor Authentication'},
+    {path: '/2fa-step-2', component: TwoFactorAuthStep2, name: '2 Factor Authentication'},
+    {path: '/2fa-step-3', component: TwoFactorAuthStep3, name: '2 Factor Authentication'},
+    {path: '/2fa-step-4', component: TwoFactorAuthStep4, name: '2 Factor Authentication'},
+    {path: '/select-exchange', component: SelectExchange, name: 'Select Exchange'},
+    {path: '/select-exchange/:id', component: ExchangeConnect, name: 'Connect Exchange', props: true},
+
 
 ]
 const router = new VueRouter({
@@ -80,8 +92,5 @@ Vue.component('app', require('./components/App').default);
 const app = new Vue({
     router,
     store,
-    vuetify: new Vuetify({
-        theme: {dark: true},
-    }),
     el: '#app'
 });

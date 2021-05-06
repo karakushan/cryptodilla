@@ -19,8 +19,32 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="updated gitignore">
+    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="updated htaccess">
+      <change afterPath="$PROJECT_DIR$/resources/js/components/Preferences.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/views/ExchangeConnect.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/views/SelectExchange.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/views/TwoFactorAuth.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/views/TwoFactorAuthStep1.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/views/TwoFactorAuthStep2.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/views/TwoFactorAuthStep3.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/views/TwoFactorAuthStep4.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/dashboard-terminal.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/terminal.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/TradingView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/TradingView.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/Profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/Profile.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/Trading.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/Trading.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/landing.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/landing.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dashboard.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/terminal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/terminal.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,7 +247,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="database.data.extractors.current.export.id" value="SQL Inserts" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/views" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -233,17 +257,17 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views" />
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\public" />
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\dashboard\exchange" />
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\dashboard\user" />
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\lang\ru" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\admin" />
       <recent name="E:\OSPanel\domains\cryptotrade.loc\public\audio" />
       <recent name="E:\OSPanel\domains\cryptotrade.loc\public" />
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\dashboard\user" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\js\views" />
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views" />
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\public" />
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\dashboard\exchange" />
       <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\dashboard\user" />
     </key>
   </component>
@@ -338,7 +362,8 @@
       <workItem from="1619161522309" duration="21000" />
       <workItem from="1619363032464" duration="19004000" />
       <workItem from="1619412720804" duration="27000" />
-      <workItem from="1620195109553" duration="7158000" />
+      <workItem from="1620195109553" duration="7663000" />
+      <workItem from="1620291760127" duration="11559000" />
     </task>
     <task id="LOCAL-00001" summary="подключил vue router">
       <created>1615840605110</created>
@@ -501,7 +526,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620201592253</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="updated htaccess">
+      <created>1620202404684</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1620202404684</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -546,7 +578,8 @@
     <MESSAGE value="отмена ордера" />
     <MESSAGE value="создал служебные страницы регистрации, входа и сброса пароля" />
     <MESSAGE value="updated gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated gitignore" />
+    <MESSAGE value="updated htaccess" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated htaccess" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Deployment" timestamp="1620201847964">
@@ -629,26 +662,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="757" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620196279175" />
-    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1620196299053">
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1620294426986">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620196299053" />
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620294426986" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1617554831153">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1617554831153" />
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1620201594238">
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1620202406250">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1620201594238" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1620202406250" />
     <state x="859" y="394" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1616884798046">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="859" y="394" key="com.intellij.database.actions.DdlActions$CreateObject$1/0.0.1920.1040@0.0.1920.1040" timestamp="1616884798046" />
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1619122771815">
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1620294264043">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619122771815" />
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620294264043" />
     <state x="667" y="253" width="585" height="534" key="find.popup" timestamp="1616520227507">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

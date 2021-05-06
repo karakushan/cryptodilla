@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('layouts.terminal')
 
 @section('content')
     <main class="cs--page cs--page--landing">

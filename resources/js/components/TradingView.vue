@@ -18,7 +18,7 @@ export default {
                 "theme": "dark",
                 "style": "1",
                 "locale": "ru",
-                "toolbar_bg": "#272727",
+                "toolbar_bg": "#021131",
                 "color": "black",
                 "enable_publishing": false,
                 "hide_side_toolbar": false,
