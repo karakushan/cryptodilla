@@ -19,32 +19,44 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="updated htaccess">
-      <change afterPath="$PROJECT_DIR$/resources/js/components/Preferences.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/views/ExchangeConnect.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/views/SelectExchange.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/views/TwoFactorAuth.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/views/TwoFactorAuthStep1.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/views/TwoFactorAuthStep2.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/views/TwoFactorAuthStep3.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/views/TwoFactorAuthStep4.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/dashboard-terminal.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/terminal.blade.php" afterDir="false" />
+    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="two factor auth page">
+      <change afterPath="$PROJECT_DIR$/app/Console/Commands/AssignPermission.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Helpers/Translate.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/CurrencyController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Currency.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/sluggable.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_08_090319_create_currencies_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_08_093601_change_column_description_for_currencies.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_08_132106_add_fields_for_user_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/preloader.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/Button.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/dashboard/currency/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/dashboard/currency/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/dashboard/currency/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/cryptotrade.loc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cryptotrade.loc.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5035001f-1a51-453c-b284-da206a5db2ea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5035001f-1a51-453c-b284-da206a5db2ea.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TerminalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TerminalController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/dashboard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/TradingView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/TradingView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/Profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/Profile.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/Trading.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/Trading.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Preferences.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/Preferences.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/landing.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/landing.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dashboard.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dashboard-terminal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dashboard-terminal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/leftbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/leftbar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/terminal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/terminal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,6 +235,12 @@
       <path value="$PROJECT_DIR$/vendor/linwj/zb" />
       <path value="$PROJECT_DIR$/vendor/workerman/globaldata" />
       <path value="$PROJECT_DIR$/vendor/workerman/workerman" />
+      <path value="$PROJECT_DIR$/vendor/cviebrock/eloquent-sluggable" />
+      <path value="$PROJECT_DIR$/vendor/cocur/slugify" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
     </include_path>
   </component>
   <component name="PhpXdebugProxy" ide_key="PHPSTORM" host="localhost" />
@@ -247,7 +265,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="database.data.extractors.current.export.id" value="SQL Inserts" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/dashboard/currency" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -257,21 +275,22 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\dashboard\currency" />
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\js\views" />
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views" />
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\public" />
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\dashboard\exchange" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\js\views" />
       <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\admin" />
       <recent name="E:\OSPanel\domains\cryptotrade.loc\public\audio" />
       <recent name="E:\OSPanel\domains\cryptotrade.loc\public" />
       <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\dashboard\user" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\js\views" />
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views" />
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\public" />
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\dashboard\exchange" />
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\dashboard\user" />
-    </key>
   </component>
-  <component name="RunManager" selected="npm.prod">
+  <component name="RunManager" selected="npm.watch">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
@@ -321,8 +340,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.prod" />
         <item itemvalue="npm.watch" />
+        <item itemvalue="npm.prod" />
         <item itemvalue="npm.hot" />
       </list>
     </recent_temporary>
@@ -363,7 +382,8 @@
       <workItem from="1619363032464" duration="19004000" />
       <workItem from="1619412720804" duration="27000" />
       <workItem from="1620195109553" duration="7663000" />
-      <workItem from="1620291760127" duration="11559000" />
+      <workItem from="1620291760127" duration="12700000" />
+      <workItem from="1620463978424" duration="15323000" />
     </task>
     <task id="LOCAL-00001" summary="подключил vue router">
       <created>1615840605110</created>
@@ -533,7 +553,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620202404684</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="two factor auth page">
+      <created>1620312270113</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1620312270113</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -579,7 +606,8 @@
     <MESSAGE value="создал служебные страницы регистрации, входа и сброса пароля" />
     <MESSAGE value="updated gitignore" />
     <MESSAGE value="updated htaccess" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated htaccess" />
+    <MESSAGE value="two factor auth page" />
+    <option name="LAST_COMMIT_MESSAGE" value="two factor auth page" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Deployment" timestamp="1620201847964">
@@ -598,10 +626,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="647" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1619379237167" />
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1616858318801">
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1620467562701">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616858318801" />
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620467562701" />
     <state x="736" y="432" width="447" height="265" key="ComposerInitDialogKey" timestamp="1619082520372">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -610,22 +638,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1616277096084" />
-    <state width="1877" height="225" key="GridCell.Tab.0.bottom" timestamp="1619383895561">
+    <state width="1877" height="189" key="GridCell.Tab.0.bottom" timestamp="1620484377557">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="225" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1619383895561" />
-    <state width="1877" height="225" key="GridCell.Tab.0.center" timestamp="1619383895561">
+    <state width="1877" height="189" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1620484377557" />
+    <state width="1877" height="189" key="GridCell.Tab.0.center" timestamp="1620484377557">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="225" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1619383895561" />
-    <state width="1877" height="225" key="GridCell.Tab.0.left" timestamp="1619383895560">
+    <state width="1877" height="189" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1620484377557" />
+    <state width="1877" height="189" key="GridCell.Tab.0.left" timestamp="1620484377556">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="225" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1619383895560" />
-    <state width="1877" height="225" key="GridCell.Tab.0.right" timestamp="1619383895561">
+    <state width="1877" height="189" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1620484377556" />
+    <state width="1877" height="189" key="GridCell.Tab.0.right" timestamp="1620484377557">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="225" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1619383895561" />
+    <state width="1877" height="189" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620484377557" />
     <state width="1877" height="208" key="GridCell.Tab.1.bottom" timestamp="1619379556505">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -658,10 +686,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="208" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1619379556506" />
-    <state x="757" y="243" key="NewPhpClassDialog" timestamp="1620196279175">
+    <state x="757" y="243" key="NewPhpClassDialog" timestamp="1620481954524">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="757" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620196279175" />
+    <state x="757" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620481954524" />
     <state x="794" y="443" key="NewPhpFileDialog" timestamp="1620294426986">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -670,10 +698,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1617554831153" />
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1620202406250">
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1620312272352">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1620202406250" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1620312272352" />
     <state x="859" y="394" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1616884798046">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

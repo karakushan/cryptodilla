@@ -112,7 +112,7 @@
                                     </li>
 
                                     <li class="cs--dropdown__item">
-                                        <router-link to="/preferences">{{ $__("Preference") }}</router-link>
+                                        <router-link to="/preferences">{{ $__("Preferences") }}</router-link>
                                     </li>
 
                                     <li class="cs--dropdown__item">

@@ -28,6 +28,10 @@ class User extends Authenticatable
         'address',
         'ip',
         'phone',
+        'terminal_theme',
+        'terminal_currency',
+        'last_login_date',
+        'last_location'
     ];
 
     protected $appends = ['avatar_url'];

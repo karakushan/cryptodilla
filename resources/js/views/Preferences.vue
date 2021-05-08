@@ -3,7 +3,7 @@
         <div class="cs--container">
             <h1 class="cs--page__title">{{ $__("Preferences") }}</h1>
             <div class="cs--page-side-wrapper">
-                <form class="cs--dashboard-form">
+                <form class="cs--dashboard-form" @submit.prevent="updateUser()">
                     <h2 class="cs--dashboard-form__title">{{ $__("Interface") }}</h2>
 
                     <div class="cs--dashboard-form__item">
@@ -16,6 +16,7 @@
                             >
                                 <input
                                     name="dashboard--interface"
+                                    v-model="formData.terminal_theme"
                                     id="dark"
                                     type="radio"
                                     value="dark"
@@ -32,6 +33,7 @@
                             >
                                 <input
                                     name="dashboard--interface"
+                                    v-model="formData.terminal_theme"
                                     id="light"
                                     type="radio"
                                     value="light"
@@ -43,7 +45,7 @@
                         </div>
                     </div>
 
-                    <hr />
+                    <hr/>
                     <h2 class="cs--dashboard-form__title">{{ $__("Preferred Currency") }}</h2>
 
                     <div class="cs--dashboard-form__item">
@@ -53,20 +55,19 @@
                             <select
                                 id="dashboard--currency"
                                 class="cs--dashboard-form__input"
+                                v-model="formData.terminal_currency"
                             >
-                                <option value="" disabled selected hidden></option>
-
-                                <option value="btc">BTC</option>
-
-                                <option value="ethr">ETHR</option>
+                                <option value="">{{ $__("Please select") }}</option>
+                                <option :value="currency.slug" v-for="currency in appData.currencies">{{
+                                        currency.name
+                                    }}
+                                </option>
                             </select>
                         </div>
                     </div>
 
                     <div class="cs--dashboard-form__btn-group">
-                        <button type="submit" class="cs--btn cs--btn--grad-blue">
-                            {{ $__("Save changes") }}
-                        </button>
+                        <Button :preloader="inProcess" type="submit"></Button>
                     </div>
                 </form>
 
@@ -125,8 +126,70 @@
 </template>
 
 <script>
+import {mapActions, mapGetters} from "vuex";
+import Button from "../components/Button"
+
 export default {
-name: "Preferences"
+    name: "Preferences",
+    data() {
+        return {
+            formData: {
+                terminal_theme: 'dark',
+                terminal_currency: '',
+            },
+            inProcess: false
+        }
+    },
+    mounted() {
+        if (this.appData.user){
+            this.formData.terminal_currency = this.appData.user.terminal_currency
+            this.formData.terminal_theme=this.appData.user.terminal_theme
+        }
+    },
+    computed: {
+        ...mapGetters(['appData']),
+    },
+    watch: {
+        'appData.user.terminal_currency': function (newValue, oldValue) {
+            this.formData.terminal_currency = newValue
+        },
+        'appData.user.terminal_theme': function (newValue, oldValue) {
+            this.formData.terminal_theme = newValue
+        }
+    },
+    methods: {
+        ...mapActions(['setData']),
+        updateUser() {
+            this.inProcess = true;
+            axios
+                .put('/terminal/user-update/' + this.appData.user.id, this.formData)
+                .then(response => {
+                    if (response.status == 200 && response.data) {
+                        this.setData({
+                            ...this.appData,
+                            user:{...this.appData.user,...this.formData}
+                        })
+
+                        this.$notify.success({
+                            position: 'top right',
+                            title: this.$__('Success'),
+                            msg: response.data.message,
+                            timeout: 3000
+                        })
+                    }
+                })
+                .catch(error => {
+                    // console.log(error.response);
+                    console.log(error.response.data);
+                })
+                .finally(() => {
+                    this.inProcess = false
+                });
+        }
+    },
+    components: {
+        Button
+    }
 }
 </script>
 

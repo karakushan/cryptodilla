@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UserRequest;
-use App\Models\User;
+use App\Models\Currency;
 use Illuminate\Http\Request;
-use Response;
 
-class UserController extends Controller
+class CurrencyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +14,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('id', 'desc')->get();
-        $title = __('Список пользователей');
+        $title = __('Currencies');
+        $items = Currency::paginate(15);
 
-        return view('dashboard.user.index', compact('users', 'title'));
+        return view('dashboard.currency.index', compact('title', 'items'));
     }
 
     /**
@@ -29,7 +27,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('dashboard.user.create');
+        $title = __('Adding currency');
+
+        return view('dashboard.currency.create', compact('title'));
     }
 
     /**
@@ -38,16 +38,14 @@ class UserController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserRequest $request)
+    public function store(Request $request)
     {
-        $user = new User();
-        $user->fill($request->all());
-        $user->save();
+        Currency::create($request->all());
 
-        session()->flash('status', 'success');
-        session()->flash('message', __('New user has been successfully created!'));
-
-        return redirect()->route('users.index');
+        return redirect()->route('currencies.index')->with([
+            'status' => 'success',
+            'message' => __('Object added successfully!')
+        ]);
     }
 
     /**
@@ -69,9 +67,11 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = User::findOrFail($id);
+        $item = Currency::findOrFail($id);
 
-        return view('dashboard.user.edit', compact('user'));
+        $title = __('Editing Currency');
+
+        return view('dashboard.currency.edit', compact('title', 'item'));
     }
 
     /**
@@ -83,19 +83,15 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::find($id);
-        $user->fill($request->all());
-        $user->save();
-        $response=[
+        $item = Currency::findOrFail($id);
+        $item->fill($request->all());
+        $item->status = $request->has('status') ? intval($request->input('status')) : 0;
+        $item->save();
+
+        return redirect()->route('currencies.index')->with([
             'status' => 'success',
-            'message' => __('User data has been successfully updated!')
-        ];
-
-       if( $request->ajax()){
-           return response()->json($response);
-       }
-
-        return redirect()->route('users.index')->with($response);
+            'message' => __('Data updated successfully!')
+        ]);
     }
 
     /**

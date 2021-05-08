@@ -37,7 +37,7 @@ import Trading from "./views/Trading";
 import Dashboard from "./views/Dashboard";
 import Exchanges from "./views/Exchanges";
 import Profile from "./views/Profile";
-import Preferences from "./components/Preferences";
+import Preferences from "./views/Preferences";
 import TwoFactorAuth from "./views/TwoFactorAuth";
 import TwoFactorAuthStep1 from "./views/TwoFactorAuthStep1";
 import TwoFactorAuthStep2 from "./views/TwoFactorAuthStep2";
@@ -45,8 +45,9 @@ import TwoFactorAuthStep3 from "./views/TwoFactorAuthStep3";
 import TwoFactorAuthStep4 from "./views/TwoFactorAuthStep4";
 import SelectExchange from "./views/SelectExchange";
 import ExchangeConnect from "./views/ExchangeConnect";
-
 import VueRouter from 'vue-router'
+import VueNotify from 'vuejs-notify'
+Vue.use(VueNotify)
 
 Vue.use(VueRouter)
 const routes = [

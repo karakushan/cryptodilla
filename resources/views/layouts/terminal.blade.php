@@ -58,7 +58,7 @@
                 </nav>
                 <div class="cs--landing-login">
                     @if(auth()->check())
-                        <a href="/terminal">{{ __("Trading") }}</a>
+                        <a href="/terminal">{{ __("Dashboard") }}</a>
                         <a href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"
@@ -420,8 +420,5 @@
 </div>
 <script src="{{ asset('js/vendor.js') }}" defer></script>
 <script src="{{ asset('js/main.js') }}" defer></script>
-<!-- Scripts -->
-<script type="text/javascript" src="https://s3.tradingview.com/tv.js" defer></script>
-<script src="{{ asset('js/app.js') }}" defer></script>
 </body>
 </html>

@@ -42,6 +42,17 @@
                         <li><a href="{{ route('exchanges.create') }}">{{ __("Добавить") }}</a></li>
                     </ul>
                 </li>
+                <li>
+                    <a href="{{ route('currencies.index') }}">
+                        <i class="fa fa-btc" aria-hidden="true"></i>
+                        <span>{{ __("Currencies") }}</span>
+                        <i class="feather icon-chevron-right pull-right"></i>
+                    </a>
+                    <ul class="vertical-submenu">
+                        <li><a href="{{ route('currencies.index') }}">{{ __("List") }}</a></li>
+                        <li><a href="{{ route('currencies.create') }}">{{ __("Add") }}</a></li>
+                    </ul>
+                </li>
 
             </ul>
         </div>

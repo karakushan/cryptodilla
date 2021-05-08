@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ChatsController;
+use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\FilepondController;
 use App\Http\Controllers\BinanceController;
 use App\Http\Controllers\ExchangeController;
@@ -30,11 +31,12 @@ Auth::routes();
 Route::get('/', [PageController::class, 'homePage'])->name('homepage');
 
 /* РОУТЫ ТОРГОВОГО ТЕРМИНАЛА */
-Route::middleware(['auth'])->prefix('terminal')->group(function () {
+Route::group(['prefix' => 'terminal', 'middleware' => ['permission:manage terminal|manage admin']], function () {
     Route::get('/', [TerminalController::class, 'index'])->name('terminal.index');
     Route::get('/exchanges', [ExchangeController::class, 'getExchanges']);
     Route::post('/attach-exchange', [ExchangeController::class, 'attachUserExchange']);
     Route::post('/deattach-exchange', [ExchangeController::class, 'deattachUserExchange']);
+    Route::put('/user-update/{id}', [UserController::class, 'update']);
 
     //  EXCHANGES
     Route::prefix('exchange')->group(function () {
@@ -52,13 +54,14 @@ Route::middleware(['auth'])->prefix('terminal')->group(function () {
 });
 
 /* РОУТЫ АДМИНКИ */
-Route::middleware(['auth'])->prefix('dashboard')->group(function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['permission:manage admin']], function () {
     Route::get('/', [AdminController::class, 'index'])->name('dashboard.index');
     Route::post('/users/upload-avatar', [UserController::class, 'uploadAvatar'])->name('users.upload-avatar');
     Route::resources([
         'users' => UserController::class,
         'user-groups' => UserGroupController::class,
-        'exchanges' => ExchangeController::class
+        'exchanges' => ExchangeController::class,
+        'currencies' => CurrencyController::class
     ]);
 });
 

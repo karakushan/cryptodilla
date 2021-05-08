@@ -10,6 +10,6 @@ class AdminController extends Controller
 
     public function index()
     {
-        return view('dashboard-crypto');
+        return view('admin/dashboard-crypto');
     }
 }
