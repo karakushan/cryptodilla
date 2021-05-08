@@ -3,7 +3,7 @@
         <header class="cs--dashboard-header" data-landing-header>
             <div class="cs--container">
                 <div class="cs--dashboard-header__wrapper">
-                    <a href="javascript:void(0)" class="cs--logo cs--logo--xs">
+                    <a href="/" class="cs--logo cs--logo--xs">
                         <img src="/img/logo-icon.png" alt="logo" />
                     </a>
                     <nav

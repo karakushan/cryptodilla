@@ -37,6 +37,7 @@ Route::group(['prefix' => 'terminal', 'middleware' => ['permission:manage termin
     Route::post('/attach-exchange', [ExchangeController::class, 'attachUserExchange']);
     Route::post('/deattach-exchange', [ExchangeController::class, 'deattachUserExchange']);
     Route::put('/user-update/{id}', [UserController::class, 'update']);
+    Route::post('/user-2fa', [UserController::class, 'google2fa']);
 
     //  EXCHANGES
     Route::prefix('exchange')->group(function () {

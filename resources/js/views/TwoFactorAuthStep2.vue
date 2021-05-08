@@ -15,8 +15,7 @@
                         account in case you lose your device
                     </h3>
                     <div class="cs--dashboard-form__qr-wrapper">
-                        <div class="cs--dashboard-form__qr-code">
-                            <img src="/img/examples/qr-example.png" alt="" />
+                        <div class="cs--dashboard-form__qr-code" v-html="qrCodeUrl">
                         </div>
                         <div class="cs--dashboard-form__qr-content">
                             <p class="cs--dashboard-form__qr-text">
@@ -27,7 +26,7 @@
                                 <span class="cs--page__content--accent">Backup Key</span>
                                 (required for next step)
                             </div>
-                            <span>OUUS66ZQEETFAXJ6JFTF2Q3YEE</span>
+                            <span>{{ secret }}</span>
                         </div>
                     </div>
                     <div class="cs--dashboard-form__btn-group">
@@ -104,7 +103,28 @@
 
 <script>
 export default {
-name: "TwoFactorAuthStep2"
+    name: "TwoFactorAuthStep2",
+    data() {
+        return {
+            secret: '',
+            qrCodeUrl: ''
+        }
+    },
+    mounted() {
+        axios
+            .post('/terminal/user-2fa', {})
+            .then(response => {
+                if (response.status == 200 && response.data) {
+                    this.secret=response.data.secret
+                    this.qrCodeUrl=response.data.qrCodeUrl
+
+                }
+            })
+            .catch(error => {
+                // console.log(error.response);
+                console.log(error.response.data);
+            });
+    }
 }
 </script>
 

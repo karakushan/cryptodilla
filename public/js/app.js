@@ -5559,9 +5559,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "TwoFactorAuthStep2"
+  name: "TwoFactorAuthStep2",
+  data: function data() {
+    return {
+      secret: '',
+      qrCodeUrl: ''
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.post('/terminal/user-2fa', {}).then(function (response) {
+      if (response.status == 200 && response.data) {
+        _this.secret = response.data.secret;
+        _this.qrCodeUrl = response.data.qrCodeUrl;
+      }
+    })["catch"](function (error) {
+      // console.log(error.response);
+      console.log(error.response.data);
+    });
+  }
 });
 
 /***/ }),
@@ -76525,10 +76543,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "a",
-      {
-        staticClass: "cs--logo cs--logo--xs",
-        attrs: { href: "javascript:void(0)" }
-      },
+      { staticClass: "cs--logo cs--logo--xs", attrs: { href: "/" } },
       [_c("img", { attrs: { src: "/img/logo-icon.png", alt: "logo" } })]
     )
   },
@@ -81344,7 +81359,24 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _vm._m(0),
+          _c("div", { staticClass: "cs--dashboard-form__qr-wrapper" }, [
+            _c("div", {
+              staticClass: "cs--dashboard-form__qr-code",
+              domProps: { innerHTML: _vm._s(_vm.qrCodeUrl) }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "cs--dashboard-form__qr-content" }, [
+              _c("p", { staticClass: "cs--dashboard-form__qr-text" }, [
+                _vm._v(
+                  "\n                            Write down this backup key in a safe place in case you lose\n                            your device:\n                        "
+                )
+              ]),
+              _vm._v(" "),
+              _vm._m(0),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(_vm.secret))])
+            ])
+          ]),
           _vm._v(" "),
           _c(
             "div",
@@ -81382,29 +81414,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "cs--dashboard-form__qr-wrapper" }, [
-      _c("div", { staticClass: "cs--dashboard-form__qr-code" }, [
-        _c("img", { attrs: { src: "/img/examples/qr-example.png", alt: "" } })
+    return _c("div", [
+      _c("span", { staticClass: "cs--page__content--accent" }, [
+        _vm._v("Backup Key")
       ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "cs--dashboard-form__qr-content" }, [
-        _c("p", { staticClass: "cs--dashboard-form__qr-text" }, [
-          _vm._v(
-            "\n                            Write down this backup key in a safe place in case you lose\n                            your device:\n                        "
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("span", { staticClass: "cs--page__content--accent" }, [
-            _vm._v("Backup Key")
-          ]),
-          _vm._v(
-            "\n                            (required for next step)\n                        "
-          )
-        ]),
-        _vm._v(" "),
-        _c("span", [_vm._v("OUUS66ZQEETFAXJ6JFTF2Q3YEE")])
-      ])
+      _vm._v(
+        "\n                            (required for next step)\n                        "
+      )
     ])
   },
   function() {

@@ -6,6 +6,7 @@ use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Response;
+use PragmaRX\Google2FAQRCode\Google2FA;
 
 class UserController extends Controller
 {
@@ -86,14 +87,14 @@ class UserController extends Controller
         $user = User::find($id);
         $user->fill($request->all());
         $user->save();
-        $response=[
+        $response = [
             'status' => 'success',
             'message' => __('User data has been successfully updated!')
         ];
 
-       if( $request->ajax()){
-           return response()->json($response);
-       }
+        if ($request->ajax()) {
+            return response()->json($response);
+        }
 
         return redirect()->route('users.index')->with($response);
     }
@@ -107,5 +108,35 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Генерирует секретный код и QR code GOOGLE 2FA
+     *
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \PragmaRX\Google2FA\Exceptions\IncompatibleWithGoogleAuthenticatorException
+     * @throws \PragmaRX\Google2FA\Exceptions\InvalidCharactersException
+     * @throws \PragmaRX\Google2FA\Exceptions\SecretKeyTooShortException
+     */
+    public function google2fa()
+    {
+        $google2fa = new Google2FA();
+        $user = auth()->user();
+        if (!$user->google2fa_secret){
+
+            $user->google2fa_secret->generateSecretKey();
+            $user->save();
+        }
+
+        $qrCodeUrl = $google2fa->getQRCodeInline(
+            env('APP_NAME'),
+            env('APP_NAME'),
+            $user->google2fa_secret
+        );
+
+        return response()->json([
+            'secret' =>$user->google2fa_secret,
+            'qrCodeUrl' => $qrCodeUrl
+        ]);
     }
 }
