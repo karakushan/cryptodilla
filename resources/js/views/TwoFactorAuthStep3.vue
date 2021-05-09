@@ -1,29 +1,29 @@
 <template>
     <main class="cs--page cs--dashboard--2fa">
         <div class="cs--container">
-            <h1 class="cs--page__title">2 Factor Authentication</h1>
+            <h1 class="cs--page__title">{{ $__("2 Factor Authentication") }}</h1>
             <div class="cs--page-side-wrapper">
-                <form class="cs--dashboard-form">
+                <form class="cs--dashboard-form" @submit.prevent="enable2fa">
                     <h2
                         class="cs--dashboard-form__title cs--dashboard-form__title--mark"
                     >
-                        Step 3
+                        {{ $__("Step 3") }}
                     </h2>
                     <h3 class="cs--dashboard-form__sub-title">
-                        Confirm backup and enable Google Authenticator
+                        {{ $__("Confirm backup and enable Google Authenticator") }}
                     </h3>
 
                     <div class="cs--dashboard-form__item">
                         <label
                             for="dashboard--backup-key"
                             class="cs--dashboard-form__label"
-                        >Backup Key</label
+                        >{{ $__("Backup Key") }}</label
                         >
 
                         <div class="cs--dashboard-form__input-wrapper" data-postfix="">
                             <input
                                 id="dashboard--backup-key"
-                                type="password"
+                                type="text"
                                 class="cs--dashboard-form__input"
                                 placeholder="*****"
                             />
@@ -34,7 +34,7 @@
                         <label
                             for="dashboard--password"
                             class="cs--dashboard-form__label"
-                        >Password</label
+                        >{{ $__("Password") }}</label
                         >
 
                         <div class="cs--dashboard-form__input-wrapper" data-postfix="">
@@ -51,15 +51,17 @@
                         <label
                             for="dashboard--2fa-code"
                             class="cs--dashboard-form__label"
-                        >2FA Code</label
+                        >{{ $__("2FA Code") }}</label
                         >
 
                         <div class="cs--dashboard-form__input-wrapper" data-postfix="">
                             <input
                                 id="dashboard--2fa-code"
-                                type="password"
+                                v-model="formData.secret"
+                                type="text"
                                 class="cs--dashboard-form__input"
                                 placeholder="*****"
+                                required
                             />
                         </div>
                     </div>
@@ -70,15 +72,12 @@
                             tag="button"
                             class="cs--btn cs--btn--transparent-grad-blue"
                         >
-                            Back
+                            {{ $__("Back") }}
                         </router-link>
-                        <router-link
-                            to="/2fa-step-4"
-                            tag="button"
-                            class="cs--btn cs--btn--grad-blue ml-auto"
-                        >
-                            Enable 2FA
-                        </router-link>
+                        <Button class="cs--btn cs--btn--grad-blue ml-auto" type="submit">{{
+                                $__("Enable 2FA")
+                            }}
+                        </Button>
                     </div>
                 </form>
 
@@ -137,8 +136,44 @@
 </template>
 
 <script>
+import Button from "../components/Button"
+
 export default {
-name: "TwoFactorAuthStep3"
+    name: "TwoFactorAuthStep3",
+    data() {
+        return {
+            formData: {
+                secret: '',
+                google2fa_status: true
+            }
+        }
+    },
+    methods: {
+        enable2fa() {
+            axios
+                .post('/terminal/user-2fa-validate', this.formData)
+                .then(response => {
+                    if (response.status == 200 && response.data) {
+                        if (response.data.status === true) {
+                            this.$router.push('2fa-step-4')
+                        } else {
+                            this.$notify.error({
+                                position: 'top right',
+                                title: this.$__('Error'),
+                                msg: response.data.message,
+                                timeout: 3000
+                            })
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.log(error.response.data);
+                });
+        }
+    },
+    components: {
+        Button
+    }
 }
 </script>
 

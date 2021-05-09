@@ -1450,55 +1450,61 @@ guard_name</ColNames>
       <Position>19</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <index id="402" parent="298" name="users_email_unique">
+    <column id="402" parent="298" name="google2fa_status">
+      <Position>20</Position>
+      <DataType>tinyint(1)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <index id="403" parent="298" name="users_email_unique">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="403" parent="298" name="PRIMARY">
+    <key id="404" parent="298" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="404" parent="298" name="users_email_unique">
+    <key id="405" parent="298" name="users_email_unique">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>users_email_unique</UnderlyingIndexName>
     </key>
-    <column id="405" parent="299" name="id">
+    <column id="406" parent="299" name="id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="406" parent="299" name="app_id">
+    <column id="407" parent="299" name="app_id">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="407" parent="299" name="peak_connection_count">
+    <column id="408" parent="299" name="peak_connection_count">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="408" parent="299" name="websocket_message_count">
+    <column id="409" parent="299" name="websocket_message_count">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="409" parent="299" name="api_message_count">
+    <column id="410" parent="299" name="api_message_count">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="410" parent="299" name="created_at">
+    <column id="411" parent="299" name="created_at">
       <Position>6</Position>
       <DataType>timestamp|0s</DataType>
     </column>
-    <column id="411" parent="299" name="updated_at">
+    <column id="412" parent="299" name="updated_at">
       <Position>7</Position>
       <DataType>timestamp|0s</DataType>
     </column>
-    <key id="412" parent="299" name="PRIMARY">
+    <key id="413" parent="299" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

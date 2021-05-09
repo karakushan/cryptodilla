@@ -1,30 +1,27 @@
 <template>
     <main class="cs--page cs--dashboard--2fa">
         <div class="cs--container">
-            <h1 class="cs--page__title">2 Factor Authentication</h1>
+            <h1 class="cs--page__title">{{ $__("2 Factor Authentication") }}</h1>
             <div class="cs--page-side-wrapper">
                 <form class="cs--dashboard-form">
                     <h2
                         class="cs--dashboard-form__title cs--dashboard-form__title--mark"
                     >
-                        Step 2
+                        {{ $__("Step 2") }}
                     </h2>
                     <h3 class="cs--dashboard-form__sub-title">
-                        Use the 2FA app on your mobile device to scan the barcode below.
-                        Be sure to save the backup code so you can regain access to your
-                        account in case you lose your device
+                        {{ $__("Use the 2FA app on your mobile device to scan the barcode below. Be sure to save the backup code so you can regain access to your account in case you lose your device") }}
                     </h3>
                     <div class="cs--dashboard-form__qr-wrapper">
                         <div class="cs--dashboard-form__qr-code" v-html="qrCodeUrl">
                         </div>
                         <div class="cs--dashboard-form__qr-content">
                             <p class="cs--dashboard-form__qr-text">
-                                Write down this backup key in a safe place in case you lose
-                                your device:
+                                {{ $__("Write down this backup key in a safe place in case you lose your device:") }}
                             </p>
                             <div>
-                                <span class="cs--page__content--accent">Backup Key</span>
-                                (required for next step)
+                                <span class="cs--page__content--accent">{{ $__("Backup Key") }}</span>
+                                ({{ $__("required for next step") }})
                             </div>
                             <span>{{ secret }}</span>
                         </div>
@@ -35,14 +32,14 @@
                             tag="button"
                             class="cs--btn cs--btn--transparent-grad-blue"
                         >
-                            Back
+                            {{ $__("Back") }}
                         </router-link>
                         <router-link
                             to="/2fa-step-3"
                             tag="button"
                             class="cs--btn cs--btn--grad-blue ml-auto"
                         >
-                            Next
+                            {{ $__("Next") }}
                         </router-link>
                     </div>
                 </form>

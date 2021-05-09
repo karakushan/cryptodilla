@@ -5556,9 +5556,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "TwoFactorAuthStep2",
   data: function data() {
@@ -5595,6 +5592,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/Button */ "./resources/js/components/Button.vue");
 //
 //
 //
@@ -5732,9 +5730,42 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "TwoFactorAuthStep3"
+  name: "TwoFactorAuthStep3",
+  data: function data() {
+    return {
+      formData: {
+        secret: '',
+        google2fa_status: true
+      }
+    };
+  },
+  methods: {
+    enable2fa: function enable2fa() {
+      var _this = this;
+
+      axios.post('/terminal/user-2fa-validate', this.formData).then(function (response) {
+        if (response.status == 200 && response.data) {
+          if (response.data.status === true) {
+            _this.$router.push('2fa-step-4');
+          } else {
+            _this.$notify.error({
+              position: 'top right',
+              title: _this.$__('Error'),
+              msg: response.data.message,
+              timeout: 3000
+            });
+          }
+        }
+      })["catch"](function (error) {
+        console.log(error.response.data);
+      });
+    }
+  },
+  components: {
+    Button: _components_Button__WEBPACK_IMPORTED_MODULE_0__.default
+  }
 });
 
 /***/ }),
@@ -5750,7 +5781,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
 //
 //
 //
@@ -5939,23 +5969,23 @@ var routes = [{
 }, {
   path: '/2fa-step-1',
   component: _views_TwoFactorAuthStep1__WEBPACK_IMPORTED_MODULE_9__.default,
-  name: '2 Factor Authentication'
+  name: '2fa-step-1'
 }, {
   path: '/2fa-step-2',
   component: _views_TwoFactorAuthStep2__WEBPACK_IMPORTED_MODULE_10__.default,
-  name: '2 Factor Authentication'
+  name: '2fa-step-2'
 }, {
   path: '/2fa-step-3',
   component: _views_TwoFactorAuthStep3__WEBPACK_IMPORTED_MODULE_11__.default,
-  name: '2 Factor Authentication'
+  name: '2fa-step-3'
 }, {
   path: '/2fa-step-4',
   component: _views_TwoFactorAuthStep4__WEBPACK_IMPORTED_MODULE_12__.default,
-  name: '2 Factor Authentication'
+  name: '2fa-step-4'
 }, {
   path: '/select-exchange',
   component: _views_SelectExchange__WEBPACK_IMPORTED_MODULE_13__.default,
-  name: 'Select Exchange'
+  name: 'select-exchange'
 }, {
   path: '/select-exchange/:id',
   component: _views_ExchangeConnect__WEBPACK_IMPORTED_MODULE_14__.default,
@@ -81150,7 +81180,7 @@ var render = function() {
   return _c("main", { staticClass: "cs--page cs--dashboard--2fa" }, [
     _c("div", { staticClass: "cs--container" }, [
       _c("h1", { staticClass: "cs--page__title" }, [
-        _vm._v("2 Factor Authentication")
+        _vm._v(_vm._s(_vm.$__("2 Factor Authentication")))
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "cs--page-side-wrapper" }, [
@@ -81161,12 +81191,20 @@ var render = function() {
               staticClass:
                 "cs--dashboard-form__title cs--dashboard-form__title--mark"
             },
-            [_vm._v("\n                    Step 1\n                ")]
+            [
+              _vm._v(
+                "\n                    " +
+                  _vm._s(_vm.$__("Step 1")) +
+                  "\n                "
+              )
+            ]
           ),
           _vm._v(" "),
           _c("h3", { staticClass: "cs--dashboard-form__sub-title" }, [
             _vm._v(
-              "\n                    Download the Google Authenticator App\n                "
+              "\n                    " +
+                _vm._s(_vm.$__("Download the Google Authenticator App")) +
+                "\n                "
             )
           ]),
           _vm._v(" "),
@@ -81182,7 +81220,13 @@ var render = function() {
                   staticClass: "cs--btn cs--btn--transparent-grad-blue",
                   attrs: { to: "/2fa", tag: "button" }
                 },
-                [_vm._v("\n                        Back\n                    ")]
+                [
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(_vm.$__("Back")) +
+                      "\n                    "
+                  )
+                ]
               ),
               _vm._v(" "),
               _c(
@@ -81193,7 +81237,9 @@ var render = function() {
                 },
                 [
                   _vm._v(
-                    "\n                        I have the App\n                    "
+                    "\n                        " +
+                      _vm._s(_vm.$__("I have the App")) +
+                      "\n                    "
                   )
                 ]
               )
@@ -81213,13 +81259,29 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "cs--dashboard-form__market-group" }, [
-      _c("a", { attrs: { href: "javascript:void(0)" } }, [
-        _c("img", { attrs: { src: "/img/app-store-badge.svg", alt: "" } })
-      ]),
+      _c(
+        "a",
+        {
+          attrs: {
+            href:
+              "https://apps.apple.com/us/app/google-authenticator/id388497605",
+            target: "_blank"
+          }
+        },
+        [_c("img", { attrs: { src: "/img/app-store-badge.svg", alt: "" } })]
+      ),
       _vm._v(" "),
-      _c("a", { attrs: { href: "javascript:void(0)" } }, [
-        _c("img", { attrs: { src: "/img/google-play-badge.svg", alt: "" } })
-      ])
+      _c(
+        "a",
+        {
+          attrs: {
+            href:
+              "https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2",
+            target: "_blank"
+          }
+        },
+        [_c("img", { attrs: { src: "/img/google-play-badge.svg", alt: "" } })]
+      )
     ])
   },
   function() {
@@ -81339,7 +81401,7 @@ var render = function() {
   return _c("main", { staticClass: "cs--page cs--dashboard--2fa" }, [
     _c("div", { staticClass: "cs--container" }, [
       _c("h1", { staticClass: "cs--page__title" }, [
-        _vm._v("2 Factor Authentication")
+        _vm._v(_vm._s(_vm.$__("2 Factor Authentication")))
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "cs--page-side-wrapper" }, [
@@ -81350,12 +81412,24 @@ var render = function() {
               staticClass:
                 "cs--dashboard-form__title cs--dashboard-form__title--mark"
             },
-            [_vm._v("\n                    Step 2\n                ")]
+            [
+              _vm._v(
+                "\n                    " +
+                  _vm._s(_vm.$__("Step 2")) +
+                  "\n                "
+              )
+            ]
           ),
           _vm._v(" "),
           _c("h3", { staticClass: "cs--dashboard-form__sub-title" }, [
             _vm._v(
-              "\n                    Use the 2FA app on your mobile device to scan the barcode below.\n                    Be sure to save the backup code so you can regain access to your\n                    account in case you lose your device\n                "
+              "\n                    " +
+                _vm._s(
+                  _vm.$__(
+                    "Use the 2FA app on your mobile device to scan the barcode below. Be sure to save the backup code so you can regain access to your account in case you lose your device"
+                  )
+                ) +
+                "\n                "
             )
           ]),
           _vm._v(" "),
@@ -81368,11 +81442,26 @@ var render = function() {
             _c("div", { staticClass: "cs--dashboard-form__qr-content" }, [
               _c("p", { staticClass: "cs--dashboard-form__qr-text" }, [
                 _vm._v(
-                  "\n                            Write down this backup key in a safe place in case you lose\n                            your device:\n                        "
+                  "\n                            " +
+                    _vm._s(
+                      _vm.$__(
+                        "Write down this backup key in a safe place in case you lose your device:"
+                      )
+                    ) +
+                    "\n                        "
                 )
               ]),
               _vm._v(" "),
-              _vm._m(0),
+              _c("div", [
+                _c("span", { staticClass: "cs--page__content--accent" }, [
+                  _vm._v(_vm._s(_vm.$__("Backup Key")))
+                ]),
+                _vm._v(
+                  "\n                            (" +
+                    _vm._s(_vm.$__("required for next step")) +
+                    ")\n                        "
+                )
+              ]),
               _vm._v(" "),
               _c("span", [_vm._v(_vm._s(_vm.secret))])
             ])
@@ -81388,7 +81477,13 @@ var render = function() {
                   staticClass: "cs--btn cs--btn--transparent-grad-blue",
                   attrs: { to: "/2fa-step-1", tag: "button" }
                 },
-                [_vm._v("\n                        Back\n                    ")]
+                [
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(_vm.$__("Back")) +
+                      "\n                    "
+                  )
+                ]
               ),
               _vm._v(" "),
               _c(
@@ -81397,32 +81492,25 @@ var render = function() {
                   staticClass: "cs--btn cs--btn--grad-blue ml-auto",
                   attrs: { to: "/2fa-step-3", tag: "button" }
                 },
-                [_vm._v("\n                        Next\n                    ")]
+                [
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(_vm.$__("Next")) +
+                      "\n                    "
+                  )
+                ]
               )
             ],
             1
           )
         ]),
         _vm._v(" "),
-        _vm._m(1)
+        _vm._m(0)
       ])
     ])
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("span", { staticClass: "cs--page__content--accent" }, [
-        _vm._v("Backup Key")
-      ]),
-      _vm._v(
-        "\n                            (required for next step)\n                        "
-      )
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -81540,63 +81628,158 @@ var render = function() {
   return _c("main", { staticClass: "cs--page cs--dashboard--2fa" }, [
     _c("div", { staticClass: "cs--container" }, [
       _c("h1", { staticClass: "cs--page__title" }, [
-        _vm._v("2 Factor Authentication")
+        _vm._v(_vm._s(_vm.$__("2 Factor Authentication")))
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "cs--page-side-wrapper" }, [
-        _c("form", { staticClass: "cs--dashboard-form" }, [
-          _c(
-            "h2",
-            {
-              staticClass:
-                "cs--dashboard-form__title cs--dashboard-form__title--mark"
-            },
-            [_vm._v("\n                    Step 3\n                ")]
-          ),
-          _vm._v(" "),
-          _c("h3", { staticClass: "cs--dashboard-form__sub-title" }, [
-            _vm._v(
-              "\n                    Confirm backup and enable Google Authenticator\n                "
-            )
-          ]),
-          _vm._v(" "),
-          _vm._m(0),
-          _vm._v(" "),
-          _vm._m(1),
-          _vm._v(" "),
-          _vm._m(2),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "cs--dashboard-form__btn-group" },
-            [
+        _c(
+          "form",
+          {
+            staticClass: "cs--dashboard-form",
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.enable2fa($event)
+              }
+            }
+          },
+          [
+            _c(
+              "h2",
+              {
+                staticClass:
+                  "cs--dashboard-form__title cs--dashboard-form__title--mark"
+              },
+              [
+                _vm._v(
+                  "\n                    " +
+                    _vm._s(_vm.$__("Step 3")) +
+                    "\n                "
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c("h3", { staticClass: "cs--dashboard-form__sub-title" }, [
+              _vm._v(
+                "\n                    " +
+                  _vm._s(
+                    _vm.$__("Confirm backup and enable Google Authenticator")
+                  ) +
+                  "\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "cs--dashboard-form__item" }, [
               _c(
-                "router-link",
+                "label",
                 {
-                  staticClass: "cs--btn cs--btn--transparent-grad-blue",
-                  attrs: { to: "/2fa-step-2", tag: "button" }
+                  staticClass: "cs--dashboard-form__label",
+                  attrs: { for: "dashboard--backup-key" }
                 },
-                [_vm._v("\n                        Back\n                    ")]
+                [_vm._v(_vm._s(_vm.$__("Backup Key")))]
+              ),
+              _vm._v(" "),
+              _vm._m(0)
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "cs--dashboard-form__item" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "cs--dashboard-form__label",
+                  attrs: { for: "dashboard--password" }
+                },
+                [_vm._v(_vm._s(_vm.$__("Password")))]
+              ),
+              _vm._v(" "),
+              _vm._m(1)
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "cs--dashboard-form__item" }, [
+              _c(
+                "label",
+                {
+                  staticClass: "cs--dashboard-form__label",
+                  attrs: { for: "dashboard--2fa-code" }
+                },
+                [_vm._v(_vm._s(_vm.$__("2FA Code")))]
               ),
               _vm._v(" "),
               _c(
-                "router-link",
+                "div",
                 {
-                  staticClass: "cs--btn cs--btn--grad-blue ml-auto",
-                  attrs: { to: "/2fa-step-4", tag: "button" }
+                  staticClass: "cs--dashboard-form__input-wrapper",
+                  attrs: { "data-postfix": "" }
                 },
                 [
-                  _vm._v(
-                    "\n                        Enable 2FA\n                    "
-                  )
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.formData.secret,
+                        expression: "formData.secret"
+                      }
+                    ],
+                    staticClass: "cs--dashboard-form__input",
+                    attrs: {
+                      id: "dashboard--2fa-code",
+                      type: "text",
+                      placeholder: "*****",
+                      required: ""
+                    },
+                    domProps: { value: _vm.formData.secret },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.formData, "secret", $event.target.value)
+                      }
+                    }
+                  })
                 ]
               )
-            ],
-            1
-          )
-        ]),
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "cs--dashboard-form__btn-group" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "cs--btn cs--btn--transparent-grad-blue",
+                    attrs: { to: "/2fa-step-2", tag: "button" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(_vm.$__("Back")) +
+                        "\n                    "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "Button",
+                  {
+                    staticClass: "cs--btn cs--btn--grad-blue ml-auto",
+                    attrs: { type: "submit" }
+                  },
+                  [
+                    _vm._v(
+                      _vm._s(_vm.$__("Enable 2FA")) + "\n                    "
+                    )
+                  ]
+                )
+              ],
+              1
+            )
+          ]
+        ),
         _vm._v(" "),
-        _vm._m(3)
+        _vm._m(2)
       ])
     ])
   ])
@@ -81606,100 +81789,45 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "cs--dashboard-form__item" }, [
-      _c(
-        "label",
-        {
-          staticClass: "cs--dashboard-form__label",
-          attrs: { for: "dashboard--backup-key" }
-        },
-        [_vm._v("Backup Key")]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "cs--dashboard-form__input-wrapper",
-          attrs: { "data-postfix": "" }
-        },
-        [
-          _c("input", {
-            staticClass: "cs--dashboard-form__input",
-            attrs: {
-              id: "dashboard--backup-key",
-              type: "password",
-              placeholder: "*****"
-            }
-          })
-        ]
-      )
-    ])
+    return _c(
+      "div",
+      {
+        staticClass: "cs--dashboard-form__input-wrapper",
+        attrs: { "data-postfix": "" }
+      },
+      [
+        _c("input", {
+          staticClass: "cs--dashboard-form__input",
+          attrs: {
+            id: "dashboard--backup-key",
+            type: "text",
+            placeholder: "*****"
+          }
+        })
+      ]
+    )
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "cs--dashboard-form__item" }, [
-      _c(
-        "label",
-        {
-          staticClass: "cs--dashboard-form__label",
-          attrs: { for: "dashboard--password" }
-        },
-        [_vm._v("Password")]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "cs--dashboard-form__input-wrapper",
-          attrs: { "data-postfix": "" }
-        },
-        [
-          _c("input", {
-            staticClass: "cs--dashboard-form__input",
-            attrs: {
-              id: "dashboard--password",
-              type: "password",
-              placeholder: "*****"
-            }
-          })
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "cs--dashboard-form__item" }, [
-      _c(
-        "label",
-        {
-          staticClass: "cs--dashboard-form__label",
-          attrs: { for: "dashboard--2fa-code" }
-        },
-        [_vm._v("2FA Code")]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "cs--dashboard-form__input-wrapper",
-          attrs: { "data-postfix": "" }
-        },
-        [
-          _c("input", {
-            staticClass: "cs--dashboard-form__input",
-            attrs: {
-              id: "dashboard--2fa-code",
-              type: "password",
-              placeholder: "*****"
-            }
-          })
-        ]
-      )
-    ])
+    return _c(
+      "div",
+      {
+        staticClass: "cs--dashboard-form__input-wrapper",
+        attrs: { "data-postfix": "" }
+      },
+      [
+        _c("input", {
+          staticClass: "cs--dashboard-form__input",
+          attrs: {
+            id: "dashboard--password",
+            type: "password",
+            placeholder: "*****"
+          }
+        })
+      ]
+    )
   },
   function() {
     var _vm = this
@@ -81818,12 +81946,34 @@ var render = function() {
   return _c("main", { staticClass: "cs--page cs--dashboard--2fa" }, [
     _c("div", { staticClass: "cs--container" }, [
       _c("h1", { staticClass: "cs--page__title" }, [
-        _vm._v("2 Factor Authentication")
+        _vm._v(_vm._s(_vm.$__("2 Factor Authentication")))
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "cs--page-side-wrapper" }, [
         _c("form", { staticClass: "cs--dashboard-form" }, [
-          _vm._m(0),
+          _c("div", { staticClass: "cs--dashboard-form__result" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("h2", { staticClass: "cs--dashboard-form__result-title" }, [
+              _vm._v(
+                "\n                        " +
+                  _vm._s(_vm.$__("The setup is complete!")) +
+                  "\n                    "
+              )
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "cs--dashboard-form__result-text" }, [
+              _vm._v(
+                "\n                        " +
+                  _vm._s(
+                    _vm.$__(
+                      "You will be required to enter the one time code generated by Google Authenticator the next time you login."
+                    )
+                  ) +
+                  "\n                    "
+              )
+            ])
+          ]),
           _vm._v(" "),
           _c(
             "div",
@@ -81835,7 +81985,13 @@ var render = function() {
                   staticClass: "cs--btn cs--btn--grad-blue ml-auto",
                   attrs: { to: "/", tag: "button" }
                 },
-                [_vm._v("\n                        Done\n                    ")]
+                [
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(_vm.$__("Done")) +
+                      "\n                    "
+                  )
+                ]
               )
             ],
             1
@@ -81852,22 +82008,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "cs--dashboard-form__result" }, [
-      _c("div", { staticClass: "cs--dashboard-form__result-img" }, [
-        _c("img", { attrs: { src: "/img/img-check.svg", alt: "" } })
-      ]),
-      _vm._v(" "),
-      _c("h2", { staticClass: "cs--dashboard-form__result-title" }, [
-        _vm._v(
-          "\n                        The setup is complete!\n                    "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "cs--dashboard-form__result-text" }, [
-        _vm._v(
-          "\n                        You will be required to enter the one time code generated by\n                        Google Authenticator the next time you login.\n                    "
-        )
-      ])
+    return _c("div", { staticClass: "cs--dashboard-form__result-img" }, [
+      _c("img", { attrs: { src: "/img/img-check.svg", alt: "" } })
     ])
   },
   function() {

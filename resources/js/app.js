@@ -57,11 +57,11 @@ const routes = [
     {path: '/profile', component: Profile, name: 'Мои данные'},
     {path: '/preferences', component: Preferences, name: 'Preferences'},
     {path: '/2fa', component: TwoFactorAuth, name: '2 Factor Authentication'},
-    {path: '/2fa-step-1', component: TwoFactorAuthStep1, name: '2 Factor Authentication'},
-    {path: '/2fa-step-2', component: TwoFactorAuthStep2, name: '2 Factor Authentication'},
-    {path: '/2fa-step-3', component: TwoFactorAuthStep3, name: '2 Factor Authentication'},
-    {path: '/2fa-step-4', component: TwoFactorAuthStep4, name: '2 Factor Authentication'},
-    {path: '/select-exchange', component: SelectExchange, name: 'Select Exchange'},
+    {path: '/2fa-step-1', component: TwoFactorAuthStep1, name: '2fa-step-1'},
+    {path: '/2fa-step-2', component: TwoFactorAuthStep2, name: '2fa-step-2'},
+    {path: '/2fa-step-3', component: TwoFactorAuthStep3, name: '2fa-step-3'},
+    {path: '/2fa-step-4', component: TwoFactorAuthStep4, name: '2fa-step-4'},
+    {path: '/select-exchange', component: SelectExchange, name: 'select-exchange'},
     {path: '/select-exchange/:id', component: ExchangeConnect, name: 'Connect Exchange', props: true},
 
 

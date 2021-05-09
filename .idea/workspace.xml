@@ -19,18 +19,23 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="сделал вкладку предпочтений пользователя">
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_08_152020_add_field_google2fa_secret_for_user_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/cryptotrade.loc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cryptotrade.loc.iml" afterDir="false" />
+    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="начал google 2fa">
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/Google2FACheck.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/Google2FARequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_09_131459_add_field_google2fa_status_to_users.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/auth/google2fa.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/5035001f-1a51-453c-b284-da206a5db2ea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5035001f-1a51-453c-b284-da206a5db2ea.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/TwoFactorAuthStep1.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/TwoFactorAuthStep1.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/views/TwoFactorAuthStep2.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/TwoFactorAuthStep2.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/TwoFactorAuthStep3.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/TwoFactorAuthStep3.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/TwoFactorAuthStep4.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/TwoFactorAuthStep4.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -363,7 +368,8 @@
       <workItem from="1619412720804" duration="27000" />
       <workItem from="1620195109553" duration="7663000" />
       <workItem from="1620291760127" duration="12700000" />
-      <workItem from="1620463978424" duration="18935000" />
+      <workItem from="1620463978424" duration="18989000" />
+      <workItem from="1620562437151" duration="7546000" />
     </task>
     <task id="LOCAL-00001" summary="подключил vue router">
       <created>1615840605110</created>
@@ -547,7 +553,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620486153780</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="начал google 2fa">
+      <created>1620506793974</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1620506793974</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -569,7 +582,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="выпадающий список валют" />
     <MESSAGE value="добавил панель открытия ордера" />
     <MESSAGE value="добавил меню пользователя" />
     <MESSAGE value="изменил robots.txt" />
@@ -594,7 +606,8 @@
     <MESSAGE value="updated htaccess" />
     <MESSAGE value="two factor auth page" />
     <MESSAGE value="сделал вкладку предпочтений пользователя" />
-    <option name="LAST_COMMIT_MESSAGE" value="сделал вкладку предпочтений пользователя" />
+    <MESSAGE value="начал google 2fa" />
+    <option name="LAST_COMMIT_MESSAGE" value="начал google 2fa" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Deployment" timestamp="1620201847964">
@@ -625,22 +638,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1616277096084" />
-    <state width="1877" height="189" key="GridCell.Tab.0.bottom" timestamp="1620488550787">
+    <state width="1877" height="189" key="GridCell.Tab.0.bottom" timestamp="1620569852280">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="189" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1620488550787" />
-    <state width="1877" height="189" key="GridCell.Tab.0.center" timestamp="1620488550787">
+    <state width="1877" height="189" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1620569852280" />
+    <state width="1877" height="189" key="GridCell.Tab.0.center" timestamp="1620569852280">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="189" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1620488550787" />
-    <state width="1877" height="189" key="GridCell.Tab.0.left" timestamp="1620488550787">
+    <state width="1877" height="189" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1620569852280" />
+    <state width="1877" height="189" key="GridCell.Tab.0.left" timestamp="1620569852279">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="189" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1620488550787" />
-    <state width="1877" height="189" key="GridCell.Tab.0.right" timestamp="1620488550787">
+    <state width="1877" height="189" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1620569852279" />
+    <state width="1877" height="189" key="GridCell.Tab.0.right" timestamp="1620569852280">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="189" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620488550787" />
+    <state width="1877" height="189" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620569852280" />
     <state width="1877" height="208" key="GridCell.Tab.1.bottom" timestamp="1619379556505">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -677,18 +690,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="757" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620481954524" />
-    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1620294426986">
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1620568226163">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620294426986" />
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620568226163" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1617554831153">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1617554831153" />
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1620486155829">
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1620506796806">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1620486155829" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1620506796806" />
     <state x="859" y="394" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1616884798046">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -705,10 +718,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="776" y="250" key="ftp.server.browser/0.0.1920.1040@0.0.1920.1040" timestamp="1616504948711" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1616517520814">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1620563514843">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1616517520814" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620563514843" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -29,15 +29,18 @@ Auth::routes();
 
 /* LANDING PAGE */
 Route::get('/', [PageController::class, 'homePage'])->name('homepage');
+Route::get('/google2fa-auth', [UserController::class, 'google2fa_page'])->name('google2fa');
+Route::post('/google2fa-validate', [UserController::class, 'google2fa_validate'])->name('google2fa_validate');
 
 /* РОУТЫ ТОРГОВОГО ТЕРМИНАЛА */
-Route::group(['prefix' => 'terminal', 'middleware' => ['permission:manage terminal|manage admin']], function () {
+Route::group(['prefix' => 'terminal', 'middleware' => ['permission:manage terminal|manage admin','google2fa']], function () {
     Route::get('/', [TerminalController::class, 'index'])->name('terminal.index');
     Route::get('/exchanges', [ExchangeController::class, 'getExchanges']);
     Route::post('/attach-exchange', [ExchangeController::class, 'attachUserExchange']);
     Route::post('/deattach-exchange', [ExchangeController::class, 'deattachUserExchange']);
     Route::put('/user-update/{id}', [UserController::class, 'update']);
     Route::post('/user-2fa', [UserController::class, 'google2fa']);
+    Route::post('/user-2fa-validate', [UserController::class, 'google2fa_validate']);
 
     //  EXCHANGES
     Route::prefix('exchange')->group(function () {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Google2FARequest;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -122,21 +123,67 @@ class UserController extends Controller
     {
         $google2fa = new Google2FA();
         $user = auth()->user();
-        if (!$user->google2fa_secret){
-
-            $user->google2fa_secret->generateSecretKey();
+        if (!$user->google2fa_secret) {
+            $user->google2fa_secret = $google2fa->generateSecretKey();
             $user->save();
         }
 
         $qrCodeUrl = $google2fa->getQRCodeInline(
             env('APP_NAME'),
-            env('APP_NAME'),
+            $user->email,
             $user->google2fa_secret
         );
 
         return response()->json([
-            'secret' =>$user->google2fa_secret,
+            'secret' => $user->google2fa_secret,
             'qrCodeUrl' => $qrCodeUrl
         ]);
+    }
+
+    /**
+     * Проверяет код выданный в приложении Google Authenticator
+     *
+     * @param Google2FARequest $request
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \PragmaRX\Google2FA\Exceptions\IncompatibleWithGoogleAuthenticatorException
+     * @throws \PragmaRX\Google2FA\Exceptions\InvalidCharactersException
+     * @throws \PragmaRX\Google2FA\Exceptions\SecretKeyTooShortException
+     */
+    public function google2fa_validate(Google2FARequest $request)
+    {
+        $google2fa = new Google2FA();
+        $user = auth()->user();
+        $status = $google2fa->verifyKey($user->google2fa_secret, $request->input('secret'));
+
+        if ($status && $request->input('google2fa_status')) {
+            $user->google2fa_status = (boolean)$request->input('google2fa_status');
+            $user->save();
+        }
+
+        if ($status) {
+            session()->put('google2fa_is_auth', 1);
+            session()->save();
+            $message = __("You have passed 2-factor authentication!");
+        } else {
+            $message = __("2FA failed!");
+            session()->put('google2fa_is_auth', 0);
+            session()->save();
+        }
+
+        if ($request->ajax()) {
+            return response()->json(compact('status', 'message'));
+        }
+
+        return redirect()->route('terminal.index');
+    }
+
+    /**
+     * Отображает форму ввода кода с приложения Google  Authenticator
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function google2fa_page()
+    {
+        return view('auth.google2fa');
     }
 }

@@ -53,6 +53,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'google2fa_status' => 'boolean'
     ];
 
 //    public function setPhoneAttribute($value)

@@ -1,22 +1,22 @@
 <template>
     <main class="cs--page cs--dashboard--2fa">
         <div class="cs--container">
-            <h1 class="cs--page__title">2 Factor Authentication</h1>
+            <h1 class="cs--page__title">{{ $__("2 Factor Authentication") }}</h1>
             <div class="cs--page-side-wrapper">
                 <form class="cs--dashboard-form">
                     <h2
                         class="cs--dashboard-form__title cs--dashboard-form__title--mark"
                     >
-                        Step 1
+                        {{ $__("Step 1") }}
                     </h2>
                     <h3 class="cs--dashboard-form__sub-title">
-                        Download the Google Authenticator App
+                        {{ $__("Download the Google Authenticator App") }}
                     </h3>
                     <div class="cs--dashboard-form__market-group">
-                        <a href="javascript:void(0)">
+                        <a href="https://apps.apple.com/us/app/google-authenticator/id388497605" target="_blank">
                             <img src="/img/app-store-badge.svg" alt="" />
                         </a>
-                        <a href="javascript:void(0)">
+                        <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2" target="_blank">
                             <img src="/img/google-play-badge.svg" alt="" />
                         </a>
                     </div>
@@ -26,14 +26,14 @@
                             tag="button"
                             class="cs--btn cs--btn--transparent-grad-blue"
                         >
-                            Back
+                            {{ $__("Back") }}
                         </router-link>
                         <router-link
                             to="/2fa-step-2"
                             tag="button"
                             class="cs--btn cs--btn--grad-blue ml-auto"
                         >
-                            I have the App
+                            {{ $__("I have the App") }}
                         </router-link>
                     </div>
                 </form>
