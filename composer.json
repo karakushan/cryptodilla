@@ -23,6 +23,7 @@
         "pragmarx/google2fa-qrcode": "^2.1",
         "pusher/pusher-php-server": "^5.0",
         "spatie/laravel-permission": "^4.0"
+
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",
@@ -33,6 +34,7 @@
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
         "phpunit/phpunit": "^9.3.3"
+
     },
     "config": {
         "optimize-autoloader": true,
@@ -53,7 +55,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Tests\\": "tests/",
+            "Karakushan\\CrudGenerator\\": "packages/karakushan/crud-generator/src"
         }
     },
     "minimum-stability": "dev",

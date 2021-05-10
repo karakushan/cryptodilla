@@ -19,24 +19,37 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="начал google 2fa">
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/Google2FACheck.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/Google2FARequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_09_131459_add_field_google2fa_status_to_users.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/google2fa.blade.php" afterDir="false" />
+    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="сделал 2fa аутент.">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/FaqCategoryController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/FaqController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/FaqCategoryRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/FaqRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Faq.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/FaqCategory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/crud-generator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_09_190905_create_faqs_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_09_191211_create_faq_categories_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/karakushan/crud-generator" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/dashboard/faq-category/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/dashboard/faq-category/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/dashboard/faq-category/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/dashboard/faq/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/dashboard/faq/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/dashboard/faq/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/cryptotrade.loc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cryptotrade.loc.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/5035001f-1a51-453c-b284-da206a5db2ea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5035001f-1a51-453c-b284-da206a5db2ea.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/TwoFactorAuthStep1.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/TwoFactorAuthStep1.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/TwoFactorAuthStep2.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/TwoFactorAuthStep2.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/TwoFactorAuthStep3.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/TwoFactorAuthStep3.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/TwoFactorAuthStep4.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/TwoFactorAuthStep4.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Google2FACheck.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Google2FACheck.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/leftbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/leftbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/terminal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/terminal.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HelloWorld.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/plugins/vuetify.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,8 +262,9 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/vendor/karakushan/crud-generator/composer.json" />
     <property name="database.data.extractors.current.export.id" value="SQL Inserts" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/dashboard/currency" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/dashboard" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -260,19 +274,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\vendor\karakushan\crud-generator" />
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\vendor\karakushan\crud-generator\src\commands" />
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\js\views" />
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\admin" />
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\public\audio" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\dashboard" />
       <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\dashboard\currency" />
       <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\js\views" />
       <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views" />
       <recent name="E:\OSPanel\domains\cryptotrade.loc\public" />
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\dashboard\exchange" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\js\views" />
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\admin" />
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\public\audio" />
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\public" />
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\dashboard\user" />
     </key>
   </component>
   <component name="RunManager" selected="npm.watch">
@@ -369,7 +383,7 @@
       <workItem from="1620195109553" duration="7663000" />
       <workItem from="1620291760127" duration="12700000" />
       <workItem from="1620463978424" duration="18989000" />
-      <workItem from="1620562437151" duration="7546000" />
+      <workItem from="1620562437151" duration="29900000" />
     </task>
     <task id="LOCAL-00001" summary="подключил vue router">
       <created>1615840605110</created>
@@ -560,7 +574,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620506793974</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="сделал 2fa аутент.">
+      <created>1620570083863</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1620570083863</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -582,7 +603,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="добавил панель открытия ордера" />
     <MESSAGE value="добавил меню пользователя" />
     <MESSAGE value="изменил robots.txt" />
     <MESSAGE value="изменил github actions main.yml" />
@@ -607,7 +627,8 @@
     <MESSAGE value="two factor auth page" />
     <MESSAGE value="сделал вкладку предпочтений пользователя" />
     <MESSAGE value="начал google 2fa" />
-    <option name="LAST_COMMIT_MESSAGE" value="начал google 2fa" />
+    <MESSAGE value="сделал 2fa аутент." />
+    <option name="LAST_COMMIT_MESSAGE" value="сделал 2fa аутент." />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Deployment" timestamp="1620201847964">
@@ -618,18 +639,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="678" y="178" key="#Servers/0.0.1920.1040@0.0.1920.1040" timestamp="1616187219542" />
-    <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1616884851834">
+    <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1620591887507">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616884851834" />
-    <state x="647" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1619379237167">
+    <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620591887507" />
+    <state x="647" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1620593534145">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="647" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1619379237167" />
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1620467562701">
+    <state x="647" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1620593534145" />
+    <state x="704" y="181" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1620593085918">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620467562701" />
+    <state x="704" y="181" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620593085918" />
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1620589751735">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620589751735" />
     <state x="736" y="432" width="447" height="265" key="ComposerInitDialogKey" timestamp="1619082520372">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -638,22 +663,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1616277096084" />
-    <state width="1877" height="189" key="GridCell.Tab.0.bottom" timestamp="1620569852280">
+    <state width="1877" height="189" key="GridCell.Tab.0.bottom" timestamp="1620586699431">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="189" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1620569852280" />
-    <state width="1877" height="189" key="GridCell.Tab.0.center" timestamp="1620569852280">
+    <state width="1877" height="189" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1620586699431" />
+    <state width="1877" height="189" key="GridCell.Tab.0.center" timestamp="1620586699430">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="189" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1620569852280" />
-    <state width="1877" height="189" key="GridCell.Tab.0.left" timestamp="1620569852279">
+    <state width="1877" height="189" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1620586699430" />
+    <state width="1877" height="189" key="GridCell.Tab.0.left" timestamp="1620586699430">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="189" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1620569852279" />
-    <state width="1877" height="189" key="GridCell.Tab.0.right" timestamp="1620569852280">
+    <state width="1877" height="189" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1620586699430" />
+    <state width="1877" height="189" key="GridCell.Tab.0.right" timestamp="1620586699430">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="189" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620569852280" />
+    <state width="1877" height="189" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620586699430" />
     <state width="1877" height="208" key="GridCell.Tab.1.bottom" timestamp="1619379556505">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -686,22 +711,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="208" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1619379556506" />
-    <state x="757" y="243" key="NewPhpClassDialog" timestamp="1620481954524">
+    <state x="757" y="243" key="NewPhpClassDialog" timestamp="1620592945459">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="757" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620481954524" />
-    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1620568226163">
+    <state x="757" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620592945459" />
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1620594239837">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620568226163" />
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620594239837" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1617554831153">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1617554831153" />
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1620506796806">
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1620570095769">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1620506796806" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1620570095769" />
     <state x="859" y="394" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1616884798046">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

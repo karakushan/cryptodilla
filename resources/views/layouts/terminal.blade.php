@@ -40,11 +40,11 @@
                 >
                     <ul class="cs--landing-nav__list">
                         <li class="cs--landing-nav__item">
-                            <a href="javascript:void(0)">Platform</a>
+                            <a href="{{ route('terminal.index') }}">{{ __("Platform") }}</a>
                         </li>
 
                         <li class="cs--landing-nav__item">
-                            <a href="javascript:void(0)">Pricing</a>
+                            <a href="javascript:void(0)">{{ __("Pricing") }}</a>
                         </li>
 
                         <li class="cs--landing-nav__item">
@@ -52,13 +52,13 @@
                         </li>
 
                         <li class="cs--landing-nav__item">
-                            <a href="javascript:void(0)">About</a>
+                            <a href="javascript:void(0)">{{ __("About") }}</a>
                         </li>
                     </ul>
                 </nav>
                 <div class="cs--landing-login">
                     @if(auth()->check())
-                        <a href="/terminal">{{ __("Dashboard") }}</a>
+                        <a href="/terminal">{{ __("Trading") }}</a>
                         <a href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"

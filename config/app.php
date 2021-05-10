@@ -166,6 +166,7 @@ return [
          * Package Service Providers...
          */
         Spatie\Permission\PermissionServiceProvider::class,
+        Karakushan\CrudGenerator\CrudGeneratorServiceProvider::class,
 
         /*
          * Application Service Providers...

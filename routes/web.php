@@ -3,6 +3,8 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ChatsController;
 use App\Http\Controllers\CurrencyController;
+use App\Http\Controllers\FaqCategoryController;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FilepondController;
 use App\Http\Controllers\BinanceController;
 use App\Http\Controllers\ExchangeController;
@@ -33,7 +35,7 @@ Route::get('/google2fa-auth', [UserController::class, 'google2fa_page'])->name('
 Route::post('/google2fa-validate', [UserController::class, 'google2fa_validate'])->name('google2fa_validate');
 
 /* РОУТЫ ТОРГОВОГО ТЕРМИНАЛА */
-Route::group(['prefix' => 'terminal', 'middleware' => ['permission:manage terminal|manage admin','google2fa']], function () {
+Route::group(['prefix' => 'terminal', 'middleware' => ['auth', 'permission:manage terminal|manage admin', 'google2fa']], function () {
     Route::get('/', [TerminalController::class, 'index'])->name('terminal.index');
     Route::get('/exchanges', [ExchangeController::class, 'getExchanges']);
     Route::post('/attach-exchange', [ExchangeController::class, 'attachUserExchange']);
@@ -58,14 +60,16 @@ Route::group(['prefix' => 'terminal', 'middleware' => ['permission:manage termin
 });
 
 /* РОУТЫ АДМИНКИ */
-Route::group(['prefix' => 'admin', 'middleware' => ['permission:manage admin']], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'permission:manage admin']], function () {
     Route::get('/', [AdminController::class, 'index'])->name('dashboard.index');
     Route::post('/users/upload-avatar', [UserController::class, 'uploadAvatar'])->name('users.upload-avatar');
     Route::resources([
         'users' => UserController::class,
         'user-groups' => UserGroupController::class,
         'exchanges' => ExchangeController::class,
-        'currencies' => CurrencyController::class
+        'currencies' => CurrencyController::class,
+        'faqs' => FaqController::class,
+        'faq-categories' => FaqCategoryController::class
     ]);
 });
 

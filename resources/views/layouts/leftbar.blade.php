@@ -53,6 +53,19 @@
                         <li><a href="{{ route('currencies.create') }}">{{ __("Add") }}</a></li>
                     </ul>
                 </li>
+                <li>
+                    <a href="{{ route('faqs.index') }}">
+                        <i class="fa fa-comments" aria-hidden="true"></i>
+                        <span>{{ __("FAQs") }}</span>
+                        <i class="feather icon-chevron-right pull-right"></i>
+                    </a>
+                    <ul class="vertical-submenu">
+                        <li><a href="{{ route('faqs.index') }}">{{ __("List") }}</a></li>
+                        <li><a href="{{ route('faqs.create') }}">{{ __("Add") }}</a></li>
+                        <li><a href="{{ route('faq-categories.index') }}">{{ __("FAQ Categories") }}</a></li>
+                        <li><a href="{{ route('faq-categories.create') }}">{{ __("Add FAQ Category") }}</a></li>
+                    </ul>
+                </li>
 
             </ul>
         </div>
