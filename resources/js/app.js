@@ -45,6 +45,11 @@ import TwoFactorAuthStep3 from "./views/TwoFactorAuthStep3";
 import TwoFactorAuthStep4 from "./views/TwoFactorAuthStep4";
 import SelectExchange from "./views/SelectExchange";
 import ExchangeConnect from "./views/ExchangeConnect";
+import Markets from "./views/Markets";
+import News from "./views/News";
+import FAQ from "./views/FAQ";
+import Support from "./views/Support";
+import Ticket from "./views/Ticket";
 import VueRouter from 'vue-router'
 import VueNotify from 'vuejs-notify'
 Vue.use(VueNotify)
@@ -53,7 +58,7 @@ Vue.use(VueRouter)
 const routes = [
     {path: '/', component: Trading, name: 'Торговля'},
     {path: '/bots', component: Trading, name: 'Боты'},
-    {path: '/exchanges', component: Exchanges, name: 'Мои биржи'},
+    // {path: '/exchanges', component: Exchanges, name: 'Мои биржи'},
     {path: '/profile', component: Profile, name: 'Мои данные'},
     {path: '/preferences', component: Preferences, name: 'Preferences'},
     {path: '/2fa', component: TwoFactorAuth, name: '2 Factor Authentication'},
@@ -61,8 +66,13 @@ const routes = [
     {path: '/2fa-step-2', component: TwoFactorAuthStep2, name: '2fa-step-2'},
     {path: '/2fa-step-3', component: TwoFactorAuthStep3, name: '2fa-step-3'},
     {path: '/2fa-step-4', component: TwoFactorAuthStep4, name: '2fa-step-4'},
-    {path: '/select-exchange', component: SelectExchange, name: 'select-exchange'},
-    {path: '/select-exchange/:id', component: ExchangeConnect, name: 'Connect Exchange', props: true},
+    {path: '/select-exchange', component: SelectExchange, name: 'select-exchange', props: true},
+    {path: '/select-exchange/:id', component: ExchangeConnect, name: 'ConnectExchange', props: true},
+    {path: '/support', component: Support, name: 'Support', props: true},
+    {path: '/ticket', component: Ticket, name: 'New Support Ticket', props: true},
+    {path: '/faq', component: FAQ, name: 'FAQ', props: true},
+    {path: '/news', component: News, name: 'News', props: true},
+    {path: '/markets', component: Markets, name: 'Markets', props: true},
 
 
 ]

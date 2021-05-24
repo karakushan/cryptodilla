@@ -67,6 +67,20 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a href="{{ route('news.index') }}">
+                        <i class="fa fa-comments" aria-hidden="true"></i>
+                        <span>{{ __("News") }}</span>
+                        <i class="feather icon-chevron-right pull-right"></i>
+                    </a>
+                    <ul class="vertical-submenu">
+                        <li><a href="{{ route('news.index') }}">{{ __("List") }}</a></li>
+                        <li><a href="{{ route('news.create') }}">{{ __("Add") }}</a></li>
+                       {{-- <li><a href="{{ route('news-categories.index') }}">{{ __("FAQ Categories") }}</a></li>
+                        <li><a href="{{ route('news-categories.create') }}">{{ __("Add FAQ Category") }}</a></li>--}}
+                    </ul>
+                </li>
+
             </ul>
         </div>
         <!-- End Navigationbar -->

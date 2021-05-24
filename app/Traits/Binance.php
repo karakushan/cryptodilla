@@ -154,11 +154,16 @@ trait Binance
 
         try {
             $order = $this->connector()->getPlatform('spot')->trade()->postOrder($data);
-            $msg = __('Ордер успешно создан');
+            $message = __('Ордер успешно создан');
 
-            return response()->json(compact('order', 'msg'));
+            return response()->json(compact('order', 'message'));
         } catch (Exception $e) {
-            return response()->json(json_decode($e->getMessage(), true), 419);
+            $exception = json_decode($e->getMessage(), true);
+
+            if (isset($exception['msg'])) $message = $exception['msg'];
+            else $message = __('Возникла ошибка при открытии ордера');
+
+            return response()->json(compact('message'), 419);
         }
     }
 

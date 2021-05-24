@@ -8,7 +8,7 @@
                 account or connect an existing account to get started.
             </p>
             <ul class="cs--exchange-list">
-                <li class="cs--exchange-card" v-for="(exchange,index) in appData.exchanges">
+                <li class="cs--exchange-card" v-for="(exchange,index) in exchanges">
                     <div class="cs--exchange-card__img">
                         <img :src="exchange.logo_url" :alt="exchange.name" width="90"/>
                     </div>
@@ -29,10 +29,22 @@
                                 class="cs--btn cs--btn--grad-blue"
                             >{{ $__("Open") }}</a
                             >
-                            <router-link :to="'/select-exchange/'+index"
+                            <router-link
+                                v-if="!exchange.connected"
+                                :to="{
+                                    name:'ConnectExchange',
+
+                                    params: {exchange: exchange,id:exchange.id}
+                                }"
+
                                 class="cs--btn cs--btn--transparent-grad-blue"
-                            >{{ $__("Connect") }}</router-link
-                            >
+                            >{{ $__("Connect") }}
+                            </router-link>
+                            <a
+                                v-else
+                                @click.prevent="disconnectExchange(exchange.id)"
+                                class="cs--btn cs--btn--transparent-grad-blue"
+                            >{{ $__("Disconnect") }}</a>
                         </div>
                     </div>
                 </li>
@@ -42,13 +54,64 @@
 </template>
 
 <script>
-import {mapGetters} from "vuex";
-
 export default {
     name: "SelectExchange",
-    computed: {
-        ...mapGetters(['appData']),
+    data() {
+        return {
+            exchanges: []
+        }
     },
+    mounted() {
+        this.getExchanges()
+    },
+    methods: {
+        getExchanges(){
+             axios
+              .get('/terminal/exchanges', {
+
+              })
+              .then(response => {
+              	if (response.status == 200 && response.data) {
+              		this.exchanges=response.data
+              	}
+              })
+              .catch(error => {
+                 // console.log(error.response);
+              	console.log(error.response.data);
+              })
+              .finally(() => {
+              // Will be executed upon completion catch & then
+              });
+        },
+        disconnectExchange(exchange_id) {
+            if (confirm('Подтверждаете удаление всех данных?')) {
+                axios
+                    .post('/terminal/deattach-exchange', {
+                        exchange_id: exchange_id
+                    })
+                    .then(response => {
+                        this.getExchanges()
+
+                        if (response.status == 200 && response.data) {
+                            this.$notify.success({
+                                position: 'top right',
+                                title: this.$__('Успех'),
+                                msg: response.data.message,
+                                timeout: 3000
+                            })
+                        }
+
+                    })
+                    .catch(error => {
+                        // console.log(error.response);
+                        console.log(error.response.data);
+                    })
+                    .finally(() => {
+                        // Will be executed upon completion catch & then
+                    });
+            }
+        }
+    }
 
 }
 </script>

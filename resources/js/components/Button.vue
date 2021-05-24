@@ -1,5 +1,8 @@
 <template>
-    <button :type="type" :class="{'cs--btn':true, 'cs--btn--grad-blue':true, 'vue-btn':true,'preloading':preloader}">
+    <button
+        :type="type"
+        :class="{'cs--btn':true, 'cs--btn--grad-blue':true, 'vue-btn':true,'preloading':preloader}"
+    >
         <slot>
             {{ $__("Save changes") }}
         </slot>
@@ -12,6 +15,11 @@
 <script>
 export default {
     name: "Button",
+    data() {
+        return {
+            cssClass: this.class
+        }
+    },
     props: {
         type: {
             type: String,
@@ -21,7 +29,7 @@ export default {
             type: Boolean,
             default: false
         },
-    },
+    }
 }
 </script>
 

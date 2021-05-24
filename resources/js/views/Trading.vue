@@ -302,439 +302,9 @@
                     </div>
                 </section>
 
-                <section
-                    class="cs--interface__block cs--interface__block--order-book"
-                >
-                    <h2 class="cs--interface__block-title">Order Book</h2>
-                    <div class="cs--table-wrapper">
-                        <table class="cs--table">
-                            <thead>
-                            <tr>
-                                <th class="">Size</th>
+                <OrderBookWidget :symbol="symbol" v-if="symbol"/>
 
-                                <th class="">Price (USDT)</th>
-
-                                <th class="">Total</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td data-label="Size" class=""><span>0.00423</span></td>
-
-                                <td data-label="Price (USDT)" class="cs--color-danger">
-                                    <span>55446.23</span>
-                                </td>
-
-                                <td data-label="Total" class="cs--color-secondary">
-                                    <span>2356.6546546</span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td data-label="Size" class=""><span>0.00423</span></td>
-
-                                <td data-label="Price (USDT)" class="cs--color-danger">
-                                    <span>55446.23</span>
-                                </td>
-
-                                <td data-label="Total" class="cs--color-secondary">
-                                    <span>2356.6546546</span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td data-label="Size" class=""><span>0.00423</span></td>
-
-                                <td data-label="Price (USDT)" class="cs--color-danger">
-                                    <span>55446.23</span>
-                                </td>
-
-                                <td data-label="Total" class="cs--color-secondary">
-                                    <span>2356.6546546</span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td data-label="Size" class=""><span>0.00423</span></td>
-
-                                <td data-label="Price (USDT)" class="cs--color-danger">
-                                    <span>55446.23</span>
-                                </td>
-
-                                <td data-label="Total" class="cs--color-secondary">
-                                    <span>2356.6546546</span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td data-label="Size" class=""><span>0.00423</span></td>
-
-                                <td data-label="Price (USDT)" class="cs--color-danger">
-                                    <span>55446.23</span>
-                                </td>
-
-                                <td data-label="Total" class="cs--color-secondary">
-                                    <span>2356.6546546</span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td data-label="Size" class=""><span>0.00423</span></td>
-
-                                <td data-label="Price (USDT)" class="cs--color-danger">
-                                    <span>55446.23</span>
-                                </td>
-
-                                <td data-label="Total" class="cs--color-secondary">
-                                    <span>2356.6546546</span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td data-label="Size" class=""><span>0.00423</span></td>
-
-                                <td data-label="Price (USDT)" class="cs--color-danger">
-                                    <span>55446.23</span>
-                                </td>
-
-                                <td data-label="Total" class="cs--color-secondary">
-                                    <span>2356.6546546</span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td data-label="Size" class=""><span>0.00423</span></td>
-
-                                <td data-label="Price (USDT)" class="cs--color-danger">
-                                    <span>55446.23</span>
-                                </td>
-
-                                <td data-label="Total" class="cs--color-secondary">
-                                    <span>2356.6546546</span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td
-                                    colspan="3"
-                                    class="cs--table__break-point cs--color-success"
-                                >
-                                    58,763.65 ≈ 1.00051916 BTC
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td data-label="Size" class=""><span>0.00423</span></td>
-
-                                <td data-label="Price (USDT)" class="cs--color-success">
-                                    <span>55446.23</span>
-                                </td>
-
-                                <td data-label="Total" class="cs--color-secondary">
-                                    <span>2356.6546546</span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td data-label="Size" class=""><span>0.00423</span></td>
-
-                                <td data-label="Price (USDT)" class="cs--color-success">
-                                    <span>55446.23</span>
-                                </td>
-
-                                <td data-label="Total" class="cs--color-secondary">
-                                    <span>2356.6546546</span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td data-label="Size" class=""><span>0.00423</span></td>
-
-                                <td data-label="Price (USDT)" class="cs--color-success">
-                                    <span>55446.23</span>
-                                </td>
-
-                                <td data-label="Total" class="cs--color-secondary">
-                                    <span>2356.6546546</span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td data-label="Size" class=""><span>0.00423</span></td>
-
-                                <td data-label="Price (USDT)" class="cs--color-success">
-                                    <span>55446.23</span>
-                                </td>
-
-                                <td data-label="Total" class="cs--color-secondary">
-                                    <span>2356.6546546</span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td data-label="Size" class=""><span>0.00423</span></td>
-
-                                <td data-label="Price (USDT)" class="cs--color-success">
-                                    <span>55446.23</span>
-                                </td>
-
-                                <td data-label="Total" class="cs--color-secondary">
-                                    <span>2356.6546546</span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td data-label="Size" class=""><span>0.00423</span></td>
-
-                                <td data-label="Price (USDT)" class="cs--color-success">
-                                    <span>55446.23</span>
-                                </td>
-
-                                <td data-label="Total" class="cs--color-secondary">
-                                    <span>2356.6546546</span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td data-label="Size" class=""><span>0.00423</span></td>
-
-                                <td data-label="Price (USDT)" class="cs--color-success">
-                                    <span>55446.23</span>
-                                </td>
-
-                                <td data-label="Total" class="cs--color-secondary">
-                                    <span>2356.6546546</span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td data-label="Size" class=""><span>0.00423</span></td>
-
-                                <td data-label="Price (USDT)" class="cs--color-success">
-                                    <span>55446.23</span>
-                                </td>
-
-                                <td data-label="Total" class="cs--color-secondary">
-                                    <span>2356.6546546</span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td data-label="Size" class=""><span>0.00423</span></td>
-
-                                <td data-label="Price (USDT)" class="cs--color-success">
-                                    <span>55446.23</span>
-                                </td>
-
-                                <td data-label="Total" class="cs--color-secondary">
-                                    <span>2356.6546546</span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td data-label="Size" class=""><span>0.00423</span></td>
-
-                                <td data-label="Price (USDT)" class="cs--color-success">
-                                    <span>55446.23</span>
-                                </td>
-
-                                <td data-label="Total" class="cs--color-secondary">
-                                    <span>2356.6546546</span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td data-label="Size" class=""><span>0.00423</span></td>
-
-                                <td data-label="Price (USDT)" class="cs--color-success">
-                                    <span>55446.23</span>
-                                </td>
-
-                                <td data-label="Total" class="cs--color-secondary">
-                                    <span>2356.6546546</span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td data-label="Size" class=""><span>0.00423</span></td>
-
-                                <td data-label="Price (USDT)" class="cs--color-success">
-                                    <span>55446.23</span>
-                                </td>
-
-                                <td data-label="Total" class="cs--color-secondary">
-                                    <span>2356.6546546</span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td data-label="Size" class=""><span>0.00423</span></td>
-
-                                <td data-label="Price (USDT)" class="cs--color-success">
-                                    <span>55446.23</span>
-                                </td>
-
-                                <td data-label="Total" class="cs--color-secondary">
-                                    <span>2356.6546546</span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td data-label="Size" class=""><span>0.00423</span></td>
-
-                                <td data-label="Price (USDT)" class="cs--color-success">
-                                    <span>55446.23</span>
-                                </td>
-
-                                <td data-label="Total" class="cs--color-secondary">
-                                    <span>2356.6546546</span>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-
-                <section
-                    class="cs--interface__block cs--interface__block--trade-history"
-                >
-                    <h2 class="cs--interface__block-title">Trade History</h2>
-
-                    <div class="cs--table-wrapper">
-                        <table class="cs--table">
-                            <thead>
-                            <tr>
-                                <th class="">Price (USDT)</th>
-
-                                <th class="">Amount</th>
-
-                                <th class="">Time</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td data-label="Price (USDT)" class="cs--color-danger">
-                                    <span>58853.58</span>
-                                </td>
-
-                                <td data-label="Amount" class=""><span>0.0447</span></td>
-
-                                <td data-label="Time" class="cs--color-secondary">
-                                    <span>14:44:45</span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td data-label="Price (USDT)" class="cs--color-danger">
-                                    <span>58853.58</span>
-                                </td>
-
-                                <td data-label="Amount" class=""><span>0.0447</span></td>
-
-                                <td data-label="Time" class="cs--color-secondary">
-                                    <span>14:44:45</span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td data-label="Price (USDT)" class="cs--color-danger">
-                                    <span>58853.58</span>
-                                </td>
-
-                                <td data-label="Amount" class=""><span>0.0447</span></td>
-
-                                <td data-label="Time" class="cs--color-secondary">
-                                    <span>14:44:45</span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td data-label="Price (USDT)" class="cs--color-danger">
-                                    <span>58853.58</span>
-                                </td>
-
-                                <td data-label="Amount" class=""><span>0.0447</span></td>
-
-                                <td data-label="Time" class="cs--color-secondary">
-                                    <span>14:44:45</span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td data-label="Price (USDT)" class="cs--color-danger">
-                                    <span>58853.58</span>
-                                </td>
-
-                                <td data-label="Amount" class=""><span>0.0447</span></td>
-
-                                <td data-label="Time" class="cs--color-secondary">
-                                    <span>14:44:45</span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td data-label="Price (USDT)" class="cs--color-danger">
-                                    <span>58853.58</span>
-                                </td>
-
-                                <td data-label="Amount" class=""><span>0.0447</span></td>
-
-                                <td data-label="Time" class="cs--color-secondary">
-                                    <span>14:44:45</span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td data-label="Price (USDT)" class="cs--color-danger">
-                                    <span>58853.58</span>
-                                </td>
-
-                                <td data-label="Amount" class=""><span>0.0447</span></td>
-
-                                <td data-label="Time" class="cs--color-secondary">
-                                    <span>14:44:45</span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td data-label="Price (USDT)" class="cs--color-danger">
-                                    <span>58853.58</span>
-                                </td>
-
-                                <td data-label="Amount" class=""><span>0.0447</span></td>
-
-                                <td data-label="Time" class="cs--color-secondary">
-                                    <span>14:44:45</span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td data-label="Price (USDT)" class="cs--color-danger">
-                                    <span>58853.58</span>
-                                </td>
-
-                                <td data-label="Amount" class=""><span>0.0447</span></td>
-
-                                <td data-label="Time" class="cs--color-secondary">
-                                    <span>14:44:45</span>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td data-label="Price (USDT)" class="cs--color-danger">
-                                    <span>58853.58</span>
-                                </td>
-
-                                <td data-label="Amount" class=""><span>0.0447</span></td>
-
-                                <td data-label="Time" class="cs--color-secondary">
-                                    <span>14:44:45</span>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
+                <OrdersHistoryWidget :pair="symbol.symbol" :quote-asset="symbol.quoteAsset" v-if="symbol"/>
 
                 <section
                     class="cs--interface__block cs--interface__block--my-orders"
@@ -1027,32 +597,34 @@
                         </tbody>
                     </table>
                     <div class="cs--btn-group">
-                        <button type="button" class="cs--btn cs--btn--tab">Buy</button>
+                        <button type="button"
+                                @click.prevent="order.side='BUY'"
+                                :class="{'cs--btn':true, 'cs--btn--tab':true, 'cs--btn--tab--active':order.side=='BUY'}"
+                        >{{ $__("Buy") }}
+                        </button>
                         <button
                             type="button"
-                            class="cs--btn cs--btn--tab cs--btn--tab--active"
+                            @click.prevent="order.side='SELL'"
+                            :class="{'cs--btn':true, 'cs--btn--tab':true, 'cs--btn--tab--active':order.side=='SELL'}"
                         >
-                            Sell
+                            {{ $__("Sell") }}
                         </button>
                     </div>
                     <div class="cs--btn-group">
-                        <button
-                            type="button"
-                            class="cs--btn cs--btn--tab cs--btn--tab--active"
+                        <button v-for="orderType in symbol.orderTypes"
+                                type="button"
+                                @click.prevent="order.type=orderType"
+                                :class="{'cs--btn':true, 'cs--btn--tab':true, 'cs--btn--tab--active':order.type==orderType}"
                         >
-                            Market
+                            {{ orderTypeName(orderType) }}
                         </button>
-                        <button type="button" class="cs--btn cs--btn--tab">
-                            Limit
-                        </button>
-                        <button type="button" class="cs--btn cs--btn--tab">Stop</button>
                     </div>
                     <form>
                         <div class="cs--dashboard-form__item">
                             <label
                                 for="dashboard--price"
                                 class="cs--dashboard-form__label"
-                            >Price</label
+                            >{{ $__("Price") }}</label
                             >
 
                             <div
@@ -1060,6 +632,7 @@
                                 data-postfix="USD"
                             >
                                 <input
+                                    v-model="order.price"
                                     id="dashboard--price"
                                     type="text"
                                     class="cs--dashboard-form__input"
@@ -1072,7 +645,7 @@
                             <label
                                 for="dashboard--total"
                                 class="cs--dashboard-form__label"
-                            >Total</label
+                            >{{ $__("Total") }}</label
                             >
 
                             <div
@@ -1081,6 +654,7 @@
                             >
                                 <input
                                     id="dashboard--total"
+                                    v-model="order.quantity"
                                     type="text"
                                     class="cs--dashboard-form__input"
                                     placeholder=""
@@ -1088,8 +662,13 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="cs--btn cs--btn--success">
-                            Buy
+
+                        <button
+                            type="button"
+                            class="cs--btn cs--btn--success"
+                            @click.prevent="openOrder()"
+                        >
+                            {{ order.side == 'BUY' ? $__("Buy") : $__("Sell") }}
                         </button>
                     </form>
                 </section>
@@ -1197,7 +776,7 @@
 
 <script>
 import TradingView from "../components/TradingView";
-import OrdersWidget from "../components/OrdersWidget";
+import OrderBookWidget from "../components/OrderBookWidget";
 import OrdersHistoryWidget from "../components/OrdersHistoryWidget";
 import ActiveOrders from "../components/ActiveOrders";
 import {mapGetters} from 'vuex'
@@ -1223,13 +802,14 @@ export default {
             orderMessage: '',
             orderMessageStatus: 'success',
             orders: [],
+            trades: [],
             openOrders: [],
             account: {}
         }
     },
     components: {
         TradingView,
-        OrdersWidget,
+        OrderBookWidget,
         OrdersHistoryWidget,
         ActiveOrders,
         vueCustomScrollbar
@@ -1240,6 +820,14 @@ export default {
             if (newValue) {
                 this.getOrders()
                 this.getOpenOrders()
+                let priceFilter = newValue.filters.filter((item) => {
+                    return item.filterType == "PRICE_FILTER"
+                })
+                let qtyFilter = newValue.filters.filter((item) => {
+                    return item.filterType == "LOT_SIZE"
+                })
+                this.order.price = priceFilter[0]['minPrice']
+                this.order.quantity = qtyFilter[0]['minQty']
             }
         },
         'symbol.orderTypes': function (newValue) {
@@ -1332,9 +920,13 @@ export default {
                 })
                 .then(response => {
                     if (response.status == 200 && response.data) {
-                        if (response.data.msg) {
-                            this.orderMessage = response.data.msg
-                            this.orderMessageStatus = 'success'
+                        if (response.data.message) {
+                            this.$notify.success({
+                                position: 'top right',
+                                title: this.$__('Успех'),
+                                msg: response.data.message,
+                                timeout: 3000
+                            })
                         }
                         this.playSound()
                         this.getOrders()
@@ -1343,9 +935,13 @@ export default {
                 })
                 .catch(error => {
                     // console.log(error.response.data);
-                    if (error.response.data.msg.length) {
-                        this.orderMessage = error.response.data.msg
-                        this.orderMessageStatus = 'error'
+                    if (error.response.data.message.length) {
+                        this.$notify.error({
+                            position: 'top right',
+                            title: this.$__('Ошибка'),
+                            msg: error.response.data.message,
+                            timeout: 3000
+                        })
                     }
                 });
         },
@@ -1418,6 +1014,7 @@ export default {
         this.getOrders()
         this.getOpenOrders()
     }
+
 }
 </script>
 

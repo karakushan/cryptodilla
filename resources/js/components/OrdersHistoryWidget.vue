@@ -1,38 +1,40 @@
 <template>
-    <v-card
-        class="mx-auto mb-2">
-        <v-toolbar dark>
-            <v-app-bar-nav-icon></v-app-bar-nav-icon>
-            <v-toolbar-title>{{ title }}</v-toolbar-title>
-        </v-toolbar>
-        <v-simple-table dark>
-            <template v-slot:default>
+    <section
+        class="cs--interface__block cs--interface__block--trade-history"
+    >
+        <h2 class="cs--interface__block-title">{{ $__("Trade History") }}</h2>
+
+        <div class="cs--table-wrapper">
+            <table class="cs--table">
                 <thead>
                 <tr>
-                    <th class="text-left">
-                        Цена USDT
-                    </th>
-                    <th class="text-left">
-                        Кол-во 1INCH
-                    </th>
-                    <th class="text-left">
-                        Всего USDT
-                    </th>
+                    <th class="">{{ $__("Price") }} ({{ quoteAsset }})</th>
+
+                    <th class="">{{ $__("Amount") }}</th>
+
+                    <th class="">{{ $__("Time") }}</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr
-                    v-for="(order,key) in orders"
-                    :key="key"
-                >
-                    <td>{{ order.p }}</td>
-                    <td>{{ order.q }}</td>
-                    <td>{{ order.p }}</td>
+                <tr v-for="trade in orders">
+                    <td :data-label="'Price ('+quoteAsset+')'" :class="{
+                        'cs--color-success':trade.m,
+                        'cs--color-danger':!trade.m
+                    }">
+                        <span>{{ parseFloat(trade.p) }}</span>
+                    </td>
+
+                    <td data-label="Amount" class=""><span>{{ parseFloat(trade.q) }}</span></td>
+
+                    <td data-label="Time" class="cs--color-secondary">
+                        <span>{{ $moment(trade.T).format('HH:mm:ss') }}</span>
+                    </td>
                 </tr>
+
                 </tbody>
-            </template>
-        </v-simple-table>
-    </v-card>
+            </table>
+        </div>
+    </section>
 </template>
 
 <script>
@@ -41,24 +43,30 @@ export default {
     data: () => ({
         connection: null,
         orders: [],
+        timer: null
     }),
     props: {
         limit: {
             type: Number,
-            default: 6
+            default: 12
         },
         pair: {
             type: String,
             default: 'bnbusdt'
+        },
+        quoteAsset: {
+            type: String,
+            default: 'USDT'
         },
         title: {
             type: String,
             default: 'История торгов'
         },
     },
+    methods: {},
     mounted() {
         let app = this
-        this.socket = new WebSocket(process.env.MIX_BINANCE_WS_URL + "bnbusdt@trade");
+        this.socket = new WebSocket(process.env.MIX_BINANCE_WS_URL + "/bnbusdt@trade");
         this.socket.onopen = function (e) {
             console.log("[open] Соединение установлено");
         };

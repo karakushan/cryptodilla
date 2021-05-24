@@ -1,32 +1,33 @@
 <template>
     <main class="cs--page cs--dashboard--connect">
         <div class="cs--container">
-            <h1 class="cs--page__title">Connect your {{ exchangeName }} Account</h1>
+            <h1 class="cs--page__title">Connect your {{ exchange.name }} Account</h1>
             <p class="cs--page__sub-title">
                 A secure connection with your exchange account is established using
                 API keys. To learn more about how API keys work, click here.
             </p>
             <div class="cs--page-side-wrapper">
-                <form class="cs--dashboard-form">
+                <form class="cs--dashboard-form" @submit.prevent="connect()">
                     <h2
                         class="cs--dashboard-form__title cs--dashboard-form__title--mark"
                     >
-                        Enter your API Key for {{ exchangeName }}
+                        Enter your API Key for {{ exchange.name }}
                     </h2>
 
                     <div class="cs--dashboard-form__item">
                         <label
                             for="dashboard--api-key"
                             class="cs--dashboard-form__label"
-                        >Api Key</label
+                        >{{ $__("Api Key") }}</label
                         >
 
                         <div class="cs--dashboard-form__input-wrapper" data-postfix="">
                             <input
+                                v-model="formData.credentials.apiKey"
                                 id="dashboard--api-key"
-                                type="password"
+                                type="text"
                                 class="cs--dashboard-form__input"
-                                placeholder="*****"
+                                required
                             />
                         </div>
                     </div>
@@ -40,10 +41,11 @@
 
                         <div class="cs--dashboard-form__input-wrapper" data-postfix="">
                             <input
+                                v-model="formData.credentials.apiSecret"
                                 id="dashboard--secret-key"
-                                type="password"
+                                type="text"
                                 class="cs--dashboard-form__input"
-                                placeholder="*****"
+                                required
                             />
                         </div>
                     </div>
@@ -52,71 +54,29 @@
                         <label
                             for="dashboard--account-lable"
                             class="cs--dashboard-form__label"
-                        >Account Lable</label
+                        >{{ $__("Account Label") }}</label
                         >
 
                         <div class="cs--dashboard-form__input-wrapper" data-postfix="">
                             <input
+                                v-model="formData.title"
                                 id="dashboard--account-lable"
                                 type="text"
                                 class="cs--dashboard-form__input"
                                 placeholder="Label"
+                                required
                             />
                         </div>
                     </div>
 
                     <div class="cs--dashboard-form__btn-group">
-                        <button type="submit" class="cs--btn cs--btn--grad-blue">
-                            Connect
-                        </button>
+                        <Button type="submit" :preloader="process">
+                            {{ $__("Connect") }}
+                        </Button>
                     </div>
                 </form>
 
-                <aside class="cs--page-side">
-                    <h3 class="cs--page-side__title">FAQs</h3>
-                    <ul class="cs--page-side__item-list">
-                        <li class="cs--page-side__item">
-                            <a href="javasript:void(0)" class="cs--page-side__link"
-                            >I don’t have an exchange account, do I need one?</a
-                            >
-                        </li>
-
-                        <li class="cs--page-side__item">
-                            <a href="javasript:void(0)" class="cs--page-side__link"
-                            >Are there any additional fees for trading with
-                                CryprtoSystem platform?</a
-                            >
-                        </li>
-
-                        <li class="cs--page-side__item">
-                            <a href="javasript:void(0)" class="cs--page-side__link"
-                            >My exchange is not supported, how can I request it?</a
-                            >
-                        </li>
-
-                        <li class="cs--page-side__item">
-                            <a href="javasript:void(0)" class="cs--page-side__link"
-                            >Are derivatives such as futures and perpetual swaps
-                                supported?</a
-                            >
-                        </li>
-
-                        <li class="cs--page-side__item">
-                            <a href="javasript:void(0)" class="cs--page-side__link"
-                            >How can I connect my wallets such as MetaMask, Trezor, or
-                                Ledger etc?</a
-                            >
-                        </li>
-
-                        <li class="cs--page-side__item">
-                            <a
-                                href="javasript:void(0)"
-                                class="cs--page-side__link cs--page-side__link--accent"
-                            >Visit Support Center</a
-                            >
-                        </li>
-                    </ul>
-                </aside>
+                <AsideFaq/>
             </div>
         </div>
     </main>
@@ -124,24 +84,54 @@
 
 <script>
 import {mapGetters} from "vuex";
+import Button from "../components/Button";
+import AsideFaq from "../components/AsideFaq";
 
 export default {
+    data() {
+        return {
+            formData: {
+                title: '',
+                exchange_id: this.id,
+                credentials: {
+                    apiKey: '',
+                    apiSecret: ''
+                }
+
+            },
+            process: false
+        }
+    },
     name: "ExchangeConnect",
-    props: ['id'],
+    props: ['id','exchange'],
     computed: {
         ...mapGetters(['appData']),
-        exchange() {
-            if (!this.appData.exchanges || typeof this.appData.exchanges[this.id] === 'undefined') return
-
-            return this.appData.exchanges[this.id]
-        },
-        exchangeName() {
-            if (!this.exchange) return
-
-            return this.exchange.name
-        },
 
     },
+    methods: {
+        connect() {
+            this.process = true;
+            axios
+                .post('/terminal/attach-exchange', this.formData)
+                .then(response => {
+                    if (response.status == 200 && response.data) {
+
+                    }
+                })
+                .catch(error => {
+                    // console.log(error.response);
+                    console.log(error.response.data);
+                })
+                .finally(() => {
+                    this.process = false;
+                    this.$router.push('/select-exchange')
+                });
+        }
+    },
+    components: {
+        Button,
+        AsideFaq
+    }
 }
 </script>
 

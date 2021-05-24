@@ -13,7 +13,7 @@ export default {
             panel: {
                 "autosize": true,
                 "symbol": this.pair,
-                "interval": "D",
+                "interval": "1",
                 "timezone": "Etc/UTC",
                 "theme": "dark",
                 "style": "1",
@@ -49,7 +49,7 @@ export default {
 
 <style scoped>
 #tradingview_bd080 {
-    height: 650px;
+    height: 500px;
 }
 
 .tradingview {

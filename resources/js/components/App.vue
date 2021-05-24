@@ -13,15 +13,15 @@
                     >
                         <ul class="cs--dashboard-nav__list">
                             <li class="cs--dashboard-nav__item">
-                                <a href="javascript:void(0)">Platform</a>
+                                <router-link to="/">{{ $__("Platform") }}</router-link>
                             </li>
 
                             <li class="cs--dashboard-nav__item">
-                                <a href="javascript:void(0)">News</a>
+                                <router-link to="/news">{{ $__("News") }}</router-link>
                             </li>
 
                             <li class="cs--dashboard-nav__item">
-                                <a href="javascript:void(0)">FAQ</a>
+                                <router-link to="/faq">{{ $__("FAQ") }}</router-link>
                             </li>
                         </ul>
                     </nav>
@@ -224,11 +224,7 @@
                                     </li>
 
                                     <li class="cs--dashboard-footer__menu-item">
-                                        <a
-                                            class="cs--dashboard-footer__menu-item-link"
-                                            href="javascript:void(0)"
-                                        >Support Center</a
-                                        >
+                                        <router-link to="/support" class="cs--dashboard-footer__menu-item-link">{{ $__("Support Center") }}</router-link>
                                     </li>
                                 </ul>
                             </li>

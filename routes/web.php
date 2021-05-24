@@ -8,8 +8,10 @@ use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FilepondController;
 use App\Http\Controllers\BinanceController;
 use App\Http\Controllers\ExchangeController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\TerminalController;
+use App\Http\Controllers\TicketController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserGroupController;
 use Illuminate\Support\Facades\Route;
@@ -57,6 +59,19 @@ Route::group(['prefix' => 'terminal', 'middleware' => ['auth', 'permission:manag
     // CHAT
     Route::get('/chat-messages', [ChatsController::class, 'fetchMessages']);
     Route::post('/chat-messages', [ChatsController::class, 'sendMessage']);
+
+    // TICKETS
+    Route::get('/user-tickets', [TicketController::class, 'getCurrentUserTickets']);
+
+    // FAQ
+    Route::get('/faq', [FaqController::class, 'getFaqs']);
+
+    // NEWS
+    Route::get('/news', [NewsController::class, 'getNews']);
+
+    Route::resources([
+        'ticket' => TicketController::class,
+    ]);
 });
 
 /* РОУТЫ АДМИНКИ */
@@ -69,7 +84,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'permission:manage a
         'exchanges' => ExchangeController::class,
         'currencies' => CurrencyController::class,
         'faqs' => FaqController::class,
-        'faq-categories' => FaqCategoryController::class
+        'faq-categories' => FaqCategoryController::class,
+        'news' => NewsController::class,
     ]);
 });
 

@@ -113,4 +113,10 @@ class FaqController extends Controller
             'message' => __('Object deleted successfully!')
         ]);
     }
+
+    public function getFaqs(Request $request){
+        $faqs=Faq::all();
+
+        return response()->json($faqs);
+    }
 }

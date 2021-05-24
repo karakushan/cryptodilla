@@ -19,6 +19,7 @@
 
     <link media="all" rel="stylesheet" href="{{ asset('css/vendor.css') }}" />
     <link media="all" rel="stylesheet" href="{{ asset('css/styles.css') }}" />
+    <link media="all" rel="stylesheet" href="{{ asset('css/app.css') }}" />
 </head>
 
 <body>

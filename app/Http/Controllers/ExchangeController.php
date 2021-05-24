@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateOrderRequest;
 use App\Http\Requests\ExchangeRequest;
+use App\Http\Requests\UserExchangeRequest;
 use App\Models\Exchange;
 use App\Models\UserExchange;
 use App\Traits\Binance;
@@ -194,13 +195,13 @@ class ExchangeController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function attachUserExchange(Request $request)
+    public function attachUserExchange(UserExchangeRequest $request)
     {
         $credentials = $request->json('credentials');
 
         UserExchange::updateOrInsert(
             ['user_id' => auth()->id(), 'exchange_id' => $request->input('exchange_id')],
-            ['credentials' => json_encode($credentials)]
+            ['credentials' => json_encode($credentials),'title'=>$request->input('title')]
         );
 
         return response()->json(['message' => __('Данные биржи успешно привязаны к Вашему аккаунту!')]);
@@ -228,7 +229,8 @@ class ExchangeController extends Controller
     public function getExchanges()
     {
         $exchanges = Exchange::where('status', 1)->get();
-        return response()->json(compact('exchanges'));
+
+        return response()->json($exchanges);
     }
 
     public function cancelOrder($slug,Request $request){

@@ -79,6 +79,19 @@
     "Add FAQ Category": "Новая категория FAQ",
     "Adding a Faq Category": "Новая категория FAQ",
     "Title": "Заголовок",
-    "Editing FAQ Category": "Редактирование категории FAQ"
-
+    "Editing FAQ Category": "Редактирование категории FAQ",
+    "Create New Ticket": "Создать новый тикет",
+    "History": "История",
+    "Date": "Дата",
+    "Topic": "Тема",
+    "View": "Смотреть",
+    "Support Center": "Центр поддержки",
+    "Support": "Поддержка",
+    "New Support Ticket": "Новый тикет",
+    "Your E-mail": "Ваш адрес электронной почты",
+    "Message type": "Тип сообщения",
+    "Subject": "Тема",
+    "Message text": "Текстовое сообщение",
+    "Frequenty Asked Questions": "Часто задаваемые вопросы",
+    "News": "Новости"
 }
