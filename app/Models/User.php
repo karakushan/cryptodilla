@@ -94,7 +94,7 @@ class User extends Authenticatable
         'last_location'
     ];
 
-    protected $appends = ['avatar_url'];
+    protected $appends = ['avatar_url', 'chat_color'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -135,5 +135,10 @@ class User extends Authenticatable
     public function exchanges()
     {
         return $this->hasMany(UserExchange::class, 'user_id');
+    }
+
+    public function getChatColorAttribute()
+    {
+        return '#'.substr(md5($this->id), 0, 6);
     }
 }

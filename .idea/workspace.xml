@@ -19,71 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="crud для категорий FAQ">
-      <change afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/NewsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/TicketController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/TicketRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/UserExchangeRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/News.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/NewsCategory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Ticket.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_22_095711_create_tickets_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_22_192448_create_news_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_22_194209_create_news_categories_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_23_180731_add_field_title_for_user_exchanges.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/AsideFaq.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/OrderBookWidget.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/views/FAQ.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/views/Markets.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/views/News.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/views/Support.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/views/Ticket.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/dashboard/news/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/dashboard/news/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/dashboard/news/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/cryptotrade.loc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cryptotrade.loc.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5035001f-1a51-453c-b284-da206a5db2ea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5035001f-1a51-453c-b284-da206a5db2ea.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="Order Book widget">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExchangeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExchangeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FaqController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FaqController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TerminalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TerminalController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Currency.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Currency.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Exchange.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Exchange.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Faq.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Faq.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/FaqCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/FaqCategory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Message.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Message.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/UserExchange.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/UserExchange.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Traits/Binance.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/Binance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/karakushan/crud-generator" beforeDir="false" afterPath="$PROJECT_DIR$/packages/karakushan/crud-generator" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/karakushan/crud-generator/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/karakushan/crud-generator/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/Button.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Button.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/OrdersHistoryWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/OrdersHistoryWidget.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/OrdersWidget.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/TradingView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/TradingView.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/ExchangeConnect.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/ExchangeConnect.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/SelectExchange.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/SelectExchange.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/ActiveOrders.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ActiveOrders.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Chat.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Chat.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/views/Trading.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/Trading.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dashboard-terminal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dashboard-terminal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/leftbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/leftbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -432,7 +375,8 @@
       <workItem from="1621151241111" duration="54000" />
       <workItem from="1621676574747" duration="14002000" />
       <workItem from="1621762673279" duration="505000" />
-      <workItem from="1621776381211" duration="25484000" />
+      <workItem from="1621776381211" duration="26134000" />
+      <workItem from="1621942759390" duration="3056000" />
     </task>
     <task id="LOCAL-00001" summary="подключил vue router">
       <created>1615840605110</created>
@@ -637,7 +581,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620650210419</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Order Book widget">
+      <created>1621869007686</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1621869007689</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -659,7 +610,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="изменил robots.txt" />
     <MESSAGE value="изменил github actions main.yml" />
     <MESSAGE value="изменил github actions main.yml #2" />
     <MESSAGE value="изменил github actions main.yml #3" />
@@ -684,7 +634,8 @@
     <MESSAGE value="начал google 2fa" />
     <MESSAGE value="сделал 2fa аутент." />
     <MESSAGE value="crud для категорий FAQ" />
-    <option name="LAST_COMMIT_MESSAGE" value="crud для категорий FAQ" />
+    <MESSAGE value="Order Book widget" />
+    <option name="LAST_COMMIT_MESSAGE" value="Order Book widget" />
   </component>
   <component name="WindowStateProjectService">
     <state x="509" y="144" key="#Deployment" timestamp="1620657186197">
@@ -719,54 +670,54 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1621712216324" />
-    <state width="1877" height="267" key="GridCell.Tab.0.bottom" timestamp="1621844973515">
+    <state width="1877" height="174" key="GridCell.Tab.0.bottom" timestamp="1621879507241">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="267" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1621844973515" />
-    <state width="1877" height="267" key="GridCell.Tab.0.center" timestamp="1621844973515">
+    <state width="1877" height="174" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1621879507241" />
+    <state width="1877" height="174" key="GridCell.Tab.0.center" timestamp="1621879507240">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="267" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1621844973515" />
-    <state width="1877" height="267" key="GridCell.Tab.0.left" timestamp="1621844973514">
+    <state width="1877" height="174" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1621879507240" />
+    <state width="1877" height="174" key="GridCell.Tab.0.left" timestamp="1621879507240">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="267" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1621844973514" />
-    <state width="1877" height="267" key="GridCell.Tab.0.right" timestamp="1621844973515">
+    <state width="1877" height="174" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1621879507240" />
+    <state width="1877" height="174" key="GridCell.Tab.0.right" timestamp="1621879507240">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="267" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1621844973515" />
-    <state width="1877" height="174" key="GridCell.Tab.1.bottom" timestamp="1621793007986">
+    <state width="1877" height="174" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1621879507240" />
+    <state width="1877" height="174" key="GridCell.Tab.1.bottom" timestamp="1621879507241">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="174" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1621793007986" />
-    <state width="1877" height="174" key="GridCell.Tab.1.center" timestamp="1621793007986">
+    <state width="1877" height="174" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1621879507241" />
+    <state width="1877" height="174" key="GridCell.Tab.1.center" timestamp="1621879507241">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="174" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1621793007986" />
-    <state width="1877" height="174" key="GridCell.Tab.1.left" timestamp="1621793007986">
+    <state width="1877" height="174" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1621879507241" />
+    <state width="1877" height="174" key="GridCell.Tab.1.left" timestamp="1621879507241">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="174" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1621793007986" />
-    <state width="1877" height="174" key="GridCell.Tab.1.right" timestamp="1621793007986">
+    <state width="1877" height="174" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1621879507241" />
+    <state width="1877" height="174" key="GridCell.Tab.1.right" timestamp="1621879507241">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="174" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1621793007986" />
-    <state width="1877" height="174" key="GridCell.Tab.2.bottom" timestamp="1621793007987">
+    <state width="1877" height="174" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1621879507241" />
+    <state width="1877" height="174" key="GridCell.Tab.2.bottom" timestamp="1621879507241">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="174" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1621793007987" />
-    <state width="1877" height="174" key="GridCell.Tab.2.center" timestamp="1621793007987">
+    <state width="1877" height="174" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1621879507241" />
+    <state width="1877" height="174" key="GridCell.Tab.2.center" timestamp="1621879507241">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="174" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1621793007987" />
-    <state width="1877" height="174" key="GridCell.Tab.2.left" timestamp="1621793007986">
+    <state width="1877" height="174" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1621879507241" />
+    <state width="1877" height="174" key="GridCell.Tab.2.left" timestamp="1621879507241">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="174" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1621793007986" />
-    <state width="1877" height="174" key="GridCell.Tab.2.right" timestamp="1621793007987">
+    <state width="1877" height="174" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1621879507241" />
+    <state width="1877" height="174" key="GridCell.Tab.2.right" timestamp="1621879507241">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="174" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1621793007987" />
+    <state width="1877" height="174" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1621879507241" />
     <state width="217" height="457" key="HiddenNamespacesPopup" timestamp="1620656889581">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -783,18 +734,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1621778885725" />
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1620650211816">
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1621869032470">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1620650211816" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1621869032470" />
     <state x="859" y="394" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1616884798046">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="859" y="394" key="com.intellij.database.actions.DdlActions$CreateObject$1/0.0.1920.1040@0.0.1920.1040" timestamp="1616884798046" />
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1620294264043">
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1621943546025">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620294264043" />
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1621943546025" />
     <state x="667" y="253" width="585" height="534" key="find.popup" timestamp="1616520227507">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
