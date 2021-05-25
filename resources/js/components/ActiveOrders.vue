@@ -3,16 +3,19 @@
         class="cs--interface__block cs--interface__block--my-orders"
     >
         <div class="cs--interface__block-head">
-            <h2 class="cs--interface__block-title">My Orders</h2>
+            <h2 class="cs--interface__block-title">{{ $__("My Orders") }}</h2>
             <div class="cs--btn-group">
-                <button type="button" class="cs--btn cs--btn--tab">
-                    Open
+                <button type="button"
+                        @click.prevent="tab='open'"
+                        :class="{'cs--btn':true, 'cs--btn--tab':true,'cs--btn--tab--active':tab=='open'}">
+                    {{ $__("Open") }}
                 </button>
                 <button
+                    @click.prevent="tab='filled'"
                     type="button"
-                    class="cs--btn cs--btn--tab cs--btn--tab--active"
+                    :class="{'cs--btn':true, 'cs--btn--tab':true,'cs--btn--tab--active':tab=='filled'}"
                 >
-                    Filled
+                    {{ $__("Filled") }}
                 </button>
             </div>
         </div>
@@ -21,259 +24,48 @@
             <table class="cs--table">
                 <thead>
                 <tr>
-                    <th class="">Side</th>
+                    <th class="">{{ $__("Side") }}</th>
 
-                    <th class="">Size to fill</th>
+                    <th class="">{{ $__("Type") }}</th>
 
-                    <th class="">Price</th>
+                    <th class="">{{ $__("Size") }}</th>
 
-                    <th class="">Date</th>
+                    <th class="">{{ $__("Price") }}</th>
 
-                    <th class="">Status</th>
+                    <th class="">{{ $__("Date") }}</th>
+
+                    <th class="">{{ $__("Status") }}</th>
 
                     <th class="">-</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td data-label="Side" class=""><span>58853.58</span></td>
+                <tr v-for="order in tabOrders">
+                    <td data-label="Side"
+                        :class="{'cs--color-danger':order.side=='SELL','cs--color-success':order.side=='BUY'}"
+                    ><span>{{ order.side }}</span></td>
 
-                    <td data-label="Size to fill" class="">
-                        <span>0.0447</span>
+                    <td data-label="Type" class="">
+                        <span>{{ order.type }}</span>
+                    </td>
+
+                    <td data-label="Size" class="">
+                        <span>{{ order.executedQty }}</span>
                     </td>
 
                     <td data-label="Price" class="">
-                        <span>58853.580000000002</span>
+                        <span>{{ order.price }}</span>
                     </td>
 
                     <td data-label="Date" class="cs--color-secondary">
-                        <span>18 mar 2021</span>
+                        <span>{{ $moment(order.time).format('D MMMM YYYY, HH:SS') }}</span>
                     </td>
 
                     <td data-label="Status" class="cs--color-success">
                         <span>Confirmed</span>
                     </td>
-
-                    <td data-label="-" class="cs--color-secondary">
-                        <span>Turpis</span>
-                    </td>
                 </tr>
 
-                <tr>
-                    <td data-label="Side" class=""><span>58853.58</span></td>
-
-                    <td data-label="Size to fill" class="">
-                        <span>0.0447</span>
-                    </td>
-
-                    <td data-label="Price" class="">
-                        <span>58853.580000000002</span>
-                    </td>
-
-                    <td data-label="Date" class="cs--color-secondary">
-                        <span>18 mar 2021</span>
-                    </td>
-
-                    <td data-label="Status" class="cs--color-warning">
-                        <span>In processing</span>
-                    </td>
-
-                    <td data-label="-" class="cs--color-secondary">
-                        <span>Turpis</span>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td data-label="Side" class=""><span>58853.58</span></td>
-
-                    <td data-label="Size to fill" class="">
-                        <span>0.0447</span>
-                    </td>
-
-                    <td data-label="Price" class="">
-                        <span>58853.580000000002</span>
-                    </td>
-
-                    <td data-label="Date" class="cs--color-secondary">
-                        <span>18 mar 2021</span>
-                    </td>
-
-                    <td data-label="Status" class="cs--color-danger">
-                        <span>Rejected</span>
-                    </td>
-
-                    <td data-label="-" class="cs--color-secondary">
-                        <span>Turpis</span>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td data-label="Side" class=""><span>58853.58</span></td>
-
-                    <td data-label="Size to fill" class="">
-                        <span>0.0447</span>
-                    </td>
-
-                    <td data-label="Price" class="">
-                        <span>58853.580000000002</span>
-                    </td>
-
-                    <td data-label="Date" class="cs--color-secondary">
-                        <span>18 mar 2021</span>
-                    </td>
-
-                    <td data-label="Status" class="cs--color-success">
-                        <span>Confirmed</span>
-                    </td>
-
-                    <td data-label="-" class="cs--color-secondary">
-                        <span>Turpis</span>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td data-label="Side" class=""><span>58853.58</span></td>
-
-                    <td data-label="Size to fill" class="">
-                        <span>0.0447</span>
-                    </td>
-
-                    <td data-label="Price" class="">
-                        <span>58853.580000000002</span>
-                    </td>
-
-                    <td data-label="Date" class="cs--color-secondary">
-                        <span>18 mar 2021</span>
-                    </td>
-
-                    <td data-label="Status" class="cs--color-warning">
-                        <span>In processing</span>
-                    </td>
-
-                    <td data-label="-" class="cs--color-secondary">
-                        <span>Turpis</span>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td data-label="Side" class=""><span>58853.58</span></td>
-
-                    <td data-label="Size to fill" class="">
-                        <span>0.0447</span>
-                    </td>
-
-                    <td data-label="Price" class="">
-                        <span>58853.580000000002</span>
-                    </td>
-
-                    <td data-label="Date" class="cs--color-secondary">
-                        <span>18 mar 2021</span>
-                    </td>
-
-                    <td data-label="Status" class="cs--color-danger">
-                        <span>Rejected</span>
-                    </td>
-
-                    <td data-label="-" class="cs--color-secondary">
-                        <span>Turpis</span>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td data-label="Side" class=""><span>58853.58</span></td>
-
-                    <td data-label="Size to fill" class="">
-                        <span>0.0447</span>
-                    </td>
-
-                    <td data-label="Price" class="">
-                        <span>58853.580000000002</span>
-                    </td>
-
-                    <td data-label="Date" class="cs--color-secondary">
-                        <span>18 mar 2021</span>
-                    </td>
-
-                    <td data-label="Status" class="cs--color-danger">
-                        <span>Rejected</span>
-                    </td>
-
-                    <td data-label="-" class="cs--color-secondary">
-                        <span>Turpis</span>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td data-label="Side" class=""><span>58853.58</span></td>
-
-                    <td data-label="Size to fill" class="">
-                        <span>0.0447</span>
-                    </td>
-
-                    <td data-label="Price" class="">
-                        <span>58853.580000000002</span>
-                    </td>
-
-                    <td data-label="Date" class="cs--color-secondary">
-                        <span>18 mar 2021</span>
-                    </td>
-
-                    <td data-label="Status" class="cs--color-danger">
-                        <span>Rejected</span>
-                    </td>
-
-                    <td data-label="-" class="cs--color-secondary">
-                        <span>Turpis</span>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td data-label="Side" class=""><span>58853.58</span></td>
-
-                    <td data-label="Size to fill" class="">
-                        <span>0.0447</span>
-                    </td>
-
-                    <td data-label="Price" class="">
-                        <span>58853.580000000002</span>
-                    </td>
-
-                    <td data-label="Date" class="cs--color-secondary">
-                        <span>18 mar 2021</span>
-                    </td>
-
-                    <td data-label="Status" class="cs--color-danger">
-                        <span>Rejected</span>
-                    </td>
-
-                    <td data-label="-" class="cs--color-secondary">
-                        <span>Turpis</span>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td data-label="Side" class=""><span>58853.58</span></td>
-
-                    <td data-label="Size to fill" class="">
-                        <span>0.0447</span>
-                    </td>
-
-                    <td data-label="Price" class="">
-                        <span>58853.580000000002</span>
-                    </td>
-
-                    <td data-label="Date" class="cs--color-secondary">
-                        <span>18 mar 2021</span>
-                    </td>
-
-                    <td data-label="Status" class="cs--color-danger">
-                        <span>Rejected</span>
-                    </td>
-
-                    <td data-label="-" class="cs--color-secondary">
-                        <span>Turpis</span>
-                    </td>
-                </tr>
                 </tbody>
             </table>
         </div>
@@ -284,14 +76,29 @@
 export default {
     name: "ActiveOrders",
     data: () => ({
-
+        tab: 'open'
     }),
-    methods: {
-
+    props: {
+        orders: {
+            type: Array,
+            default() {
+                return []
+            }
+        },
     },
-    mounted() {
-        // this.connectWS()
-    }
+    methods: {},
+    computed: {
+        tabOrders() {
+            if (this.tab == 'open') {
+                return this.orders.filter((item) => {
+                    return item.status !== 'FILLED'
+                })
+            }
+            return this.orders.filter((item) => {
+                return item.status === 'FILLED'
+            });
+        }
+    },
 }
 </script>
 

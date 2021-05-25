@@ -2,8 +2,8 @@
     <section
         class="cs--interface__block cs--interface__block--order-book"
     >
-        <h2 class="cs--interface__block-title">Order Book</h2>
-        <div class="cs--table-wrapper">
+        <h2 class="cs--interface__block-title">{{ $__("Order Book") }}</h2>
+        <div class="cs--table-wrapper" style="width: 224px;">
             <table class="cs--table">
                 <thead>
                 <tr>
@@ -95,24 +95,6 @@ export default {
         }
     },
     methods: {
-        getPriceUSD(){
-             axios
-              .post('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT', {
-
-              })
-              .then(response => {
-              	if (response.status == 200 && response.data) {
-
-              	}
-              })
-              .catch(error => {
-                 // console.log(error.response);
-              	console.log(error.response.data);
-              })
-              .finally(() => {
-              // Will be executed upon completion catch & then
-              });
-        },
         streamPrice() {
             if (!this.symbol) return
 
@@ -171,7 +153,6 @@ export default {
     },
     computed: {},
     mounted() {
-        this.getPriceUSD()
         this.connectWS()
         this.streamPrice()
     }
