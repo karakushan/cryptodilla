@@ -112,5 +112,12 @@
     "Select Account": "Выберите аккаунт",
     "No Account": "Нет аккаунта",
     "Connect your %s account to start trading": "Подключите свою учетную запись %s, чтобы начать торговать",
-    "Connected": "Подключен"
+    "Connected": "Подключен",
+    "Enter the code from E-mail": "Введите код с электронной почты",
+    "Confirm registration": "Подтвердите регистрацию",
+    "Enter Code": "Введите код",
+    "Verify Your Email Address": "Проверьте свой почтовый ящик",
+    "Click here to request another": "Нажмите здесь, чтобы запросить повторно",
+    "Before proceeding, please check your email for a verification link.": "Прежде чем продолжить, проверьте свою электронную почту на наличие ссылки для подтверждения.",
+    "If you did not receive the email": "Если вы не получили письмо"
 }

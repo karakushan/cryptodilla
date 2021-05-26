@@ -34,6 +34,22 @@ https://academy.binance.com/en/articles/binance-api-series-pt-1-spot-trading-wit
 * "manage admin" - пользователь имеет все права админа, т.е. может проводить все действия в админке сайта
 * "manage terminal" - пользователь имеет все права для управления терминалом, может проводить торговые операции
 
+**Роли**
+* trader - Трейдер
+* admin - Админ
+
+**Тестовые пользователи**
+
+Админка:
+https://ex.profglobal.top/admin
+admin@ex.profglobal.top
+hHM7MtCSXfFv552
+
+Терминал:
+https://ex.profglobal.top/terminal
+admin@ex.profglobal.top
+hHM7MtCSXfFv552
+
 
 
 

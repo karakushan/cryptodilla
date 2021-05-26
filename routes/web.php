@@ -41,7 +41,7 @@ Route::get('locale/{locale}', function ($locale) {
 })->name('locale');
 
 /* РОУТЫ ТОРГОВОГО ТЕРМИНАЛА */
-Route::group(['prefix' => 'terminal', 'middleware' => ['auth', 'permission:manage terminal|manage admin', 'google2fa']], function () {
+Route::group(['prefix' => 'terminal', 'middleware' => ['auth','verified', 'permission:manage terminal|manage admin', 'google2fa']], function () {
     Route::get('/', [TerminalController::class, 'index'])->name('terminal.index');
     Route::get('/exchanges', [ExchangeController::class, 'getExchanges']);
     Route::post('/attach-exchange', [ExchangeController::class, 'attachUserExchange']);

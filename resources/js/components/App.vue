@@ -102,6 +102,8 @@
                             <div class="cs--user-menu__img">
                                 <img :src="data.user.avatar_url" :alt="data.user.name" v-if="data.user.avatar"
                                      width="28"/>
+                                <img src="/assets/images/users/profile.svg" alt="No Avatar" width="28" v-else>
+
                             </div>
                             <details data-dropdown class="cs--dropdown">
                                 <summary class="cs--dropdown__btn">{{ data.user.name }}</summary>
