@@ -35,6 +35,10 @@ Auth::routes();
 Route::get('/', [PageController::class, 'homePage'])->name('homepage');
 Route::get('/google2fa-auth', [UserController::class, 'google2fa_page'])->name('google2fa');
 Route::post('/google2fa-validate', [UserController::class, 'google2fa_validate'])->name('google2fa_validate');
+Route::get('locale/{locale}', function ($locale) {
+    session()->put('locale', $locale);
+    return redirect()->back();
+})->name('locale');
 
 /* РОУТЫ ТОРГОВОГО ТЕРМИНАЛА */
 Route::group(['prefix' => 'terminal', 'middleware' => ['auth', 'permission:manage terminal|manage admin', 'google2fa']], function () {
@@ -54,6 +58,7 @@ Route::group(['prefix' => 'terminal', 'middleware' => ['auth', 'permission:manag
         Route::post('get-orders/{slug}', [ExchangeController::class, 'getOrders']);
         Route::post('get-open-orders/{slug}', [ExchangeController::class, 'getOpenOrders']);
         Route::post('cancel-order/{slug}', [ExchangeController::class, 'cancelOrder']);
+        Route::post('set-active-account', [ExchangeController::class, 'setActiveAccount']);
     });
 
     // CHAT

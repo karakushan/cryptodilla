@@ -103,5 +103,14 @@
     "Order Book": "Книга заказов",
     "Price": "Цена",
     "Total": "Всего",
-    "Balance": "Баланс"
+    "Balance": "Баланс",
+    "The currency pair %s  has been successfully added to favorites!": "Валютная пара %s успешно добавлена в избранное!",
+    "Add Account": "Добавить аккаунт",
+    "Exchange": "Биржа",
+    "Account successfully connected": "Аккаунт успешно подключен",
+    "Account": "Аккаунт",
+    "Select Account": "Выберите аккаунт",
+    "No Account": "Нет аккаунта",
+    "Connect your %s account to start trading": "Подключите свою учетную запись %s, чтобы начать торговать",
+    "Connected": "Подключен"
 }

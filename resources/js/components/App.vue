@@ -4,7 +4,7 @@
             <div class="cs--container">
                 <div class="cs--dashboard-header__wrapper">
                     <a href="/" class="cs--logo cs--logo--xs">
-                        <img src="/img/logo-icon.png" alt="logo" />
+                        <img src="/img/logo-icon.png" alt="logo"/>
                     </a>
                     <nav
                         class="cs--dashboard-nav"
@@ -28,21 +28,21 @@
                     <div class="cs--dashboard-options">
                         <div class="cs--dashboard-options__status">
                 <span class="cs--dashboard-options__status-text"
-                >Connected</span
+                >{{ $__("Connected") }}</span
                 >
                         </div>
                         <details
                             data-dropdown
                             class="cs--dashboard-options__lang cs--dropdown"
                         >
-                            <summary class="cs--dropdown__btn">en</summary>
+                            <summary class="cs--dropdown__btn">{{ data.lang }}</summary>
                             <ul class="cs--dropdown__list">
                                 <li class="cs--dropdown__item">
-                                    <button type="button">en</button>
+                                    <button type="button">{{ data.lang }}</button>
                                 </li>
 
                                 <li class="cs--dropdown__item">
-                                    <a href="javascript:void(0)">ru</a>
+                                    <a href="#" @click.prevent="setLocale(data.lang=='en'?'ru':'en')">{{ data.lang=='en'?'ru':'en' }}</a>
                                 </li>
                             </ul>
                         </details>
@@ -100,10 +100,11 @@
                         </button>
                         <div class="cs--user-menu">
                             <div class="cs--user-menu__img">
-                                <img :src="data.user.avatar_url" :alt="data.user.name" v-if="data.user.avatar" width="28" />
+                                <img :src="data.user.avatar_url" :alt="data.user.name" v-if="data.user.avatar"
+                                     width="28"/>
                             </div>
                             <details data-dropdown class="cs--dropdown">
-                                <summary class="cs--dropdown__btn">{{ data.user.name}}</summary>
+                                <summary class="cs--dropdown__btn">{{ data.user.name }}</summary>
                                 <ul class="cs--dropdown__list">
                                     <li class="cs--dropdown__item">
                                         <router-link to="/profile" tag="button">
@@ -144,7 +145,7 @@
                 <div class="cs--dashboard-footer__content">
                     <div class="cs--dashboard-footer__company">
                         <a class="cs--logo" href="javascript:void(0)">
-                            <img src="/img/logo.png" alt="logo" />
+                            <img src="/img/logo.png" alt="logo"/>
                         </a>
                         <p>
                             Dust notice: Assets with value below the dust threshold are
@@ -224,7 +225,9 @@
                                     </li>
 
                                     <li class="cs--dashboard-footer__menu-item">
-                                        <router-link to="/support" class="cs--dashboard-footer__menu-item-link">{{ $__("Support Center") }}</router-link>
+                                        <router-link to="/support" class="cs--dashboard-footer__menu-item-link">
+                                            {{ $__("Support Center") }}
+                                        </router-link>
                                     </li>
                                 </ul>
                             </li>
@@ -405,7 +408,7 @@
 </template>
 
 <script>
-import {mapActions} from 'vuex'
+import {mapActions, mapGetters} from 'vuex'
 import Chat from "./Chat";
 
 export default {
@@ -439,18 +442,19 @@ export default {
     },
     methods: {
         ...mapActions(['setData']),
-        logout(){
-             axios
-              .post('/logout', {
-
-              })
-              .then(response => {
-                  window.location.href='/'
-              })
-              .catch(error => {
-                 // console.log(error.response);
-              	console.log(error.response.data);
-              });
+        logout() {
+            axios
+                .post('/logout', {})
+                .then(response => {
+                    window.location.href = '/'
+                })
+                .catch(error => {
+                    // console.log(error.response);
+                    console.log(error.response.data);
+                });
+        },
+        setLocale(lang = 'en') {
+            window.location.href = '/locale/' + lang
         }
     },
     components: {
@@ -463,7 +467,10 @@ export default {
                 , path: route.path
             })
         })
-    }
+    },
+    computed: {
+
+    },
 }
 </script>
 

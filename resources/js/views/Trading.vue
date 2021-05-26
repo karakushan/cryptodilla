@@ -10,93 +10,98 @@
 
                 <ActiveOrders :orders="orders"/>
 
+
                 <section class="cs--interface__block cs--interface__block--balance">
-                    <h2 class="cs--interface__block-title">{{ $__("Balance") }}</h2>
-                    <table class="cs--balance-table" v-if="account">
-                        <tbody>
-                        <tr v-for="balance in account.balances">
-                            <td>{{ balance.asset }}</td>
-                            <td class="cs--balance-table__accent">{{ balance.free }}</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <div class="cs--btn-group">
-                        <button type="button"
-                                @click.prevent="order.side='BUY'"
-                                :class="{'cs--btn':true, 'cs--btn--tab':true, 'cs--btn--tab--active':order.side=='BUY'}"
-                        >{{ $__("Buy") }}
-                        </button>
-                        <button
-                            type="button"
-                            @click.prevent="order.side='SELL'"
-                            :class="{'cs--btn':true, 'cs--btn--tab':true, 'cs--btn--tab--active':order.side=='SELL'}"
-                        >
-                            {{ $__("Sell") }}
-                        </button>
-                    </div>
-                    <vue-custom-scrollbar class="scroll-area" :settings="settingsScrollBar">
-                        <div class="cs--btn-group" v-if="symbol">
-                            <button v-for="orderType in symbol.orderTypes"
-                                    type="button"
-                                    @click.prevent="order.type=orderType"
-                                    :class="{'cs--btn':true, 'cs--btn--tab':true, 'cs--btn--tab--active':order.type==orderType}"
+                    <SelectExchangeWidget/>
+                    <div v-if="activeExchangeAccount">
+                        <h2 class="cs--interface__block-title">{{ $__("Balance") }}</h2>
+                        <table class="cs--balance-table" v-if="account">
+                            <tbody>
+                            <tr v-for="balance in account.balances">
+                                <td>{{ balance.asset }}</td>
+                                <td class="cs--balance-table__accent">{{ balance.free }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="cs--btn-group">
+                            <button type="button"
+                                    @click.prevent="order.side='BUY'"
+                                    :class="{'cs--btn':true, 'cs--btn--tab':true, 'cs--btn--tab--active':order.side=='BUY'}"
+                            >{{ $__("Buy") }}
+                            </button>
+                            <button
+                                type="button"
+                                @click.prevent="order.side='SELL'"
+                                :class="{'cs--btn':true, 'cs--btn--tab':true, 'cs--btn--tab--active':order.side=='SELL'}"
                             >
-                                {{ orderTypeName(orderType) }}
+                                {{ $__("Sell") }}
                             </button>
                         </div>
-                    </vue-custom-scrollbar>
-                    <form>
-                        <div class="cs--dashboard-form__item">
-                            <label
-                                for="dashboard--price"
-                                class="cs--dashboard-form__label"
-                            >{{ $__("Price") }}</label
-                            >
-
-                            <div
-                                class="cs--dashboard-form__input-wrapper cs--dashboard-form__input--postfix"
-                                data-postfix="USD"
-                            >
-                                <input
-                                    v-model="order.price"
-                                    id="dashboard--price"
-                                    type="text"
-                                    class="cs--dashboard-form__input"
-                                    placeholder=""
-                                />
+                        <vue-custom-scrollbar class="scroll-area" :settings="settingsScrollBar">
+                            <div class="cs--btn-group" v-if="symbol">
+                                <button v-for="orderType in symbol.orderTypes"
+                                        type="button"
+                                        @click.prevent="order.type=orderType"
+                                        :class="{'cs--btn':true, 'cs--btn--tab':true, 'cs--btn--tab--active':order.type==orderType}"
+                                >
+                                    {{ orderTypeName(orderType) }}
+                                </button>
                             </div>
-                        </div>
+                        </vue-custom-scrollbar>
+                        <form>
+                            <div class="cs--dashboard-form__item">
+                                <label
+                                    for="dashboard--price"
+                                    class="cs--dashboard-form__label"
+                                >{{ $__("Price") }}</label
+                                >
 
-                        <div class="cs--dashboard-form__item">
-                            <label
-                                for="dashboard--total"
-                                class="cs--dashboard-form__label"
-                            >{{ $__("Total") }}</label
-                            >
-
-                            <div
-                                class="cs--dashboard-form__input-wrapper cs--dashboard-form__input--postfix"
-
-                            >
-                                <input
-                                    id="dashboard--total"
-                                    v-model="order.quantity"
-                                    type="text"
-                                    class="cs--dashboard-form__input"
-                                    placeholder=""
-                                />
+                                <div
+                                    class="cs--dashboard-form__input-wrapper cs--dashboard-form__input--postfix"
+                                    data-postfix="USD"
+                                >
+                                    <input
+                                        v-model="order.price"
+                                        id="dashboard--price"
+                                        type="text"
+                                        class="cs--dashboard-form__input"
+                                        placeholder=""
+                                    />
+                                </div>
                             </div>
-                        </div>
+
+                            <div class="cs--dashboard-form__item">
+                                <label
+                                    for="dashboard--total"
+                                    class="cs--dashboard-form__label"
+                                >{{ $__("Total") }}</label
+                                >
+
+                                <div
+                                    class="cs--dashboard-form__input-wrapper cs--dashboard-form__input--postfix"
+
+                                >
+                                    <input
+                                        id="dashboard--total"
+                                        v-model="order.quantity"
+                                        type="text"
+                                        class="cs--dashboard-form__input"
+                                        placeholder=""
+                                    />
+                                </div>
+                            </div>
 
 
-                        <button
-                            type="button"
-                            class="cs--btn cs--btn--success"
-                            @click.prevent="openOrder()"
-                        >
-                            {{ order.side == 'BUY' ? $__("Buy") : $__("Sell") }}
-                        </button>
-                    </form>
+                            <button
+                                type="button"
+                                class="cs--btn cs--btn--success"
+                                @click.prevent="openOrder()"
+                            >
+                                {{ order.side == 'BUY' ? $__("Buy") : $__("Sell") }}
+                            </button>
+                        </form>
+                    </div>
+
                 </section>
                 <Chat/>
             </div>
@@ -113,6 +118,7 @@ import SelectPair from "../components/SelectPair";
 import {mapGetters, mapActions} from 'vuex'
 import vueCustomScrollbar from 'vue-custom-scrollbar'
 import "vue-custom-scrollbar/dist/vueScrollbar.css"
+import SelectExchangeWidget from "../components/SelectExchangeWidget";
 
 export default {
     name: "Trading",
@@ -146,10 +152,17 @@ export default {
         ActiveOrders,
         vueCustomScrollbar,
         Chat,
-        SelectPair
+        SelectPair,
+        SelectExchangeWidget
     },
     props: {},
     watch: {
+        activeExchangeAccount(newValue) {
+            if (newValue) {
+                this.getAccount()
+                this.getOrders()
+            }
+        },
         'symbol': function (newValue) {
             if (newValue) {
                 this.getOrders()
@@ -307,7 +320,8 @@ export default {
         },
         getAccount() {
             axios
-                .post('/terminal/exchange/account/' + this.exchange, {})
+                .post('/terminal/exchange/account/' + this.exchange
+                )
                 .then(response => {
                     if (response.status == 200 && response.data) {
                         this.setAccount(response.data)
@@ -338,7 +352,7 @@ export default {
         }
     },
     computed: {
-        ...mapGetters(['appData', 'account', 'exchangeInfo', 'symbol']),
+        ...mapGetters(['appData', 'account', 'exchangeInfo', 'symbol', 'activeExchangeAccount']),
         tradingViewPair() {
             if (!this.symbol) return 'ETH:BTC'
 
@@ -347,9 +361,7 @@ export default {
     },
     mounted() {
         this.getExchangeInfo()
-        this.getAccount()
-        this.getOrders()
-        this.getOpenOrders()
+        // this.getAccount()
     }
 
 }

@@ -29,13 +29,19 @@ class UserExchange extends Model
 {
     use HasFactory;
 
-    protected $table='user_exchanges';
+    protected $table = 'user_exchanges';
 
-    protected $fillable=['title','credentials','exchange_id','user_id'];
+    protected $fillable = ['title', 'credentials', 'exchange_id', 'user_id', 'active'];
 
     protected $casts = [
-        'credentials' => 'array'
+        'credentials' => 'array',
+        'active' => 'boolean',
     ];
 
     protected $hidden = ['credentials'];
+
+    public function exchange()
+    {
+        return $this->belongsTo(Exchange::class, 'exchange_id');
+    }
 }

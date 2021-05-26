@@ -6,9 +6,10 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         data: [],
-        exchangeInfo:null,
-        account:null,
-        symbol:null
+        exchangeInfo: null,
+        account: null,
+        symbol: null,
+        activeExchangeAccount: null
     },
     getters: {
         appData: state => {
@@ -22,6 +23,9 @@ export default new Vuex.Store({
         },
         symbol: state => {
             return state.symbol
+        },
+        activeExchangeAccount: state => {
+            return state.activeExchangeAccount
         },
     },
     mutations: {
@@ -37,6 +41,9 @@ export default new Vuex.Store({
         SET_SYMBOL(state, payload) {
             state.symbol = payload
         },
+        SET_ACTIVE_EXCHANGE_ACCOUNT(state, payload) {
+            state.activeExchangeAccount = payload
+        },
     },
     actions: {
         setData({commit}, payload) {
@@ -50,6 +57,25 @@ export default new Vuex.Store({
         },
         setSymbol({commit}, payload) {
             commit('SET_SYMBOL', payload);
+        },
+        setActiveExchangeAccount({commit}, payload) {
+            commit('SET_ACTIVE_EXCHANGE_ACCOUNT', payload);
+            axios
+             .post('/terminal/exchange/set-active-account', {
+             	account:payload
+             })
+             .then(response => {
+             	if (response.status == 200 && response.data) {
+
+             	}
+             })
+             .catch(error => {
+                // console.log(error.response);
+             	console.log(error.response.data);
+             })
+             .finally(() => {
+             // Will be executed upon completion catch & then
+             });
         },
     }
 })

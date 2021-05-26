@@ -4,6 +4,7 @@
             <details
                 data-dropdown
                 class="cs--interface__dropdown cs--dashboard-form__input-wrapper cs--dashboard-form__input--arrow"
+                :open="dropdownOpen"
             >
                 <summary
                     class="cs--interface__dropdown-btn cs--dashboard-form__input"
@@ -15,12 +16,13 @@
                     <span class="cs--interface__dropdown-btn-text">Market</span>
                 </summary>
                 <div class="cs--interface__dropdown-content" v-show="exchangeInfo">
-                    <form class="cs--card-filter__form">
+                    <form class="cs--card-filter__form" @submit.prevent="">
                         <label
                             for="search"
                             class="cs--dashboard-form__input--search-wrapper ml-auto"
                         >
                             <input
+                                v-model="search"
                                 id="search"
                                 type="text"
                                 class="cs--dashboard-form__input cs--dashboard-form__input--search"
@@ -82,117 +84,36 @@
                                 <label
                                     for="ALL"
                                     class="cs--card-filter__filter-label"
+
                                 >
                                     <input
                                         id="ALL"
                                         type="checkbox"
                                         class="cs--card-filter__filter-input"
+                                        @change="resetFilterCurrencies()"
                                     />
 
                                     <span class="cs--card-filter__filter-title"
-                                    >ALL</span
+                                    >{{ $__("ALL") }}</span
                                     >
                                 </label>
                             </li>
 
-                            <li class="cs--card-filter__filter-item">
+                            <li class="cs--card-filter__filter-item" v-for="cur in appData.currencies" v-if="appData">
                                 <label
-                                    for="BTC"
+                                    :for="'curid-'+cur.slug"
                                     class="cs--card-filter__filter-label"
                                 >
                                     <input
-                                        id="BTC"
+                                        :id="'curid-'+cur.slug"
                                         type="checkbox"
                                         class="cs--card-filter__filter-input"
+                                        v-model="filterCurrencies"
+                                        :value="cur.slug"
                                     />
 
                                     <span class="cs--card-filter__filter-title"
-                                    >BTC</span
-                                    >
-                                </label>
-                            </li>
-
-                            <li class="cs--card-filter__filter-item">
-                                <label
-                                    for="ETH"
-                                    class="cs--card-filter__filter-label"
-                                >
-                                    <input
-                                        id="ETH"
-                                        type="checkbox"
-                                        class="cs--card-filter__filter-input"
-                                    />
-
-                                    <span class="cs--card-filter__filter-title"
-                                    >ETH</span
-                                    >
-                                </label>
-                            </li>
-
-                            <li class="cs--card-filter__filter-item">
-                                <label
-                                    for="USDT"
-                                    class="cs--card-filter__filter-label"
-                                >
-                                    <input
-                                        id="USDT"
-                                        type="checkbox"
-                                        class="cs--card-filter__filter-input"
-                                    />
-
-                                    <span class="cs--card-filter__filter-title"
-                                    >USDT</span
-                                    >
-                                </label>
-                            </li>
-
-                            <li class="cs--card-filter__filter-item">
-                                <label
-                                    for="USDC"
-                                    class="cs--card-filter__filter-label"
-                                >
-                                    <input
-                                        id="USDC"
-                                        type="checkbox"
-                                        class="cs--card-filter__filter-input"
-                                    />
-
-                                    <span class="cs--card-filter__filter-title"
-                                    >USDC</span
-                                    >
-                                </label>
-                            </li>
-
-                            <li class="cs--card-filter__filter-item">
-                                <label
-                                    for="DAI"
-                                    class="cs--card-filter__filter-label"
-                                >
-                                    <input
-                                        id="DAI"
-                                        type="checkbox"
-                                        class="cs--card-filter__filter-input"
-                                    />
-
-                                    <span class="cs--card-filter__filter-title"
-                                    >DAI</span
-                                    >
-                                </label>
-                            </li>
-
-                            <li class="cs--card-filter__filter-item">
-                                <label
-                                    for="ZXC"
-                                    class="cs--card-filter__filter-label"
-                                >
-                                    <input
-                                        id="ZXC"
-                                        type="checkbox"
-                                        class="cs--card-filter__filter-input"
-                                    />
-
-                                    <span class="cs--card-filter__filter-title"
-                                    >ZXC</span
+                                    >{{ cur.slug.toUpperCase() }}</span
                                     >
                                 </label>
                             </li>
@@ -201,16 +122,16 @@
                     <div class="cs--table-wrapper">
                         <table class="cs--table cs--table--bordered">
                             <tbody>
-                            <tr v-for="pair in exchangeInfo.symbols">
+                            <tr v-for="pair in filteredCurrencies" @click.prevent="setSymbol(pair)">
                                 <td data-label="Name" class="no-wrap">
                                     <div class="cs--table__card">
-                                        <img src="/img/crypto-icon/btc.svg" alt=""/>
+                                        <img :src="getSymbolMeta(pair, 'logo_url')" alt=""/>
                                         <div class="cs--table__card-content">
                                   <span class="cs--table__card-title"
                                   >{{ pair.baseAsset }} - {{ pair.quoteAsset }}</span
                                   >
                                             <span class="cs--table__card-abbr"
-                                            >Bitcoin</span
+                                            >{{ getSymbolMeta(pair, 'name') }}</span
                                             >
                                         </div>
                                     </div>
@@ -250,7 +171,10 @@
                                 </td>
 
                                 <td data-label="Chart (24h)" class="">
-                                    <button type="button" class="cs--favorite">
+                                    <button type="button"
+                                            :class="{'cs--favorite':true,'active':favoritePairs.indexOf(pair.symbol) !== -1}"
+                                            @click.prevent="addToFavorite(pair.symbol)"
+                                    >
                                         <svg
                                             class="cs--icon"
                                             aria-hidden="true"
@@ -302,10 +226,18 @@
 
 <script>
 import TradingView from "./TradingView";
-import {mapGetters} from "vuex";
+import {mapGetters, mapActions} from "vuex";
 
 export default {
     name: "SelectPair",
+    data() {
+        return {
+            dropdownOpen: false,
+            filterCurrencies: [],
+            search: '',
+            favoritePairs: []
+        }
+    },
     props: {
         symbol: {
             type: Object,
@@ -314,15 +246,71 @@ export default {
             }
         }
     },
-    computed:{
-        ...mapGetters(['appData','exchangeInfo','account']),
+    computed: {
+        ...mapGetters(['appData', 'exchangeInfo', 'account']),
+        filteredCurrencies() {
+            if (!this.exchangeInfo) return []
+
+            let symbols = this.exchangeInfo.symbols
+
+            if (this.search.length > 0) {
+                symbols = symbols.filter((item) => {
+                    return item.baseAsset.toLowerCase().indexOf(this.search.toLowerCase()) !== -1
+                        || item.quoteAsset.toLowerCase().indexOf(this.search.toLowerCase()) !== -1
+                })
+            }
+
+            if (this.filterCurrencies.length) {
+                symbols = symbols.filter((item) => {
+                    return this.filterCurrencies.indexOf(item.baseAsset.toLowerCase()) !== -1
+                        || this.filterCurrencies.indexOf(item.quoteAsset.toLowerCase()) !== -1
+                })
+            }
+
+            return symbols
+        }
     },
-    components:{
+    components: {
         TradingView
+    },
+    methods: {
+        ...mapActions(['setSymbol']),
+        getSymbolMeta(symbol, meta) {
+            if (!this.appData) return null
+
+            let currency = this.appData.currencies.filter((item) => {
+                return item.slug == symbol.baseAsset.toLowerCase()
+            })
+            if (currency.length) {
+                return currency[0][meta]
+            }
+
+            return null
+        },
+        resetFilterCurrencies() {
+            this.filterCurrencies = [];
+        },
+        addToFavorite(pair) {
+            if (this.favoritePairs.indexOf(pair) === -1) {
+                this.favoritePairs.push(pair)
+                this.$notify.success({
+                    position: 'top right',
+                    title: this.$__('Success'),
+                    msg: this.$__('The currency pair %s  has been successfully added to favorites!').replace('%s',pair),
+                    timeout: 3000
+                })
+            }else{
+                this.favoritePairs.splice(this.favoritePairs.indexOf(pair),1)
+            }
+        }
+
     }
 }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+.cs--favorite.active {
+    --icon-color: var(--color-green-30);
+    opacity: .7;
+}
 </style>

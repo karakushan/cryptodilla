@@ -186,7 +186,7 @@ class ExchangeController extends Controller
      */
     public function createOrder($slug, CreateOrderRequest $request)
     {
-       return $this->{$slug . 'CreateOrder'}($request->all());
+        return $this->{$slug . 'CreateOrder'}($request->all());
     }
 
     /**
@@ -201,7 +201,7 @@ class ExchangeController extends Controller
 
         UserExchange::updateOrInsert(
             ['user_id' => auth()->id(), 'exchange_id' => $request->input('exchange_id')],
-            ['credentials' => json_encode($credentials),'title'=>$request->input('title')]
+            ['credentials' => json_encode($credentials), 'title' => $request->input('title')]
         );
 
         return response()->json(['message' => __('Данные биржи успешно привязаны к Вашему аккаунту!')]);
@@ -233,7 +233,22 @@ class ExchangeController extends Controller
         return response()->json($exchanges);
     }
 
-    public function cancelOrder($slug,Request $request){
+    public function cancelOrder($slug, Request $request)
+    {
         return $this->{$slug . 'CancelOrder'}($request->all());
+    }
+
+    /**
+     * Устанавливает активный аккаунт биржи
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function setActiveAccount(Request $request)
+    {
+        $exchange = UserExchange::where('id',(int) $request->input('account'));
+        $exchange->update(['active'=>true]);
+
+        return response()->json(['message' => __('Account successfully connected')]);
     }
 }

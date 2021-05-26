@@ -19,15 +19,26 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="подключил чат">
-      <change afterPath="$PROJECT_DIR$/resources/js/components/SelectPair.vue" afterDir="false" />
+    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="перенес параметры в vuex store">
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/Localization.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_26_062926_add_field_active_account_for_user_exchanges.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/SelectExchangeWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5035001f-1a51-453c-b284-da206a5db2ea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5035001f-1a51-453c-b284-da206a5db2ea.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Helpers/Translate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/Translate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExchangeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExchangeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TerminalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TerminalController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/UserExchange.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/UserExchange.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/ActiveOrders.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ActiveOrders.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/OrderBookWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/OrderBookWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/SelectPair.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/SelectPair.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/store/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/views/Trading.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/Trading.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -377,7 +388,8 @@
       <workItem from="1621676574747" duration="14002000" />
       <workItem from="1621762673279" duration="505000" />
       <workItem from="1621776381211" duration="26134000" />
-      <workItem from="1621942759390" duration="11846000" />
+      <workItem from="1621942759390" duration="21570000" />
+      <workItem from="1622009194971" duration="6741000" />
     </task>
     <task id="LOCAL-00001" summary="подключил vue router">
       <created>1615840605110</created>
@@ -596,7 +608,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621946155628</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="перенес параметры в vuex store">
+      <created>1621961550387</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1621961550387</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -618,7 +637,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="изменил github actions main.yml #2" />
     <MESSAGE value="изменил github actions main.yml #3" />
     <MESSAGE value="изменил github actions main.yml #4" />
     <MESSAGE value="добавил filepond" />
@@ -643,7 +661,8 @@
     <MESSAGE value="crud для категорий FAQ" />
     <MESSAGE value="Order Book widget" />
     <MESSAGE value="подключил чат" />
-    <option name="LAST_COMMIT_MESSAGE" value="подключил чат" />
+    <MESSAGE value="перенес параметры в vuex store" />
+    <option name="LAST_COMMIT_MESSAGE" value="перенес параметры в vuex store" />
   </component>
   <component name="WindowStateProjectService">
     <state x="509" y="144" key="#Deployment" timestamp="1620657186197">
@@ -678,22 +697,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1621712216324" />
-    <state width="1877" height="211" key="GridCell.Tab.0.bottom" timestamp="1621958821619">
+    <state width="1877" height="198" key="GridCell.Tab.0.bottom" timestamp="1622014559683">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="211" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1621958821619" />
-    <state width="1877" height="211" key="GridCell.Tab.0.center" timestamp="1621958821618">
+    <state width="1877" height="198" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1622014559683" />
+    <state width="1877" height="198" key="GridCell.Tab.0.center" timestamp="1622014559683">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="211" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1621958821618" />
-    <state width="1877" height="211" key="GridCell.Tab.0.left" timestamp="1621958821618">
+    <state width="1877" height="198" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1622014559683" />
+    <state width="1877" height="198" key="GridCell.Tab.0.left" timestamp="1622014559683">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="211" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1621958821618" />
-    <state width="1877" height="211" key="GridCell.Tab.0.right" timestamp="1621958821618">
+    <state width="1877" height="198" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1622014559683" />
+    <state width="1877" height="198" key="GridCell.Tab.0.right" timestamp="1622014559683">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="211" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1621958821618" />
+    <state width="1877" height="198" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1622014559683" />
     <state width="1877" height="174" key="GridCell.Tab.1.bottom" timestamp="1621879507241">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -742,10 +761,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1621778885725" />
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1621946157874">
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1621961552141">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1621946157874" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1621961552141" />
     <state x="859" y="394" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1616884798046">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

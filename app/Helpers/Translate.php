@@ -13,6 +13,6 @@ class Translate
      */
     public static function getCurrentLangTrans()
     {
-        return file_get_contents(base_path('resources/lang/' . app()->getLocale() . '.json'));
+        return app()->getLocale() != 'en' ? file_get_contents(base_path('resources/lang/' . app()->getLocale() . '.json')) : '';
     }
 }
