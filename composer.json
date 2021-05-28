@@ -23,7 +23,8 @@
         "pragmarx/google2fa": "^8.0",
         "pragmarx/google2fa-qrcode": "^2.1",
         "pusher/pusher-php-server": "^5.0",
-        "spatie/laravel-permission": "^4.0"
+        "spatie/laravel-permission": "^4.0",
+        "stevebauman/location": "^6.1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",

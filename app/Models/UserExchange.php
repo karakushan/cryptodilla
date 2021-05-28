@@ -24,6 +24,11 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|UserExchange whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|UserExchange whereUserId($value)
  * @mixin \Eloquent
+ * @property string $title
+ * @property bool|null $active
+ * @property-read \App\Models\Exchange $exchange
+ * @method static \Illuminate\Database\Eloquent\Builder|UserExchange whereActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UserExchange whereTitle($value)
  */
 class UserExchange extends Model
 {
@@ -38,10 +43,25 @@ class UserExchange extends Model
         'active' => 'boolean',
     ];
 
-    protected $hidden = ['credentials'];
+//    protected $hidden = ['credentials'];
+
+    /**
+     * Get the serialized representation of the value.
+     *
+     * @param  \Illuminate\Database\Eloquent\Model  $model
+     * @param  string  $key
+     * @param  mixed  $value
+     * @param  array  $attributes
+     * @return mixed
+     */
+    public function serialize($model, string $key, $value, array $attributes)
+    {
+        return (string) $value;
+    }
 
     public function exchange()
     {
         return $this->belongsTo(Exchange::class, 'exchange_id');
     }
+
 }

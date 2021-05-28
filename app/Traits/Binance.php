@@ -3,6 +3,7 @@
 
 namespace App\Traits;
 
+use App\Models\UserExchange;
 use Lin\Binance\Exceptions\Exception;
 use Lin\Exchange\Exchanges;
 use Illuminate\Support\Facades\Http;
@@ -55,14 +56,6 @@ trait Binance
     public function getUrl()
     {
         return $this->use_testnet ? $this->testnetBaseUrl : $this->baseUrl;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getApiSecret()
-    {
-        return env('MIX_BINANCE_API_SECRET', "ZVmAv8CzhzeXf4rkLaG4SONW7cpTbRsayKCP79QI0h9tV76jHpO81jRilwJX2ZPV");
     }
 
 
@@ -180,10 +173,43 @@ trait Binance
     }
 
     /**
+     * Получает секретные данные авторизованного пользователя
+     *
+     * @return UserExchange|\Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model|object|null
+     */
+    protected function getUserCredentials()
+    {
+        $user_exchange = UserExchange::whereHas('exchange', function ($query) {
+            $query->where('slug', $this->id);
+        })
+            ->where('user_id', auth()->id())
+            ->first();
+
+        return $user_exchange ? $user_exchange->credentials : null;
+    }
+
+    /**
+     *
      * @return mixed
      */
     public function getApiKey()
     {
-        return env('MIX_BINANCE_API_KEY', "Ik7gOQWFfdYxwGr7QqK4Iw8JsfV3QVCfUeSINpOz9SmQMb1TJLMPVCX2nhJn5J4T");
+        $credentials = $this->getUserCredentials();
+
+        return $credentials && !empty($credentials['apiKey '])
+            ? $credentials['apiKey ']
+            : env('MIX_BINANCE_API_KEY', "Ik7gOQWFfdYxwGr7QqK4Iw8JsfV3QVCfUeSINpOz9SmQMb1TJLMPVCX2nhJn5J4T");
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getApiSecret()
+    {
+        $credentials = $this->getUserCredentials();
+
+        return $credentials && !empty($credentials['apiSecret '])
+            ? $credentials['apiSecret ']
+            : env('MIX_BINANCE_API_SECRET', "ZVmAv8CzhzeXf4rkLaG4SONW7cpTbRsayKCP79QI0h9tV76jHpO81jRilwJX2ZPV");
     }
 }

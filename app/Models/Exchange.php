@@ -34,6 +34,7 @@ use Str;
  * @method static \Illuminate\Database\Eloquent\Builder|Exchange whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Exchange whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read bool $connected
  */
 class Exchange extends Model
 {

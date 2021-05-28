@@ -68,6 +68,9 @@ use Spatie\Permission\Traits\HasRoles;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereTerminalTheme($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\UserExchange[] $exchanges
+ * @property-read int|null $exchanges_count
+ * @property-read mixed $chat_color
  */
 class User extends Authenticatable implements MustVerifyEmail
 {

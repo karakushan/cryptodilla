@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Google2FARequest;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
+use App\Models\UserActivity;
 use Illuminate\Http\Request;
 use Response;
 use PragmaRX\Google2FAQRCode\Google2FA;
+use Hash;
 
 class UserController extends Controller
 {
@@ -85,8 +87,17 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if ($request->has('password')) {
+            $request->validate([
+                'password' => 'required|string|confirmed|min:8',
+            ]);
+        }
+
         $user = User::find($id);
         $user->fill($request->all());
+        if ($request->has('password')) {
+            $user->password = Hash::make($request->input('password'));
+        }
         $user->save();
         $response = [
             'status' => 'success',
@@ -185,5 +196,20 @@ class UserController extends Controller
     public function google2fa_page()
     {
         return view('auth.google2fa');
+    }
+
+    /**
+     * Получает активность текущего пользователя
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getActivityLog()
+    {
+        $activity = UserActivity::where('user_id', auth()->id())
+            ->latest()
+            ->limit(30)
+            ->get();
+
+        return response()->json($activity);
     }
 }

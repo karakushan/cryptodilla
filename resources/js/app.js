@@ -52,6 +52,8 @@ import Support from "./views/Support";
 import Ticket from "./views/Ticket";
 import VueRouter from 'vue-router'
 import VueNotify from 'vuejs-notify'
+import Button from "./components/Button";
+Vue.use(Button)
 Vue.use(VueNotify)
 
 Vue.use(VueRouter)

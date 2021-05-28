@@ -25,8 +25,8 @@ jobs:
 #      - name: Run migration
 #        run:  php artisan migrate --force
 #
-#      - name: Clear cache
-#        run: php artisan cache:clear
+      - name: Clear cache
+        run: php artisan cache:clear
 
 #      - name: Send Telegram Message
 #        uses: appleboy/telegram-action@master
