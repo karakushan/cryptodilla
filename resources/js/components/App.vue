@@ -440,6 +440,7 @@ export default {
         },
     },
     mounted() {
+
         this.setData(this.data)
     },
     methods: {

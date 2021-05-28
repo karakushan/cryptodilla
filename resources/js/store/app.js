@@ -46,6 +46,24 @@ export default new Vuex.Store({
         },
     },
     actions: {
+        updateAppData({commit}){
+            axios
+                .get('/terminal/', {
+
+                })
+                .then(response => {
+                    if (response.status == 200 && response.data) {
+                        commit('SET_DATA', response.data);
+                    }
+                })
+                .catch(error => {
+                    // console.log(error.response);
+                    console.log(error.response.data);
+                })
+                .finally(() => {
+                    // Will be executed upon completion catch & then
+                });
+        },
         setData({commit}, payload) {
             commit('SET_DATA', payload);
         },

@@ -49,6 +49,7 @@ Route::group(['prefix' => 'terminal', 'middleware' => ['auth','verified', 'permi
     Route::put('/user-update/{id}', [UserController::class, 'update']);
     Route::post('/user-2fa', [UserController::class, 'google2fa']);
     Route::post('/user-2fa-validate', [UserController::class, 'google2fa_validate']);
+    Route::post('/user-2fa-disable', [UserController::class, 'google2faDisable']);
     Route::post('/user-activity', [UserController::class, 'getActivityLog']);
 
     //  EXCHANGES

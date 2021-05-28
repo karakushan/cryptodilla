@@ -162,10 +162,10 @@ class UserController extends Controller
      */
     public function google2fa_validate(Google2FARequest $request)
     {
+
         $google2fa = new Google2FA();
         $user = auth()->user();
         $status = $google2fa->verifyKey($user->google2fa_secret, $request->input('secret'));
-
         if ($status && $request->input('google2fa_status')) {
             $user->google2fa_status = (boolean)$request->input('google2fa_status');
             $user->save();
@@ -211,5 +211,33 @@ class UserController extends Controller
             ->get();
 
         return response()->json($activity);
+    }
+
+    /**
+     * Отключает 2FA
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function google2faDisable(Request $request)
+    {
+        $user = auth()->user();
+        $google2fa = new Google2FA();
+        $status = $google2fa->verifyKey($user->google2fa_secret, $request->input('code'));
+
+        if (!$status) {
+            return response()->json(['message' => __('The verification code is not correct')], 419);
+        }
+
+        if (!Hash::check($request->input('password'), $user->password)) {
+            return response()->json(['message' => __('Password and password repeat do not match')], 419);
+        }
+
+        $user->google2fa_secret = null;
+        $user->google2fa_status = false;
+        $user->save();
+
+        return response()->json(['message' => __('Two factor authentication disabled')]);
+
     }
 }

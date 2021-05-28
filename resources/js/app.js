@@ -53,6 +53,8 @@ import Ticket from "./views/Ticket";
 import VueRouter from 'vue-router'
 import VueNotify from 'vuejs-notify'
 import Button from "./components/Button";
+import TwoFactorAuthDisable from  "./views/TwoFactorAuthDisable"
+import TwoFactorAuthDisabled from "./views/TwoFactorAuthDisabled";
 Vue.use(Button)
 Vue.use(VueNotify)
 
@@ -68,6 +70,8 @@ const routes = [
     {path: '/2fa-step-2', component: TwoFactorAuthStep2, name: '2fa-step-2'},
     {path: '/2fa-step-3', component: TwoFactorAuthStep3, name: '2fa-step-3'},
     {path: '/2fa-step-4', component: TwoFactorAuthStep4, name: '2fa-step-4'},
+    {path: '/2fa-disable', component: TwoFactorAuthDisable, name: '2fa-disable'},
+    {path: '/2fa-disabled', component: TwoFactorAuthDisabled, name: '2fa-disabled'},
     {path: '/select-exchange', component: SelectExchange, name: 'select-exchange', props: true},
     {path: '/select-exchange/:id', component: ExchangeConnect, name: 'ConnectExchange', props: true},
     {path: '/support', component: Support, name: 'Support', props: true},

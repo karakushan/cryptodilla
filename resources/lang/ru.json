@@ -130,5 +130,15 @@
     "Date/Time": "Дата/Время",
     "IP Address": "IP адрес",
     "Location": "Положение",
-    "Unknown": "Неизвестно"
+    "Unknown": "Неизвестно",
+    "Password and password repeat do not match": "Пароль и повтор пароля не совпадают",
+    "Two factor authentication disabled": "Двухфакторная аутентификация отключена",
+    "The verification code is not correct": "Код подтверждения неверен",
+    "To Disable 2FA, please enter the following:": "Чтобы отключить 2FA, введите следующее:",
+    "Disable complete!": "Отключение завершено!",
+    "2FA has been disabled on your account. You will no longer required to enter Google Authenticator Code upon login.": "В вашей учетной записи отключена двухфакторная аутентификация. Вам больше не потребуется вводить код Google Authenticator при входе в систему.",
+    "Enabling 2FA (2 Factor Authentication) is highly recommended. This adds an extra layer of security to your account in addition to your password.": "Настоятельно рекомендуется включить 2FA (двухфакторную аутентификацию). Это добавляет дополнительный уровень безопасности вашей учетной записи в дополнение к вашему паролю.",
+    "2FA (2 Factor Authentication) is Enabled. We do not recommended disabling 2FA, howere if you need to do so for some reason, click “Disable”": "2FA (2-факторная аутентификация) включена. Мы не рекомендуем отключать двухфакторную аутентификацию, однако, если вам по какой-либо причине необходимо это сделать, нажмите «Отключить».",
+    "Disable": "Отключить",
+    "Enable": "Включить"
 }

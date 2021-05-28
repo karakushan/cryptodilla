@@ -19,33 +19,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="верификация имейл">
-      <change afterPath="$PROJECT_DIR$/.phpstorm.meta.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Listeners/LoginSuccessful.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/UserActivity.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_28_113726_create_activity_log_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_28_135958_create_user_activities_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_28_141523_add_field_user_id_to_user_activities.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/cryptotrade.loc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cryptotrade.loc.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5035001f-1a51-453c-b284-da206a5db2ea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5035001f-1a51-453c-b284-da206a5db2ea.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="лог активности пользователя">
+      <change afterPath="$PROJECT_DIR$/resources/js/views/TwoFactorAuthDisable.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/views/TwoFactorAuthDisabled.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TerminalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TerminalController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Exchange.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Exchange.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/UserExchange.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/UserExchange.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Traits/Binance.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/Binance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Traits/BinanceApi.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/Profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/Profile.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/store/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/TwoFactorAuth.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/TwoFactorAuth.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/TwoFactorAuthStep4.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/TwoFactorAuthStep4.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -83,7 +68,7 @@
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
-  <component name="PhpDebugGeneral" xdebug_debug_port="9001" listening_started="true" notify_if_session_was_finished_without_being_paused="false" />
+  <component name="PhpDebugGeneral" xdebug_debug_port="9001" notify_if_session_was_finished_without_being_paused="false" />
   <component name="PhpServers">
     <servers>
       <server host="cryptotrade.loc" id="b38de53e-9e18-4c54-95b4-86098ab1ee60" name="cryptotrade.loc" />
@@ -407,7 +392,7 @@
       <workItem from="1622047152965" duration="26000" />
       <workItem from="1622048400678" duration="34000" />
       <workItem from="1622103775337" duration="18000" />
-      <workItem from="1622197817113" duration="12624000" />
+      <workItem from="1622197817113" duration="18101000" />
     </task>
     <task id="LOCAL-00001" summary="подключил vue router">
       <created>1615840605110</created>
@@ -647,7 +632,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622022062536</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="лог активности пользователя">
+      <created>1622215888202</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1622215888202</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -669,7 +661,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="добавил filepond" />
     <MESSAGE value="crud для списка бирж" />
     <MESSAGE value="git fix" />
     <MESSAGE value="добавил trait Binance" />
@@ -694,7 +685,8 @@
     <MESSAGE value="перенес параметры в vuex store" />
     <MESSAGE value="переключение аккаунта" />
     <MESSAGE value="верификация имейл" />
-    <option name="LAST_COMMIT_MESSAGE" value="верификация имейл" />
+    <MESSAGE value="лог активности пользователя" />
+    <option name="LAST_COMMIT_MESSAGE" value="лог активности пользователя" />
   </component>
   <component name="WindowStateProjectService">
     <state x="509" y="144" key="#Deployment" timestamp="1622034147044">
@@ -729,22 +721,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1621712216324" />
-    <state width="1877" height="294" key="GridCell.Tab.0.bottom" timestamp="1622214144183">
+    <state width="1877" height="198" key="GridCell.Tab.0.bottom" timestamp="1622215900737">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="294" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1622214144183" />
-    <state width="1877" height="294" key="GridCell.Tab.0.center" timestamp="1622214144183">
+    <state width="1877" height="198" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1622215900737" />
+    <state width="1877" height="198" key="GridCell.Tab.0.center" timestamp="1622215900737">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="294" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1622214144183" />
-    <state width="1877" height="294" key="GridCell.Tab.0.left" timestamp="1622214144183">
+    <state width="1877" height="198" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1622215900737" />
+    <state width="1877" height="198" key="GridCell.Tab.0.left" timestamp="1622215900737">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="294" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1622214144183" />
-    <state width="1877" height="294" key="GridCell.Tab.0.right" timestamp="1622214144183">
+    <state width="1877" height="198" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1622215900737" />
+    <state width="1877" height="198" key="GridCell.Tab.0.right" timestamp="1622215900737">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="294" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1622214144183" />
+    <state width="1877" height="198" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1622215900737" />
     <state width="1877" height="294" key="GridCell.Tab.1.bottom" timestamp="1622214144183">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -793,10 +785,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1621778885725" />
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1622022065673">
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1622215915818">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1622022065673" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1622215915818" />
     <state x="859" y="394" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1616884798046">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

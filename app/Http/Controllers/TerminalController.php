@@ -10,7 +10,7 @@ use App\Models\User;
 
 class TerminalController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $user = User::where('id', auth()->id())->with('exchanges')->first();
 
@@ -20,6 +20,11 @@ class TerminalController extends Controller
             'currencies' => Currency::where('status', 1)->get(),
             'lang' => app()->getLocale()
         ];
+
+        if ($request->ajax()) {
+            return response()->json($data);
+        }
+
         return view('terminal', compact('data'));
     }
 }

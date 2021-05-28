@@ -16,13 +16,13 @@
                         </p>
                     </div>
                     <div class="cs--dashboard-form__btn-group">
-                        <router-link
-                            to="/"
-                            tag="button"
+                        <button
+                            @click.prevent="redirectToHome()"
+                            type="button"
                             class="cs--btn cs--btn--grad-blue ml-auto"
                         >
                             {{ $__("Done") }}
-                        </router-link>
+                        </button>
                     </div>
                 </form>
 
@@ -81,8 +81,20 @@
 </template>
 
 <script>
+import {mapActions} from "vuex";
+import Button from "../components/Button";
+
 export default {
-    name: "TwoFactorAuthStep4"
+    name: "TwoFactorAuthStep4",
+    components: {Button},
+    methods:{
+        ...mapActions(['updateAppData']),
+        redirectToHome() {
+            this.updateAppData()
+            this.$router.push('/')
+        }
+    }
+
 }
 </script>
 
