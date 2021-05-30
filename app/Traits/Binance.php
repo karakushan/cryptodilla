@@ -7,6 +7,7 @@ use App\Models\UserExchange;
 use Lin\Binance\Exceptions\Exception;
 use Lin\Exchange\Exchanges;
 use Illuminate\Support\Facades\Http;
+use Binance\API;
 
 trait Binance
 {
@@ -20,6 +21,11 @@ trait Binance
     private $testnetBaseUrl = 'https://testnet.binance.vision';
     private $time = null;
     private $timeout = 10;
+
+    public function __construct()
+    {
+        $this->api = new API($this->getApiKey(), $this->getApiSecret(), $this->use_testnet);
+    }
 
     /**
      * Отправляет запрос на указанный endpoint
@@ -37,11 +43,11 @@ trait Binance
 //        }
 
 
-        $query_params['timestamp'] = number_format(microtime(true) * 1000, 0, '.', '');
+//        $query_params['timestamp'] = number_format(microtime(true) * 1000, 0, '.', '');
 
         $query = http_build_query($query_params, '', '&');
 
-        $query_params['signature'] = hash_hmac('sha256', $query, $this->getApiSecret());
+//        $query_params['signature'] = hash_hmac('sha256', $query, $this->getApiSecret());
 
         $response = Http::timeout($this->timeout)->withHeaders([
             'X-MBX-APIKEY' => $this->getApiKey(),
@@ -77,7 +83,7 @@ trait Binance
      */
     public function binanceGetInfo()
     {
-        return Http::get($this->getUrl() . '/api/v3/exchangeInfo')->json();
+        return $this->api->exchangeInfo();
     }
 
     /**
@@ -88,10 +94,7 @@ trait Binance
      */
     public function binanceGetOrders($symbol)
     {
-        return $this->connector()
-            ->getPlatform('spot')
-            ->user()
-            ->getAllOrders(['symbol' => $symbol]);
+        return $this->api->orders($symbol);
     }
 
     /**
@@ -103,10 +106,7 @@ trait Binance
     public function binanceGetOpenOrders($symbol)
     {
 
-        return $this->connector()
-            ->getPlatform('spot')
-            ->user()
-            ->getOpenOrders(['symbol' => $symbol]);
+        return $this->api->openOrders($symbol);
     }
 
 
@@ -119,7 +119,7 @@ trait Binance
      */
     public function binanceGetAccount()
     {
-        return $this->send('/api/v3/account');
+        return $this->api->account();
     }
 
     /**

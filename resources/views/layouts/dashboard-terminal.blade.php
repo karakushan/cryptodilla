@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" data-color-theme="dark">
+<html lang="en" data-color-theme="{{
+    isset($data['user']) && isset($data['user']->terminal_theme)
+    ? $data['user']->terminal_theme :'dark'
+    }}">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

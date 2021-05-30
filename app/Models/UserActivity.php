@@ -27,6 +27,8 @@ use Jenssegers\Date\Date;
  * @method static \Illuminate\Database\Eloquent\Builder|UserActivity whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|UserActivity whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property int $user_id
+ * @method static \Illuminate\Database\Eloquent\Builder|UserActivity whereUserId($value)
  */
 class UserActivity extends Model
 {

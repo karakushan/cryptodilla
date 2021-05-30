@@ -14,9 +14,7 @@
 [Laravel 8+](https://laravel.com/docs/8.x/)
 
 ### Frontend UI фреймворки
-Фронтент простроен с помощью [Vue](https://ru.vuejs.org/v2/guide/)
-
-Для страницы торгового терминала используется фреймворк под Vue [Vuetify](https://vuetifyjs.com) 
+Фронтент простроен с помощью [Vue 2](https://ru.vuejs.org/v2/guide/)
 
 ## Биржи и торговые площадки
 [Binance](https://binance-docs.github.io/apidocs/spot/en/#change-log)

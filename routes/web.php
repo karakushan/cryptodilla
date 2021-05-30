@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BotController;
 use App\Http\Controllers\ChatsController;
 use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\FaqCategoryController;
@@ -51,6 +52,8 @@ Route::group(['prefix' => 'terminal', 'middleware' => ['auth','verified', 'permi
     Route::post('/user-2fa-validate', [UserController::class, 'google2fa_validate']);
     Route::post('/user-2fa-disable', [UserController::class, 'google2faDisable']);
     Route::post('/user-activity', [UserController::class, 'getActivityLog']);
+    Route::post('/save-bot-settings', [BotController::class, 'saveSettings']);
+    Route::get('/bot-settings/{bot}', [BotController::class, 'getSettings']);
 
     //  EXCHANGES
     Route::prefix('exchange')->group(function () {

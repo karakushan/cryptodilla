@@ -1,0 +1,1 @@
+2021-05-29 19:43:24 Connection ws://stream.binance.com:9443/stream

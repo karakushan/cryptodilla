@@ -155,6 +155,7 @@ export default {
         },
         'appData.user.terminal_theme': function (newValue, oldValue) {
             this.formData.terminal_theme = newValue
+            $('html').attr('data-color-theme', newValue);
         }
     },
     methods: {

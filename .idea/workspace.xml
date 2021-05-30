@@ -19,19 +19,37 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="лог активности пользователя">
-      <change afterPath="$PROJECT_DIR$/resources/js/views/TwoFactorAuthDisable.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/views/TwoFactorAuthDisabled.vue" afterDir="false" />
+    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="сделал возможность отключения 2fa">
+      <change afterPath="$PROJECT_DIR$/2021-05-29.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Console/Commands/MACD_Bot.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/BotController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/BotSetting.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ca.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_30_225913_create_bot_settings_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/bots/quad_macd.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/DashboardNav.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/views/BotSettings.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/views/Bots.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/cryptotrade.loc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cryptotrade.loc.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5035001f-1a51-453c-b284-da206a5db2ea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5035001f-1a51-453c-b284-da206a5db2ea.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TerminalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TerminalController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExchangeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExchangeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/UserActivity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/UserActivity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Traits/Binance.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/Binance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/store/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/TwoFactorAuth.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/TwoFactorAuth.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/TwoFactorAuthStep4.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/TwoFactorAuthStep4.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/Markets.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/Markets.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/Preferences.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/Preferences.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/SelectExchange.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/SelectExchange.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/Trading.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/Trading.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dashboard-terminal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dashboard-terminal.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -234,6 +252,19 @@
       <path value="$PROJECT_DIR$/vendor/geoip2/geoip2" />
       <path value="$PROJECT_DIR$/vendor/stevebauman/location" />
       <path value="$PROJECT_DIR$/vendor/maxmind/web-service-common" />
+      <path value="$PROJECT_DIR$/vendor/workerman/channel" />
+      <path value="$PROJECT_DIR$/vendor/workerman/phpsocket.io" />
+      <path value="$PROJECT_DIR$/vendor/armandgarot/laravel-workerman" />
+      <path value="$PROJECT_DIR$/vendor/evenement/evenement" />
+      <path value="$PROJECT_DIR$/vendor/ratchet/rfc6455" />
+      <path value="$PROJECT_DIR$/vendor/react/event-loop" />
+      <path value="$PROJECT_DIR$/vendor/react/stream" />
+      <path value="$PROJECT_DIR$/vendor/react/promise-timer" />
+      <path value="$PROJECT_DIR$/vendor/react/cache" />
+      <path value="$PROJECT_DIR$/vendor/react/dns" />
+      <path value="$PROJECT_DIR$/vendor/react/socket" />
+      <path value="$PROJECT_DIR$/vendor/ratchet/pawl" />
+      <path value="$PROJECT_DIR$/vendor/jaggedsoft/php-binance-api" />
     </include_path>
   </component>
   <component name="PhpXdebugProxy" ide_key="PHPSTORM" host="localhost" />
@@ -259,7 +290,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/vendor/karakushan/crud-generator/composer.json" />
     <property name="database.data.extractors.current.export.id" value="SQL Inserts" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/dashboard" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/views" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -269,19 +300,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\dashboard" />
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\dashboard\currency" />
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\js\views" />
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views" />
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\public" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\OSPanel\domains\cryptotrade.loc\vendor\karakushan\crud-generator" />
       <recent name="E:\OSPanel\domains\cryptotrade.loc\vendor\karakushan\crud-generator\src\commands" />
       <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\js\views" />
       <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\admin" />
       <recent name="E:\OSPanel\domains\cryptotrade.loc\public\audio" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\js\views" />
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\dashboard" />
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\dashboard\currency" />
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views" />
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\public" />
     </key>
   </component>
   <component name="RunManager" selected="npm.watch">
@@ -392,7 +423,10 @@
       <workItem from="1622047152965" duration="26000" />
       <workItem from="1622048400678" duration="34000" />
       <workItem from="1622103775337" duration="18000" />
-      <workItem from="1622197817113" duration="18101000" />
+      <workItem from="1622197817113" duration="20308000" />
+      <workItem from="1622300074601" duration="15586000" />
+      <workItem from="1622364808466" duration="855000" />
+      <workItem from="1622369704394" duration="18635000" />
     </task>
     <task id="LOCAL-00001" summary="подключил vue router">
       <created>1615840605110</created>
@@ -639,7 +673,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622215888202</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="сделал возможность отключения 2fa">
+      <created>1622231403166</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1622231403166</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -661,7 +702,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="crud для списка бирж" />
     <MESSAGE value="git fix" />
     <MESSAGE value="добавил trait Binance" />
     <MESSAGE value="подключил вкладку &quot;мои биржи&quot;" />
@@ -686,7 +726,8 @@
     <MESSAGE value="переключение аккаунта" />
     <MESSAGE value="верификация имейл" />
     <MESSAGE value="лог активности пользователя" />
-    <option name="LAST_COMMIT_MESSAGE" value="лог активности пользователя" />
+    <MESSAGE value="сделал возможность отключения 2fa" />
+    <option name="LAST_COMMIT_MESSAGE" value="сделал возможность отключения 2fa" />
   </component>
   <component name="WindowStateProjectService">
     <state x="509" y="144" key="#Deployment" timestamp="1622034147044">
@@ -717,58 +758,58 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="736" y="432" width="447" height="265" key="ComposerInitDialogKey/0.0.1920.1040@0.0.1920.1040" timestamp="1619082520372" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1621712216324">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1622300689896">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1621712216324" />
-    <state width="1877" height="198" key="GridCell.Tab.0.bottom" timestamp="1622215900737">
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1622300689896" />
+    <state width="1877" height="212" key="GridCell.Tab.0.bottom" timestamp="1622407088180">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="198" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1622215900737" />
-    <state width="1877" height="198" key="GridCell.Tab.0.center" timestamp="1622215900737">
+    <state width="1877" height="212" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1622407088180" />
+    <state width="1877" height="212" key="GridCell.Tab.0.center" timestamp="1622407088180">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="198" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1622215900737" />
-    <state width="1877" height="198" key="GridCell.Tab.0.left" timestamp="1622215900737">
+    <state width="1877" height="212" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1622407088180" />
+    <state width="1877" height="212" key="GridCell.Tab.0.left" timestamp="1622407088179">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="198" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1622215900737" />
-    <state width="1877" height="198" key="GridCell.Tab.0.right" timestamp="1622215900737">
+    <state width="1877" height="212" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1622407088179" />
+    <state width="1877" height="212" key="GridCell.Tab.0.right" timestamp="1622407088180">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="198" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1622215900737" />
-    <state width="1877" height="294" key="GridCell.Tab.1.bottom" timestamp="1622214144183">
+    <state width="1877" height="212" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1622407088180" />
+    <state width="1877" height="294" key="GridCell.Tab.1.bottom" timestamp="1622236865404">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="294" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1622214144183" />
-    <state width="1877" height="294" key="GridCell.Tab.1.center" timestamp="1622214144183">
+    <state width="1877" height="294" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1622236865404" />
+    <state width="1877" height="294" key="GridCell.Tab.1.center" timestamp="1622236865404">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="294" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1622214144183" />
-    <state width="1877" height="294" key="GridCell.Tab.1.left" timestamp="1622214144183">
+    <state width="1877" height="294" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1622236865404" />
+    <state width="1877" height="294" key="GridCell.Tab.1.left" timestamp="1622236865404">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="294" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1622214144183" />
-    <state width="1877" height="294" key="GridCell.Tab.1.right" timestamp="1622214144183">
+    <state width="1877" height="294" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1622236865404" />
+    <state width="1877" height="294" key="GridCell.Tab.1.right" timestamp="1622236865404">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="294" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1622214144183" />
-    <state width="1877" height="294" key="GridCell.Tab.2.bottom" timestamp="1622214144184">
+    <state width="1877" height="294" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1622236865404" />
+    <state width="1877" height="294" key="GridCell.Tab.2.bottom" timestamp="1622236865404">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="294" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1622214144184" />
-    <state width="1877" height="294" key="GridCell.Tab.2.center" timestamp="1622214144184">
+    <state width="1877" height="294" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1622236865404" />
+    <state width="1877" height="294" key="GridCell.Tab.2.center" timestamp="1622236865404">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="294" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1622214144184" />
-    <state width="1877" height="294" key="GridCell.Tab.2.left" timestamp="1622214144183">
+    <state width="1877" height="294" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1622236865404" />
+    <state width="1877" height="294" key="GridCell.Tab.2.left" timestamp="1622236865404">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="294" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1622214144183" />
-    <state width="1877" height="294" key="GridCell.Tab.2.right" timestamp="1622214144184">
+    <state width="1877" height="294" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1622236865404" />
+    <state width="1877" height="294" key="GridCell.Tab.2.right" timestamp="1622236865404">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="294" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1622214144184" />
+    <state width="1877" height="294" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1622236865404" />
     <state width="217" height="457" key="HiddenNamespacesPopup" timestamp="1622047170813">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -785,22 +826,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1621778885725" />
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1622215915818">
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1622231404781">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1622215915818" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1622231404781" />
     <state x="859" y="394" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1616884798046">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="859" y="394" key="com.intellij.database.actions.DdlActions$CreateObject$1/0.0.1920.1040@0.0.1920.1040" timestamp="1616884798046" />
+    <state x="813" y="402" width="316" height="246" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1622405079821">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="813" y="402" width="316" height="246" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1920.1040@0.0.1920.1040" timestamp="1622405079821" />
     <state x="540" y="175" key="com.intellij.database.dbimport.ImportDialog" timestamp="1622018217437">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="540" y="175" key="com.intellij.database.dbimport.ImportDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1622018217437" />
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1621943546025">
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1622404057800">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1621943546025" />
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1622404057800" />
     <state x="667" y="253" width="585" height="534" key="find.popup" timestamp="1616520227507">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

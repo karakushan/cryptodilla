@@ -30,7 +30,6 @@
                             >{{ $__("Open") }}</a
                             >
                             <router-link
-                                v-if="!exchange.connected"
                                 :to="{
                                     name:'ConnectExchange',
 
@@ -40,11 +39,7 @@
                                 class="cs--btn cs--btn--transparent-grad-blue"
                             >{{ $__("Connect") }}
                             </router-link>
-                            <a
-                                v-else
-                                @click.prevent="disconnectExchange(exchange.id)"
-                                class="cs--btn cs--btn--transparent-grad-blue"
-                            >{{ $__("Disconnect") }}</a>
+
                         </div>
                     </div>
                 </li>

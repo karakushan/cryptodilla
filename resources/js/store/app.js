@@ -9,7 +9,14 @@ export default new Vuex.Store({
         exchangeInfo: null,
         account: null,
         symbol: null,
-        activeExchangeAccount: null
+        activeExchangeAccount: null,
+        bots: {
+            macd:{
+                name: 'MACD',
+                img: '/img/bots/quad_macd.svg',
+                description: 'This strategy is based on the MACD indicator. It buys when the MACD line crosses above the signal line, and sells when defined exit condition is met.'
+            }
+        }
     },
     getters: {
         appData: state => {
@@ -27,6 +34,10 @@ export default new Vuex.Store({
         activeExchangeAccount: state => {
             return state.activeExchangeAccount
         },
+        bots: state => {
+            return state.bots
+        },
+
     },
     mutations: {
         SET_DATA(state, payload) {

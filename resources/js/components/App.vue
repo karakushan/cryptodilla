@@ -42,7 +42,9 @@
                                 </li>
 
                                 <li class="cs--dropdown__item">
-                                    <a href="#" @click.prevent="setLocale(data.lang=='en'?'ru':'en')">{{ data.lang=='en'?'ru':'en' }}</a>
+                                    <a href="#" @click.prevent="setLocale(data.lang=='en'?'ru':'en')">{{
+                                            data.lang == 'en' ? 'ru' : 'en'
+                                        }}</a>
                                 </li>
                             </ul>
                         </details>
@@ -50,6 +52,7 @@
                             type="button"
                             data-color-theme-toggler
                             class="cs--color-theme__btn"
+                            @click.prevent="changeColorScheme()"
                         >
                             <svg
                                 class="cs--icon"
@@ -443,8 +446,13 @@ export default {
 
         this.setData(this.data)
     },
+    watch: {
+        'appData.user.terminal_theme': function (newValue, oldValue) {
+            $('html').attr('data-color-theme', newValue);
+        }
+    },
     methods: {
-        ...mapActions(['setData']),
+        ...mapActions(['setData','updateAppData']),
         logout() {
             axios
                 .post('/logout', {})
@@ -458,6 +466,24 @@ export default {
         },
         setLocale(lang = 'en') {
             window.location.href = '/locale/' + lang
+        },
+        changeColorScheme() {
+            axios
+                .put('/terminal/user-update/' + this.appData.user.id, {
+                    terminal_theme: this.appData.user.terminal_theme=='dark' ? 'light' :'dark'
+                })
+                .then(response => {
+                    if (response.status == 200 && response.data) {
+                        this.updateAppData()
+                    }
+                })
+                .catch(error => {
+
+                    console.log(error.response.data);
+                })
+                .finally(() => {
+                    this.inProcess = false
+                });
         }
     },
     components: {
@@ -472,11 +498,19 @@ export default {
         })
     },
     computed: {
-
+        ...mapGetters(['appData'])
     },
 }
 </script>
 
-<style scoped>
-
+<style lang="scss">
+.cs--dashboard--interface {
+    padding: 15px 0 35px;
+    .cs--dashboard-tab-list{
+        margin-bottom: 40px;
+    }
+}
+table{
+    width: 100%;
+}
 </style>

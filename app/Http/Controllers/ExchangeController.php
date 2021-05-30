@@ -246,8 +246,11 @@ class ExchangeController extends Controller
      */
     public function setActiveAccount(Request $request)
     {
-        $exchange = UserExchange::where('id',(int) $request->input('account'));
-        $exchange->update(['active'=>true]);
+        $exchanges = UserExchange::where('user_id', auth()->id());
+        $exchanges->update(['active'=>false]);
+
+        $exchange = UserExchange::where('id', (int)$request->input('account'));
+        $exchange->update(['active' => true]);
 
         return response()->json(['message' => __('Account successfully connected')]);
     }

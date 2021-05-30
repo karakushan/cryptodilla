@@ -1,6 +1,7 @@
 <template>
     <main class="cs--page cs--dashboard--interface">
         <div class="cs--container">
+            <DashboardNav/>
             <div class="cs--interface">
                 <SelectPair :symbol="symbol" v-if="symbol"/>
 
@@ -119,6 +120,7 @@ import {mapGetters, mapActions} from 'vuex'
 import vueCustomScrollbar from 'vue-custom-scrollbar'
 import "vue-custom-scrollbar/dist/vueScrollbar.css"
 import SelectExchangeWidget from "../components/SelectExchangeWidget";
+import DashboardNav from "../components/DashboardNav";
 
 export default {
     name: "Trading",
@@ -153,7 +155,8 @@ export default {
         vueCustomScrollbar,
         Chat,
         SelectPair,
-        SelectExchangeWidget
+        SelectExchangeWidget,
+        DashboardNav
     },
     props: {},
     watch: {
@@ -310,7 +313,10 @@ export default {
                 .then(response => {
                     if (response.status == 200 && response.data) {
                         this.setExchangeInfo(response.data)
-                        this.setSymbol(response.data.symbols[0])
+                        if (Object.keys(response.data.symbols).length){
+                            this.setSymbol(response.data.symbols[Object.keys(response.data.symbols)[0]])
+                        }
+
                     }
                 })
                 .catch(error => {

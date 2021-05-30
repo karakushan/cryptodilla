@@ -53,15 +53,19 @@ import Ticket from "./views/Ticket";
 import VueRouter from 'vue-router'
 import VueNotify from 'vuejs-notify'
 import Button from "./components/Button";
+Vue.use(Button)
 import TwoFactorAuthDisable from  "./views/TwoFactorAuthDisable"
 import TwoFactorAuthDisabled from "./views/TwoFactorAuthDisabled";
-Vue.use(Button)
+import Bots from "./views/Bots";
+import BotSettings from "./views/BotSettings";
+
 Vue.use(VueNotify)
 
 Vue.use(VueRouter)
 const routes = [
     {path: '/', component: Trading, name: 'Торговля'},
-    {path: '/bots', component: Trading, name: 'Боты'},
+    {path: '/bots', component: Bots, name: 'bots'},
+    {path: '/bot/:id', component: BotSettings, name: 'botSettings', props: true},
     // {path: '/exchanges', component: Exchanges, name: 'Мои биржи'},
     {path: '/profile', component: Profile, name: 'Мои данные'},
     {path: '/preferences', component: Preferences, name: 'Preferences'},
