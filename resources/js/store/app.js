@@ -11,12 +11,13 @@ export default new Vuex.Store({
         symbol: null,
         activeExchangeAccount: null,
         bots: {
-            macd:{
+            macd: {
                 name: 'MACD',
                 img: '/img/bots/quad_macd.svg',
                 description: 'This strategy is based on the MACD indicator. It buys when the MACD line crosses above the signal line, and sells when defined exit condition is met.'
             }
-        }
+        },
+        symbolTick: null
     },
     getters: {
         appData: state => {
@@ -37,6 +38,9 @@ export default new Vuex.Store({
         bots: state => {
             return state.bots
         },
+        symbolTick: state => {
+            return state.symbolTick
+        },
 
     },
     mutations: {
@@ -55,13 +59,15 @@ export default new Vuex.Store({
         SET_ACTIVE_EXCHANGE_ACCOUNT(state, payload) {
             state.activeExchangeAccount = payload
         },
+
+        SET_SYMBOL_TICK(state, payload) {
+            state.symbolTick = payload
+        },
     },
     actions: {
-        updateAppData({commit}){
+        updateAppData({commit}) {
             axios
-                .get('/terminal/', {
-
-                })
+                .get('/terminal/', {})
                 .then(response => {
                     if (response.status == 200 && response.data) {
                         commit('SET_DATA', response.data);
@@ -87,24 +93,27 @@ export default new Vuex.Store({
         setSymbol({commit}, payload) {
             commit('SET_SYMBOL', payload);
         },
+        setSymbolTick({commit}, payload) {
+            commit('SET_SYMBOL_TICK', payload);
+        },
         setActiveExchangeAccount({commit}, payload) {
             commit('SET_ACTIVE_EXCHANGE_ACCOUNT', payload);
             axios
-             .post('/terminal/exchange/set-active-account', {
-             	account:payload
-             })
-             .then(response => {
-             	if (response.status == 200 && response.data) {
+                .post('/terminal/exchange/set-active-account', {
+                    account: payload
+                })
+                .then(response => {
+                    if (response.status == 200 && response.data) {
 
-             	}
-             })
-             .catch(error => {
-                // console.log(error.response);
-             	console.log(error.response.data);
-             })
-             .finally(() => {
-             // Will be executed upon completion catch & then
-             });
+                    }
+                })
+                .catch(error => {
+                    // console.log(error.response);
+                    console.log(error.response.data);
+                })
+                .finally(() => {
+                    // Will be executed upon completion catch & then
+                });
         },
     }
 })

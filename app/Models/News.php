@@ -30,10 +30,25 @@ class News extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'content', 'category_id'];
+    protected $fillable = ['title', 'content', 'category_id', 'thumbnail'];
+
+    protected $appends = [
+        'thumbnail_url'
+    ];
 
     public function getCreatedAtAttribute($value)
     {
-        return Date::parse($value)->format('F d, Y');
+        return Date::parse($value)->format(config('app.time_format'));
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(NewsCategory::class);
+    }
+
+    public function getThumbnailUrlAttribute()
+    {
+        if ($this->thumbnail)
+            return \Storage::url($this->thumbnail);
     }
 }

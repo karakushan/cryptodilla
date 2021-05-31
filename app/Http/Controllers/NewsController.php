@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\NewsRequest;
 use App\Models\News;
 use App\Models\NewsCategory;
 use Illuminate\Http\Request;
@@ -29,19 +30,19 @@ class NewsController extends Controller
     public function create()
     {
         $title = __('Adding a News');
-        $categories=NewsCategory::all();
+        $categories = NewsCategory::all();
 
 
-        return view('dashboard.news.create', compact('title','categories'));
+        return view('dashboard.news.create', compact('title', 'categories'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param NewsRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(NewsRequest $request)
     {
         News::create($request->all());
 
@@ -71,21 +72,21 @@ class NewsController extends Controller
     public function edit($id)
     {
         $item = News::findOrFail($id);
-        $categories=NewsCategory::all();
+        $categories = NewsCategory::all();
 
         $title = __('Editing News');
 
-        return view('dashboard.news.edit', compact('title', 'item','categories'));
+        return view('dashboard.news.edit', compact('title', 'item', 'categories'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param NewsRequest $request
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(NewsRequest $request, $id)
     {
         $item = News::findOrFail($id);
         $item->fill($request->all());
@@ -119,5 +120,18 @@ class NewsController extends Controller
         $news = News::paginate();
 
         return response()->json($news);
+    }
+
+    /**
+     * Возвращает одну новость
+     *
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getSingleNews($id)
+    {
+        $item = News::findOrFail($id);
+
+        return response()->json($item);
     }
 }

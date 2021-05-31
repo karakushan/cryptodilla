@@ -9,6 +9,7 @@ use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FilepondController;
 use App\Http\Controllers\BinanceController;
 use App\Http\Controllers\ExchangeController;
+use App\Http\Controllers\NewsCategoryController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\TerminalController;
@@ -42,7 +43,7 @@ Route::get('locale/{locale}', function ($locale) {
 })->name('locale');
 
 /* РОУТЫ ТОРГОВОГО ТЕРМИНАЛА */
-Route::group(['prefix' => 'terminal', 'middleware' => ['auth','verified', 'permission:manage terminal|manage admin', 'google2fa']], function () {
+Route::group(['prefix' => 'terminal', 'middleware' => ['auth', 'verified', 'permission:manage terminal|manage admin', 'google2fa']], function () {
     Route::get('/', [TerminalController::class, 'index'])->name('terminal.index');
     Route::get('/exchanges', [ExchangeController::class, 'getExchanges']);
     Route::post('/attach-exchange', [ExchangeController::class, 'attachUserExchange']);
@@ -54,6 +55,8 @@ Route::group(['prefix' => 'terminal', 'middleware' => ['auth','verified', 'permi
     Route::post('/user-activity', [UserController::class, 'getActivityLog']);
     Route::post('/save-bot-settings', [BotController::class, 'saveSettings']);
     Route::get('/bot-settings/{bot}', [BotController::class, 'getSettings']);
+    Route::get('/news-categories', [NewsCategoryController::class, 'getAll']);
+    Route::get('/news/{id}', [NewsController::class, 'getSingleNews']);
 
     //  EXCHANGES
     Route::prefix('exchange')->group(function () {
@@ -96,6 +99,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'permission:manage a
         'faqs' => FaqController::class,
         'faq-categories' => FaqCategoryController::class,
         'news' => NewsController::class,
+        'news-category' => NewsCategoryController::class,
     ]);
 });
 

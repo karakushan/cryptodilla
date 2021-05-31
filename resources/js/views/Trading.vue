@@ -50,7 +50,7 @@
                             </div>
                         </vue-custom-scrollbar>
                         <form>
-                            <div class="cs--dashboard-form__item">
+                            <div class="cs--dashboard-form__item" v-if="order.type!=='MARKET'">
                                 <label
                                     for="dashboard--price"
                                     class="cs--dashboard-form__label"
@@ -58,6 +58,7 @@
                                 >
 
                                 <div
+
                                     class="cs--dashboard-form__input-wrapper cs--dashboard-form__input--postfix"
                                     data-postfix="USD"
                                 >
@@ -75,7 +76,7 @@
                                 <label
                                     for="dashboard--total"
                                     class="cs--dashboard-form__label"
-                                >{{ $__("Total") }}</label
+                                >{{ $__("Quantity") }}</label
                                 >
 
                                 <div
@@ -145,7 +146,8 @@ export default {
                 suppressScrollY: true,
                 suppressScrollX: false,
                 wheelPropagation: false
-            }
+            },
+            symbolTick:null
         }
     },
     components: {
@@ -170,6 +172,7 @@ export default {
             if (newValue) {
                 this.getOrders()
                 this.getOpenOrders()
+                this.streamSymbolTick()
                 // let priceFilter = newValue.filters.filter((item) => {
                 //     return item.filterType == "PRICE_FILTER"
                 // })
@@ -282,6 +285,7 @@ export default {
                         this.playSound()
                         this.getOrders()
                         this.getOpenOrders()
+                        this.getAccount()
                         this.order.price = 0
                         this.order.quantity = 0
                     }
@@ -367,7 +371,6 @@ export default {
     },
     mounted() {
         this.getExchangeInfo()
-        // this.getAccount()
     }
 
 }

@@ -28,7 +28,7 @@
 
                     <th class="">{{ $__("Type") }}</th>
 
-                    <th class="">{{ $__("Size") }}</th>
+                    <th class="">{{ $__("Quantity") }}</th>
 
                     <th class="">{{ $__("Price") }}</th>
 
@@ -62,7 +62,7 @@
                     </td>
 
                     <td data-label="Status" class="cs--color-success">
-                        <span>Confirmed</span>
+                        <span>{{ order.status }}</span>
                     </td>
                 </tr>
 

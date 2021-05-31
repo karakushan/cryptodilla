@@ -36,6 +36,8 @@ class UserActivity extends Model
 
     protected $casts = ['location' => 'array'];
 
+    protected $fillable=['name','description','ip','location','user_id','data'];
+
     public function getCreatedAtAttribute($value)
     {
         return (new Date($value))->format(config('app.time_format'));

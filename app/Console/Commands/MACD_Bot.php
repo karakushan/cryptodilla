@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\UserActivity;
 use App\Traits\Binance;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
@@ -17,7 +18,7 @@ class MACD_Bot extends Command
      *
      * @var string
      */
-    protected $signature = 'bot:macd {symbol} {interval}';
+    protected $signature = 'bot:macd {symbol} {interval} {user_id=1}';
 
     /**
      * The console command description.
@@ -65,7 +66,7 @@ class MACD_Bot extends Command
 //        $ticks = array_values(array_map(function ($item) {
 //            return $item['close'];
 //        }, $ticks));
-        dd(Carbon::parse(last($ticks)['closeTime']/1000)->format('d.m.Y H:i'));
+//        dd(Carbon::parse(last($ticks)['closeTime'] / 1000)->format('d.m.Y H:i'));
 //        print_r(trader_macd($ticks, 12, 26, 9));
 
         $ticker = $api->prices();
@@ -80,7 +81,11 @@ class MACD_Bot extends Command
             $balances
         );
 
-//        $api->cancelOpenOrders($this->symbol);
+        $this->open_orders = $api->openOrders($this->symbol);
+
+        if ($this->open_orders) {
+            $api->cancelOpenOrders($this->symbol);
+        }
 
         $api->kline([$this->symbol], $this->interval, function ($api, $symbol, $chart) {
             $interval = $chart->i;
@@ -90,14 +95,20 @@ class MACD_Bot extends Command
             $low = $chart->l;
             $close = $chart->c;
             $volume = $chart->q; // +trades buyVolume assetVolume makerVolume
-//            $this->line("{$symbol} price: {$close} volume: {$volume}");
-            $this->line(json_encode($chart));
+            $this->line("{$symbol} price: {$close} volume: {$volume}");
+//            $this->line(json_encode($chart));
 
             // Открываем ордер если к-во ордеров меньше $this->max_orders
             if (count($this->open_orders) < $this->max_orders) {
                 $quantity = 0.1;
-                $api->buy($symbol, $quantity, $close, 'TAKE_PROFIT_LIMIT', [
-                    'stopPrice' => $close - $this->take_profit
+                $order = $api->sell($symbol, $quantity, $close, 'TAKE_PROFIT_LIMIT', [
+                    'stopPrice' => $close + 2
+                ]);
+
+                UserActivity::create([
+                    'user_id' => $this->argument('user_id'),
+                    'name' => 'Order',
+                    'data' => json_encode($order)
                 ]);
             }
 

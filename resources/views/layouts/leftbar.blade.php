@@ -76,8 +76,8 @@
                     <ul class="vertical-submenu">
                         <li><a href="{{ route('news.index') }}">{{ __("List") }}</a></li>
                         <li><a href="{{ route('news.create') }}">{{ __("Add") }}</a></li>
-                       {{-- <li><a href="{{ route('news-categories.index') }}">{{ __("FAQ Categories") }}</a></li>
-                        <li><a href="{{ route('news-categories.create') }}">{{ __("Add FAQ Category") }}</a></li>--}}
+                        <li><a href="{{ route('news-category.index') }}">{{ __("Categories") }}</a></li>
+                        <li><a href="{{ route('news-category.create') }}">{{ __("Add Category") }}</a></li>
                     </ul>
                 </li>
 

@@ -201,20 +201,20 @@
                 <span class="cs--color-secondary">24h price change</span>
                 <div class="cs--interface__chart-stat">
                     <img src="/img/icon/progress-arrow-up.svg" alt=""/>
-                    <span class="cs--color-success">+39.69%</span>
+                    <span class="cs--color-success">+{{ tick.P }}%</span>
                     <img src="/img/icon/graph-line.svg" alt=""/>
                 </div>
             </div>
             <div class="cs--interface__chart-comment">
                 <span class="cs--color-secondary">Last Price</span>
                 <div class="cs--interface__chart-stat">
-                    <span>USDC 37,008.25</span>
+                    <span>{{ symbol.quoteAsset }} {{ parseFloat(tick.c) }}</span>
                 </div>
             </div>
             <div class="cs--interface__chart-comment">
                 <span class="cs--color-secondary">24h Volume</span>
                 <div class="cs--interface__chart-stat">
-                    <span>BTC 10.82</span>
+                    <span>BTC {{ parseFloat(tick.c) }}</span>
                 </div>
             </div>
         </div>
@@ -235,7 +235,10 @@ export default {
             dropdownOpen: false,
             filterCurrencies: [],
             search: '',
-            favoritePairs: []
+            favoritePairs: [],
+            url: 'wss://stream.binance.com:9443/ws/',
+            tick:null
+
         }
     },
     props: {
@@ -275,6 +278,31 @@ export default {
     },
     methods: {
         ...mapActions(['setSymbol']),
+        streamPrice() {
+            if (!this.symbol) return
+
+            let app = this
+            let ws = new WebSocket(this.url + this.symbol.symbol.toLowerCase() + '@ticker');
+
+            ws.onmessage = function (event) {
+                app.tick= JSON.parse(event.data)
+
+            };
+
+            ws.onclose = function (event) {
+                if (event.wasClean) {
+                    console.log(`[close] Соединение закрыто чисто, код=${event.code} причина=${event.reason}`);
+                } else {
+                    // например, сервер убил процесс или сеть недоступна
+                    // обычно в этом случае event.code 1006
+                    console.log('[close] Соединение прервано');
+                }
+            };
+
+            ws.onerror = function (error) {
+                console.log(`[error] ${error.message}`);
+            };
+        },
         getSymbolMeta(symbol, meta) {
             if (!this.appData) return null
 
@@ -296,14 +324,17 @@ export default {
                 this.$notify.success({
                     position: 'top right',
                     title: this.$__('Success'),
-                    msg: this.$__('The currency pair %s  has been successfully added to favorites!').replace('%s',pair),
+                    msg: this.$__('The currency pair %s  has been successfully added to favorites!').replace('%s', pair),
                     timeout: 3000
                 })
-            }else{
-                this.favoritePairs.splice(this.favoritePairs.indexOf(pair),1)
+            } else {
+                this.favoritePairs.splice(this.favoritePairs.indexOf(pair), 1)
             }
         }
 
+    },
+    mounted() {
+        this.streamPrice()
     }
 }
 </script>

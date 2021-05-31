@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\UserActivity;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -10,6 +11,9 @@ class AdminController extends Controller
 
     public function index()
     {
-        return view('admin/dashboard-crypto');
+        $users_activities = UserActivity::all();
+
+
+        return view('admin/dashboard-crypto',compact('users_activities'));
     }
 }

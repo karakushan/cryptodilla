@@ -146,7 +146,25 @@ trait Binance
         }, ARRAY_FILTER_USE_KEY);
 
         try {
-            $order = $this->connector()->getPlatform('spot')->trade()->postOrder($data);
+            $data['side']=strtolower($data['side']);
+            if ($data['type'] == 'MARKET' && $data['side'] == 'buy') {
+                $order = $this->api->marketBuy($data['symbol'], $data['quantity']);
+            } elseif ($data['type'] == 'MARKET' && $data['side'] == 'sell') {
+                $order = $this->api->marketSell($data['symbol'], $data['quantity']);
+            } elseif ($data['type'] != 'MARKET' && $data['side'] == 'buy') {
+                $custom = [];
+                if (isset($data['stopPrice'])) {
+                    $custom['stopPrice'] = (float)$data['stopPrice'];
+                }
+                $order = $this->api->buy($data['symbol'], $data['quantity'], $data['price'], $custom);
+            } elseif ($data['type'] != 'MARKET' && $data['side'] == 'sell') {
+                $custom = [];
+                if (isset($data['stopPrice'])) {
+                    $custom['stopPrice'] = (float)$data['stopPrice'];
+                }
+                $order = $this->api->sell($data['symbol'], $data['quantity'], $data['price'], $custom);
+            }
+
             $message = __('Ордер успешно создан');
 
             return response()->json(compact('order', 'message'));

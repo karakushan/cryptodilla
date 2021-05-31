@@ -9,6 +9,7 @@ require('./bootstrap');
 window.Vue = require('vue').default;
 
 Vue.component('filepond', require('./components/Filepond').default);
+import UserActivityOnMap from "./components/UserActivityOnMap";
 
 /**
  * The following block of code may be used to automatically register your
@@ -29,6 +30,9 @@ Vue.prototype.$__ = function (trans) {
     return trans
 }
 
+
+
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -39,5 +43,10 @@ const app = new Vue({
     mounted() {
         var success = document.querySelector('.js-switch');
         var switchery = new Switchery(success, { color: '#18d26b' })
+
+    },
+    components:{
+        UserActivityOnMap
     }
+
 });

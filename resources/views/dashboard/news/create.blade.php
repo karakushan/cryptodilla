@@ -3,8 +3,7 @@
 @endsection
 @extends('layouts.main')
 @section('style')
-    <!-- Dropzone css -->
-    <link href="{{ asset('assets/plugins/dropzone/dist/dropzone.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('assets/plugins/summernote/summernote-bs4.css') }}" rel="stylesheet" type="text/css"/>
 @endsection
 @section('rightbar-content')
     <!-- Start Contentbar -->
@@ -15,7 +14,7 @@
             <!-- Start row -->
             <div class="row">
                 <!-- Start col -->
-                <div class="col-lg-12 col-xl-12">
+                <div class="col-lg-8 col-xl-9">
                     <div class="card m-b-30">
                         <div class="card-header">
                             <h5 class="card-title">{{ $title }}</h5>
@@ -35,7 +34,7 @@
                             <div class="form-group row">
                                 <label for="content" class="col-sm-12 col-form-label">{{ __("Content") }}</label>
                                 <div class="col-sm-12">
-                                    <textarea  name="content" class="form-control" id="content">{!! old('content', '') !!}</textarea>
+                                    <textarea  name="content" class="form-control"  id="summernote">{!! old('content', '') !!}</textarea>
                                     @error('content')
                                     <div class="invalid-feedback" style="display: block;">{{ $message }}</div>
                                     @enderror
@@ -65,6 +64,25 @@
                 </div>
                 <!-- End col -->
 
+                <!-- Start col -->
+                <div class="col-lg-4 col-xl-3">
+                    <div class="card m-b-30">
+                        <div class="card-header">
+                            <h5 class="card-title">{{ __("Photo") }}</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="app">
+                                <filepond name="thumbnail"/>
+                            </div>
+                            {{--<div class="text-center m-t-15">
+                                <button type="button" class="btn btn-primary">Upload File</button>
+                            </div>--}}
+                        </div>
+                    </div>
+
+                </div>
+                <!-- End col -->
+
             </div>
             <!-- End row -->
         </div>
@@ -72,6 +90,14 @@
     <!-- End Contentbar -->
 @endsection
 @section('script')
-    <!-- Dropzone js -->
-    <script src="{{ asset('assets/plugins/dropzone/dist/dropzone.js') }}"></script>
+    <script src="{{ asset('assets/plugins/summernote/summernote-bs4.min.js') }}"></script>
+    <script>
+        /* -- Form Editors - Summernote -- */
+        $('#summernote').summernote({
+            height: 320,
+            minHeight: null,
+            maxHeight: null,
+            focus: true
+        });
+    </script>
 @endsection

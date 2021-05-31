@@ -3,46 +3,29 @@
         <section class="cs--section">
             <div class="cs--container">
                 <div class="cs--page__head">
-                    <h1 class="cs--page__title">Latest News</h1>
+                    <h1 class="cs--page__title">{{ $__("Latest News") }}</h1>
                     <form class="cs--card-filter__form">
                         <ul class="cs--card-filter__filter-list">
-                            <li class="cs--card-filter__filter-item">
-                                <label for="Cryptocurrency" class="cs--card-filter__filter-label">
-                                    <input id="Cryptocurrency" type="checkbox" class="cs--card-filter__filter-input">
+                            <li class="cs--card-filter__filter-item" v-for="cat in categories">
+                                <label :for="'cat-'+cat.id" class="cs--card-filter__filter-label">
+                                    <input :id="'cat-'+cat.id"
+                                           v-model="filter.category"
+                                           type="checkbox"
+                                           class="cs--card-filter__filter-input"
+                                           :value="cat.id"
+                                    >
 
-                                    <span class="cs--card-filter__filter-title">Cryptocurrency</span>
-                                </label>
-                            </li>
-
-                            <li class="cs--card-filter__filter-item">
-                                <label for="BTC" class="cs--card-filter__filter-label">
-                                    <input id="BTC" type="checkbox" class="cs--card-filter__filter-input">
-
-                                    <span class="cs--card-filter__filter-title">BTC</span>
-                                </label>
-                            </li>
-
-                            <li class="cs--card-filter__filter-item">
-                                <label for="ETH" class="cs--card-filter__filter-label">
-                                    <input id="ETH" type="checkbox" class="cs--card-filter__filter-input">
-
-                                    <span class="cs--card-filter__filter-title">ETH</span>
-                                </label>
-                            </li>
-
-                            <li class="cs--card-filter__filter-item">
-                                <label for="USDT" class="cs--card-filter__filter-label">
-                                    <input id="USDT" type="checkbox" class="cs--card-filter__filter-input">
-
-                                    <span class="cs--card-filter__filter-title">USDT</span>
+                                    <span class="cs--card-filter__filter-title">{{ cat.title }}</span>
                                 </label>
                             </li>
                         </ul>
 
                         <label for="search" class="cs--dashboard-form__input--search-wrapper ml-auto">
-                            <input id="search" type="text"
+                            <input id="search"
+                                   v-model="filter.title"
+                                   type="text"
                                    class="cs--dashboard-form__input cs--dashboard-form__input--search"
-                                   placeholder="Search">
+                                   :placeholder="$__('Search')">
                             <button type="button" class="cs--dashboard-form__input--search-btn">
                                 <svg class="cs--icon" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20"
                                      fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -58,14 +41,14 @@
                 <ul class="cs--card-list">
                     <li class="cs--card-item" v-for="news in news.data">
                         <div class="cs--card-item__image">
-                            <img src="/img/examples/news-1.png" alt="">
+                            <img :src="news.thumbnail_url" alt="" v-if="news.thumbnail_url">
                         </div>
                         <div class="cs--card-item__content">
                             <div class="cs--card-item__meta">
-                                <span>{{ news.created_at }}</span> 
+                                <span>{{ news.created_at }}</span>
                             </div>
                             <span class="cs--card-item__title">{{ news.title }}</span>
-                            <a class="cs--card-item__link" href="javascript:void(0)">{{ $__("Read more") }}</a>
+                            <router-link class="cs--card-item__link" :to="'/news/'+news.id">{{ $__("Read more") }}</router-link>
                         </div>
                     </li>
                 </ul>
@@ -79,10 +62,30 @@ export default {
     name: "News",
     data() {
         return {
-            news: []
+            news: [],
+            categories: [],
+            filter: {
+                category: [],
+                title: ''
+            }
         }
     },
     mounted() {
+        axios
+            .get('/terminal/news-categories')
+            .then(response => {
+                if (response.status == 200 && response.data) {
+                    this.categories = response.data
+                }
+            })
+            .catch(error => {
+                // console.log(error.response);
+                console.log(error.response.data);
+            })
+            .finally(() => {
+                // Will be executed upon completion catch & then
+            });
+
         axios
             .get('/terminal/news', {})
             .then(response => {
