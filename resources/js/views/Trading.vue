@@ -14,7 +14,7 @@
 
                 <section class="cs--interface__block cs--interface__block--balance">
                     <SelectExchangeWidget/>
-                    <div v-if="activeExchangeAccount">
+                    <div v-if="account && account.balances.length>0">
                         <h2 class="cs--interface__block-title">{{ $__("Balance") }}</h2>
                         <table class="cs--balance-table" v-if="account">
                             <tbody>
@@ -22,8 +22,10 @@
                                 <td>{{ balance.asset }}</td>
                                 <td class="cs--balance-table__accent">{{ balance.free }}</td>
                             </tr>
+
                             </tbody>
                         </table>
+
                         <div class="cs--btn-group">
                             <button type="button"
                                     @click.prevent="order.side='BUY'"
@@ -103,6 +105,7 @@
                             </button>
                         </form>
                     </div>
+                    <p v-if="account && account.balances.length==0">{{ $__("There are no funds in your account yet") }}</p>
 
                 </section>
                 <Chat/>
@@ -147,7 +150,8 @@ export default {
                 suppressScrollX: false,
                 wheelPropagation: false
             },
-            symbolTick:null
+            symbolTick: null,
+            wsSymbolTick: null
         }
     },
     components: {
@@ -172,7 +176,8 @@ export default {
             if (newValue) {
                 this.getOrders()
                 this.getOpenOrders()
-                this.streamSymbolTick()
+                this.wsSymbolTick.close()
+                this.symbolTickerStream()
                 // let priceFilter = newValue.filters.filter((item) => {
                 //     return item.filterType == "PRICE_FILTER"
                 // })
@@ -190,7 +195,21 @@ export default {
         },
     },
     methods: {
-        ...mapActions(['setExchangeInfo', 'setAccount', 'setSymbol']),
+        ...mapActions(['setExchangeInfo', 'setAccount', 'setSymbol', 'setSymbolTick']),
+        symbolTickerStream() {
+            let symbol = this.symbol ? this.symbol.symbol : 'BNBBUSD'
+
+            let app = this
+            app.wsSymbolTick = new WebSocket('wss://stream.binance.com:9443/ws/' + symbol.toLowerCase() + '@ticker');
+
+            app.wsSymbolTick.onmessage = function (event) {
+                app.setSymbolTick(JSON.parse(event.data))
+
+            };
+            app.wsSymbolTick.onerror = function (error) {
+                console.log(`[error] ${error.message}`);
+            };
+        },
         cancelOrder(order) {
             if (!confirm('Вы действительно хотите отменить ордер?')) return
 
@@ -317,7 +336,7 @@ export default {
                 .then(response => {
                     if (response.status == 200 && response.data) {
                         this.setExchangeInfo(response.data)
-                        if (Object.keys(response.data.symbols).length){
+                        if (Object.keys(response.data.symbols).length) {
                             this.setSymbol(response.data.symbols[Object.keys(response.data.symbols)[0]])
                         }
 
@@ -370,7 +389,9 @@ export default {
         }
     },
     mounted() {
+        this.symbolTickerStream()
         this.getExchangeInfo()
+
     }
 
 }

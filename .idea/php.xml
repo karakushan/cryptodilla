@@ -173,6 +173,7 @@
       <path value="$PROJECT_DIR$/vendor/react/socket" />
       <path value="$PROJECT_DIR$/vendor/ratchet/pawl" />
       <path value="$PROJECT_DIR$/vendor/jaggedsoft/php-binance-api" />
+      <path value="$PROJECT_DIR$/vendor/codenix-sv/bittrex-api" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />

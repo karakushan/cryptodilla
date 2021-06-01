@@ -197,24 +197,24 @@
                     </div>
                 </div>
             </details>
-            <div class="cs--interface__chart-comment">
-                <span class="cs--color-secondary">24h price change</span>
+            <div class="cs--interface__chart-comment" v-if="symbolTick">
+                <span class="cs--color-secondary">{{ $__("24h price change") }}</span>
                 <div class="cs--interface__chart-stat">
                     <img src="/img/icon/progress-arrow-up.svg" alt=""/>
-                    <span class="cs--color-success">+{{ tick.P }}%</span>
+                    <span class="cs--color-success">+{{ symbolTick.P }}%</span>
                     <img src="/img/icon/graph-line.svg" alt=""/>
                 </div>
             </div>
-            <div class="cs--interface__chart-comment">
-                <span class="cs--color-secondary">Last Price</span>
+            <div class="cs--interface__chart-comment" v-if="symbolTick">
+                <span class="cs--color-secondary">{{ $__("Last Price") }}</span>
                 <div class="cs--interface__chart-stat">
-                    <span>{{ symbol.quoteAsset }} {{ parseFloat(tick.c) }}</span>
+                    <span>{{ symbol.quoteAsset }} {{ parseFloat(symbolTick.c) }}</span>
                 </div>
             </div>
-            <div class="cs--interface__chart-comment">
-                <span class="cs--color-secondary">24h Volume</span>
+            <div class="cs--interface__chart-comment" v-if="symbolTick">
+                <span class="cs--color-secondary">{{ $__("24h Volume") }}</span>
                 <div class="cs--interface__chart-stat">
-                    <span>BTC {{ parseFloat(tick.c) }}</span>
+                    <span>{{ symbol.quoteAsset }} {{ parseFloat(symbolTick.c) }}</span>
                 </div>
             </div>
         </div>
@@ -250,7 +250,7 @@ export default {
         }
     },
     computed: {
-        ...mapGetters(['appData', 'exchangeInfo', 'account']),
+        ...mapGetters(['appData', 'exchangeInfo', 'account','symbolTick']),
         filteredCurrencies() {
             if (!this.exchangeInfo) return []
 
@@ -278,31 +278,7 @@ export default {
     },
     methods: {
         ...mapActions(['setSymbol']),
-        streamPrice() {
-            if (!this.symbol) return
 
-            let app = this
-            let ws = new WebSocket(this.url + this.symbol.symbol.toLowerCase() + '@ticker');
-
-            ws.onmessage = function (event) {
-                app.tick= JSON.parse(event.data)
-
-            };
-
-            ws.onclose = function (event) {
-                if (event.wasClean) {
-                    console.log(`[close] Соединение закрыто чисто, код=${event.code} причина=${event.reason}`);
-                } else {
-                    // например, сервер убил процесс или сеть недоступна
-                    // обычно в этом случае event.code 1006
-                    console.log('[close] Соединение прервано');
-                }
-            };
-
-            ws.onerror = function (error) {
-                console.log(`[error] ${error.message}`);
-            };
-        },
         getSymbolMeta(symbol, meta) {
             if (!this.appData) return null
 
@@ -334,7 +310,7 @@ export default {
 
     },
     mounted() {
-        this.streamPrice()
+
     }
 }
 </script>

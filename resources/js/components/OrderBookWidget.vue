@@ -53,6 +53,8 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
+
 export default {
     name: "OrderBookWidget",
     data: () => ({
@@ -62,7 +64,7 @@ export default {
         book: {},
         price: {
             value: 0,
-            change:0,
+            change: 0,
             direction: 'up'//or down
         }
     }),
@@ -92,6 +94,11 @@ export default {
             this.connectWS()
 
 
+        },
+        symbolTick(data) {
+            this.price.direction = parseFloat(data['c']) > parseFloat(this.price.value)
+            this.price.value = parseFloat(data['c'])
+            this.price.change = parseFloat(data['h'])
         }
     },
     methods: {
@@ -103,10 +110,10 @@ export default {
 
             ws.onmessage = function (event) {
 
-                let data=JSON.parse(event.data)
-                app.price.direction=parseFloat(data['c'])>parseFloat(app.price.value )
-                app.price.value=parseFloat(data['c'])
-                app.price.change=parseFloat(data['h'])
+                let data = JSON.parse(event.data)
+                app.price.direction = parseFloat(data['c']) > parseFloat(app.price.value)
+                app.price.value = parseFloat(data['c'])
+                app.price.change = parseFloat(data['h'])
             };
 
             ws.onclose = function (event) {
@@ -151,10 +158,12 @@ export default {
             };
         }
     },
-    computed: {},
+    computed: {
+        ...mapGetters(['symbolTick'])
+    },
     mounted() {
         this.connectWS()
-        this.streamPrice()
+        // this.streamPrice()
     }
 }
 </script>

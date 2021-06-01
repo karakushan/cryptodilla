@@ -3,6 +3,7 @@
 
 namespace App\Traits;
 
+use App\Models\Exchange;
 use App\Models\UserExchange;
 use Lin\Binance\Exceptions\Exception;
 use Lin\Exchange\Exchanges;
@@ -24,7 +25,18 @@ trait Binance
 
     public function __construct()
     {
-        $this->api = new API($this->getApiKey(), $this->getApiSecret(), $this->use_testnet);
+
+    }
+
+    /**
+     * Устанавливает связь с Binance API
+     */
+    private function connector()
+    {
+        $key = $this->getApiKey();
+        $secret = $this->getApiSecret();
+
+        return new API($key, $secret, $this->use_testnet);
     }
 
     /**
@@ -66,15 +78,6 @@ trait Binance
 
 
     /**
-     * Устанавливает связь с биржей
-     * @return Exchanges
-     */
-    protected function connector()
-    {
-        return new Exchanges($this->id, $this->getApiKey(), $this->getApiSecret(), $this->getUrl());
-    }
-
-    /**
      * Current exchange trading rules and symbol information
      *
      * @see https://binance-docs.github.io/apidocs/spot/en/#exchange-information
@@ -83,7 +86,10 @@ trait Binance
      */
     public function binanceGetInfo()
     {
-        return $this->api->exchangeInfo();
+
+        $info = $this->connector()->exchangeInfo();
+
+        return $info;
     }
 
     /**
@@ -94,7 +100,7 @@ trait Binance
      */
     public function binanceGetOrders($symbol)
     {
-        return $this->api->orders($symbol);
+        return $this->connector()->orders($symbol);
     }
 
     /**
@@ -106,7 +112,7 @@ trait Binance
     public function binanceGetOpenOrders($symbol)
     {
 
-        return $this->api->openOrders($symbol);
+        return $this->connector()->openOrders($symbol);
     }
 
 
@@ -119,7 +125,7 @@ trait Binance
      */
     public function binanceGetAccount()
     {
-        return $this->api->account();
+        return $this->connector()->account();
     }
 
     /**
@@ -146,23 +152,23 @@ trait Binance
         }, ARRAY_FILTER_USE_KEY);
 
         try {
-            $data['side']=strtolower($data['side']);
+            $data['side'] = strtolower($data['side']);
             if ($data['type'] == 'MARKET' && $data['side'] == 'buy') {
-                $order = $this->api->marketBuy($data['symbol'], $data['quantity']);
+                $order = $this->connector()->marketBuy($data['symbol'], $data['quantity']);
             } elseif ($data['type'] == 'MARKET' && $data['side'] == 'sell') {
-                $order = $this->api->marketSell($data['symbol'], $data['quantity']);
+                $order = $this->connector()->marketSell($data['symbol'], $data['quantity']);
             } elseif ($data['type'] != 'MARKET' && $data['side'] == 'buy') {
                 $custom = [];
                 if (isset($data['stopPrice'])) {
                     $custom['stopPrice'] = (float)$data['stopPrice'];
                 }
-                $order = $this->api->buy($data['symbol'], $data['quantity'], $data['price'], $custom);
+                $order = $this->connector()->buy($data['symbol'], $data['quantity'], $data['price'],$data['type'], $custom);
             } elseif ($data['type'] != 'MARKET' && $data['side'] == 'sell') {
                 $custom = [];
                 if (isset($data['stopPrice'])) {
                     $custom['stopPrice'] = (float)$data['stopPrice'];
                 }
-                $order = $this->api->sell($data['symbol'], $data['quantity'], $data['price'], $custom);
+                $order = $this->connector()->sell($data['symbol'], $data['quantity'], $data['price'],$data['type'], $custom);
             }
 
             $message = __('Ордер успешно создан');
@@ -197,10 +203,16 @@ trait Binance
      */
     protected function getUserCredentials()
     {
-        $user_exchange = UserExchange::whereHas('exchange', function ($query) {
-            $query->where('slug', $this->id);
-        })
-            ->where('user_id', auth()->id())
+        $exchange = Exchange::where('slug', $this->id)->first();
+
+        if (!$exchange) return $exchange;
+
+        $user_id = auth()->id();
+
+        $user_exchange = UserExchange::where([
+            ['user_id', $user_id],
+            ['exchange_id', $exchange->id],
+        ])
             ->first();
 
         return $user_exchange ? $user_exchange->credentials : null;
@@ -214,9 +226,11 @@ trait Binance
     {
         $credentials = $this->getUserCredentials();
 
-        return $credentials && !empty($credentials['apiKey '])
-            ? $credentials['apiKey ']
+        $key = !empty($credentials['apiKey']) && !$this->use_testnet
+            ? $credentials['apiKey']
             : env('MIX_BINANCE_API_KEY', "Ik7gOQWFfdYxwGr7QqK4Iw8JsfV3QVCfUeSINpOz9SmQMb1TJLMPVCX2nhJn5J4T");
+
+        return $key;
     }
 
     /**
@@ -226,8 +240,8 @@ trait Binance
     {
         $credentials = $this->getUserCredentials();
 
-        return $credentials && !empty($credentials['apiSecret '])
-            ? $credentials['apiSecret ']
+        return  !empty($credentials['apiSecret']) && !$this->use_testnet
+            ? $credentials['apiSecret']
             : env('MIX_BINANCE_API_SECRET', "ZVmAv8CzhzeXf4rkLaG4SONW7cpTbRsayKCP79QI0h9tV76jHpO81jRilwJX2ZPV");
     }
 }

@@ -19,45 +19,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="bot settings">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/NewsCategoryController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/NewsCategoryRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/NewsRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_31_141228_add_field_data_for_.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_31_192400_change_field_description_for_news_categories.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_31_193906_add_column_thumbnail_for_news.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/UserActivityOnMap.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/views/NewsItem.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/dashboard/news-category/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/dashboard/news-category/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/dashboard/news-category/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5035001f-1a51-453c-b284-da206a5db2ea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5035001f-1a51-453c-b284-da206a5db2ea.xml" afterDir="false" />
+    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="widgets in admin">
+      <change beforePath="$PROJECT_DIR$/.idea/cryptotrade.loc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cryptotrade.loc.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/MACD_Bot.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/MACD_Bot.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NewsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/News.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/News.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/NewsCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/NewsCategory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/UserActivity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/UserActivity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExchangeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExchangeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Traits/Binance.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Traits/Binance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/ActiveOrders.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ActiveOrders.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/OrderBookWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/OrderBookWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/SelectExchangeWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/SelectExchangeWidget.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/SelectPair.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/SelectPair.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/News.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/News.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/views/Trading.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/Trading.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/dashboard-crypto.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard-crypto.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/news/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/news/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/news/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/news/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/leftbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/leftbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +67,7 @@
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
-  <component name="PhpDebugGeneral" xdebug_debug_port="9001" listening_started="true" notify_if_session_was_finished_without_being_paused="false" />
+  <component name="PhpDebugGeneral" xdebug_debug_port="9001" notify_if_session_was_finished_without_being_paused="false" />
   <component name="PhpServers">
     <servers>
       <server host="cryptotrade.loc" id="b38de53e-9e18-4c54-95b4-86098ab1ee60" name="cryptotrade.loc" />
@@ -272,6 +246,7 @@
       <path value="$PROJECT_DIR$/vendor/react/socket" />
       <path value="$PROJECT_DIR$/vendor/ratchet/pawl" />
       <path value="$PROJECT_DIR$/vendor/jaggedsoft/php-binance-api" />
+      <path value="$PROJECT_DIR$/vendor/codenix-sv/bittrex-api" />
     </include_path>
   </component>
   <component name="PhpXdebugProxy" ide_key="PHPSTORM" host="localhost" />
@@ -302,7 +277,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="editing.templates" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.debug" />
     <property name="ts.external.directory.path" value="C:\Users\Vitaliy\AppData\Local\JetBrains\Toolbox\apps\PhpStorm\ch-0\202.7660.42\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -434,7 +409,9 @@
       <workItem from="1622300074601" duration="15586000" />
       <workItem from="1622364808466" duration="855000" />
       <workItem from="1622369704394" duration="30053000" />
-      <workItem from="1622476488186" duration="13718000" />
+      <workItem from="1622476488186" duration="13813000" />
+      <workItem from="1622536158121" duration="7045000" />
+      <workItem from="1622543395795" duration="4638000" />
     </task>
     <task id="LOCAL-00001" summary="подключил vue router">
       <created>1615840605110</created>
@@ -695,7 +672,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622409883346</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="widgets in admin">
+      <created>1622496478452</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1622496478452</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -717,7 +701,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="добавил trait Binance" />
     <MESSAGE value="подключил вкладку &quot;мои биржи&quot;" />
     <MESSAGE value="сделал старницу &quot;мои биржи&quot;" />
     <MESSAGE value="чат" />
@@ -742,7 +725,8 @@
     <MESSAGE value="лог активности пользователя" />
     <MESSAGE value="сделал возможность отключения 2fa" />
     <MESSAGE value="bot settings" />
-    <option name="LAST_COMMIT_MESSAGE" value="bot settings" />
+    <MESSAGE value="widgets in admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="widgets in admin" />
   </component>
   <component name="WindowStateProjectService">
     <state x="509" y="144" key="#Deployment" timestamp="1622034147044">
@@ -753,10 +737,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="678" y="178" key="#Servers/0.0.1920.1040@0.0.1920.1040" timestamp="1616187219542" />
-    <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1622035179157">
+    <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1622543311244">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1622035179157" />
+    <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1622543311244" />
     <state x="647" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1620593534145">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -777,54 +761,54 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1622300689896" />
-    <state width="1877" height="294" key="GridCell.Tab.0.bottom" timestamp="1622493411660">
+    <state width="1877" height="351" key="GridCell.Tab.0.bottom" timestamp="1622546950772">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="294" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1622493411660" />
-    <state width="1877" height="294" key="GridCell.Tab.0.center" timestamp="1622493411660">
+    <state width="1877" height="351" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1622546950772" />
+    <state width="1877" height="351" key="GridCell.Tab.0.center" timestamp="1622546950772">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="294" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1622493411660" />
-    <state width="1877" height="294" key="GridCell.Tab.0.left" timestamp="1622493411660">
+    <state width="1877" height="351" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1622546950772" />
+    <state width="1877" height="351" key="GridCell.Tab.0.left" timestamp="1622546950772">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="294" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1622493411660" />
-    <state width="1877" height="294" key="GridCell.Tab.0.right" timestamp="1622493411660">
+    <state width="1877" height="351" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1622546950772" />
+    <state width="1877" height="351" key="GridCell.Tab.0.right" timestamp="1622546950772">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="294" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1622493411660" />
-    <state width="1877" height="294" key="GridCell.Tab.1.bottom" timestamp="1622493411661">
+    <state width="1877" height="351" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1622546950772" />
+    <state width="938" height="331" key="GridCell.Tab.1.bottom" timestamp="1622546481788">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="294" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1622493411661" />
-    <state width="1877" height="294" key="GridCell.Tab.1.center" timestamp="1622493411661">
+    <state width="938" height="331" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1622546481788" />
+    <state width="938" height="331" key="GridCell.Tab.1.center" timestamp="1622546481788">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="294" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1622493411661" />
-    <state width="1877" height="294" key="GridCell.Tab.1.left" timestamp="1622493411660">
+    <state width="938" height="331" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1622546481788" />
+    <state width="938" height="331" key="GridCell.Tab.1.left" timestamp="1622546481788">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="294" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1622493411660" />
-    <state width="1877" height="294" key="GridCell.Tab.1.right" timestamp="1622493411661">
+    <state width="938" height="331" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1622546481788" />
+    <state width="938" height="331" key="GridCell.Tab.1.right" timestamp="1622546481788">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="294" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1622493411661" />
-    <state width="1877" height="294" key="GridCell.Tab.2.bottom" timestamp="1622493411661">
+    <state width="938" height="331" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1622546481788" />
+    <state width="938" height="331" key="GridCell.Tab.2.bottom" timestamp="1622546481789">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="294" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1622493411661" />
-    <state width="1877" height="294" key="GridCell.Tab.2.center" timestamp="1622493411661">
+    <state width="938" height="331" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1622546481789" />
+    <state width="938" height="331" key="GridCell.Tab.2.center" timestamp="1622546481788">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="294" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1622493411661" />
-    <state width="1877" height="294" key="GridCell.Tab.2.left" timestamp="1622493411661">
+    <state width="938" height="331" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1622546481788" />
+    <state width="938" height="331" key="GridCell.Tab.2.left" timestamp="1622546481788">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="294" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1622493411661" />
-    <state width="1877" height="294" key="GridCell.Tab.2.right" timestamp="1622493411661">
+    <state width="938" height="331" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1622546481788" />
+    <state width="938" height="331" key="GridCell.Tab.2.right" timestamp="1622546481788">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="294" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1622493411661" />
+    <state width="938" height="331" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1622546481788" />
     <state width="217" height="457" key="HiddenNamespacesPopup" timestamp="1622047170813">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -837,14 +821,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1621709376041" />
-    <state x="461" y="165" key="SettingsEditor" timestamp="1621778885725">
+    <state x="461" y="165" key="SettingsEditor" timestamp="1622543335173">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1621778885725" />
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1622409885797">
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1622543335173" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1622496480338">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1622409885797" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1622496480338" />
     <state x="859" y="394" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1616884798046">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

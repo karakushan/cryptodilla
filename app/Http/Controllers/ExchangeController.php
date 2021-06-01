@@ -169,8 +169,10 @@ class ExchangeController extends Controller
 
     public function getAccount($slug)
     {
+
         try {
-            return $this->{$slug . 'GetAccount'}();
+            $account=$this->{$slug . 'GetAccount'}();
+            return $account;
         } catch (\Exception $exception) {
             return response($exception->getMessage())
                 ->status(419);

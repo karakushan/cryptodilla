@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "39aebac03527c3f4936b75b1715e6a9a",
+    "content-hash": "3222b353297ee18bf818473d835697a6",
     "packages": [
         {
             "name": "armandgarot/laravel-workerman",
@@ -274,6 +274,58 @@
                 "slugify"
             ],
             "time": "2019-12-14T13:04:14+00:00"
+        },
+        {
+            "name": "codenix-sv/bittrex-api",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codenix-sv/bittrex-api.git",
+                "reference": "6d118b7ba01953966a378eb3ee53f80ce978abd3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codenix-sv/bittrex-api/zipball/6d118b7ba01953966a378eb3ee53f80ce978abd3",
+                "reference": "6d118b7ba01953966a378eb3ee53f80ce978abd3",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "~6.0",
+                "phpunit/phpunit": "^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Codenixsv\\BittrexApi\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Volodymyr Svyryd",
+                    "email": "codenix.sv@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP client for Bittrex API",
+            "homepage": "https://github.com/codenix-sv/bittrex-api",
+            "keywords": [
+                "api",
+                "bittrex",
+                "bittrex-api",
+                "client",
+                "exchange",
+                "php",
+                "rest"
+            ],
+            "time": "2020-03-27T10:53:21+00:00"
         },
         {
             "name": "composer/ca-bundle",

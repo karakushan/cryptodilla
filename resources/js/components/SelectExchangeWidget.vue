@@ -10,7 +10,7 @@
             </div>
         </div>
 
-        <div class="cs--dashboard-form__item">
+        <div class="cs--dashboard-form__item" v-if="appData">
             <label for="dashboard--account" class="cs--dashboard-form__label">{{ $__("Account") }}</label>
 
             <div class="cs--dashboard-form__input-wrapper cs--dashboard-form__input--arrow">
