@@ -61,9 +61,9 @@ Route::group(['prefix' => 'terminal', 'middleware' => ['auth', 'verified', 'perm
     //  EXCHANGES
     Route::prefix('exchange')->group(function () {
         Route::post('get-info/{slug}', [ExchangeController::class, 'getExchangeInfo']);
-        Route::post('account/{slug}', [ExchangeController::class, 'getAccount']);
+        Route::get('account/{id}', [ExchangeController::class, 'getAccount']);
         Route::post('create-order/{slug}', [ExchangeController::class, 'createOrder']);
-        Route::post('get-orders/{slug}', [ExchangeController::class, 'getOrders']);
+        Route::post('get-orders', [ExchangeController::class, 'getOrders']);
         Route::post('get-open-orders/{slug}', [ExchangeController::class, 'getOpenOrders']);
         Route::post('cancel-order/{slug}', [ExchangeController::class, 'cancelOrder']);
         Route::post('set-active-account', [ExchangeController::class, 'setActiveAccount']);

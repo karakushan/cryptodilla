@@ -7,12 +7,12 @@ use App\Http\Requests\ExchangeRequest;
 use App\Http\Requests\UserExchangeRequest;
 use App\Models\Exchange;
 use App\Models\UserExchange;
-use App\Traits\Binance;
+
 use Illuminate\Http\Request;
+use App\Services\ExchangeConnector;
 
 class ExchangeController extends Controller
 {
-    use Binance;
 
     /**
      * Display a listing of the resource.
@@ -126,7 +126,8 @@ class ExchangeController extends Controller
     public function getExchangeInfo($slug)
     {
         try {
-            return response()->json($this->{$slug . 'GetInfo'}());
+            return (new ExchangeConnector())->connect($slug)
+                ->exchangeInfo();
         } catch (\Exception $exception) {
             return response($exception->getMessage())
                 ->status(419);
@@ -138,12 +139,13 @@ class ExchangeController extends Controller
      * @param $slug
      * @return int
      */
-    public function getOrders($slug, Request $request)
+    public function getOrders(Request $request)
     {
         try {
-            $allOrders = $this->{$slug . 'GetOrders'}($request->input('symbol'));
+            $account = UserExchange::findOrFail($request->input('account_id'));
 
-            return response()->json($allOrders);
+            return (new ExchangeConnector())->connect($account->exchange->slug, $account->id)
+                ->getAllOrders($request->input('symbol'));
         } catch (\Exception $exception) {
             return response($exception->getMessage())
                 ->status(419);
@@ -167,12 +169,13 @@ class ExchangeController extends Controller
         }
     }
 
-    public function getAccount($slug)
+    public function getAccount($id)
     {
 
         try {
-            $account=$this->{$slug . 'GetAccount'}();
-            return $account;
+            $account = UserExchange::findOrFail($id);
+            return (new ExchangeConnector())->connect($account->exchange->slug, $id)
+                ->account();
         } catch (\Exception $exception) {
             return response($exception->getMessage())
                 ->status(419);
@@ -188,7 +191,10 @@ class ExchangeController extends Controller
      */
     public function createOrder($slug, CreateOrderRequest $request)
     {
-        return $this->{$slug . 'CreateOrder'}($request->all());
+        $order = (new ExchangeConnector())->connect($slug, (int)$request->input('account_id'))
+            ->createOrder($request->all());
+
+        return $order;
     }
 
     /**
@@ -249,7 +255,7 @@ class ExchangeController extends Controller
     public function setActiveAccount(Request $request)
     {
         $exchanges = UserExchange::where('user_id', auth()->id());
-        $exchanges->update(['active'=>false]);
+        $exchanges->update(['active' => false]);
 
         $exchange = UserExchange::where('id', (int)$request->input('account'));
         $exchange->update(['active' => true]);

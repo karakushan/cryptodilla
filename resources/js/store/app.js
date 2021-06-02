@@ -17,7 +17,8 @@ export default new Vuex.Store({
                 description: 'This strategy is based on the MACD indicator. It buys when the MACD line crosses above the signal line, and sells when defined exit condition is met.'
             }
         },
-        symbolTick: null
+        symbolTick: null,
+        exchange: 'binance'
     },
     getters: {
         appData: state => {
@@ -41,6 +42,9 @@ export default new Vuex.Store({
         symbolTick: state => {
             return state.symbolTick
         },
+        exchange: state => {
+            return state.exchange
+        },
 
     },
     mutations: {
@@ -63,6 +67,9 @@ export default new Vuex.Store({
         SET_SYMBOL_TICK(state, payload) {
             state.symbolTick = payload
         },
+        SET_EXCHANGE(state, payload) {
+            state.exchange = payload
+        },
     },
     actions: {
         updateAppData({commit}) {
@@ -83,6 +90,9 @@ export default new Vuex.Store({
         },
         setData({commit}, payload) {
             commit('SET_DATA', payload);
+        },
+        setExchange({commit}, payload) {
+            commit('SET_EXCHANGE', payload);
         },
         setExchangeInfo({commit}, payload) {
             commit('SET_EXCHANGE_INFO', payload);
@@ -115,5 +125,6 @@ export default new Vuex.Store({
                     // Will be executed upon completion catch & then
                 });
         },
+
     }
 })

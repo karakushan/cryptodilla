@@ -105,7 +105,9 @@
                             </button>
                         </form>
                     </div>
-                    <p v-if="account && account.balances.length==0">{{ $__("There are no funds in your account yet") }}</p>
+                    <p v-if="account && account.balances.length==0">{{
+                            $__("There are no funds in your account yet")
+                        }}</p>
 
                 </section>
                 <Chat/>
@@ -130,7 +132,6 @@ export default {
     name: "Trading",
     data: function () {
         return {
-            exchange: 'binance',
             pairs: [],
             tab: null,
             tabOrder: null,
@@ -166,6 +167,9 @@ export default {
     },
     props: {},
     watch: {
+        exchange() {
+            this.getExchangeInfo()
+        },
         activeExchangeAccount(newValue) {
             if (newValue) {
                 this.getAccount()
@@ -240,8 +244,9 @@ export default {
             if (!this.symbol) return
 
             axios
-                .post('/terminal/exchange/get-orders/' + this.exchange, {
-                    symbol: this.symbol.symbol
+                .post('/terminal/exchange/get-orders/', {
+                    symbol: this.symbol.symbol,
+                    account_id: this.activeExchangeAccount.id
                 })
                 .then(response => {
                     if (response.status == 200 && response.data) {
@@ -289,7 +294,10 @@ export default {
 
             axios
                 .post('/terminal/exchange/create-order/' + this.exchange, {
-                    ...this.order, symbol: this.symbol.symbol
+                    ...this.order,
+                    symbol: this.symbol.symbol,
+                    account_id: this.activeExchangeAccount.id
+
                 })
                 .then(response => {
                     if (response.status == 200 && response.data) {
@@ -303,7 +311,6 @@ export default {
                         }
                         this.playSound()
                         this.getOrders()
-                        this.getOpenOrders()
                         this.getAccount()
                         this.order.price = 0
                         this.order.quantity = 0
@@ -349,8 +356,7 @@ export default {
         },
         getAccount() {
             axios
-                .post('/terminal/exchange/account/' + this.exchange
-                )
+                .get('/terminal/exchange/account/' + this.activeExchangeAccount.id)
                 .then(response => {
                     if (response.status == 200 && response.data) {
                         this.setAccount(response.data)
@@ -381,7 +387,7 @@ export default {
         }
     },
     computed: {
-        ...mapGetters(['appData', 'account', 'exchangeInfo', 'symbol', 'activeExchangeAccount']),
+        ...mapGetters(['appData', 'account', 'exchangeInfo', 'symbol', 'activeExchangeAccount', 'exchange']),
         tradingViewPair() {
             if (!this.symbol) return 'ETH:BTC'
 

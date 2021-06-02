@@ -50,11 +50,14 @@ export default {
         ...mapGetters(['appData', 'activeExchangeAccount'])
     },
     methods: {
-        ...mapActions(['setActiveExchangeAccount'])
+        ...mapActions(['setActiveExchangeAccount','setExchange'])
     },
     watch: {
         account(newValue, oldValue) {
                 this.setActiveExchangeAccount(newValue)
+        },
+        exchange(newValue){
+            this.setExchange(newValue)
         }
     },
 }
