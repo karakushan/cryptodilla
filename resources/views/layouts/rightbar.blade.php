@@ -137,10 +137,11 @@
                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
                                             class="flag flag-icon-{{ str_replace('en','us',app()->getLocale()) }} flag-icon-squared"></i></a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="languagelink">
-                                       @foreach (config('app.languages') as $lang)
+                                        @foreach (config('app.languages') as $lang)
                                             <a class="dropdown-item" href="{{ route('locale',['locale'=>$lang]) }}"><i
-                                                    class="flag flag-icon-{{ str_replace('en','us',$lang) }} flag-icon-squared"></i>{{ $lang }}</a>
-                                       @endforeach
+                                                    class="flag flag-icon-{{ str_replace('en','us',$lang) }} flag-icon-squared"></i>{{ $lang }}
+                                            </a>
+                                        @endforeach
 
                                     </div>
                                 </div>
@@ -151,10 +152,18 @@
                                 <div class="dropdown">
                                     <a class="dropdown-toggle" href="#" role="button" id="profilelink"
                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <img
-                                            src="{{ asset('assets/images/users/profile.svg') }}" class="img-fluid"
-                                            alt="profile"><span
-                                            class="feather icon-chevron-down live-icon"></span>
+                                        @if (auth()->user()->avatar_url)
+                                            <img
+                                                src="{{ auth()->user()->avatar_url }}" class="img-fluid rounded-circle"
+                                                alt="profile"><span
+                                                class="feather icon-chevron-down live-icon"></span>
+                                        @else
+                                            <img
+                                                src="{{ asset('assets/images/users/profile.svg') }}" class="img-fluid"
+                                                alt="profile"><span
+                                                class="feather icon-chevron-down live-icon"></span>
+                                        @endif
+
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profilelink">
                                         <div class="dropdown-item">
@@ -165,10 +174,11 @@
                                         <div class="userbox">
                                             <ul class="list-unstyled mb-0">
                                                 <li class="media dropdown-item">
-                                                    <a href="{{ route('users.edit',auth()->id()) }}" class="profile-icon"><img
-                                                            src="{{ asset('assets/images/svg-icon/user.svg') }}"
-                                                            class="img-fluid"
-                                                            alt="user">Профиль</a>
+                                                    <a href="{{ route('users.edit',auth()->id()) }}"
+                                                       class="profile-icon"><img
+                                                            src="{{ auth()->user()->avatar_url ?? asset('assets/images/users/profile.svg') }}"
+                                                            class="img-fluid rounded-circle"
+                                                            alt="user">{{ __("Profile") }}</a>
                                                 </li>
                                                 {{--<li class="media dropdown-item">
                                                     <a href="#" class="profile-icon"><img
@@ -180,13 +190,13 @@
                                                     <form method="POST" action="{{ route('logout') }}">
                                                         @csrf
 
-                                                        <x-dropdown-link  class="profile-icon" :href="route('logout')"
+                                                        <x-dropdown-link class="profile-icon" :href="route('logout')"
                                                                          onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                                             <img
                                                                 src="{{ asset('assets/images/svg-icon/logout.svg') }}"
                                                                 class="img-fluid"
-                                                                alt="logout">{{ __("Выход") }}
+                                                                alt="logout">{{ __("Logout") }}
                                                         </x-dropdown-link>
                                                     </form>
 
@@ -212,14 +222,16 @@
                 <h4 class="page-title">@yield('title')</h4>
                 <div class="breadcrumb-list">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">{{ __("Главная") }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">{{ __("Главная") }}</a>
+                        </li>
                         <li class="breadcrumb-item active" aria-current="page">@yield('title')</li>
                     </ol>
                 </div>
             </div>
             <div class="col-md-4 col-lg-4">
                 <div class="widgetbar">
-                    <button class="btn btn-primary-rgba"><i class="feather icon-plus mr-2"></i>{{ __("Добавить") }}</button>
+                    <button class="btn btn-primary-rgba"><i class="feather icon-plus mr-2"></i>{{ __("Добавить") }}
+                    </button>
                 </div>
             </div>
         </div>
