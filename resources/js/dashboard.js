@@ -41,8 +41,8 @@ Vue.prototype.$__ = function (trans) {
 const app = new Vue({
     el: '.app',
     mounted() {
-        // var success = document.querySelector('.js-switch');
-        // var switchery = new Switchery(success, { color: '#18d26b' })
+        var success = document.querySelector('.js-switch');
+        var switchery = new Switchery(success, { color: '#18d26b' })
 
     },
     components:{
