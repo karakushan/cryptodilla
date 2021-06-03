@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FaqRequest;
+use App\Http\Resources\FaqCollection;
+use App\Http\Resources\FaqResource;
 use App\Models\Faq;
 use App\Models\FaqCategory;
 use Illuminate\Http\Request;
@@ -17,7 +19,7 @@ class FaqController extends Controller
     public function index()
     {
         $title = __('Frequently Asked Questions');
-        $items = Faq::orderBy('id','desc')->paginate(15);
+        $items = Faq::orderBy('id', 'desc')->paginate(15);
 
         return view('dashboard.faq.index', compact('title', 'items'));
     }
@@ -30,9 +32,9 @@ class FaqController extends Controller
     public function create()
     {
         $title = __('Adding a FAQ');
-        $categories=FaqCategory::all();
+        $categories = FaqCategory::all();
 
-        return view('dashboard.faq.create', compact('title','categories'));
+        return view('dashboard.faq.create', compact('title', 'categories'));
     }
 
     /**
@@ -43,6 +45,7 @@ class FaqController extends Controller
      */
     public function store(FaqRequest $request)
     {
+        app()->setLocale($request->input('lang',config('app.fallback_locale')));
         Faq::create($request->all());
 
         return redirect()->route('faqs.index')->with([
@@ -73,9 +76,9 @@ class FaqController extends Controller
         $item = Faq::findOrFail($id);
 
         $title = __('Editing FAQ');
-        $categories=FaqCategory::all();
+        $categories = FaqCategory::all();
 
-        return view('dashboard.faq.edit', compact('title', 'item','categories'));
+        return view('dashboard.faq.edit', compact('title', 'item', 'categories'));
     }
 
     /**
@@ -87,7 +90,7 @@ class FaqController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $item = Faq::findOrFail($id);
+        $item = Faq::findOrFail($id)->setLocale($request->input('lang',config('app.fallback_locale')));
         $item->fill($request->all());
         $item->save();
 
@@ -114,9 +117,8 @@ class FaqController extends Controller
         ]);
     }
 
-    public function getFaqs(Request $request){
-        $faqs=Faq::all();
-
-        return response()->json($faqs);
+    public function getFaqs(Request $request)
+    {
+        return FaqResource::collection(Faq::all());
     }
 }

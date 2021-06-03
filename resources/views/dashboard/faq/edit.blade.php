@@ -3,14 +3,14 @@
 @endsection
 @extends('layouts.main')
 @section('style')
-    <!-- Dropzone css -->
-    <link href="{{ asset('assets/plugins/dropzone/dist/dropzone.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('assets/plugins/summernote/summernote-bs4.css') }}" rel="stylesheet" type="text/css"/>
 @endsection
 @section('rightbar-content')
     <!-- Start Contentbar -->
     <form action="{{ route('faqs.update',$item) }}" method="post">
         @csrf
         @method('PUT')
+        <input type="hidden" name="lang" value="{{ request('lang',config('app.fallback_locale')) }}">
         <div class="contentbar">
             <!-- Start row -->
             <div class="row">
@@ -18,14 +18,23 @@
                 <div class="col-lg-12 col-xl-12">
                     <div class="card m-b-30">
                         <div class="card-header">
-                            <h5 class="card-title">{{ $title }}</h5>
+                            <ul class="nav nav-tabs mb-3">
+                                @foreach(config('app.languages') as $lang)
+                                    <li class="nav-item">
+                                        <a href="{{ route('faqs.edit',['faq'=>$item->id,'lang'=>$lang]) }}"
+                                           class="nav-link card-title {{ (request('lang') ?? 'en') == $lang ? 'active' :''  }}"
+                                           id="{{ $lang }}-tab">{{ __('FAQ') }}  <i class="flag flag-icon flag-icon-{{str_replace('en','us',$lang)}}"></i></a>
+                                    </li>
+                                @endforeach
+                            </ul>
                         </div>
                         <div class="card-body">
                             <div class="form-group row">
                                 <label for="question" class="col-sm-12 col-form-label">{{ __("Question") }}</label>
                                 <div class="col-sm-12">
+
                                     <input type="text" name="question" class="form-control" id="question"
-                                           value="{{ old('question',$item->question) }}">
+                                           value="{{ old('question',$item->getTranslation('question',request('lang','en'),false)) }}">
                                     @error('question')
                                     <div class="invalid-feedback" style="display: block;">{{ $message }}</div>
                                     @enderror
@@ -33,10 +42,10 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="answer" class="col-sm-12 col-form-label">{{ __("Answer") }}</label>
+                                <label for="summernote" class="col-sm-12 col-form-label">{{ __("Answer") }}</label>
                                 <div class="col-sm-12">
                                     <textarea name="answer" class="form-control"
-                                              id="answer">{!! old('answer', $item->answer) !!}</textarea>
+                                              id="summernote">{!! old('answer', $item->getTranslation('answer',request('lang','en'),false)) !!}</textarea>
                                     @error('answer')
                                     <div class="invalid-feedback" style="display: block;">{{ $message }}</div>
                                     @enderror
@@ -75,6 +84,14 @@
     <!-- End Contentbar -->
 @endsection
 @section('script')
-    <!-- Dropzone js -->
-    <script src="{{ asset('assets/plugins/dropzone/dist/dropzone.js') }}"></script>
+    <script src="{{ asset('assets/plugins/summernote/summernote-bs4.min.js') }}"></script>
+    <script>
+        /* -- Form Editors - Summernote -- */
+        $('#summernote').summernote({
+            height: 320,
+            minHeight: null,
+            maxHeight: null,
+            focus: true
+        });
+    </script>
 @endsection

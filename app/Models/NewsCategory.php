@@ -25,6 +25,8 @@ use Cviebrock\EloquentSluggable\Sluggable;
  * @method static \Illuminate\Database\Eloquent\Builder|NewsCategory whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|NewsCategory whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Eloquent\Builder|NewsCategory findSimilarSlugs(string $attribute, array $config, string $slug)
+ * @method static \Illuminate\Database\Eloquent\Builder|NewsCategory withUniqueSlugConstraints(\Illuminate\Database\Eloquent\Model $model, string $attribute, array $config, string $slug)
  */
 class NewsCategory extends Model
 {

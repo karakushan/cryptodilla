@@ -29,6 +29,8 @@ use Jenssegers\Date\Date;
  * @mixin \Eloquent
  * @property int $user_id
  * @method static \Illuminate\Database\Eloquent\Builder|UserActivity whereUserId($value)
+ * @property string|null $data
+ * @method static \Illuminate\Database\Eloquent\Builder|UserActivity whereData($value)
  */
 class UserActivity extends Model
 {

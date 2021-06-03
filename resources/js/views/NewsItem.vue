@@ -1,7 +1,7 @@
 <template>
     <main class="cs--page cs--dashboard--news-article">
         <div class="cs--container">
-            <h1 class="cs--page__title">{{ item.title }}</h1>
+            <h1 class="cs--page__title">{{ item.title[appData.lang] }}</h1>
             <div class="cs--page-side-wrapper">
                 <article class="cs--article">
                     <div class="cs--article__content">
@@ -11,7 +11,7 @@
                         <div class="cs--article__meta">
                             <span>{{ item.created_at }}</span>
                         </div>
-                        <div v-html="item.content">
+                        <div v-html="item.content[appData.lang]">
 
                         </div>
                     </div>
@@ -29,6 +29,7 @@
 
 <script>
 import AsideFaq from "../components/AsideFaq";
+import {mapGetters} from 'vuex'
 export default {
     name: "NewsItem",
     data() {
@@ -60,7 +61,11 @@ export default {
     },
     components:{
         AsideFaq
+    },
+    computed:{
+        ...mapGetters(['appData'])
     }
+
 }
 </script>
 

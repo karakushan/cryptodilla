@@ -10,6 +10,7 @@
     <form action="{{ route('news.store') }}" method="post">
         @csrf
         @method('POST')
+        <input type="hidden" name="lang" value="{{ request('lang',config('app.fallback_locale')) }}">
         <div class="contentbar">
             <!-- Start row -->
             <div class="row">
@@ -17,7 +18,7 @@
                 <div class="col-lg-8 col-xl-9">
                     <div class="card m-b-30">
                         <div class="card-header">
-                            <h5 class="card-title">{{ $title }}</h5>
+                            <h5 class="card-title">{{ $title }} <i class="flag flag-icon flag-icon-{{str_replace('en','us',config('app.fallback_locale'))}}"></i></h5>
                         </div>
                         <div class="card-body">
                             <div class="form-group row">

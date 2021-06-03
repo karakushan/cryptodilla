@@ -175,6 +175,8 @@
       <path value="$PROJECT_DIR$/vendor/jaggedsoft/php-binance-api" />
       <path value="$PROJECT_DIR$/vendor/codenix-sv/bittrex-api" />
       <path value="$PROJECT_DIR$/vendor/butschster/kraken-api-client" />
+      <path value="$PROJECT_DIR$/vendor/dzarezenko/poloniex-api" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-translatable" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />

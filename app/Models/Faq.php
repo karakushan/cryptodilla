@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 /**
  * App\Models\Faq
@@ -25,12 +26,15 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Faq whereQuestion($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Faq whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read array $translations
  */
 class Faq extends Model
 {
-    use HasFactory;
+    use HasFactory,HasTranslations;
 
     protected $fillable = ['question', 'answer', 'faq_category_id'];
+
+    public $translatable = ['question','answer'];
 
     public function category()
     {

@@ -11,8 +11,14 @@ class ExchangeConnector
             case 'binance':
                 return new Binance($account_id);
                 break;
-            default:
+            case 'kraken':
+                return new Kraken($account_id);
+                break;
 
+            case 'poloniex':
+                return new Poloniex($account_id);
+                break;
+            default:
                 break;
         }
     }

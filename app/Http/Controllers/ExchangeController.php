@@ -171,15 +171,9 @@ class ExchangeController extends Controller
 
     public function getAccount($id)
     {
-
-        try {
-            $account = UserExchange::findOrFail($id);
-            return (new ExchangeConnector())->connect($account->exchange->slug, $id)
-                ->account();
-        } catch (\Exception $exception) {
-            return response($exception->getMessage())
-                ->status(419);
-        }
+        $account = UserExchange::findOrFail($id);
+        return (new ExchangeConnector())->connect($account->exchange->slug, $id)
+            ->account();
     }
 
     /**

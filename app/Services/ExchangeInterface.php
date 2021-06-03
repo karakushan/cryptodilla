@@ -10,6 +10,7 @@ interface ExchangeInterface
      * @return mixed
      */
     public function account();
+
     /**
      * @return mixed
      */
@@ -27,4 +28,9 @@ interface ExchangeInterface
      */
     public function getAllOrders(string $symbol);
 
+    function getApiKey();
+
+    public function getApiSecret();
+
+    public function getUserCredentials();
 }

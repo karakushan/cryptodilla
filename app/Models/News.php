@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Jenssegers\Date\Date;
+use Spatie\Translatable\HasTranslations;
 
 /**
  * App\Models\News
@@ -25,12 +26,18 @@ use Jenssegers\Date\Date;
  * @method static \Illuminate\Database\Eloquent\Builder|News whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|News whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string|null $thumbnail
+ * @property-read \App\Models\NewsCategory|null $category
+ * @property-read mixed $thumbnail_url
+ * @method static \Illuminate\Database\Eloquent\Builder|News whereThumbnail($value)
  */
 class News extends Model
 {
-    use HasFactory;
+    use HasFactory, HasTranslations;
 
     protected $fillable = ['title', 'content', 'category_id', 'thumbnail'];
+
+    public $translatable = ['title', 'content'];
 
     protected $appends = [
         'thumbnail_url'

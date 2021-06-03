@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a60794c5f8f11bd95591f289535c5830",
+    "content-hash": "b5d443ead6054e652e7439ce7015ac51",
     "packages": [
         {
             "name": "armandgarot/laravel-workerman",
@@ -1078,6 +1078,49 @@
                 "schedule"
             ],
             "time": "2020-11-24T19:55:57+00:00"
+        },
+        {
+            "name": "dzarezenko/poloniex-api",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dzarezenko/poloniex-api.git",
+                "reference": "63170918cf0d683ab68322eb8efafb886190f01b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dzarezenko/poloniex-api/zipball/63170918cf0d683ab68322eb8efafb886190f01b",
+                "reference": "63170918cf0d683ab68322eb8efafb886190f01b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "poloniex\\api\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dmytro Zarezenko",
+                    "email": "dmytro.zarezenko@gmail.com",
+                    "homepage": "https://github.com/dzarezenko",
+                    "role": "Development"
+                }
+            ],
+            "description": "PHP wrapper for the Poloniex API.",
+            "homepage": "https://github.com/dzarezenko/poloniex-api",
+            "keywords": [
+                "Poloniex",
+                "api"
+            ],
+            "time": "2019-04-21T18:36:36+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -5008,6 +5051,78 @@
                 "spatie"
             ],
             "time": "2021-06-02T00:39:38+00:00"
+        },
+        {
+            "name": "spatie/laravel-translatable",
+            "version": "4.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-translatable.git",
+                "reference": "5900d6002a5795712058a04c7ca7c2c44b3e0850"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-translatable/zipball/5900d6002a5795712058a04c7ca7c2c44b3e0850",
+                "reference": "5900d6002a5795712058a04c7ca7c2c44b3e0850",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^6.0|^7.0|^8.0",
+                "illuminate/support": "^6.0|^7.0|^8.0",
+                "php": "^7.2|^8.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.4",
+                "orchestra/testbench": "^4.0|^5.0|^6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\Translatable\\TranslatableServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Translatable\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Sebastian De Deyne",
+                    "email": "sebastian@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Mohamed Said",
+                    "email": "theMohamedSaid@gmail.com",
+                    "role": "Original idea"
+                }
+            ],
+            "description": "A trait to make an Eloquent model hold translations",
+            "homepage": "https://github.com/spatie/laravel-translatable",
+            "keywords": [
+                "eloquent",
+                "i8n",
+                "laravel-translatable",
+                "model",
+                "multilingual",
+                "spatie",
+                "translate"
+            ],
+            "time": "2020-11-19T14:19:29+00:00"
         },
         {
             "name": "stevebauman/location",
@@ -10229,6 +10344,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "armandgarot/laravel-workerman": 20,
+        "dzarezenko/poloniex-api": 20,
         "jaggedsoft/php-binance-api": 20
     },
     "prefer-stable": true,

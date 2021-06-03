@@ -5,12 +5,12 @@
                 <h1 class="cs--page__title">{{ $__("Frequenty Asked Questions") }}</h1>
 
                 <ul class="cs--details-list">
-                    <li class="cs--details-wrapper" v-for="faq in faqs">
+                    <li class="cs--details-wrapper" v-for="faq in faqs.data" >
                         <details data-details="" class="cs--details-item" style="">
                             <summary data-details-summary="" class="cs--details-summary">
-                                {{ faq.question }}
+                                {{ faq.question[appData.lang] }}
                             </summary>
-                            <div data-details-content="" class="cs--details-content" v-html="faq.answer"></div>
+                            <div data-details-content="" class="cs--details-content" v-html="faq.answer[appData.lang]"></div>
                         </details>
                     </li>
                 </ul>
@@ -20,6 +20,8 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
+
 export default {
     name: "FAQ",
     data() {
@@ -39,6 +41,9 @@ export default {
                 // console.log(error.response);
                 console.log(error.response.data);
             });
+    },
+    computed: {
+        ...mapGetters(['appData'])
     }
 }
 </script>

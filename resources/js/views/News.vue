@@ -47,7 +47,7 @@
                             <div class="cs--card-item__meta">
                                 <span>{{ news.created_at }}</span>
                             </div>
-                            <span class="cs--card-item__title">{{ news.title }}</span>
+                            <span class="cs--card-item__title">{{ news.title[appData.lang] }}</span>
                             <router-link class="cs--card-item__link" :to="'/news/'+news.id">{{ $__("Read more") }}</router-link>
                         </div>
                     </li>
@@ -58,6 +58,7 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
     name: "News",
     data() {
@@ -69,6 +70,9 @@ export default {
                 title: ''
             }
         }
+    },
+    computed: {
+       ...mapGetters(['appData'])
     },
     mounted() {
         axios

@@ -56,7 +56,7 @@ class Binance implements ExchangeInterface
      *
      * @return UserExchange|\Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model|object|null
      */
-    protected function getUserCredentials()
+    public function getUserCredentials()
     {
         $exchange = Exchange::where('slug', $this->account_id)->first();
 

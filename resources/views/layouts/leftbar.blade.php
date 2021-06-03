@@ -15,18 +15,18 @@
                 <li>
                     <a href="{{ route('dashboard.index') }}">
                         <img src="{{ asset('assets/images/svg-icon/dashboard.svg') }}" class="img-fluid"
-                             alt="dashboard"><span>{{ __("Панель") }}</span>
+                             alt="dashboard"><span>{{ __("Dashboard") }}</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('users.index') }}">
                         <img src="{{ asset('assets/images/svg-icon/user.svg') }}" class="img-fluid"
-                             alt="dashboard"><span>{{ __("Пользователи") }}</span>
+                             alt="dashboard"><span>{{ __("Users") }}</span>
                         <i class="feather icon-chevron-right pull-right"></i>
                     </a>
                     <ul class="vertical-submenu">
-                        <li><a href="{{ route('users.index') }}">{{ __("Список") }}</a></li>
-                        <li><a href="{{ route('users.create') }}">{{ __("Добавить") }}</a></li>
+                        <li><a href="{{ route('users.index') }}">{{ __("List") }}</a></li>
+                        <li><a href="{{ route('users.create') }}">{{ __("Add") }}</a></li>
                      {{--   <li><a href="{{ route('user-groups.index') }}">{{ __("Группы") }}</a></li>
                         <li><a href="{{ route('user-groups.create') }}">{{ __("Добавить группу") }}</a></li>--}}
                     </ul>
@@ -34,12 +34,12 @@
                 <li>
                     <a href="{{ route('exchanges.index') }}">
                         <img src="{{ asset('assets/images/svg-icon/widgets.svg') }}" class="img-fluid"
-                             alt="dashboard"><span>{{ __("Биржи") }}</span>
+                             alt="dashboard"><span>{{ __("Exchanges") }}</span>
                         <i class="feather icon-chevron-right pull-right"></i>
                     </a>
                     <ul class="vertical-submenu">
-                        <li><a href="{{ route('exchanges.index') }}">{{ __("Список") }}</a></li>
-                        <li><a href="{{ route('exchanges.create') }}">{{ __("Добавить") }}</a></li>
+                        <li><a href="{{ route('exchanges.index') }}">{{ __("List") }}</a></li>
+                        <li><a href="{{ route('exchanges.create') }}">{{ __("Add") }}</a></li>
                     </ul>
                 </li>
                 <li>

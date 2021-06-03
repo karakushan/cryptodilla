@@ -1267,7 +1267,7 @@ causer_id</ColNames>
     </column>
     <column id="369" parent="292" name="question">
       <Position>4</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="370" parent="292" name="answer">
@@ -1417,7 +1417,7 @@ model_type</ColNames>
     </column>
     <column id="398" parent="297" name="title">
       <Position>4</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="399" parent="297" name="content">

@@ -10,6 +10,7 @@
     <form action="{{ route('news.update',$item) }}" method="post">
         @csrf
         @method('PUT')
+        <input type="hidden" name="lang" value="{{ request('lang',config('app.fallback_locale')) }}">
         <div class="contentbar">
 
             <!-- Start row -->
@@ -18,14 +19,22 @@
                 <div class="col-lg-8 col-xl-9">
                     <div class="card m-b-30">
                         <div class="card-header">
-                            <h5 class="card-title">{{ $title }}</h5>
+                            <ul class="nav nav-tabs mb-3">
+                                @foreach(config('app.languages') as $lang)
+                                    <li class="nav-item">
+                                        <a href="{{ route('news.edit',['news'=>$item->id,'lang'=>$lang]) }}"
+                                           class="nav-link card-title {{ request('lang',config('app.fallback_locale')) == $lang ? 'active' :''  }}"
+                                           id="{{ $lang }}-tab">{{ $title }}  <i class="flag flag-icon flag-icon-{{str_replace('en','us',$lang)}}"></i></a>
+                                    </li>
+                                @endforeach
+                            </ul>
                         </div>
                         <div class="card-body">
                             <div class="form-group row">
                                 <label for="question" class="col-sm-12 col-form-label">{{ __("Title") }}</label>
                                 <div class="col-sm-12">
                                     <input type="text" name="title" class="form-control" id="question"
-                                           value="{{ old('title',$item->title) }}">
+                                           value="{{ old('title',$item->getTranslation('title',request('lang',config('app.fallback_locale')),false)) }}">
                                     @error('title')
                                     <div class="invalid-feedback" style="display: block;">{{ $message }}</div>
                                     @enderror
@@ -36,7 +45,7 @@
                                 <label for="content" class="col-sm-12 col-form-label">{{ __("Content") }}</label>
                                 <div class="col-sm-12">
                                     <textarea name="content" class="form-control"
-                                              id="summernote">{!! old('content', $item->content) !!}</textarea>
+                                              id="summernote">{!! old('content', $item->getTranslation('content',request('lang',config('app.fallback_locale')),false)) !!}</textarea>
                                     @error('content')
                                     <div class="invalid-feedback" style="display: block;">{{ $message }}</div>
                                     @enderror
