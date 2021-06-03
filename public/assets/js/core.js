@@ -21,7 +21,7 @@ $(document).ready(function() {
         e.preventDefault();
         $(".infobar-settings-sidebar-overlay").css({"background": "rgba(0,0,0,0.4)", "position": "fixed"});
         $("#infobar-settings-sidebar").addClass("sidebarshow");
-    }); 
+    });
     $("#infobar-settings-close").on("click", function(e) {
         e.preventDefault();
         $(".infobar-settings-sidebar-overlay").css({"background": "transparent", "position": "initial"});
@@ -33,11 +33,11 @@ $(document).ready(function() {
         $("body").toggleClass("toggle-menu");
         $(".menu-hamburger img").toggle();
     });
-    /* -- Menu Topbar Hamburger -- */    
+    /* -- Menu Topbar Hamburger -- */
     $(".topbar-toggle-hamburger").on("click", function(e) {
         e.preventDefault();
         $("body").toggleClass("topbar-toggle-menu");
-        $(".topbar-toggle-hamburger img").toggle();    
+        $(".topbar-toggle-hamburger img").toggle();
     });
     /* -- Menu Scrollbar -- */
     /*$('.vertical-menu').slimscroll({
@@ -47,11 +47,11 @@ $(document).ready(function() {
         color: '#CFD8DC',
     });*/
     /* -- Media Size -- */
-    function mediaSize() { 
+    function mediaSize() {
         if (window.matchMedia('(max-width: 767px)').matches) {
             $("body").removeClass("toggle-menu");
             $(".menu-hamburger img.menu-hamburger-close").hide();
-            $(".menu-hamburger img.menu-hamburger-collapse").show();         
+            $(".menu-hamburger img.menu-hamburger-collapse").show();
         }
     };
     mediaSize();
@@ -77,4 +77,6 @@ $(document).ready(function() {
     $('[data-toggle="popover"]').popover();
     /* -- Bootstrap Tooltip -- */
     $('[data-toggle="tooltip"]').tooltip();
+
+    $('.dropdown-toggle').dropdown()
 });

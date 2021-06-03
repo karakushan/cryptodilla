@@ -19,42 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="создал сервис враппер для бирж">
-      <change afterPath="$PROJECT_DIR$/app/Http/Resources/FaqResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Resources/NewsResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Kraken.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Poloniex.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/translatable.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_06_03_133036_change_type_field_for_faqs.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_06_03_144401_change_type_field_for_news.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/cryptotrade.loc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cryptotrade.loc.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5035001f-1a51-453c-b284-da206a5db2ea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5035001f-1a51-453c-b284-da206a5db2ea.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="news translations">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.phpstorm.meta.php" beforeDir="false" afterPath="$PROJECT_DIR$/.phpstorm.meta.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExchangeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExchangeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FaqController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FaqController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NewsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Faq.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Faq.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/News.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/News.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/NewsCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/NewsCategory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/UserActivity.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/UserActivity.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/Binance.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Binance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/ExchangeConnector.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/ExchangeConnector.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/ExchangeInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/ExchangeInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/FAQ.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/FAQ.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/News.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/News.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/NewsItem.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/NewsItem.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/faq/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/faq/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/faq/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/faq/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/news/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/news/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard/news/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard/news/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/leftbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/leftbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/js/core.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/core.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/rightbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/rightbar.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -441,7 +411,7 @@
       <workItem from="1622543395795" duration="5263000" />
       <workItem from="1622571802724" duration="20202000" />
       <workItem from="1622638958830" duration="7615000" />
-      <workItem from="1622708542012" duration="12858000" />
+      <workItem from="1622708542012" duration="14749000" />
     </task>
     <task id="LOCAL-00001" summary="подключил vue router">
       <created>1615840605110</created>
@@ -723,7 +693,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622632150360</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="news translations">
+      <created>1622721737263</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1622721737263</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -745,7 +722,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="чат" />
     <MESSAGE value="ws" />
     <MESSAGE value="pusher js chat" />
     <MESSAGE value="fix chat" />
@@ -770,13 +746,14 @@
     <MESSAGE value="widgets in admin" />
     <MESSAGE value="fix errors" />
     <MESSAGE value="создал сервис враппер для бирж" />
-    <option name="LAST_COMMIT_MESSAGE" value="создал сервис враппер для бирж" />
+    <MESSAGE value="news translations" />
+    <option name="LAST_COMMIT_MESSAGE" value="news translations" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="509" y="144" key="#Deployment" timestamp="1622632197201">
+    <state x="509" y="144" key="#Deployment" timestamp="1622721828101">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="509" y="144" key="#Deployment/0.0.1920.1040@0.0.1920.1040" timestamp="1622632197201" />
+    <state x="509" y="144" key="#Deployment/0.0.1920.1040@0.0.1920.1040" timestamp="1622721828101" />
     <state x="678" y="178" key="#Servers" timestamp="1616187219542">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -813,22 +790,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1622300689896" />
-    <state width="1877" height="194" key="GridCell.Tab.0.bottom" timestamp="1622720627663">
+    <state width="1877" height="159" key="GridCell.Tab.0.bottom" timestamp="1622721800970">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="194" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1622720627663" />
-    <state width="1877" height="194" key="GridCell.Tab.0.center" timestamp="1622720627663">
+    <state width="1877" height="159" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1622721800970" />
+    <state width="1877" height="159" key="GridCell.Tab.0.center" timestamp="1622721800969">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="194" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1622720627663" />
-    <state width="1877" height="194" key="GridCell.Tab.0.left" timestamp="1622720627663">
+    <state width="1877" height="159" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1622721800969" />
+    <state width="1877" height="159" key="GridCell.Tab.0.left" timestamp="1622721800969">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="194" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1622720627663" />
-    <state width="1877" height="194" key="GridCell.Tab.0.right" timestamp="1622720627663">
+    <state width="1877" height="159" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1622721800969" />
+    <state width="1877" height="159" key="GridCell.Tab.0.right" timestamp="1622721800970">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="194" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1622720627663" />
+    <state width="1877" height="159" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1622721800970" />
     <state width="1877" height="194" key="GridCell.Tab.1.bottom" timestamp="1622720627663">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -877,10 +854,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1622543335173" />
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1622632152282">
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1622721739042">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1622632152282" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1622721739042" />
     <state x="859" y="394" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1616884798046">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
