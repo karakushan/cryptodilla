@@ -48,6 +48,19 @@ https://ex.profglobal.top/terminal
 admin@ex.profglobal.top
 hHM7MtCSXfFv552
 
+### Команды которые будут полезны разработчикам
+-- PHPDoc generation for Laravel Facades
+
+```php artisan ide-helper:generate```
+
+-- PHPDocs for models
+
+```php artisan ide-helper:models```
+
+-- PhpStorm Meta file
+
+```php artisan ide-helper:meta``` 
+
 
 
 

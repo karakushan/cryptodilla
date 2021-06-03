@@ -30,6 +30,7 @@ use Spatie\Translatable\HasTranslations;
  * @property-read \App\Models\NewsCategory|null $category
  * @property-read mixed $thumbnail_url
  * @method static \Illuminate\Database\Eloquent\Builder|News whereThumbnail($value)
+ * @property-read array $translations
  */
 class News extends Model
 {

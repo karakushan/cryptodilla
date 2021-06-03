@@ -19,10 +19,26 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="переключение языков в админке">
+    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="починил dropdown">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SettingController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Setting.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/View/Components/FieldCheckbox.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/View/Components/FieldText.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/settings.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_06_03_181802_create_settings_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_06_03_190441_delete_columns_in_settings.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/field-checkbox.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/field-text.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/dashboard/settings/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/dashboard/settings/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/dashboard/settings/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5035001f-1a51-453c-b284-da206a5db2ea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5035001f-1a51-453c-b284-da206a5db2ea.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/News.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/News.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/rightbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/rightbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/leftbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/leftbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -266,7 +282,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/vendor/karakushan/crud-generator/composer.json" />
     <property name="database.data.extractors.current.export.id" value="SQL Inserts" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Requests" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/dashboard" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -277,19 +293,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\dashboard" />
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\app\Http\Requests" />
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\js\views" />
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\dashboard\currency" />
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\OSPanel\domains\cryptotrade.loc\packages\karakushan" />
       <recent name="E:\OSPanel\domains\cryptotrade.loc\vendor\karakushan\crud-generator" />
       <recent name="E:\OSPanel\domains\cryptotrade.loc\vendor\karakushan\crud-generator\src\commands" />
       <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\js\views" />
       <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\admin" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\app\Http\Requests" />
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\dashboard" />
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\js\views" />
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\dashboard\currency" />
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views" />
     </key>
   </component>
   <component name="RunManager" selected="npm.watch">
@@ -409,7 +425,7 @@
       <workItem from="1622543395795" duration="5263000" />
       <workItem from="1622571802724" duration="20202000" />
       <workItem from="1622638958830" duration="7615000" />
-      <workItem from="1622708542012" duration="15487000" />
+      <workItem from="1622708542012" duration="22427000" />
     </task>
     <task id="LOCAL-00001" summary="подключил vue router">
       <created>1615840605110</created>
@@ -705,7 +721,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622732549494</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="починил dropdown">
+      <created>1622733366458</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1622733366458</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -727,7 +750,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="pusher js chat" />
     <MESSAGE value="fix chat" />
     <MESSAGE value="подключил вкладку  - история торгов" />
     <MESSAGE value="отмена ордера" />
@@ -752,7 +774,8 @@
     <MESSAGE value="создал сервис враппер для бирж" />
     <MESSAGE value="news translations" />
     <MESSAGE value="переключение языков в админке" />
-    <option name="LAST_COMMIT_MESSAGE" value="переключение языков в админке" />
+    <MESSAGE value="починил dropdown" />
+    <option name="LAST_COMMIT_MESSAGE" value="починил dropdown" />
   </component>
   <component name="WindowStateProjectService">
     <state x="509" y="144" key="#Deployment" timestamp="1622721828101">
@@ -795,54 +818,54 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1622300689896" />
-    <state width="1877" height="159" key="GridCell.Tab.0.bottom" timestamp="1622721800970">
+    <state width="1877" height="194" key="GridCell.Tab.0.bottom" timestamp="1622739471146">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="159" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1622721800970" />
-    <state width="1877" height="159" key="GridCell.Tab.0.center" timestamp="1622721800969">
+    <state width="1877" height="194" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1622739471146" />
+    <state width="1877" height="194" key="GridCell.Tab.0.center" timestamp="1622739471146">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="159" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1622721800969" />
-    <state width="1877" height="159" key="GridCell.Tab.0.left" timestamp="1622721800969">
+    <state width="1877" height="194" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1622739471146" />
+    <state width="1877" height="194" key="GridCell.Tab.0.left" timestamp="1622739471146">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="159" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1622721800969" />
-    <state width="1877" height="159" key="GridCell.Tab.0.right" timestamp="1622721800970">
+    <state width="1877" height="194" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1622739471146" />
+    <state width="1877" height="194" key="GridCell.Tab.0.right" timestamp="1622739471146">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="159" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1622721800970" />
-    <state width="1877" height="194" key="GridCell.Tab.1.bottom" timestamp="1622720627663">
+    <state width="1877" height="194" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1622739471146" />
+    <state width="1877" height="194" key="GridCell.Tab.1.bottom" timestamp="1622739471147">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="194" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1622720627663" />
-    <state width="1877" height="194" key="GridCell.Tab.1.center" timestamp="1622720627663">
+    <state width="1877" height="194" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1622739471147" />
+    <state width="1877" height="194" key="GridCell.Tab.1.center" timestamp="1622739471146">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="194" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1622720627663" />
-    <state width="1877" height="194" key="GridCell.Tab.1.left" timestamp="1622720627663">
+    <state width="1877" height="194" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1622739471146" />
+    <state width="1877" height="194" key="GridCell.Tab.1.left" timestamp="1622739471146">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="194" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1622720627663" />
-    <state width="1877" height="194" key="GridCell.Tab.1.right" timestamp="1622720627663">
+    <state width="1877" height="194" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1622739471146" />
+    <state width="1877" height="194" key="GridCell.Tab.1.right" timestamp="1622739471146">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="194" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1622720627663" />
-    <state width="1877" height="194" key="GridCell.Tab.2.bottom" timestamp="1622720627664">
+    <state width="1877" height="194" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1622739471146" />
+    <state width="1877" height="194" key="GridCell.Tab.2.bottom" timestamp="1622739471147">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="194" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1622720627664" />
-    <state width="1877" height="194" key="GridCell.Tab.2.center" timestamp="1622720627664">
+    <state width="1877" height="194" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1622739471147" />
+    <state width="1877" height="194" key="GridCell.Tab.2.center" timestamp="1622739471147">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="194" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1622720627664" />
-    <state width="1877" height="194" key="GridCell.Tab.2.left" timestamp="1622720627663">
+    <state width="1877" height="194" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1622739471147" />
+    <state width="1877" height="194" key="GridCell.Tab.2.left" timestamp="1622739471147">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="194" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1622720627663" />
-    <state width="1877" height="194" key="GridCell.Tab.2.right" timestamp="1622720627664">
+    <state width="1877" height="194" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1622739471147" />
+    <state width="1877" height="194" key="GridCell.Tab.2.right" timestamp="1622739471147">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="194" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1622720627664" />
+    <state width="1877" height="194" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1622739471147" />
     <state width="217" height="457" key="HiddenNamespacesPopup" timestamp="1622047170813">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -851,18 +874,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="721" y="237" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1622649095755" />
-    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1621709376041">
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1622734249614">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1621709376041" />
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1622734249614" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1622543335173">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1622543335173" />
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1622732551448">
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1622733368081">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1622732551448" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1622733368081" />
     <state x="859" y="394" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1616884798046">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

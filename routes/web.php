@@ -12,6 +12,7 @@ use App\Http\Controllers\ExchangeController;
 use App\Http\Controllers\NewsCategoryController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TerminalController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\UserController;
@@ -100,6 +101,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'permission:manage a
         'faq-categories' => FaqCategoryController::class,
         'news' => NewsController::class,
         'news-category' => NewsCategoryController::class,
+        'settings' => SettingController::class,
     ]);
 });
 

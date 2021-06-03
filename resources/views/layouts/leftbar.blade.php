@@ -69,7 +69,8 @@
 
                 <li>
                     <a href="{{ route('news.index') }}">
-                        <i class="fa fa-comments" aria-hidden="true"></i>
+                        <img src="{{ asset('assets/images/svg-icon/pages.svg') }}" class="img-fluid"
+                             alt="dashboard">
                         <span>{{ __("News") }}</span>
                         <i class="feather icon-chevron-right pull-right"></i>
                     </a>
@@ -78,6 +79,19 @@
                         <li><a href="{{ route('news.create') }}">{{ __("Add") }}</a></li>
                         <li><a href="{{ route('news-category.index') }}">{{ __("Categories") }}</a></li>
                         <li><a href="{{ route('news-category.create') }}">{{ __("Add Category") }}</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{{ route('settings.index') }}">
+                        <img src="{{ asset('assets/images/svg-icon/settings.svg') }}" class="img-fluid"
+                             alt="dashboard">
+                        <span>{{ __("Settings") }}</span>
+                        <i class    ="feather icon-chevron-right pull-right"></i>
+                    </a>
+                    <ul class="vertical-submenu">
+                       @foreach (config('settings') as $key=>$setting)
+                            <li><a href="{{ route('settings.index',['group'=>$key]) }}">{{ __($setting['name']) }}</a></li>
+                       @endforeach
                     </ul>
                 </li>
 
