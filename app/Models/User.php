@@ -94,7 +94,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'terminal_theme',
         'terminal_currency',
         'last_login_date',
-        'last_location'
+        'last_location',
+        'favorite_currencies'
     ];
 
     protected $appends = ['avatar_url', 'chat_color'];
@@ -117,13 +118,9 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'google2fa_status' => 'boolean'
+        'google2fa_status' => 'boolean',
+        'favorite_currencies' => 'array'
     ];
-
-//    public function setPhoneAttribute($value)
-//    {
-//        $this->attributes['phone'] = preg_replace("/[^0-9]/", '', $value);
-//    }
 
     public function messages()
     {
@@ -142,6 +139,6 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function getChatColorAttribute()
     {
-        return '#'.substr(md5($this->id), 0, 6);
+        return '#' . substr(md5($this->id), 0, 6);
     }
 }

@@ -256,4 +256,34 @@ class ExchangeController extends Controller
 
         return response()->json(['message' => __('Account successfully connected')]);
     }
+
+    public function marketOverview(Request $request)
+    {
+
+//        $metadata = \Cache::remember('coin_market_cryptocurrency_info', 86400, function () {
+//            $response = \Http::withHeaders([
+//                'Accepts' => 'application/json',
+//                'X-CMC_PRO_API_KEY' => env('COINMARKET_API_KEY')
+//            ])->get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/info',['id'=>'']);
+//
+//            return $response->json();
+//        });
+
+//        $response = \Http::withHeaders([
+//            'Accepts' => 'application/json',
+//            'X-CMC_PRO_API_KEY' => env('COINMARKET_API_KEY')
+//        ])->get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/info',['id'=>'']);
+//
+//        $metadata = $response->json();
+
+
+        $response = \Http::withHeaders([
+            'Accepts' => 'application/json',
+            'X-CMC_PRO_API_KEY' => env('COINMARKET_API_KEY')
+        ])
+            ->get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest');
+        $currencies = $response->json();
+
+        return response()->json(compact('currencies'));
+    }
 }

@@ -58,6 +58,7 @@ Route::group(['prefix' => 'terminal', 'middleware' => ['auth', 'verified', 'perm
     Route::get('/bot-settings/{bot}', [BotController::class, 'getSettings']);
     Route::get('/news-categories', [NewsCategoryController::class, 'getAll']);
     Route::get('/news/{id}', [NewsController::class, 'getSingleNews']);
+    Route::get('/market-overview', [ExchangeController::class, 'marketOverview']);
 
     //  EXCHANGES
     Route::prefix('exchange')->group(function () {

@@ -1,12 +1,14 @@
 <template>
     <main class="cs--page cs--dashboard--markets">
-        <div class="cs--container">
+        <Loader :active="!load"/>
+        <div class="cs--container" v-if="load">
             <DashboardNav/>
             <div class="cs--page__head">
                 <h1 class="cs--page__title">{{ $__("Market Overview") }}</h1>
-                <span class="cs--color-secondary">8757 Active pairs</span>
+                <span class="cs--color-secondary">{{ (currencies.length * currencies.length).toLocaleString() }} {{ $__("Active pairs") }}</span>
                 <label for="search" class="cs--dashboard-form__input--search-wrapper ml-auto">
-                    <input id="search" type="text" class="cs--dashboard-form__input cs--dashboard-form__input--search"
+                    <input id="search" v-model="search" type="text"
+                           class="cs--dashboard-form__input cs--dashboard-form__input--search"
                            placeholder="Search">
                     <button type="button" class="cs--dashboard-form__input--search-btn">
                         <svg class="cs--icon" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -40,517 +42,41 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td data-label="Rank" class=""><b>1</b></td>
+                    <tr v-for="(cur,key) in currencies" v-if="currencies.length">
+                        <td data-label="Rank" class=""><b>{{ key + 1 }}</b></td>
 
                         <td data-label="Name" class="no-wrap">
                             <div class="cs--table__card">
-                                <img src="/img/crypto-icon/btc.svg" alt="">
+                                <img :src="'https://s2.coinmarketcap.com/static/img/coins/64x64/'+cur.id+'.png'" alt="">
                                 <div class="cs--table__card-content">
-                                    <span class="cs--table__card-title">Bitcoin</span>
-                                    <span class="cs--table__card-abbr">BTC</span>
+                                    <span class="cs--table__card-title">{{ cur.name }}</span>
+                                    <span class="cs--table__card-abbr">{{ cur.symbol }}</span>
                                 </div>
                             </div>
                         </td>
 
                         <td data-label="Market Cap (BTC)" class="no-wrap">
-                            <b>18.67m</b>
+                            <b>${{ abbreviateNumber(cur.quote.USD.market_cap) }}</b>
                         </td>
 
                         <td data-label="Circulating Supply" class="">
-                    <span><b>18.67</b>
-                      <span class="cs--color-secondary">BTC</span></span>
+                    <span><b>{{ abbreviateNumber(cur.circulating_supply) }}</b>
+                      <span class="cs--color-secondary">{{ cur.symbol }}</span></span>
                         </td>
 
-                        <td data-label="24h Volume" class=""><b>80.10b</b></td>
+                        <td data-label="24h Volume" class=""><b>{{ abbreviateNumber(cur.quote.USD.volume_24h) }}</b>
+                        </td>
 
                         <td data-label="Avg Price" class="no-wrap">
-                            <b>0.0000323225</b>
-                        </td>
-
-                        <td data-label="24h % Change" class="no-wrap cs--color-success">
-                            <b>+2.40%</b>
-                        </td>
-
-                        <td data-label="Chart (24h)" class="">
-                            <img src="/img/examples/chart-plus.svg" alt="">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td data-label="Rank" class=""><b>2</b></td>
-
-                        <td data-label="Name" class="no-wrap">
-                            <div class="cs--table__card">
-                                <img src="/img/crypto-icon/eth.svg" alt="">
-                                <div class="cs--table__card-content">
-                                    <span class="cs--table__card-title">Ethereum</span>
-                                    <span class="cs--table__card-abbr">ETH</span>
-                                </div>
-                            </div>
-                        </td>
-
-                        <td data-label="Market Cap (BTC)" class="no-wrap">
-                            <b>18.67m</b>
-                        </td>
-
-                        <td data-label="Circulating Supply" class="">
-                    <span><b>18.67</b>
-                      <span class="cs--color-secondary">BTC</span></span>
-                        </td>
-
-                        <td data-label="24h Volume" class=""><b>80.10b</b></td>
-
-                        <td data-label="Avg Price" class="no-wrap">
-                            <b>0.0000323225</b>
-                        </td>
-
-                        <td data-label="24h % Change" class="no-wrap cs--color-danger">
-                            <b>-2.40%</b>
-                        </td>
-
-                        <td data-label="Chart (24h)" class="">
-                            <img src="/img/examples/chart-minus.svg" alt="">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td data-label="Rank" class=""><b>3</b></td>
-
-                        <td data-label="Name" class="no-wrap">
-                            <div class="cs--table__card">
-                                <img src="/img/crypto-icon/usdt.svg" alt="">
-                                <div class="cs--table__card-content">
-                                    <span class="cs--table__card-title">Tether</span>
-                                    <span class="cs--table__card-abbr">USDT</span>
-                                </div>
-                            </div>
-                        </td>
-
-                        <td data-label="Market Cap (BTC)" class="no-wrap">
-                            <b>18.67m</b>
-                        </td>
-
-                        <td data-label="Circulating Supply" class="">
-                    <span><b>18.67</b>
-                      <span class="cs--color-secondary">BTC</span></span>
-                        </td>
-
-                        <td data-label="24h Volume" class=""><b>80.10b</b></td>
-
-                        <td data-label="Avg Price" class="no-wrap">
-                            <b>0.0000323225</b>
-                        </td>
-
-                        <td data-label="24h % Change" class="no-wrap cs--color-success">
-                            <b>+2.40%</b>
-                        </td>
-
-                        <td data-label="Chart (24h)" class="">
-                            <img src="/img/examples/chart-plus.svg" alt="">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td data-label="Rank" class=""><b>4</b></td>
-
-                        <td data-label="Name" class="no-wrap">
-                            <div class="cs--table__card">
-                                <img src="/img/crypto-icon/bnb.svg" alt="">
-                                <div class="cs--table__card-content">
-                                    <span class="cs--table__card-title">Binance Coin</span>
-                                    <span class="cs--table__card-abbr">BNB</span>
-                                </div>
-                            </div>
-                        </td>
-
-                        <td data-label="Market Cap (BTC)" class="no-wrap">
-                            <b>18.67m</b>
-                        </td>
-
-                        <td data-label="Circulating Supply" class="">
-                    <span><b>18.67</b>
-                      <span class="cs--color-secondary">BTC</span></span>
-                        </td>
-
-                        <td data-label="24h Volume" class=""><b>80.10b</b></td>
-
-                        <td data-label="Avg Price" class="no-wrap">
-                            <b>0.0000323225</b>
-                        </td>
-
-                        <td data-label="24h % Change" class="no-wrap cs--color-danger">
-                            <b>-2.40%</b>
-                        </td>
-
-                        <td data-label="Chart (24h)" class="">
-                            <img src="/img/examples/chart-minus.svg" alt="">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td data-label="Rank" class=""><b>5</b></td>
-
-                        <td data-label="Name" class="no-wrap">
-                            <div class="cs--table__card">
-                                <img src="/img/crypto-icon/ada.svg" alt="">
-                                <div class="cs--table__card-content">
-                                    <span class="cs--table__card-title">Cardano</span>
-                                    <span class="cs--table__card-abbr">ADA</span>
-                                </div>
-                            </div>
-                        </td>
-
-                        <td data-label="Market Cap (BTC)" class="no-wrap">
-                            <b>18.67m</b>
-                        </td>
-
-                        <td data-label="Circulating Supply" class="">
-                    <span><b>18.67</b>
-                      <span class="cs--color-secondary">BTC</span></span>
-                        </td>
-
-                        <td data-label="24h Volume" class=""><b>80.10b</b></td>
-
-                        <td data-label="Avg Price" class="no-wrap">
-                            <b>0.0000323225</b>
-                        </td>
-
-                        <td data-label="24h % Change" class="no-wrap cs--color-success">
-                            <b>+2.40%</b>
-                        </td>
-
-                        <td data-label="Chart (24h)" class="">
-                            <img src="/img/examples/chart-plus.svg" alt="">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td data-label="Rank" class=""><b>6</b></td>
-
-                        <td data-label="Name" class="no-wrap">
-                            <div class="cs--table__card">
-                                <img src="/img/crypto-icon/dot.svg" alt="">
-                                <div class="cs--table__card-content">
-                                    <span class="cs--table__card-title">Polkadot</span>
-                                    <span class="cs--table__card-abbr">DOT</span>
-                                </div>
-                            </div>
-                        </td>
-
-                        <td data-label="Market Cap (BTC)" class="no-wrap">
-                            <b>18.67m</b>
-                        </td>
-
-                        <td data-label="Circulating Supply" class="">
-                    <span><b>18.67</b>
-                      <span class="cs--color-secondary">BTC</span></span>
-                        </td>
-
-                        <td data-label="24h Volume" class=""><b>80.10b</b></td>
-
-                        <td data-label="Avg Price" class="no-wrap">
-                            <b>0.0000323225</b>
-                        </td>
-
-                        <td data-label="24h % Change" class="no-wrap cs--color-danger">
-                            <b>-2.40%</b>
-                        </td>
-
-                        <td data-label="Chart (24h)" class="">
-                            <img src="/img/examples/chart-minus.svg" alt="">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td data-label="Rank" class=""><b>7</b></td>
-
-                        <td data-label="Name" class="no-wrap">
-                            <div class="cs--table__card">
-                                <img src="/img/crypto-icon/xrp.svg" alt="">
-                                <div class="cs--table__card-content">
-                                    <span class="cs--table__card-title">XRP</span>
-                                    <span class="cs--table__card-abbr">XRP</span>
-                                </div>
-                            </div>
-                        </td>
-
-                        <td data-label="Market Cap (BTC)" class="no-wrap">
-                            <b>18.67m</b>
-                        </td>
-
-                        <td data-label="Circulating Supply" class="">
-                    <span><b>18.67</b>
-                      <span class="cs--color-secondary">BTC</span></span>
-                        </td>
-
-                        <td data-label="24h Volume" class=""><b>80.10b</b></td>
-
-                        <td data-label="Avg Price" class="no-wrap">
-                            <b>0.0000323225</b>
-                        </td>
-
-                        <td data-label="24h % Change" class="no-wrap cs--color-success">
-                            <b>+2.40%</b>
-                        </td>
-
-                        <td data-label="Chart (24h)" class="">
-                            <img src="/img/examples/chart-plus.svg" alt="">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td data-label="Rank" class=""><b>8</b></td>
-
-                        <td data-label="Name" class="no-wrap">
-                            <div class="cs--table__card">
-                                <img src="/img/crypto-icon/uni.svg" alt="">
-                                <div class="cs--table__card-content">
-                                    <span class="cs--table__card-title">Uniswap</span>
-                                    <span class="cs--table__card-abbr">UNI</span>
-                                </div>
-                            </div>
-                        </td>
-
-                        <td data-label="Market Cap (BTC)" class="no-wrap">
-                            <b>18.67m</b>
-                        </td>
-
-                        <td data-label="Circulating Supply" class="">
-                    <span><b>18.67</b>
-                      <span class="cs--color-secondary">BTC</span></span>
-                        </td>
-
-                        <td data-label="24h Volume" class=""><b>80.10b</b></td>
-
-                        <td data-label="Avg Price" class="no-wrap">
-                            <b>0.0000323225</b>
-                        </td>
-
-                        <td data-label="24h % Change" class="no-wrap cs--color-danger">
-                            <b>-2.40%</b>
-                        </td>
-
-                        <td data-label="Chart (24h)" class="">
-                            <img src="/img/examples/chart-minus.svg" alt="">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td data-label="Rank" class=""><b>9</b></td>
-
-                        <td data-label="Name" class="no-wrap">
-                            <div class="cs--table__card">
-                                <img src="/img/crypto-icon/theta.svg" alt="">
-                                <div class="cs--table__card-content">
-                                    <span class="cs--table__card-title">Theta Token</span>
-                                    <span class="cs--table__card-abbr">THETA</span>
-                                </div>
-                            </div>
-                        </td>
-
-                        <td data-label="Market Cap (BTC)" class="no-wrap">
-                            <b>18.67m</b>
-                        </td>
-
-                        <td data-label="Circulating Supply" class="">
-                    <span><b>18.67</b>
-                      <span class="cs--color-secondary">BTC</span></span>
-                        </td>
-
-                        <td data-label="24h Volume" class=""><b>80.10b</b></td>
-
-                        <td data-label="Avg Price" class="no-wrap">
-                            <b>0.0000323225</b>
-                        </td>
-
-                        <td data-label="24h % Change" class="no-wrap cs--color-danger">
-                            <b>-2.40%</b>
-                        </td>
-
-                        <td data-label="Chart (24h)" class="">
-                            <img src="/img/examples/chart-minus.svg" alt="">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td data-label="Rank" class=""><b>10</b></td>
-
-                        <td data-label="Name" class="no-wrap">
-                            <div class="cs--table__card">
-                                <img src="/img/crypto-icon/ltc.svg" alt="">
-                                <div class="cs--table__card-content">
-                                    <span class="cs--table__card-title">Litecoin</span>
-                                    <span class="cs--table__card-abbr">LTC</span>
-                                </div>
-                            </div>
-                        </td>
-
-                        <td data-label="Market Cap (BTC)" class="no-wrap">
-                            <b>18.67m</b>
-                        </td>
-
-                        <td data-label="Circulating Supply" class="">
-                    <span><b>18.67</b>
-                      <span class="cs--color-secondary">BTC</span></span>
-                        </td>
-
-                        <td data-label="24h Volume" class=""><b>80.10b</b></td>
-
-                        <td data-label="Avg Price" class="no-wrap">
-                            <b>0.0000323225</b>
-                        </td>
-
-                        <td data-label="24h % Change" class="no-wrap cs--color-success">
-                            <b>+2.40%</b>
-                        </td>
-
-                        <td data-label="Chart (24h)" class="">
-                            <img src="/img/examples/chart-plus.svg" alt="">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td data-label="Rank" class=""><b>11</b></td>
-
-                        <td data-label="Name" class="no-wrap">
-                            <div class="cs--table__card">
-                                <img src="/img/crypto-icon/link.svg" alt="">
-                                <div class="cs--table__card-content">
-                                    <span class="cs--table__card-title">Chainlink</span>
-                                    <span class="cs--table__card-abbr">LINK</span>
-                                </div>
-                            </div>
-                        </td>
-
-                        <td data-label="Market Cap (BTC)" class="no-wrap">
-                            <b>18.67m</b>
-                        </td>
-
-                        <td data-label="Circulating Supply" class="">
-                    <span><b>18.67</b>
-                      <span class="cs--color-secondary">BTC</span></span>
-                        </td>
-
-                        <td data-label="24h Volume" class=""><b>80.10b</b></td>
-
-                        <td data-label="Avg Price" class="no-wrap">
-                            <b>0.0000323225</b>
-                        </td>
-
-                        <td data-label="24h % Change" class="no-wrap cs--color-danger">
-                            <b>-2.40%</b>
-                        </td>
-
-                        <td data-label="Chart (24h)" class="">
-                            <img src="/img/examples/chart-minus.svg" alt="">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td data-label="Rank" class=""><b>12</b></td>
-
-                        <td data-label="Name" class="no-wrap">
-                            <div class="cs--table__card">
-                                <img src="/img/crypto-icon/uscf.svg" alt="">
-                                <div class="cs--table__card-content">
-                                    <span class="cs--table__card-title">USD Coin</span>
-                                    <span class="cs--table__card-abbr">USCF</span>
-                                </div>
-                            </div>
-                        </td>
-
-                        <td data-label="Market Cap (BTC)" class="no-wrap">
-                            <b>18.67m</b>
-                        </td>
-
-                        <td data-label="Circulating Supply" class="">
-                    <span><b>18.67</b>
-                      <span class="cs--color-secondary">BTC</span></span>
-                        </td>
-
-                        <td data-label="24h Volume" class=""><b>80.10b</b></td>
-
-                        <td data-label="Avg Price" class="no-wrap">
-                            <b>0.0000323225</b>
-                        </td>
-
-                        <td data-label="24h % Change" class="no-wrap cs--color-success">
-                            <b>+2.40%</b>
-                        </td>
-
-                        <td data-label="Chart (24h)" class="">
-                            <img src="/img/examples/chart-plus.svg" alt="">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td data-label="Rank" class=""><b>13</b></td>
-
-                        <td data-label="Name" class="no-wrap">
-                            <div class="cs--table__card">
-                                <img src="/img/crypto-icon/bch.svg" alt="">
-                                <div class="cs--table__card-content">
-                                    <span class="cs--table__card-title">Bitcoin Cash</span>
-                                    <span class="cs--table__card-abbr">BCH</span>
-                                </div>
-                            </div>
-                        </td>
-
-                        <td data-label="Market Cap (BTC)" class="no-wrap">
-                            <b>18.67m</b>
-                        </td>
-
-                        <td data-label="Circulating Supply" class="">
-                    <span><b>18.67</b>
-                      <span class="cs--color-secondary">BTC</span></span>
-                        </td>
-
-                        <td data-label="24h Volume" class=""><b>80.10b</b></td>
-
-                        <td data-label="Avg Price" class="no-wrap">
-                            <b>0.0000323225</b>
-                        </td>
-
-                        <td data-label="24h % Change" class="no-wrap cs--color-danger">
-                            <b>-2.40%</b>
-                        </td>
-
-                        <td data-label="Chart (24h)" class="">
-                            <img src="/img/examples/chart-minus.svg" alt="">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td data-label="Rank" class=""><b>14</b></td>
-
-                        <td data-label="Name" class="no-wrap">
-                            <div class="cs--table__card">
-                                <img src="/img/crypto-icon/luna.svg" alt="">
-                                <div class="cs--table__card-content">
-                                    <span class="cs--table__card-title">Terra</span>
-                                    <span class="cs--table__card-abbr">LUNA</span>
-                                </div>
-                            </div>
-                        </td>
-
-                        <td data-label="Market Cap (BTC)" class="no-wrap">
-                            <b>18.67m</b>
-                        </td>
-
-                        <td data-label="Circulating Supply" class="">
-                    <span><b>18.67</b>
-                      <span class="cs--color-secondary">BTC</span></span>
-                        </td>
-
-                        <td data-label="24h Volume" class=""><b>80.10b</b></td>
-
-                        <td data-label="Avg Price" class="no-wrap">
-                            <b>0.0000323225</b>
-                        </td>
-
-                        <td data-label="24h % Change" class="no-wrap cs--color-success">
-                            <b>+2.40%</b>
+                            <b>${{ cur.quote.USD.price }}</b>
+                        </td>
+
+                        <td data-label="24h % Change"
+                            :class="{'no-wrap':true,
+                            'cs--color-success' :cur.quote.USD.percent_change_24h>0,
+                            'cs--color-danger' :cur.quote.USD.percent_change_24h<0}"
+                        >
+                            <b>{{ cur.quote.USD.percent_change_24h }}%</b>
                         </td>
 
                         <td data-label="Chart (24h)" class="">
@@ -566,15 +92,79 @@
 
 <script>
 import DashboardNav from "../components/DashboardNav";
+import Loader from "../components/Loader";
 
 export default {
     name: "Markets",
+    data() {
+        return {
+            market: null,
+            load: false,
+            search: ''
+        }
+    },
     components: {
-        DashboardNav
+        DashboardNav,
+        Loader
+    },
+    computed: {
+        currencies() {
+            if (this.market) {
+                if (this.search.length > 1) {
+                    return this.market.currencies.data.filter((item) => {
+                        return item.name.toLowerCase().indexOf(this.search.toLowerCase()) !== -1 ||  item.symbol.toLowerCase().indexOf(this.search.toLowerCase()) !== -1
+                    });
+                } else {
+                    return this.market.currencies.data;
+                }
+            }
+
+            return []
+        }
+    },
+    methods: {
+        abbreviateNumber(num, fixed = 0) {
+            if (num === null) {
+                return null;
+            } // terminate early
+            if (num === 0) {
+                return '0';
+            } // terminate early
+            fixed = (!fixed || fixed < 0) ? 0 : fixed; // number of decimal places to show
+            var b = (num).toPrecision(2).split("e"), // get power
+                k = b.length === 1 ? 0 : Math.floor(Math.min(b[1].slice(1), 14) / 3), // floor at decimals, ceiling at trillions
+                c = k < 1 ? num.toFixed(0 + fixed) : (num / Math.pow(10, k * 3)).toFixed(1 + fixed), // divide by power
+                d = c < 0 ? c : Math.abs(c), // enforce -0 is 0
+                e = d + ['', 'K', 'M', 'B', 'T'][k]; // append power
+            return e.toLowerCase();
+        },
+        getMarketData() {
+            axios
+                .get('/terminal/market-overview', {})
+                .then(response => {
+                    if (response.status == 200 && response.data) {
+                        this.market = response.data
+
+                    }
+                })
+                .catch(error => {
+                    // console.log(error.response);
+                    console.log(error.response.data);
+                })
+                .finally(() => {
+                    this.load = true
+                });
+        }
+    },
+    mounted() {
+        this.getMarketData()
     }
 }
 </script>
 
 <style scoped>
-
+.cs--table-wrapper {
+    overflow: auto;
+    max-height: calc(100vh - 468px);
+}
 </style>

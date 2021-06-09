@@ -85,7 +85,10 @@ class Binance implements ExchangeInterface
 
     public function exchangeInfo()
     {
-        return response()->json($this->api->exchangeInfo());
+        $info = $this->api->exchangeInfo();
+        $info['symbols'] = array_values($info['symbols']);
+
+        return response()->json($info);
     }
 
     public function createOrder($data = [])

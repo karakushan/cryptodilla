@@ -1,6 +1,7 @@
 <template>
     <main class="cs--page cs--dashboard--interface">
-        <div class="cs--container">
+        <Loader :active="!load"/>
+        <div v-show="load" class="cs--container">
             <DashboardNav/>
             <div class="cs--interface">
                 <SelectPair :symbol="symbol" v-if="symbol"/>
@@ -127,6 +128,7 @@ import vueCustomScrollbar from 'vue-custom-scrollbar'
 import "vue-custom-scrollbar/dist/vueScrollbar.css"
 import SelectExchangeWidget from "../components/SelectExchangeWidget";
 import DashboardNav from "../components/DashboardNav";
+import Loader from "../components/Loader";
 
 export default {
     name: "Trading",
@@ -152,7 +154,8 @@ export default {
                 wheelPropagation: false
             },
             symbolTick: null,
-            wsSymbolTick: null
+            wsSymbolTick: null,
+            load: false
         }
     },
     components: {
@@ -163,7 +166,8 @@ export default {
         Chat,
         SelectPair,
         SelectExchangeWidget,
-        DashboardNav
+        DashboardNav,
+        Loader
     },
     props: {},
     watch: {
@@ -207,7 +211,9 @@ export default {
             app.wsSymbolTick = new WebSocket('wss://stream.binance.com:9443/ws/' + symbol.toLowerCase() + '@ticker');
 
             app.wsSymbolTick.onmessage = function (event) {
-                app.setSymbolTick(JSON.parse(event.data))
+                let tick = JSON.parse(event.data)
+                document.title = parseFloat(tick.c) + ' - ' + tick.s + ' @ ' + app.exchange.toUpperCase()
+                app.setSymbolTick(tick)
 
             };
             app.wsSymbolTick.onerror = function (error) {
@@ -398,6 +404,9 @@ export default {
         this.symbolTickerStream()
         this.getExchangeInfo()
 
+        setTimeout(() => {
+            this.load = true
+        }, 3000)
     }
 
 }

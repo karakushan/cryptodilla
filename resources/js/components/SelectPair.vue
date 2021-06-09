@@ -59,6 +59,7 @@
                                         id="favorite"
                                         type="checkbox"
                                         class="cs--card-filter__filter-input"
+                                        v-model="onlyFavorites"
                                     />
 
                                     <span class="cs--card-filter__filter-icon">
@@ -235,9 +236,9 @@ export default {
             dropdownOpen: false,
             filterCurrencies: [],
             search: '',
-            favoritePairs: [],
             url: 'wss://stream.binance.com:9443/ws/',
-            tick:null
+            tick:null,
+            onlyFavorites:false
 
         }
     },
@@ -249,8 +250,14 @@ export default {
             }
         }
     },
+    watch: {
+
+    },
     computed: {
         ...mapGetters(['appData', 'exchangeInfo', 'account','symbolTick']),
+        favoritePairs(){
+            return this.appData.user.favorite_currencies;
+        },
         filteredCurrencies() {
             if (!this.exchangeInfo) return []
 
@@ -259,14 +266,18 @@ export default {
             if (this.search.length > 0) {
                 symbols = symbols.filter((item) => {
                     return item.baseAsset.toLowerCase().indexOf(this.search.toLowerCase()) !== -1
-                        || item.quoteAsset.toLowerCase().indexOf(this.search.toLowerCase()) !== -1
                 })
             }
 
             if (this.filterCurrencies.length) {
                 symbols = symbols.filter((item) => {
-                    return this.filterCurrencies.indexOf(item.baseAsset.toLowerCase()) !== -1
-                        || this.filterCurrencies.indexOf(item.quoteAsset.toLowerCase()) !== -1
+                    return  this.filterCurrencies.indexOf(item.quoteAsset.toLowerCase()) !== -1
+                })
+            }
+
+            if (this.onlyFavorites){
+                symbols = symbols.filter((item) => {
+                    return  this.favoritePairs.indexOf(item.symbol.toUpperCase()) !== -1
                 })
             }
 
@@ -297,15 +308,35 @@ export default {
         addToFavorite(pair) {
             if (this.favoritePairs.indexOf(pair) === -1) {
                 this.favoritePairs.push(pair)
-                this.$notify.success({
-                    position: 'top right',
-                    title: this.$__('Success'),
-                    msg: this.$__('The currency pair %s  has been successfully added to favorites!').replace('%s', pair),
-                    timeout: 3000
-                })
+
+
+
             } else {
                 this.favoritePairs.splice(this.favoritePairs.indexOf(pair), 1)
             }
+
+            axios
+                .put('/terminal/user-update/' + this.appData.user.id, {
+                    favorite_currencies: this.favoritePairs
+                })
+                .then(response => {
+                    if (response.status == 200 && response.data) {
+
+                        this.$notify.success({
+                            position: 'top right',
+                            title: this.$__('Success'),
+                            msg: this.$__('The list of favorite currency pairs has been updated!').replace('%s', pair),
+                            timeout: 3000
+                        })
+                    }
+                })
+                .catch(error => {
+                    // console.log(error.response);
+                    console.log(error.response.data);
+                })
+                .finally(() => {
+                    this.inProcess = false
+                });
         }
 
     },
