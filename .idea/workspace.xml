@@ -411,7 +411,7 @@
       <workItem from="1622638958830" duration="7615000" />
       <workItem from="1622708542012" duration="23491000" />
       <workItem from="1623240540908" duration="1364000" />
-      <workItem from="1623242269812" duration="17064000" />
+      <workItem from="1623242269812" duration="20342000" />
     </task>
     <task id="LOCAL-00001" summary="подключил vue router">
       <created>1615840605110</created>
@@ -749,7 +749,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623267140515</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="fix error">
+      <created>1623267623865</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1623267623865</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -903,10 +910,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1622543335173" />
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1623267142162">
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1623267625895">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1623267142162" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1623267625895" />
     <state x="859" y="394" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1616884798046">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -935,10 +942,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="776" y="250" key="ftp.server.browser/0.0.1920.1040@0.0.1920.1040" timestamp="1616504948711" />
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1622481421047">
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1623269841191">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1622481421047" />
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1623269841191" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1622200240469">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
