@@ -256,7 +256,10 @@ export default {
     computed: {
         ...mapGetters(['appData', 'exchangeInfo', 'account','symbolTick']),
         favoritePairs(){
-            return this.appData.user.favorite_currencies;
+            if (this.appData){
+                return this.appData.user.favorite_currencies;
+            }
+           return []
         },
         filteredCurrencies() {
             if (!this.exchangeInfo) return []
