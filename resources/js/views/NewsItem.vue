@@ -1,6 +1,7 @@
 <template>
     <main class="cs--page cs--dashboard--news-article">
-        <div class="cs--container">
+        <Loader :active="!load"></Loader>
+        <div class="cs--container" v-if="load">
             <h1 class="cs--page__title">{{ item.title[appData.lang] }}</h1>
             <div class="cs--page-side-wrapper">
                 <article class="cs--article">
@@ -30,11 +31,14 @@
 <script>
 import AsideFaq from "../components/AsideFaq";
 import {mapGetters} from 'vuex'
+import Loader from "../components/Loader";
+
 export default {
     name: "NewsItem",
     data() {
         return {
-            item: null
+            item: null,
+            load: false
         }
     },
     props: ['id'],
@@ -52,17 +56,18 @@ export default {
                     console.log(error.response.data);
                 })
                 .finally(() => {
-                    // Will be executed upon completion catch & then
+                    this.load=true
                 });
         }
     },
     mounted() {
         this.getNews()
     },
-    components:{
-        AsideFaq
+    components: {
+        AsideFaq,
+        Loader
     },
-    computed:{
+    computed: {
         ...mapGetters(['appData'])
     }
 

@@ -7,7 +7,6 @@ use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\FaqCategoryController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FilepondController;
-use App\Http\Controllers\BinanceController;
 use App\Http\Controllers\ExchangeController;
 use App\Http\Controllers\NewsCategoryController;
 use App\Http\Controllers\NewsController;
@@ -59,6 +58,7 @@ Route::group(['prefix' => 'terminal', 'middleware' => ['auth', 'verified', 'perm
     Route::get('/news-categories', [NewsCategoryController::class, 'getAll']);
     Route::get('/news/{id}', [NewsController::class, 'getSingleNews']);
     Route::get('/market-overview', [ExchangeController::class, 'marketOverview']);
+    Route::get('/faq', [FaqController::class, 'getFaqs']);
 
     //  EXCHANGES
     Route::prefix('exchange')->group(function () {
@@ -79,7 +79,8 @@ Route::group(['prefix' => 'terminal', 'middleware' => ['auth', 'verified', 'perm
     Route::get('/user-tickets', [TicketController::class, 'getCurrentUserTickets']);
 
     // FAQ
-    Route::get('/faq', [FaqController::class, 'getFaqs']);
+    Route::get('/faq/{?id}', [FaqController::class, 'getFaqs']);
+    Route::get('/faq-item/{id}', [FaqController::class, 'getItem']);
 
     // NEWS
     Route::get('/news', [NewsController::class, 'getNews']);

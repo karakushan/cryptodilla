@@ -2,53 +2,62 @@
     <aside class="cs--page-side">
         <h3 class="cs--page-side__title">FAQs</h3>
         <ul class="cs--page-side__item-list">
-            <li class="cs--page-side__item">
-                <a href="javasript:void(0)" class="cs--page-side__link"
-                >I don’t have an exchange account, do I need one?</a
-                >
+            <li class="cs--page-side__item" v-for="faq in faqs.data" v-if="faqs">
+                <router-link
+                    class="cs--page-side__link"
+                    :to="'/faq/'+faq.id">{{ faq.question[appData.lang] }}</router-link>
             </li>
 
             <li class="cs--page-side__item">
-                <a href="javasript:void(0)" class="cs--page-side__link"
-                >Are there any additional fees for trading with
-                    CryprtoSystem platform?</a
-                >
-            </li>
 
-            <li class="cs--page-side__item">
-                <a href="javasript:void(0)" class="cs--page-side__link"
-                >My exchange is not supported, how can I request it?</a
-                >
-            </li>
-
-            <li class="cs--page-side__item">
-                <a href="javasript:void(0)" class="cs--page-side__link"
-                >Are derivatives such as futures and perpetual swaps
-                    supported?</a
-                >
-            </li>
-
-            <li class="cs--page-side__item">
-                <a href="javasript:void(0)" class="cs--page-side__link"
-                >How can I connect my wallets such as MetaMask, Trezor, or
-                    Ledger etc?</a
-                >
-            </li>
-
-            <li class="cs--page-side__item">
-                <a
-                    href="javasript:void(0)"
+                <router-link
+                    to="/support"
                     class="cs--page-side__link cs--page-side__link--accent"
-                >Visit Support Center</a
-                >
+                >{{ $__("Visit Support Center") }}</router-link>
             </li>
         </ul>
     </aside>
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
-name: "AsideFaq"
+    name: "AsideFaq",
+    data() {
+        return {
+            faqs: null
+        }
+    },
+    props: {
+        category: {
+            type: String,
+            default: ''
+        },
+    },
+    computed: {
+        ...mapGetters(['appData'])
+    },
+    methods: {
+        getFaqs() {
+            axios
+                .get('/terminal/faq/'+this.category, {})
+                .then(response => {
+                    if (response.status == 200 && response.data) {
+                        this.faqs = response.data
+                    }
+                })
+                .catch(error => {
+                    // console.log(error.response);
+                    console.log(error.response.data);
+                })
+                .finally(() => {
+                    // Will be executed upon completion catch & then
+                });
+        }
+    },
+    mounted() {
+        this.getFaqs()
+    }
 }
 </script>
 

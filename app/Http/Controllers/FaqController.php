@@ -45,7 +45,7 @@ class FaqController extends Controller
      */
     public function store(FaqRequest $request)
     {
-        app()->setLocale($request->input('lang',config('app.fallback_locale')));
+        app()->setLocale($request->input('lang', config('app.fallback_locale')));
         Faq::create($request->all());
 
         return redirect()->route('faqs.index')->with([
@@ -90,7 +90,7 @@ class FaqController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $item = Faq::findOrFail($id)->setLocale($request->input('lang',config('app.fallback_locale')));
+        $item = Faq::findOrFail($id)->setLocale($request->input('lang', config('app.fallback_locale')));
         $item->fill($request->all());
         $item->save();
 
@@ -117,8 +117,31 @@ class FaqController extends Controller
         ]);
     }
 
-    public function getFaqs(Request $request)
+    /**
+     * Возвращает список FAQ
+     *
+     * @param string $id
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function getFaqs($id = '')
     {
-        return FaqResource::collection(Faq::all());
+        $faqs = Faq::when($id, function ($query) use ($id) {
+            $query->where('faq_category_id', $id);
+        })
+            ->get();
+        return FaqResource::collection($faqs);
+    }
+
+    /**
+     * Возвращает один FAQ
+     *
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getItem($id)
+    {
+        $faq = Faq::findOrFail($id);
+
+        return response()->json($faq);
     }
 }

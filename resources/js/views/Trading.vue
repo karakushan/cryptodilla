@@ -182,18 +182,8 @@ export default {
         },
         'symbol': function (newValue) {
             if (newValue) {
-                this.getOrders()
-                this.getOpenOrders()
                 this.wsSymbolTick.close()
                 this.symbolTickerStream()
-                // let priceFilter = newValue.filters.filter((item) => {
-                //     return item.filterType == "PRICE_FILTER"
-                // })
-                // let qtyFilter = newValue.filters.filter((item) => {
-                //     return item.filterType == "LOT_SIZE"
-                // })
-                // // this.order.price = parseFloat(priceFilter[0]['minPrice'])
-                // // this.order.quantity = parseFloat(qtyFilter[0]['minQty'])
             }
         },
         'symbol.orderTypes': function (newValue) {

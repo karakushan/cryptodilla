@@ -59,6 +59,7 @@ import TwoFactorAuthDisabled from "./views/TwoFactorAuthDisabled";
 import Bots from "./views/Bots";
 import BotSettings from "./views/BotSettings";
 import NewsItem from "./views/NewsItem";
+import FaqItem from "./views/FaqItem";
 
 
 Vue.use(VueNotify)
@@ -83,6 +84,7 @@ const routes = [
     {path: '/support', component: Support, name: 'Support', props: true},
     {path: '/ticket', component: Ticket, name: 'New Support Ticket', props: true},
     {path: '/faq', component: FAQ, name: 'FAQ', props: true},
+    {path: '/faq/:id', component: FaqItem, name: 'FaqItem', props: true},
     {path: '/news', component: News, name: 'News', props: true},
     {path: '/news/:id', component: NewsItem, name: 'NewsItem', props: true},
     {path: '/markets', component: Markets, name: 'Markets', props: true},
