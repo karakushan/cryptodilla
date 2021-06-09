@@ -237,8 +237,8 @@ export default {
             filterCurrencies: [],
             search: '',
             url: 'wss://stream.binance.com:9443/ws/',
-            tick:null,
-            onlyFavorites:false
+            tick: null,
+            onlyFavorites: false
 
         }
     },
@@ -250,16 +250,14 @@ export default {
             }
         }
     },
-    watch: {
-
-    },
+    watch: {},
     computed: {
-        ...mapGetters(['appData', 'exchangeInfo', 'account','symbolTick']),
-        favoritePairs(){
-            if (this.appData){
-                return this.appData.user.favorite_currencies;
+        ...mapGetters(['appData', 'exchangeInfo', 'account', 'symbolTick']),
+        favoritePairs() {
+            if (this.appData) {
+                return this.appData.user.favorite_currencies ? this.appData.user.favorite_currencies : [];
             }
-           return []
+            return []
         },
         filteredCurrencies() {
             if (!this.exchangeInfo) return []
@@ -274,13 +272,13 @@ export default {
 
             if (this.filterCurrencies.length) {
                 symbols = symbols.filter((item) => {
-                    return  this.filterCurrencies.indexOf(item.quoteAsset.toLowerCase()) !== -1
+                    return this.filterCurrencies.indexOf(item.quoteAsset.toLowerCase()) !== -1
                 })
             }
 
-            if (this.onlyFavorites){
+            if (this.onlyFavorites) {
                 symbols = symbols.filter((item) => {
-                    return  this.favoritePairs.indexOf(item.symbol.toUpperCase()) !== -1
+                    return this.favoritePairs.indexOf(item.symbol.toUpperCase()) !== -1
                 })
             }
 
@@ -311,7 +309,6 @@ export default {
         addToFavorite(pair) {
             if (this.favoritePairs.indexOf(pair) === -1) {
                 this.favoritePairs.push(pair)
-
 
 
             } else {
