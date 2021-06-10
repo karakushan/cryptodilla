@@ -17,8 +17,15 @@
                         </div>
                     </div>
                     <div class="cs--article__nav">
-                        <a href="javascript:void(0)" class="cs--btn cs--btn--transparent-grad-blue">Previous</a>
-                        <a href="javascript:void(0)" class="cs--btn cs--btn--grad-blue"><span>Next</span></a>
+                        <router-link
+                            :to="'/news/'+item.prev"
+                            class="cs--btn cs--btn--transparent-grad-blue"
+                            v-if="item.prev">{{ $__("Previous") }}</router-link>
+                        <router-link
+                            :to="'/news/'+item.next"
+                            class="cs--btn cs--btn--grad-blue"
+                            v-if="item.next"
+                        ><span>{{ $__("Next") }}</span></router-link>
                     </div>
                 </article>
 
@@ -69,7 +76,12 @@ export default {
     },
     computed: {
         ...mapGetters(['appData'])
-    }
+    },
+    watch: {
+        id(newValue, oldValue) {
+            this.getNews()
+        }
+    },
 
 }
 </script>

@@ -119,13 +119,13 @@ class Binance implements ExchangeInterface
                 if (isset($data['stopPrice'])) {
                     $custom['stopPrice'] = (float)$data['stopPrice'];
                 }
-                $order = $this->api->buy($data['symbol'], $data['quantity'], $data['price'], $data['type'], $custom);
+                $order = $this->api->buy($data['symbol'], (float)$data['quantity'], (float)$data['price'], $data['type'], $custom);
             } elseif ($data['type'] != 'MARKET' && $data['side'] == 'sell') {
                 $custom = [];
                 if (isset($data['stopPrice'])) {
                     $custom['stopPrice'] = (float)$data['stopPrice'];
                 }
-                $order = $this->api->sell($data['symbol'], $data['quantity'], $data['price'], $data['type'], $custom);
+                $order = $this->api->sell($data['symbol'], (float)$data['quantity'], (float)$data['price'], $data['type'], $custom);
             }
 
             $message = __('Ордер успешно создан');

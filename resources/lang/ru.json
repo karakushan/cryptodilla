@@ -43,7 +43,7 @@
     "Write down this backup key in a safe place in case you lose your device:": "Запишите этот резервный ключ в надежное место на случай потери устройства:",
     "Backup Key": "Резервный ключ",
     "required for next step": "требуется для следующего шага",
-    "Next": "Далее",
+    "Next": "След.",
     "Step 3": "Шаг 3",
     "Confirm backup and enable Google Authenticator": "Подтвердите резервную копию и включите Google Authenticator",
     "Password": "Пароль",
@@ -179,5 +179,7 @@
     "The list of favorite currency pairs has been updated": "Обновлен список любимых валютных пар",
     "Market Overview": "Обзор рынка",
     "Active pairs": "Активные пары",
-    "Visit Support Center": "Посетить центр поддержки"
+    "Visit Support Center": "Посетить центр поддержки",
+    "Stop price": "Стоп цена",
+    "Previous": "Пред."
 }

@@ -59,4 +59,14 @@ class News extends Model
         if ($this->thumbnail)
             return \Storage::url($this->thumbnail);
     }
+
+    public function previous()
+    {
+        return $this->find(--$this->id);
+    }
+
+    public function next()
+    {
+        return $this->find(++$this->id);
+    }
 }

@@ -63,11 +63,33 @@
                                 <div
 
                                     class="cs--dashboard-form__input-wrapper cs--dashboard-form__input--postfix"
-                                    data-postfix="USD"
+                                    :data-postfix="symbol.quoteAsset"
                                 >
                                     <input
                                         v-model="order.price"
                                         id="dashboard--price"
+                                        type="text"
+                                        class="cs--dashboard-form__input"
+                                        placeholder=""
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="cs--dashboard-form__item" v-if="order.type==='STOP_LOSS_LIMIT'">
+                                <label
+                                    for="dashboard--stop-price"
+                                    class="cs--dashboard-form__label"
+                                >{{ $__("Stop price") }}</label
+                                >
+
+                                <div
+
+                                    class="cs--dashboard-form__input-wrapper cs--dashboard-form__input--postfix"
+                                    :data-postfix="symbol.quoteAsset"
+                                >
+                                    <input
+                                        v-model="order.stopPrice"
+                                        id="dashboard--stop-price"
                                         type="text"
                                         class="cs--dashboard-form__input"
                                         placeholder=""
@@ -84,7 +106,7 @@
 
                                 <div
                                     class="cs--dashboard-form__input-wrapper cs--dashboard-form__input--postfix"
-
+                                    :data-postfix="symbol.baseAsset"
                                 >
                                     <input
                                         id="dashboard--total"
@@ -94,6 +116,20 @@
                                         placeholder=""
                                     />
                                 </div>
+                                <ul class="qty-percent">
+                                    <li>
+                                        <button type="button" @click.prevent="setQty(25)">25%</button>
+                                    </li>
+                                    <li>
+                                        <button type="button" @click.prevent="setQty(50)">50%</button>
+                                    </li>
+                                    <li>
+                                        <button type="button" @click.prevent="setQty(75)">75%</button>
+                                    </li>
+                                    <li>
+                                        <button type="button" @click.prevent="setQty(100)">100%</button>
+                                    </li>
+                                </ul>
                             </div>
 
 
@@ -142,6 +178,7 @@ export default {
                 type: 'MARKET',
                 quantity: 0,
                 price: 0,
+                stopPrice: ''
             },
             orderMessage: '',
             orderMessageStatus: 'success',
@@ -194,6 +231,15 @@ export default {
     },
     methods: {
         ...mapActions(['setExchangeInfo', 'setAccount', 'setSymbol', 'setSymbolTick']),
+        setQty(qtyPercent) {
+            let balance=Array.from(this.account.balances).filter((item) => {
+                return item.asset == this.symbol.baseAsset
+            });
+            if (balance.length){
+                this.order.quantity = parseFloat(balance[0]['free']) * (qtyPercent/100)
+            }
+
+        },
         symbolTickerStream() {
             let symbol = this.symbol ? this.symbol.symbol : 'BNBBUSD'
 
@@ -403,6 +449,34 @@ export default {
 </script>
 
 <style lang="scss">
+.qty-percent {
+    display: flex;
+    list-style: none;
+    margin: 5px 0 0;
+    padding: 0;
+    justify-content: space-between;
+    >li {
+        button {
+            --btn-border-radius: 3px;
+            --btn-tab-bg: var(--color-blue-60);
+            --btn-tab-hover-bg: var(--color-blue-50);
+            background-color: var(--btn-tab-bg);
+
+            position: relative;
+            display: block;
+            padding: 3px 9px;
+            border: none;
+            border-radius: 3px;
+
+            color: var(--color-white);
+            font-weight: 400;
+            font-size: 12px;
+            text-align: center;
+            line-height: 1.2;
+        }
+    }
+
+}
 
 .cs--interface .cs--btn-group .cs--btn {
     padding: 6px 16px;

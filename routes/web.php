@@ -56,7 +56,7 @@ Route::group(['prefix' => 'terminal', 'middleware' => ['auth', 'verified', 'perm
     Route::post('/save-bot-settings', [BotController::class, 'saveSettings']);
     Route::get('/bot-settings/{bot}', [BotController::class, 'getSettings']);
     Route::get('/news-categories', [NewsCategoryController::class, 'getAll']);
-    Route::get('/news/{id}', [NewsController::class, 'getSingleNews']);
+
     Route::get('/market-overview', [ExchangeController::class, 'marketOverview']);
     Route::get('/faq', [FaqController::class, 'getFaqs']);
 
@@ -84,6 +84,7 @@ Route::group(['prefix' => 'terminal', 'middleware' => ['auth', 'verified', 'perm
 
     // NEWS
     Route::get('/news', [NewsController::class, 'getNews']);
+    Route::get('/news/{id}', [NewsController::class, 'getSingleNews']);
 
     Route::resources([
         'ticket' => TicketController::class,

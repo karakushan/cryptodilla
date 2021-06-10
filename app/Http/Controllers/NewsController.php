@@ -44,7 +44,7 @@ class NewsController extends Controller
      */
     public function store(NewsRequest $request)
     {
-        app()->setLocale($request->input('lang',config('app.fallback_locale')));
+        app()->setLocale($request->input('lang', config('app.fallback_locale')));
         News::create($request->all());
 
         return redirect()->route('news.index')->with([
@@ -90,7 +90,7 @@ class NewsController extends Controller
     public function update(NewsRequest $request, $id)
     {
         $item = News::findOrFail($id)
-            ->setLocale($request->input('lang',config('app.fallback_locale')));
+            ->setLocale($request->input('lang', config('app.fallback_locale')));
         $item->fill($request->all());
         $item->save();
 
@@ -121,6 +121,7 @@ class NewsController extends Controller
     {
         $news = News::paginate();
 
+
         return response()->json($news);
     }
 
@@ -133,6 +134,8 @@ class NewsController extends Controller
     public function getSingleNews($id)
     {
         $item = News::findOrFail($id);
+        $item->prev = News::where('id', '<', $id)->max('id');
+        $item->next = News::where('id', '>', $id)->min('id');
 
         return response()->json($item);
     }

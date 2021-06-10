@@ -39,7 +39,7 @@
                 </div>
 
                 <ul class="cs--card-list">
-                    <li class="cs--card-item" v-for="news in news.data">
+                    <li class="cs--card-item" v-for="news in filteredNews">
                         <div class="cs--card-item__image">
                             <img :src="news.thumbnail_url" alt="" v-if="news.thumbnail_url">
                         </div>
@@ -48,7 +48,10 @@
                                 <span>{{ news.created_at }}</span>
                             </div>
                             <span class="cs--card-item__title">{{ news.title[appData.lang] }}</span>
-                            <router-link class="cs--card-item__link" :to="'/news/'+news.id">{{ $__("Read more") }}</router-link>
+                            <router-link class="cs--card-item__link" :to="'/news/'+news.id">{{
+                                    $__("Read more")
+                                }}
+                            </router-link>
                         </div>
                     </li>
                 </ul>
@@ -59,11 +62,12 @@
 
 <script>
 import {mapGetters} from 'vuex'
+
 export default {
     name: "News",
     data() {
         return {
-            news: [],
+            news: null,
             categories: [],
             filter: {
                 category: [],
@@ -72,7 +76,24 @@ export default {
         }
     },
     computed: {
-       ...mapGetters(['appData'])
+        ...mapGetters(['appData']),
+        filteredNews() {
+            let news = this.news ? this.news.data : []
+
+            if (this.news && this.filter.category.length) {
+                news = news.filter((item) => {
+                    return this.filter.category.indexOf(item.category_id) !== -1
+                })
+            }
+
+            if (this.news && this.filter.title.length ) {
+                news = news.filter((item) => {
+                    return item.title[this.appData.lang].toLowerCase().includes(this.filter.title.toLowerCase())
+                })
+            }
+
+            return news
+        }
     },
     mounted() {
         axios
