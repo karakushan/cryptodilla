@@ -47,7 +47,7 @@
                         </td>
 
                         <td data-label="View" class="cs--color-success">
-                            <span>Viewed</span>
+                            <router-link :to="'/ticket/'+ticket.id"><span>Перейти</span></router-link>
                         </td>
                     </tr>
                     </tbody>

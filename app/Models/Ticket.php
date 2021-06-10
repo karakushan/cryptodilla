@@ -34,7 +34,7 @@ class Ticket extends Model
 {
     use HasFactory;
 
-    protected $table='tickets';
+    protected $table = 'tickets';
 
     protected $fillable = [
         'subject',
@@ -44,7 +44,13 @@ class Ticket extends Model
         'email',
     ];
 
-    public function getCreatedAtAttribute($value){
+    public function getCreatedAtAttribute($value)
+    {
         return Date::parse($value)->format('d F Y H:i');
+    }
+
+    public function message()
+    {
+        return $this->hasMany(TicketMessage::class);
     }
 }

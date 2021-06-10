@@ -77,6 +77,8 @@ Route::group(['prefix' => 'terminal', 'middleware' => ['auth', 'verified', 'perm
 
     // TICKETS
     Route::get('/user-tickets', [TicketController::class, 'getCurrentUserTickets']);
+    Route::get('/ticket/{id}', [TicketController::class, 'getTicket']);
+    Route::post('/ticket/sendMessage', [TicketController::class, 'sendMessage']);
 
     // FAQ
     Route::get('/faq/{?id}', [FaqController::class, 'getFaqs']);

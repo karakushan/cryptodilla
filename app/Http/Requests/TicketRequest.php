@@ -26,7 +26,7 @@ class TicketRequest extends FormRequest
         return [
             'subject' => ['required'],
             'message' => ['required'],
-            'email' => ['required','email'],
+//            'email' => ['required','email'],
             'category_id' => ['required', 'numeric'],
         ];
     }

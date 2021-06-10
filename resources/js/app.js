@@ -60,6 +60,7 @@ import Bots from "./views/Bots";
 import BotSettings from "./views/BotSettings";
 import NewsItem from "./views/NewsItem";
 import FaqItem from "./views/FaqItem";
+import TicketMessaging from "./views/TicketMessaging";
 
 
 Vue.use(VueNotify)
@@ -83,6 +84,7 @@ const routes = [
     {path: '/select-exchange/:id', component: ExchangeConnect, name: 'ConnectExchange', props: true},
     {path: '/support', component: Support, name: 'Support', props: true},
     {path: '/ticket', component: Ticket, name: 'New Support Ticket', props: true},
+    {path: '/ticket/:id', component: TicketMessaging, name: 'TicketMessaging', props: true},
     {path: '/faq', component: FAQ, name: 'FAQ', props: true},
     {path: '/faq/:id', component: FaqItem, name: 'FaqItem', props: true},
     {path: '/news', component: News, name: 'News', props: true},

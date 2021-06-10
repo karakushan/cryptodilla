@@ -13,26 +13,6 @@
             <div class="cs--page-side-wrapper">
                 <form class="cs--dashboard-form" @submit.prevent="createTicket">
                     <div class="cs--dashboard-form__item">
-                        <label for="dashboard--email" class="cs--dashboard-form__label"
-                        >{{ $__("Your E-mail") }}</label
-                        >
-
-                        <div
-                            class="cs--dashboard-form__input-wrapper cs--dashboard-form__input--success"
-                            data-postfix=""
-                        >
-                            <input
-                                v-model="formData.email"
-                                id="dashboard--email"
-                                type="email"
-                                class="cs--dashboard-form__input"
-                                placeholder="email@mail.com"
-                            />
-                        </div>
-                        <div class="alert alert-danger" v-if="errors.email">{{ errors.email[0] }}</div>
-                    </div>
-
-                    <div class="cs--dashboard-form__item">
                         <label
                             for="dashboard--msg-type"
                             class="cs--dashboard-form__label"

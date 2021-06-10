@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TicketRequest;
+use App\Models\Message;
 use App\Models\Ticket;
+use App\Models\TicketMessage;
 use Illuminate\Http\Request;
 
 class TicketController extends Controller
@@ -46,7 +48,16 @@ class TicketController extends Controller
      */
     public function store(TicketRequest $request)
     {
-        Ticket::create($request->merge(['user_id' => auth()->id()])->all());
+        $ticket = Ticket::create($request->merge(['user_id' => auth()->id()])->all());
+
+        TicketMessage::create(
+            [
+                'message' => $request->input('message'),
+                'to_user_id' => $request->input('to_user_id') ?? env('ADMIN_ID'),
+                'from_user_id' => auth()->id(),
+                'ticket_id' => $ticket->id
+            ]
+        );
         $message = __('Object added successfully!');
         $status = 'success';
 
@@ -133,5 +144,35 @@ class TicketController extends Controller
             ->paginate(15);
 
         return response()->json($items);
+    }
+
+    public function getTicket($id)
+    {
+        $item = Ticket::where('id', $id)
+            ->with('message')
+            ->with('message.from_user')
+            ->with('message.to_user')
+            ->first();
+
+        return response()->json($item);
+    }
+
+    public function sendMessage(Request $request)
+    {
+        TicketMessage::create(
+            [
+                'message' => $request->input('message'),
+                'to_user_id' => $request->input('to_user_id') ?? env('ADMIN_ID'),
+                'from_user_id' => auth()->id(),
+                'ticket_id' => (int)$request->input('ticket_id')
+            ]
+        );
+
+        $message = __('Message sent successfully!');
+
+        if ($request->ajax()) {
+            return response()->json(compact('message'));
+        }
+
     }
 }
