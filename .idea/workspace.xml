@@ -19,9 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="ticket messaging">
+    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="ticket messaging avatar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/views/TicketMessaging.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/TicketMessaging.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -411,14 +412,7 @@
       <workItem from="1622708542012" duration="23491000" />
       <workItem from="1623240540908" duration="1364000" />
       <workItem from="1623242269812" duration="21239000" />
-      <workItem from="1623305978907" duration="11849000" />
-    </task>
-    <task id="LOCAL-00005" summary="изменил robots.txt">
-      <created>1616505116839</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1616505116839</updated>
+      <workItem from="1623305978907" duration="12088000" />
     </task>
     <task id="LOCAL-00006" summary="изменил github actions main.yml">
       <created>1616505387884</created>
@@ -756,7 +750,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623318066617</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="ticket messaging avatar">
+      <created>1623318407943</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1623318407944</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -778,7 +779,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="сделал вкладку предпочтений пользователя" />
     <MESSAGE value="начал google 2fa" />
     <MESSAGE value="сделал 2fa аутент." />
     <MESSAGE value="crud для категорий FAQ" />
@@ -803,7 +803,8 @@
     <MESSAGE value="faq item view" />
     <MESSAGE value="prev next news" />
     <MESSAGE value="ticket messaging" />
-    <option name="LAST_COMMIT_MESSAGE" value="ticket messaging" />
+    <MESSAGE value="ticket messaging avatar" />
+    <option name="LAST_COMMIT_MESSAGE" value="ticket messaging avatar" />
   </component>
   <component name="WindowStateProjectService">
     <state x="509" y="144" key="#Deployment" timestamp="1623318087502">
@@ -910,10 +911,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1622543335173" />
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1623318070433">
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1623318409208">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1623318070433" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1623318409208" />
     <state x="859" y="394" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1616884798046">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

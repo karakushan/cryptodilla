@@ -183,5 +183,6 @@
     "Stop price": "Стоп цена",
     "Previous": "Пред.",
     "Send": "Отправить",
-    "New message": "Новое сообщение"
+    "New message": "Новое сообщение",
+    "Message sent successfully!": "Сообщение успешно отправлено!"
 }

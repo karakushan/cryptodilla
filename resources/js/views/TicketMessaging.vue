@@ -73,6 +73,8 @@ export default {
                 .post('/terminal/ticket/sendMessage', this.formData)
                 .then(response => {
                     if (response.status == 200 && response.data) {
+                        this.formData.message=''
+                        this.getItem()
                         this.$notify.success({
                             position: 'top right',
                             title: this.$__('Успех'),
@@ -80,7 +82,7 @@ export default {
                             timeout: 3000
                         })
 
-                        this.getItem()
+
                     }
                 })
                 .catch(error => {
