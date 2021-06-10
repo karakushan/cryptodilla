@@ -19,22 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="prev next news">
-      <change afterPath="$PROJECT_DIR$/app/Models/TicketMessage.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Notifications/CreateTicketMessageNotification.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_06_10_113019_create_ticket_messages_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/views/TicketMessaging.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5035001f-1a51-453c-b284-da206a5db2ea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5035001f-1a51-453c-b284-da206a5db2ea.xml" afterDir="false" />
+    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="ticket messaging">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TicketController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TicketController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/TicketRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/TicketRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Ticket.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Ticket.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/Support.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/Support.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/Ticket.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/Ticket.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/ru.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ru.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/TicketMessaging.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/TicketMessaging.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -424,14 +411,7 @@
       <workItem from="1622708542012" duration="23491000" />
       <workItem from="1623240540908" duration="1364000" />
       <workItem from="1623242269812" duration="21239000" />
-      <workItem from="1623305978907" duration="11468000" />
-    </task>
-    <task id="LOCAL-00004" summary="добавил меню пользователя">
-      <created>1616361512204</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1616361512204</updated>
+      <workItem from="1623305978907" duration="11849000" />
     </task>
     <task id="LOCAL-00005" summary="изменил robots.txt">
       <created>1616505116839</created>
@@ -769,7 +749,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623313652069</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="ticket messaging">
+      <created>1623318066617</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1623318066617</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -791,7 +778,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="two factor auth page" />
     <MESSAGE value="сделал вкладку предпочтений пользователя" />
     <MESSAGE value="начал google 2fa" />
     <MESSAGE value="сделал 2fa аутент." />
@@ -816,13 +802,14 @@
     <MESSAGE value="fix error" />
     <MESSAGE value="faq item view" />
     <MESSAGE value="prev next news" />
-    <option name="LAST_COMMIT_MESSAGE" value="prev next news" />
+    <MESSAGE value="ticket messaging" />
+    <option name="LAST_COMMIT_MESSAGE" value="ticket messaging" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="509" y="144" key="#Deployment" timestamp="1623265090469">
+    <state x="509" y="144" key="#Deployment" timestamp="1623318087502">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="509" y="144" key="#Deployment/0.0.1920.1040@0.0.1920.1040" timestamp="1623265090469" />
+    <state x="509" y="144" key="#Deployment/0.0.1920.1040@0.0.1920.1040" timestamp="1623318087502" />
     <state x="678" y="178" key="#Servers" timestamp="1616187219542">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -923,10 +910,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1622543335173" />
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1623313653873">
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1623318070433">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1623313653873" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1623318070433" />
     <state x="859" y="394" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1616884798046">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

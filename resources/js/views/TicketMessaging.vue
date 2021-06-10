@@ -7,7 +7,9 @@
             <ul class="ticket-messages">
                 <li v-for="message in item.message">
                     <div class="ticket-author">
-                        <img :src="message.from_user.avatar_url" :alt="message.from_user.name">
+
+                        <img :src="message.from_user.avatar_url" v-if="message.from_user.avatar_url" :alt="message.from_user.name">
+                        <img src="/assets/images/users/profile.svg" alt="No Avatar" width="36" v-else>
                         <span>{{ message.from_user.name }}</span> ({{ message.created_at }})
                     </div>
                     <p class="message-text">{{ message.message }}</p>
