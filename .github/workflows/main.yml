@@ -25,5 +25,5 @@ jobs:
           username: ${{ secrets.FTP_USERNAME_PROD }}
           host: 185.25.116.236
           password: ${{ secrets.FTP_PASSWORD_PROD }}
-          script: 'cd /home/admin/web/shopkit.online/public_html && ./server_deploy.sh'
+          script: 'cd /home/admin/web/ex.profglobal.top/public_html && ./server_deploy.sh'
 
