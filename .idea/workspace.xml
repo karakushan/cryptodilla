@@ -19,8 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="change workflow #3">
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="remove package">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -416,14 +418,7 @@
       <workItem from="1623661981325" duration="615000" />
       <workItem from="1623667337210" duration="108000" />
       <workItem from="1623913962541" duration="49000" />
-      <workItem from="1625061125227" duration="1496000" />
-    </task>
-    <task id="LOCAL-00010" summary="добавил filepond">
-      <created>1616799394628</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1616799394628</updated>
+      <workItem from="1625061125227" duration="3199000" />
     </task>
     <task id="LOCAL-00011" summary="crud для списка бирж">
       <created>1616845018229</created>
@@ -761,7 +756,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625062677848</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="remove package">
+      <created>1625062961658</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1625062961658</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -783,7 +785,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="подключил чат" />
     <MESSAGE value="перенес параметры в vuex store" />
     <MESSAGE value="переключение аккаунта" />
     <MESSAGE value="верификация имейл" />
@@ -808,7 +809,8 @@
     <MESSAGE value="change workflow" />
     <MESSAGE value="change workflow #2" />
     <MESSAGE value="change workflow #3" />
-    <option name="LAST_COMMIT_MESSAGE" value="change workflow #3" />
+    <MESSAGE value="remove package" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove package" />
   </component>
   <component name="WindowStateProjectService">
     <state x="509" y="144" key="#Deployment" timestamp="1625062842073">
@@ -847,22 +849,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1623667443659" />
-    <state width="1877" height="168" key="GridCell.Tab.0.bottom" timestamp="1625062467977">
+    <state width="1877" height="168" key="GridCell.Tab.0.bottom" timestamp="1625063090434">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="168" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1625062467977" />
-    <state width="1877" height="168" key="GridCell.Tab.0.center" timestamp="1625062467977">
+    <state width="1877" height="168" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1625063090434" />
+    <state width="1877" height="168" key="GridCell.Tab.0.center" timestamp="1625063090434">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="168" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1625062467977" />
-    <state width="1877" height="168" key="GridCell.Tab.0.left" timestamp="1625062467976">
+    <state width="1877" height="168" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1625063090434" />
+    <state width="1877" height="168" key="GridCell.Tab.0.left" timestamp="1625063090434">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="168" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1625062467976" />
-    <state width="1877" height="168" key="GridCell.Tab.0.right" timestamp="1625062467977">
+    <state width="1877" height="168" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1625063090434" />
+    <state width="1877" height="168" key="GridCell.Tab.0.right" timestamp="1625063090434">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="168" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1625062467977" />
+    <state width="1877" height="168" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1625063090434" />
     <state width="1877" height="243" key="GridCell.Tab.1.bottom" timestamp="1623318965697">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -935,10 +937,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1622721712669" />
-    <state x="667" y="253" width="585" height="534" key="find.popup" timestamp="1616520227507">
+    <state x="667" y="181" width="585" height="534" key="find.popup" timestamp="1625075561444">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="667" y="253" width="585" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1616520227507" />
+    <state x="667" y="181" width="585" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1625075561444" />
     <state x="776" y="250" key="ftp.server.browser" timestamp="1616504948711">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -168,7 +168,6 @@ return [
          * Package Service Providers...
          */
         Spatie\Permission\PermissionServiceProvider::class,
-        Karakushan\CrudGenerator\CrudGeneratorServiceProvider::class,
         Jenssegers\Date\DateServiceProvider::class,
 
         /*
