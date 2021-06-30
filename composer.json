@@ -62,8 +62,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/",
-            "Karakushan\\CrudGenerator\\": "packages/karakushan/crud-generator/src"
+            "Tests\\": "tests/"
         }
     },
     "minimum-stability": "dev",
