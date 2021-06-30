@@ -14,63 +14,14 @@ class Binance implements ExchangeInterface
     protected $id = 'binance';
     protected $account_id = null;
 
-    public function __construct($account_id = null)
+    public function __construct($account)
     {
-        $this->account_id = $account_id;
-        $key = $this->getApiKey();
-        $secret = $this->getApiSecret();
+        $this->api = new API(
+            $account && !empty($account['apiKey']) ? $account['apiKey'] : env('MIX_BINANCE_API_KEY'),
+            $account && !empty($account['apiSecret']) ? $account['apiSecret'] : env('MIX_BINANCE_API_SECRET'),
+            $this->use_testnet
+        );
 
-        $this->api = new API($key, $secret, $this->use_testnet);
-
-    }
-
-    /**
-     *
-     * @return mixed
-     */
-    public function getApiKey()
-    {
-        $credentials = $this->getUserCredentials();
-
-        $key = !empty($credentials['apiKey']) && !$this->use_testnet
-            ? $credentials['apiKey']
-            : env('MIX_BINANCE_API_KEY', "Ik7gOQWFfdYxwGr7QqK4Iw8JsfV3QVCfUeSINpOz9SmQMb1TJLMPVCX2nhJn5J4T");
-
-        return $key;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getApiSecret()
-    {
-        $credentials = $this->getUserCredentials();
-
-        return !empty($credentials['apiSecret']) && !$this->use_testnet
-            ? $credentials['apiSecret']
-            : env('MIX_BINANCE_API_SECRET', "ZVmAv8CzhzeXf4rkLaG4SONW7cpTbRsayKCP79QI0h9tV76jHpO81jRilwJX2ZPV");
-    }
-
-    /**
-     * Получает секретные данные авторизованного пользователя
-     *
-     * @return UserExchange|\Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model|object|null
-     */
-    public function getUserCredentials()
-    {
-        $exchange = Exchange::where('slug', $this->account_id)->first();
-
-        if (!$exchange) return $exchange;
-
-        $user_id = auth()->id();
-
-        $user_exchange = UserExchange::where([
-            ['user_id', $user_id],
-            ['exchange_id', $exchange->id],
-        ])
-            ->first();
-
-        return $user_exchange ? $user_exchange->credentials : null;
     }
 
     public function account()

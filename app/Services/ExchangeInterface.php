@@ -27,10 +27,4 @@ interface ExchangeInterface
      * @return mixed
      */
     public function getAllOrders(string $symbol);
-
-    function getApiKey();
-
-    public function getApiSecret();
-
-    public function getUserCredentials();
 }

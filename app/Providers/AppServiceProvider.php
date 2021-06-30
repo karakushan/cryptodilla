@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\ExchangeConnector;
 use Illuminate\Support\ServiceProvider;
 use Jenssegers\Date\Date;
 
@@ -14,7 +15,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(ExchangeConnector::class, function ($app) {
+            return new ExchangeConnector();
+        });
     }
 
     /**

@@ -7,9 +7,9 @@ use App\Http\Requests\ExchangeRequest;
 use App\Http\Requests\UserExchangeRequest;
 use App\Models\Exchange;
 use App\Models\UserExchange;
-
 use Illuminate\Http\Request;
 use App\Services\ExchangeConnector;
+
 
 class ExchangeController extends Controller
 {
@@ -121,35 +121,26 @@ class ExchangeController extends Controller
     /**
      * Возвращает данные {$slug} биржи
      * @param $slug
+     * @param ExchangeConnector $connector
      * @return int
      */
-    public function getExchangeInfo($slug)
+    public function getExchangeInfo($slug, ExchangeConnector $connector)
     {
-        try {
-            return (new ExchangeConnector())->connect($slug)
-                ->exchangeInfo();
-        } catch (\Exception $exception) {
-            return response($exception->getMessage())
-                ->status(419);
-        }
+        return $connector->connect($slug)->exchangeInfo();
     }
+
 
     /**
      * Возвращает данные {$slug} биржи
+     *
      * @param $slug
      * @return int
      */
     public function getOrders(Request $request)
     {
-        try {
-            $account = UserExchange::findOrFail($request->input('account_id'));
-
-            return (new ExchangeConnector())->connect($account->exchange->slug, $account->id)
-                ->getAllOrders($request->input('symbol'));
-        } catch (\Exception $exception) {
-            return response($exception->getMessage())
-                ->status(419);
-        }
+        $account = UserExchange::findOrFail($request->input('account_id'));
+        return (new ExchangeConnector())->connect($account->exchange->slug, $account)
+            ->getAllOrders($request->input('symbol'));
     }
 
     /**
@@ -169,11 +160,18 @@ class ExchangeController extends Controller
         }
     }
 
-    public function getAccount($id)
+    /**
+     * Получает данные аккаунта баланс и прочее
+     *
+     * @param $id
+     * @param ExchangeConnector $connector
+     * @return \Illuminate\Http\JsonResponse|mixed|void
+     * @throws \Butschster\Kraken\Exceptions\KrakenApiErrorException
+     */
+    public function getAccount($id, ExchangeConnector $connector)
     {
         $account = UserExchange::findOrFail($id);
-        return (new ExchangeConnector())->connect($account->exchange->slug, $id)
-            ->account();
+        return $connector->connect($account->exchange->slug, $account)->account();
     }
 
     /**
@@ -181,14 +179,13 @@ class ExchangeController extends Controller
      *
      * @param $slug
      * @param CreateOrderRequest $request
+     * @param ExchangeConnector $connector
      * @return int
      */
-    public function createOrder($slug, CreateOrderRequest $request)
+    public function createOrder($slug, CreateOrderRequest $request, ExchangeConnector $connector)
     {
-        $order = (new ExchangeConnector())->connect($slug, (int)$request->input('account_id'))
-            ->createOrder($request->all());
-
-        return $order;
+        $account = UserExchange::findOrFail((int)$request->input('account_id'));
+        return $connector->connect($slug, $account)->createOrder($request->all());
     }
 
     /**
