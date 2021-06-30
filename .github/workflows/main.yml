@@ -19,19 +19,11 @@ jobs:
           ftp-username: ${{ secrets.FTP_USERNAME_PROD }}
           ftp-password: ${{ secrets.FTP_PASSWORD_PROD }}
 
-      - name: Install Dependencies (PHP vendors)
-        run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
-
-#      - name: Run migration
-#        run:  php artisan migrate --force
-#
-      - name: Clear cache
-        run: php artisan cache:clear
-
-#      - name: Send Telegram Message
-#        uses: appleboy/telegram-action@master
-#        with:
-#          to: ${{ secrets.TELEGRAM_TO }}
-#          token: ${{ secrets.TELEGRAM_TOKEN }}
-#          args: 👨🏻 Пользователь ${{github.actor}} сделал ‍💻 ${{ github.event_name }} в ветку MASTER в репозиторий ${{ github.repository }}. Сообщение коммита - ${{ github.event.head_commit.message }}.
+      - name: Deploy to production
+        uses: appleboy/ssh-action@master
+        with:
+          username: ${{ secrets.FTP_USERNAME_PROD }}
+          host: 185.25.116.236
+          password: ${{ secrets.FTP_PASSWORD_PROD }}
+          script: 'cd /home/admin/web/shopkit.online/public_html && ./server_deploy.sh'
 
