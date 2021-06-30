@@ -19,7 +19,7 @@ jobs:
           ftp-username: ${{ secrets.FTP_USERNAME_PROD }}
           ftp-password: ${{ secrets.FTP_PASSWORD_PROD }}
 
-      - name: Deploy to production
+      - name: Run scripts SSH
         uses: appleboy/ssh-action@master
         with:
           username: ${{ secrets.FTP_USERNAME_PROD }}
