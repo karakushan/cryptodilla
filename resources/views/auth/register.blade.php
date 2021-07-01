@@ -13,6 +13,7 @@
                 <h1 class="cs--page__title">{{ __("Create your free account") }}</h1>
                 <form method="POST" action="{{ route('register') }}" id="create-acc" class="cs--reg-form">
                     @csrf
+                    <input type="hidden" name="refer" value="{{ request('refer','') }}">
                     <label for="create-acc-user" class="cs--reg-form__input-wrapper">
                         <div class="cs--reg-form__input-icon">
                             <svg

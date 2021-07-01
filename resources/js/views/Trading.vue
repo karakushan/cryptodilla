@@ -17,16 +17,17 @@
                     <SelectExchangeWidget/>
                     <div v-if="account && account.balances.length>0">
                         <h2 class="cs--interface__block-title">{{ $__("Balance") }}</h2>
-                        <table class="cs--balance-table" v-if="account">
-                            <tbody>
-                            <tr v-for="balance in account.balances">
-                                <td>{{ balance.asset }}</td>
-                                <td class="cs--balance-table__accent">{{ balance.free }}</td>
-                            </tr>
+                        <div class="cs--table-wrapper" style="max-height: 170px">
+                            <table class="cs--balance-table" v-if="account">
+                                <tbody>
+                                <tr v-for="balance in account.balances">
+                                    <td>{{ balance.asset }}</td>
+                                    <td class="cs--balance-table__accent">{{ balance.free }}</td>
+                                </tr>
 
-                            </tbody>
-                        </table>
-
+                                </tbody>
+                            </table>
+                        </div>
                         <div class="cs--btn-group">
                             <button type="button"
                                     @click.prevent="order.side='BUY'"

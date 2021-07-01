@@ -23,6 +23,10 @@ class ExchangeConnector
                 return new Kraken($account);
             case 'poloniex':
                 return new Poloniex($account);
+            case 'bitfinex':
+                return new Bitfinex($account);
+            case 'hitbtc':
+                return new Hitbtc($account);
             default:
                 return abort(419, __('Exchange not found!'));
         }

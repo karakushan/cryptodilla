@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -73,5 +75,28 @@ class RegisterController extends Controller
         $user->givePermissionTo('manage terminal');
 
         return $user;
+    }
+
+    /**
+     * The user has been registered.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param mixed $user
+     * @return mixed
+     */
+    protected function registered(Request $request, $user)
+    {
+        $user->referral_code = Str::random(16);
+        $user->referral_points = 2;
+        $user->save();
+
+        // Добавляем бал если указана реф ссылка
+        if ($request->has('refer')) {
+            $refer = User::where('referral_code', $request->input('refer'))->first();
+            if ($refer) {
+                $refer->referral_points = $refer->referral_points + 1;
+                $refer->save();
+            }
+        }
     }
 }

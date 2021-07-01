@@ -16,9 +16,14 @@ class Binance implements ExchangeInterface
 
     public function __construct($account)
     {
+        $api_key = $account && !empty($account->credentials['apiKey']) && !$this->use_testnet
+            ? $account->credentials['apiKey'] : env('MIX_BINANCE_API_KEY');
+        $api_secret = $account && !empty($account->credentials['apiSecret']) && !$this->use_testnet
+            ? $account->credentials['apiSecret'] : env('MIX_BINANCE_API_SECRET');
+
         $this->api = new API(
-            $account && !empty($account['apiKey']) ? $account['apiKey'] : env('MIX_BINANCE_API_KEY'),
-            $account && !empty($account['apiSecret']) ? $account['apiSecret'] : env('MIX_BINANCE_API_SECRET'),
+            $api_key,
+            $api_secret,
             $this->use_testnet
         );
 

@@ -15,14 +15,10 @@ class Poloniex implements ExchangeInterface
     protected $id = 'poloniex';
     protected $account_id = null;
 
-    public function __construct($account_id = null)
+    public function __construct($account= null)
     {
-        $this->account_id = $account_id;
 
-        $api_key = $this->getApiKey();
-        $api_secret = $this->getApiSecret();
-
-        $this->api = new Client($api_key, $api_secret);
+        $this->api = new Client($account->credentials['apiKey'], $account->credentials['apiSecret']);
     }
 
     /**
@@ -30,7 +26,19 @@ class Poloniex implements ExchangeInterface
      */
     public function account()
     {
-        // TODO: Implement account() method.
+        $balance=$this->api->returnBalances();
+        if (is_array($balance)){
+            $account['balances'] = array_map(function ($item,$key) {
+                return [
+                    'asset' => $key,
+                    'free' => $item,
+                    'locked' => $item,
+                ];
+
+            }, $balance,array_keys($balance));
+        }
+
+        return response()->json($account);
     }
 
     /**
