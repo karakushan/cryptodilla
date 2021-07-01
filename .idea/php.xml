@@ -177,6 +177,7 @@
       <path value="$PROJECT_DIR$/vendor/dzarezenko/poloniex-api" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-translatable" />
       <path value="$PROJECT_DIR$/vendor/hitbtc-com/hitbtc-php-sdk" />
+      <path value="$PROJECT_DIR$/vendor/codenix-sv/bitfinex-api" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />

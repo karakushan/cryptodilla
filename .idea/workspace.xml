@@ -19,25 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="make service provider">
-      <change afterPath="$PROJECT_DIR$/app/Services/Bitfinex.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Hitbtc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_07_01_112041_add_field_referral_points_to_users.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_07_01_112644_add_field_referral_code_to_users.php" afterDir="false" />
+    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="included exchanges">
       <change beforePath="$PROJECT_DIR$/.idea/cryptotrade.loc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cryptotrade.loc.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5035001f-1a51-453c-b284-da206a5db2ea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5035001f-1a51-453c-b284-da206a5db2ea.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisteredUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisteredUserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/Binance.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Binance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/ExchangeConnector.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/ExchangeConnector.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/Poloniex.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Poloniex.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Bitfinex.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Bitfinex.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/Trading.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/Trading.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,6 +244,7 @@
       <path value="$PROJECT_DIR$/vendor/dzarezenko/poloniex-api" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-translatable" />
       <path value="$PROJECT_DIR$/vendor/hitbtc-com/hitbtc-php-sdk" />
+      <path value="$PROJECT_DIR$/vendor/codenix-sv/bitfinex-api" />
     </include_path>
   </component>
   <component name="PhpXdebugProxy" ide_key="PHPSTORM" host="localhost" />
@@ -434,14 +423,8 @@
       <workItem from="1623667337210" duration="108000" />
       <workItem from="1623913962541" duration="49000" />
       <workItem from="1625061125227" duration="15823000" />
-      <workItem from="1625127391479" duration="9909000" />
-    </task>
-    <task id="LOCAL-00012" summary="git fix">
-      <created>1616845173998</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1616845173998</updated>
+      <workItem from="1625127391479" duration="10973000" />
+      <workItem from="1625148041008" duration="3230000" />
     </task>
     <task id="LOCAL-00013" summary="добавил trait Binance">
       <created>1616859657640</created>
@@ -779,7 +762,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625092687699</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="included exchanges">
+      <created>1625137492839</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1625137492840</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -801,7 +791,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="переключение аккаунта" />
     <MESSAGE value="верификация имейл" />
     <MESSAGE value="лог активности пользователя" />
     <MESSAGE value="сделал возможность отключения 2fa" />
@@ -826,7 +815,8 @@
     <MESSAGE value="change workflow #3" />
     <MESSAGE value="remove package" />
     <MESSAGE value="make service provider" />
-    <option name="LAST_COMMIT_MESSAGE" value="make service provider" />
+    <MESSAGE value="included exchanges" />
+    <option name="LAST_COMMIT_MESSAGE" value="included exchanges" />
   </component>
   <component name="WindowStateProjectService">
     <state x="509" y="144" key="#Deployment" timestamp="1625062842073">
@@ -865,54 +855,54 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1623667443659" />
-    <state width="1877" height="265" key="GridCell.Tab.0.bottom" timestamp="1625136949684">
+    <state width="1877" height="371" key="GridCell.Tab.0.bottom" timestamp="1625150975907">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="265" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1625136949684" />
-    <state width="1877" height="265" key="GridCell.Tab.0.center" timestamp="1625136949684">
+    <state width="1877" height="371" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1625150975907" />
+    <state width="1877" height="371" key="GridCell.Tab.0.center" timestamp="1625150975907">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="265" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1625136949684" />
-    <state width="1877" height="265" key="GridCell.Tab.0.left" timestamp="1625136949684">
+    <state width="1877" height="371" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1625150975907" />
+    <state width="1877" height="371" key="GridCell.Tab.0.left" timestamp="1625150975907">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="265" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1625136949684" />
-    <state width="1877" height="265" key="GridCell.Tab.0.right" timestamp="1625136949684">
+    <state width="1877" height="371" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1625150975907" />
+    <state width="1877" height="371" key="GridCell.Tab.0.right" timestamp="1625150975907">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="265" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1625136949684" />
-    <state width="1877" height="265" key="GridCell.Tab.1.bottom" timestamp="1625136949685">
+    <state width="1877" height="371" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1625150975907" />
+    <state width="1877" height="371" key="GridCell.Tab.1.bottom" timestamp="1625150975908">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="265" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1625136949685" />
-    <state width="1877" height="265" key="GridCell.Tab.1.center" timestamp="1625136949685">
+    <state width="1877" height="371" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1625150975908" />
+    <state width="1877" height="371" key="GridCell.Tab.1.center" timestamp="1625150975907">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="265" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1625136949685" />
-    <state width="1877" height="265" key="GridCell.Tab.1.left" timestamp="1625136949684">
+    <state width="1877" height="371" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1625150975907" />
+    <state width="1877" height="371" key="GridCell.Tab.1.left" timestamp="1625150975907">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="265" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1625136949684" />
-    <state width="1877" height="265" key="GridCell.Tab.1.right" timestamp="1625136949685">
+    <state width="1877" height="371" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1625150975907" />
+    <state width="1877" height="371" key="GridCell.Tab.1.right" timestamp="1625150975907">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="265" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1625136949685" />
-    <state width="1877" height="265" key="GridCell.Tab.2.bottom" timestamp="1625136949685">
+    <state width="1877" height="371" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1625150975907" />
+    <state width="1877" height="371" key="GridCell.Tab.2.bottom" timestamp="1625150975908">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="265" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1625136949685" />
-    <state width="1877" height="265" key="GridCell.Tab.2.center" timestamp="1625136949685">
+    <state width="1877" height="371" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1625150975908" />
+    <state width="1877" height="371" key="GridCell.Tab.2.center" timestamp="1625150975908">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="265" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1625136949685" />
-    <state width="1877" height="265" key="GridCell.Tab.2.left" timestamp="1625136949685">
+    <state width="1877" height="371" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1625150975908" />
+    <state width="1877" height="371" key="GridCell.Tab.2.left" timestamp="1625150975908">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="265" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1625136949685" />
-    <state width="1877" height="265" key="GridCell.Tab.2.right" timestamp="1625136949685">
+    <state width="1877" height="371" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1625150975908" />
+    <state width="1877" height="371" key="GridCell.Tab.2.right" timestamp="1625150975908">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="265" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1625136949685" />
+    <state width="1877" height="371" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1625150975908" />
     <state width="217" height="457" key="HiddenNamespacesPopup" timestamp="1622047170813">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -929,10 +919,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1623661437481" />
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1625092689349">
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1625137494346">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1625092689349" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1625137494346" />
     <state x="859" y="394" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1616884798046">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -953,14 +943,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1622721712669" />
+    <state x="512" y="249" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1625148365570">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="512" y="249" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1040@0.0.1920.1040" timestamp="1625148365570" />
     <state x="667" y="181" width="585" height="534" key="find.popup" timestamp="1625075561444">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="667" y="181" width="585" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1625075561444" />
-    <state x="776" y="250" key="ftp.server.browser" timestamp="1616504948711">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="776" y="250" key="ftp.server.browser/0.0.1920.1040@0.0.1920.1040" timestamp="1616504948711" />
     <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1623315402328">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -973,16 +963,5 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="769" y="387" key="webDeployment.PermissionsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1625062635019" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/vendor/jaggedsoft/php-binance-api/php-binance-api.php</url>
-          <line>459</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

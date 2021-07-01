@@ -74,22 +74,24 @@ class Bitfinex implements ExchangeInterface
     private function headers($path)
     {
         $nonce = (string)number_format(round(microtime(true) * 100000), 0, ".", "");
-        $signature = "/api/v2" . $path["request"] . $nonce;
+        $body = "{}";
+        $signature = "/api/v2" . $path["request"] . $nonce . $body;
         $h = hash_hmac("sha384", utf8_encode($signature), utf8_encode($this->api_secret));
         return [
-            "content-type" => 'application/json',
-            "bfx-apikey" => $this->api_key,
-            "bfx-signature" => $h,
-            "bfx-nonce" => $nonce
+            "content-type: application/json",
+            "content-length: " . strlen($body),
+            "bfx-apikey: " . $this->api_key,
+            "bfx-signature: " . $h,
+            "bfx-nonce: " . $nonce
         ];
     }
 
     /* Authenticated Endpoints Request */
     private function send_auth_endpoint_request($data)
     {
-        $ch=curl_init();
-        $url=self::API_URL.$data["request"];
-        $headers=$this->headers($data);
+        $ch = curl_init();
+        $url = self::API_URL . $data["request"];
+        $headers = $this->headers($data);
 
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, true);
@@ -99,10 +101,11 @@ class Bitfinex implements ExchangeInterface
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, self::API_TIMEOUT);
         curl_setopt($ch, CURLOPT_POSTFIELDS, "{}");
 
-        if(!$result=curl_exec($ch)) {
+        if (!$result = curl_exec($ch)) {
             return $this->curl_error($ch);
         } else {
-            return $this->output($result, $this->is_bitfinex_error($ch), $data);
+            $out = $this->output($result, $this->is_bitfinex_error($ch), $data);
+            return $out;
         }
     }
 
@@ -157,25 +160,7 @@ class Bitfinex implements ExchangeInterface
     /* Retrieve CURL response, if API err or RATE LIMIT hit, recall routine. Need to implement max retries. */
     private function output($result, $is_error = false, $command)
     {
-        $response = json_decode($result, true);
-
-        if ($response[0] == "error" or $response["error"] == "ERR_RATE_LIMIT") {
-            if (!is_array($command)) {
-                //echo "Retrying... '".$command."' in 10 seconds.\n";
-                sleep(10);
-                return $this->send_public_endpoint_request($command);
-            } else {
-                //echo "Retrying... '".$command["request"]."' in 10 seconds.\n";
-                sleep(10);
-                return $this->send_auth_endpoint_request($command);
-            }
-        } else {
-            if ($is_error) {
-                $response["error"] = true;
-            }
-
-            return $response;
-        }
+        return json_decode($result, true);
     }
 
     /* Build URL path from functions */
@@ -243,26 +228,26 @@ class Bitfinex implements ExchangeInterface
         return $o;
     }
 
-    /* API: Get Orders - only handling exchange balances right now */
+
+    /**
+     * Get account balance
+     *
+     * @return array[]
+     */
     public function get_balances()
     {
         $request = $this->build_url_path("auth/r/wallets");
         $data = array("request" => $request);
 
         $balances = $this->send_auth_endpoint_request($data);
-        $b = array();
-        $count = 0;
-        for ($z = 0; $z < count($balances); $z++) {
-            if ($balances[$z][0] == "exchange") {
-                if ($balances[$z][2] != "0") {
-                    $b[$count]["currency"] = $balances[$z][1];
-                    $b[$count]["amount"] = $balances[$z][2];
-                    $count++;
-                }
-            }
-        }
 
-        return $b;
+        return array_map(function ($item) {
+            return [
+                'asset' => $item[1],
+                'free' => $item[2],
+                'locked' => $item[4],
+            ];
+        }, $balances);
     }
 
     /* API: Get orders history - by symbol */
