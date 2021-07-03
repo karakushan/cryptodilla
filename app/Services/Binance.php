@@ -3,6 +3,7 @@
 
 namespace App\Services;
 
+use App\Events\ExchangeTickerEvent;
 use App\Models\Exchange;
 use App\Models\UserExchange;
 use Binance\API;
@@ -26,7 +27,6 @@ class Binance implements ExchangeInterface
             $api_secret,
             $this->use_testnet
         );
-
     }
 
     public function account()

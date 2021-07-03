@@ -128,12 +128,8 @@
                                     <div class="cs--table__card">
                                         <img :src="getSymbolMeta(pair, 'logo_url')" alt=""/>
                                         <div class="cs--table__card-content">
-                                  <span class="cs--table__card-title"
-                                  >{{ pair.baseAsset }} - {{ pair.quoteAsset }}</span
-                                  >
-                                            <span class="cs--table__card-abbr"
-                                            >{{ getSymbolMeta(pair, 'name') }}</span
-                                            >
+                                            <span class="cs--table__card-title">{{pair.baseAsset }} - {{ pair.quoteAsset }}</span>
+                                            <span class="cs--table__card-abbr">{{ pair.baseName }}</span>
                                         </div>
                                     </div>
                                 </td>

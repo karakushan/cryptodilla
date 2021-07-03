@@ -108,6 +108,7 @@ export default new Vuex.Store({
         },
         setActiveExchangeAccount({commit}, payload) {
             commit('SET_ACTIVE_EXCHANGE_ACCOUNT', payload);
+            commit('SET_EXCHANGE', payload.exchange_slug);
             axios
                 .post('/terminal/exchange/set-active-account', {
                     account: payload

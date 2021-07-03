@@ -45,23 +45,32 @@ class UserExchange extends Model
 
 //    protected $hidden = ['credentials'];
 
+    protected $appends = [
+        'exchange_slug'
+    ];
+
     /**
      * Get the serialized representation of the value.
      *
-     * @param  \Illuminate\Database\Eloquent\Model  $model
-     * @param  string  $key
-     * @param  mixed  $value
-     * @param  array  $attributes
+     * @param \Illuminate\Database\Eloquent\Model $model
+     * @param string $key
+     * @param mixed $value
+     * @param array $attributes
      * @return mixed
      */
     public function serialize($model, string $key, $value, array $attributes)
     {
-        return (string) $value;
+        return (string)$value;
     }
 
     public function exchange()
     {
         return $this->belongsTo(Exchange::class, 'exchange_id');
+    }
+
+    public function getExchangeSlugAttribute($default = 'binance')
+    {
+        return isset($this->exchange->slug) ? $this->exchange->slug : $default;
     }
 
 }

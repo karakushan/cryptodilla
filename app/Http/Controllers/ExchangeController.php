@@ -237,6 +237,11 @@ class ExchangeController extends Controller
         return $this->{$slug . 'CancelOrder'}($request->all());
     }
 
+
+    public function ticker($slug,ExchangeConnector $connector){
+        return $connector->connect($slug)->ticker();
+    }
+
     /**
      * Устанавливает активный аккаунт биржи
      *

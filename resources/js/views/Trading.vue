@@ -231,13 +231,13 @@ export default {
         },
     },
     methods: {
-        ...mapActions(['setExchangeInfo', 'setAccount', 'setSymbol', 'setSymbolTick']),
+        ...mapActions(['setExchangeInfo', 'setAccount', 'setSymbol', 'setSymbolTick','']),
         setQty(qtyPercent) {
-            let balance=Array.from(this.account.balances).filter((item) => {
+            let balance = Array.from(this.account.balances).filter((item) => {
                 return item.asset == this.symbol.baseAsset
             });
-            if (balance.length){
-                this.order.quantity = parseFloat(balance[0]['free']) * (qtyPercent/100)
+            if (balance.length) {
+                this.order.quantity = parseFloat(balance[0]['free']) * (qtyPercent / 100)
             }
 
         },
@@ -437,10 +437,12 @@ export default {
             return this.symbol.symbol;
         }
     },
+    created() {
+
+    },
     mounted() {
         this.symbolTickerStream()
         this.getExchangeInfo()
-
         setTimeout(() => {
             this.load = true
         }, 3000)
@@ -456,7 +458,8 @@ export default {
     margin: 5px 0 0;
     padding: 0;
     justify-content: space-between;
-    >li {
+
+    > li {
         button {
             --btn-border-radius: 3px;
             --btn-tab-bg: var(--color-blue-60);

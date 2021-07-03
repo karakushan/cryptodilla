@@ -27,6 +27,8 @@ class ExchangeConnector
                 return new Bitfinex($account);
             case 'hitbtc':
                 return new Hitbtc($account);
+            case 'bittrex':
+                return new Bittrex($account);
             default:
                 return abort(419, __('Exchange not found!'));
         }
