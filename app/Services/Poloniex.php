@@ -18,7 +18,7 @@ class Poloniex implements ExchangeInterface
     public function __construct($account= null)
     {
 
-        $this->api = new Client($account->credentials['apiKey'], $account->credentials['apiSecret']);
+        $this->api = new Client($account->credentials['apiKey']??'', $account->credentials['apiSecret']??'');
     }
 
     /**
@@ -55,8 +55,10 @@ class Poloniex implements ExchangeInterface
                     'symbol' => $pair[0].$pair[1],
                     'baseAsset' => $pair[0],
                     'quoteAsset' =>$pair[1],
+                    'baseName' => $pair[0],
+                    'quoteName' => $pair[1],
                     'orderTypes' => [],
-                    'key' => $key
+                    'key' => $key,
                 ];
             }, $info,array_keys($info));
 

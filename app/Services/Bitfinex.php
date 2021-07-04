@@ -5,6 +5,7 @@ namespace App\Services;
 
 use Illuminate\Support\Facades\Http;
 
+
 class Bitfinex implements ExchangeInterface
 {
     const API_TIMEOUT = 60;
@@ -17,8 +18,8 @@ class Bitfinex implements ExchangeInterface
 
     public function __construct($account)
     {
-        $this->api_key = $account->credentials['apiKey'];
-        $this->api_secret = $account->credentials['apiSecret'];
+        $this->api_key = $account->credentials['apiKey'] ?? '';
+        $this->api_secret = $account->credentials['apiSecret'] ?? '';
     }
 
     /**
@@ -42,7 +43,38 @@ class Bitfinex implements ExchangeInterface
      */
     public function exchangeInfo()
     {
-        // TODO: Implement exchangeInfo() method.
+        $data = [];
+        try {
+            $markets = Http::get('https://api-pub.bitfinex.com/v2/conf/pub:map:currency:pool,pub:map:currency:explorer,pub:map:currency:sym')->json();
+            if (!empty($markets[0]) && is_array($markets[0])) {
+                $data['status'] = 1;
+                $data['symbols'] = array_map(function ($item) {
+                    return [
+                        'symbol' => $item[0].$item[1],
+                        'baseAsset' => $item[0],
+                        'quoteAsset' => $item[1],
+                        'baseName' => $item[0],
+                        'quoteName' => $item[1],
+                        'orderTypes'=>[]
+                    ];
+                }, $markets[0]);
+            } else {
+                $data = [
+                    'status' => 0,
+                    'symbols' => [],
+                    'message' => __('The list of currency symbols is empty')
+                ];
+            }
+
+        } catch (\Exception $e) {
+            $data = [
+                'status' => 0,
+                'symbols' => [],
+                'message' => $e->getMessage()
+            ];
+        }
+
+        return response()->json($data);
     }
 
     public function createOrder(array $data)

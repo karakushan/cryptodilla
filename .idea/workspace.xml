@@ -19,29 +19,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="get account balance functionality">
-      <change afterPath="$PROJECT_DIR$/app/Broadcasting/ExchangeChannel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Console/Commands/TestChannelCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Events/ExchangeTickerEvent.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Services/Bittrex.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_07_03_230019_create_jobs_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/cryptotrade.loc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cryptotrade.loc.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5035001f-1a51-453c-b284-da206a5db2ea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5035001f-1a51-453c-b284-da206a5db2ea.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="include bittrex">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExchangeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExchangeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/UserExchange.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/UserExchange.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/Binance.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Binance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/ExchangeConnector.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/ExchangeConnector.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/OrderBookWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/OrderBookWidget.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/SelectPair.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/SelectPair.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/Trading.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/Trading.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/channels.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/channels.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Helpers/Translate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/Translate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Bitfinex.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Bitfinex.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Bittrex.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Bittrex.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Hitbtc.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Hitbtc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Kraken.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Kraken.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Poloniex.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Poloniex.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -443,14 +429,8 @@
       <workItem from="1625127391479" duration="10973000" />
       <workItem from="1625148041008" duration="4464000" />
       <workItem from="1625302646381" duration="18479000" />
-      <workItem from="1625346026445" duration="1473000" />
-    </task>
-    <task id="LOCAL-00014" summary="подключил вкладку &quot;мои биржи&quot;">
-      <created>1616884268194</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1616884268194</updated>
+      <workItem from="1625346026445" duration="1808000" />
+      <workItem from="1625387450396" duration="5297000" />
     </task>
     <task id="LOCAL-00015" summary="сделал старницу &quot;мои биржи&quot;">
       <created>1617301455232</created>
@@ -788,7 +768,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625151579548</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="include bittrex">
+      <created>1625347742214</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1625347742215</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -810,7 +797,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="лог активности пользователя" />
     <MESSAGE value="сделал возможность отключения 2fa" />
     <MESSAGE value="bot settings" />
     <MESSAGE value="widgets in admin" />
@@ -835,7 +821,8 @@
     <MESSAGE value="make service provider" />
     <MESSAGE value="included exchanges" />
     <MESSAGE value="get account balance functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="get account balance functionality" />
+    <MESSAGE value="include bittrex" />
+    <option name="LAST_COMMIT_MESSAGE" value="include bittrex" />
   </component>
   <component name="WindowStateProjectService">
     <state x="509" y="144" key="#Deployment" timestamp="1625062842073">
@@ -874,54 +861,54 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1623667443659" />
-    <state width="1877" height="206" key="GridCell.Tab.0.bottom" timestamp="1625345616837">
+    <state width="1877" height="289" key="GridCell.Tab.0.bottom" timestamp="1625392470035">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="206" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1625345616837" />
-    <state width="1877" height="206" key="GridCell.Tab.0.center" timestamp="1625345616837">
+    <state width="1877" height="289" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1625392470035" />
+    <state width="1877" height="289" key="GridCell.Tab.0.center" timestamp="1625392470035">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="206" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1625345616837" />
-    <state width="1877" height="206" key="GridCell.Tab.0.left" timestamp="1625345616837">
+    <state width="1877" height="289" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1625392470035" />
+    <state width="1877" height="289" key="GridCell.Tab.0.left" timestamp="1625392470035">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="206" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1625345616837" />
-    <state width="1877" height="206" key="GridCell.Tab.0.right" timestamp="1625345616837">
+    <state width="1877" height="289" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1625392470035" />
+    <state width="1877" height="289" key="GridCell.Tab.0.right" timestamp="1625392470035">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="206" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1625345616837" />
-    <state width="1877" height="206" key="GridCell.Tab.1.bottom" timestamp="1625345616837">
+    <state width="1877" height="289" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1625392470035" />
+    <state width="1877" height="289" key="GridCell.Tab.1.bottom" timestamp="1625392470035">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="206" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1625345616837" />
-    <state width="1877" height="206" key="GridCell.Tab.1.center" timestamp="1625345616837">
+    <state width="1877" height="289" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1625392470035" />
+    <state width="1877" height="289" key="GridCell.Tab.1.center" timestamp="1625392470035">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="206" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1625345616837" />
-    <state width="1877" height="206" key="GridCell.Tab.1.left" timestamp="1625345616837">
+    <state width="1877" height="289" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1625392470035" />
+    <state width="1877" height="289" key="GridCell.Tab.1.left" timestamp="1625392470035">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="206" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1625345616837" />
-    <state width="1877" height="206" key="GridCell.Tab.1.right" timestamp="1625345616837">
+    <state width="1877" height="289" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1625392470035" />
+    <state width="1877" height="289" key="GridCell.Tab.1.right" timestamp="1625392470035">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="206" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1625345616837" />
-    <state width="1877" height="206" key="GridCell.Tab.2.bottom" timestamp="1625345616838">
+    <state width="1877" height="289" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1625392470035" />
+    <state width="1877" height="289" key="GridCell.Tab.2.bottom" timestamp="1625392470036">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="206" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1625345616838" />
-    <state width="1877" height="206" key="GridCell.Tab.2.center" timestamp="1625345616838">
+    <state width="1877" height="289" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1625392470035" />
+    <state width="1877" height="289" key="GridCell.Tab.2.center" timestamp="1625392470035">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="206" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1625345616838" />
-    <state width="1877" height="206" key="GridCell.Tab.2.left" timestamp="1625345616837">
+    <state width="1877" height="289" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1625392470035" />
+    <state width="1877" height="289" key="GridCell.Tab.2.left" timestamp="1625392470035">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="206" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1625345616837" />
-    <state width="1877" height="206" key="GridCell.Tab.2.right" timestamp="1625345616838">
+    <state width="1877" height="289" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1625392470035" />
+    <state width="1877" height="289" key="GridCell.Tab.2.right" timestamp="1625392470035">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="206" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1625345616838" />
+    <state width="1877" height="289" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1625392470035" />
     <state width="217" height="457" key="HiddenNamespacesPopup" timestamp="1622047170813">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -938,10 +925,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1625304315226" />
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1625151581774">
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1625347802641">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1625151581774" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1625347802641" />
     <state x="859" y="394" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1616884798046">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

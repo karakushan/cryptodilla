@@ -15,9 +15,10 @@ class Kraken implements ExchangeInterface
     protected $id = 'kraken';
     protected $account_id = null;
 
-    public function __construct(UserExchange $account)
+    public function __construct( $account)
     {
-        $this->api = new Client((new\GuzzleHttp\Client()), $account->credentials['apiKey'], $account->credentials['apiSecret']);
+        $client=new\GuzzleHttp\Client();
+        $this->api = new Client($client, $account->credentials['apiKey'] ?? '', $account->credentials['apiSecret'] ?? '');
     }
 
     /**
@@ -29,14 +30,14 @@ class Kraken implements ExchangeInterface
         $account = [];
         try {
             $balance = $this->api->request('Balance', [], false);
-            $account['balances'] = array_map(function ($item,$key) {
+            $account['balances'] = array_map(function ($item, $key) {
                 return [
                     'asset' => $key,
                     'free' => $item,
                     'locked' => $item,
                 ];
 
-            }, $balance,array_keys($balance));
+            }, $balance, array_keys($balance));
         } catch (\Exception $e) {
             $account['balances'] = [];
         }
@@ -58,6 +59,8 @@ class Kraken implements ExchangeInterface
                         'symbol' => $item['altname'],
                         'baseAsset' => $item['base'],
                         'quoteAsset' => $item['quote'],
+                        'baseName' => $item['base'],
+                        'quoteName' => $item['quote'],
                         'orderTypes' => []
                     ];
                 }, $assets);

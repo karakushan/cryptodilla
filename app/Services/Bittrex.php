@@ -66,6 +66,7 @@ class Bittrex implements ExchangeInterface
                         'quoteAsset' => $item['MarketCurrency'],
                         'baseName' => $item['BaseCurrencyLong'],
                         'quoteName' => $item['MarketCurrencyLong'],
+                        'orderTypes'=>[]
                     ];
                 }, $markets['result']);
             }

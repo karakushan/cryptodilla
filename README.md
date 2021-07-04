@@ -13,18 +13,20 @@
 ### Backend 
 [Laravel 8+](https://laravel.com/docs/8.x/)
 
-### Frontend UI фреймворки
+### Frontend и UI фреймворки
 Фронтент простроен с помощью [Vue 2](https://ru.vuejs.org/v2/guide/)
 
-## Биржи и торговые площадки
-[Binance](https://binance-docs.github.io/apidocs/spot/en/#change-log)
-
-https://academy.binance.com/en/articles/binance-api-series-pt-1-spot-trading-with-postman
+## Используемые API
+[Binance](https://binance-docs.github.io/apidocs/spot/en/#change-log),
+[Kraken](https://docs.kraken.com/rest/#section/General-Usage),
+[Bittrex](https://bittrex.github.io/api/v3),
+[Poloniex](https://docs.poloniex.com/#introduction),
+[Bitfinex](https://docs.bitfinex.com/docs/introduction),
+[HitBTC](https://api.hitbtc.com/#about-api) 
   
-
 ## Безопасность
 
-### Права поользователей
+### Права пользователей
 
 Для назначения прав пользователям используется готовое решение [Laravel-permission](https://spatie.be/docs/laravel-permission/v4/introduction).
 
