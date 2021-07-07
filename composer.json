@@ -15,6 +15,7 @@
         "codenix-sv/bittrex-api": "^1.0",
         "cviebrock/eloquent-sluggable": "^8.0",
         "doctrine/dbal": "^3.1",
+        "dzarezenko/hitbtc-api": "dev-master",
         "dzarezenko/poloniex-api": "dev-master",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",

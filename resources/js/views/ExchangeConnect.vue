@@ -95,7 +95,8 @@ export default {
                 exchange_id: this.id,
                 credentials: {
                     apiKey: '',
-                    apiSecret: ''
+                    apiSecret: '',
+                    is_demo: false
                 }
 
             },
@@ -103,7 +104,7 @@ export default {
         }
     },
     name: "ExchangeConnect",
-    props: ['id','exchange'],
+    props: ['id', 'exchange'],
     computed: {
         ...mapGetters(['appData']),
 
@@ -124,7 +125,7 @@ export default {
                 })
                 .finally(() => {
                     this.process = false;
-                    this.$router.push('/select-exchange')
+                    this.$router.push('/')
                 });
         }
     },

@@ -3,23 +3,31 @@
 
 namespace App\Services;
 
-use Hitbtc\ProtectedClient;
-use Hitbtc\PublicClient;
 use Illuminate\Support\Facades\Http;
+use hitbtc\api\HitBTC as Hb;
+use Exception;
 
 class Hitbtc implements ExchangeInterface
 {
     protected $api;
     protected $public_client;
-    protected $use_testnet = false;
-    public $public_api_url = 'https://api.hitbtc.com/api/2/public';
+    protected $use_testnet = true;
+    protected $base_url_public;
+    protected $protected_api_url;
+    protected $api_key;
+    protected $api_secret;
 
     public function __construct($account)
     {
-        $api_key = $account->credentials['apiKey'] ?? '';
-        $api_secret = $account->credentials['apiSecret'] ?? '';
-        $this->api = new ProtectedClient($api_key, $api_secret, $this->use_testnet ? 'https://api.demo.hitbtc.com/api/2' : false);
-        $this->public_client = new PublicClient($this->use_testnet ? 'https://api.demo.hitbtc.com/api/2' : false);
+        $this->api_key = $account->credentials['apiKey'] ?? '';
+        $this->api_secret = $account->credentials['apiSecret'] ?? '';
+        $this->api = new Hb($this->api_key, $this->api_secret, 2, $this->use_testnet);
+        $this->base_url_public = $this->use_testnet ?
+            'https://api.demo.hitbtc.com/api/2/public'
+            : 'https://api.hitbtc.com/api/2/public';
+        $this->protected_api_url = $this->use_testnet ?
+            'https://api.demo.hitbtc.com/api/2'
+            : 'https://api.hitbtc.com/api/2';
     }
 
     /**
@@ -27,12 +35,12 @@ class Hitbtc implements ExchangeInterface
      */
     public function account()
     {
-        $balance = $this->api->getBalanceTrading();
-        $account['balances'] = $account['balances'] = collect(array_map(function ($item) {
+        $balance = $this->api->getBalances();
+        $account['balances'] = collect(array_map(function ($item) {
             return [
-                'asset' => $item->getCurrency(),
-                'free' => $item->getAvailable(),
-                'locked' => $item->getReserved(),
+                'asset' => $item['currency'],
+                'free' => $item['available'],
+                'locked' => $item['reserved'],
             ];
 
         }, $balance))->toArray();
@@ -47,7 +55,7 @@ class Hitbtc implements ExchangeInterface
     {
         $data = [];
         try {
-            $markets = Http::get($this->public_api_url . '/symbol')->json();
+            $markets = Http::get($this->base_url_public . '/symbol')->json();
             if (!empty($markets) && is_array($markets)) {
                 $data['status'] = 1;
                 $data['symbols'] = array_map(function ($item) {
@@ -57,7 +65,9 @@ class Hitbtc implements ExchangeInterface
                         'quoteAsset' => $item['quoteCurrency'],
                         'baseName' => $item['baseCurrency'],
                         'quoteName' => $item['quoteCurrency'],
-                        'orderTypes'=>[]
+                        'orderTypes' => [
+                            'limit', 'market', 'stopLimit', 'stopMarket'
+                        ]
                     ];
                 }, $markets);
             } else {
@@ -68,7 +78,7 @@ class Hitbtc implements ExchangeInterface
                 ];
             }
 
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $data = [
                 'status' => 0,
                 'symbols' => [],
@@ -81,7 +91,13 @@ class Hitbtc implements ExchangeInterface
 
     public function createOrder(array $data)
     {
-        // TODO: Implement createOrder() method.
+        $order = $this->api->addOrder($data['symbol'], $data['quantity'], $data['price'], [
+            'type' => $data['type'],
+            'side' => mb_strtolower($data['side']),
+            'stopPrice' => isset($data['stopPrice']) && (float)$data['stopPrice'] > 0 ? (float)$data['stopPrice'] : ''
+        ]);
+
+        return $order;
     }
 
     public function cancelOrder($order_id)
@@ -99,6 +115,13 @@ class Hitbtc implements ExchangeInterface
      */
     public function getAllOrders(string $symbol)
     {
-        // TODO: Implement getAllOrders() method.
+        $result = Http::withBasicAuth($this->api_key, $this->api_secret)
+            ->get($this->protected_api_url . '/history/order')->json();
+
+        return array_map(function ($item) {
+            $item['executedQty'] = $item['quantity'];
+            $item['time'] = $item['createdAt'];
+            return $item;
+        }, $result);
     }
 }

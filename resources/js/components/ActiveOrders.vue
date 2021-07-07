@@ -24,6 +24,7 @@
             <table class="cs--table">
                 <thead>
                 <tr>
+                    <th class="">{{ $__("Symbol") }}</th>
                     <th class="">{{ $__("Side") }}</th>
 
                     <th class="">{{ $__("Type") }}</th>
@@ -41,6 +42,7 @@
                 </thead>
                 <tbody>
                 <tr v-for="order in tabOrders">
+                    <td data-label="Symbol"><span>{{ order.symbol }}</span></td>
                     <td data-label="Side"
                         :class="{'cs--color-danger':order.side=='SELL','cs--color-success':order.side=='BUY'}"
                     ><span>{{ order.side }}</span></td>
@@ -89,13 +91,14 @@ export default {
     methods: {},
     computed: {
         tabOrders() {
+            let statuses = ['FILLED', 'filled'];
             if (this.tab == 'open') {
                 return this.orders.filter((item) => {
-                    return item.status !== 'FILLED'
+                    return statuses.indexOf(item.status) === -1
                 })
             }
             return this.orders.filter((item) => {
-                return item.status === 'FILLED'
+                return statuses.indexOf(item.status) !== -1
             });
         }
     },

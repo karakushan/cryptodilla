@@ -179,6 +179,7 @@
       <path value="$PROJECT_DIR$/vendor/hitbtc-com/hitbtc-php-sdk" />
       <path value="$PROJECT_DIR$/vendor/codenix-sv/bitfinex-api" />
       <path value="$PROJECT_DIR$/vendor/cboden/ratchet" />
+      <path value="$PROJECT_DIR$/vendor/dzarezenko/hitbtc-api" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />

@@ -54,7 +54,7 @@
                             </div>
                         </vue-custom-scrollbar>
                         <form>
-                            <div class="cs--dashboard-form__item" v-if="order.type!=='MARKET'">
+                            <div class="cs--dashboard-form__item" v-if="['MARKET','market','stopMarket'].indexOf(order.type)===-1">
                                 <label
                                     for="dashboard--price"
                                     class="cs--dashboard-form__label"
@@ -76,7 +76,7 @@
                                 </div>
                             </div>
 
-                            <div class="cs--dashboard-form__item" v-if="order.type==='STOP_LOSS_LIMIT'">
+                            <div class="cs--dashboard-form__item" v-if="['STOP_LOSS_LIMIT','stopLimit','stopMarket'].indexOf(order.type)!==-1">
                                 <label
                                     for="dashboard--stop-price"
                                     class="cs--dashboard-form__label"
@@ -231,7 +231,7 @@ export default {
         },
     },
     methods: {
-        ...mapActions(['setExchangeInfo', 'setAccount', 'setSymbol', 'setSymbolTick','']),
+        ...mapActions(['setExchangeInfo', 'setAccount', 'setSymbol', 'setSymbolTick', '']),
         setQty(qtyPercent) {
             let balance = Array.from(this.account.balances).filter((item) => {
                 return item.asset == this.symbol.baseAsset
@@ -339,6 +339,8 @@ export default {
                 .post('/terminal/exchange/create-order/' + this.exchange, {
                     ...this.order,
                     symbol: this.symbol.symbol,
+                    baseAsset: this.symbol.baseAsset,
+                    quoteAsset: this.symbol.quoteAsset,
                     account_id: this.activeExchangeAccount.id
 
                 })
