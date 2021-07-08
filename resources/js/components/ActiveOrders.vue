@@ -91,7 +91,7 @@ export default {
     methods: {},
     computed: {
         tabOrders() {
-            let statuses = ['FILLED', 'filled'];
+            let statuses = ['FILLED', 'filled','closed'];
             if (this.tab == 'open') {
                 return this.orders.filter((item) => {
                     return statuses.indexOf(item.status) === -1

@@ -6,6 +6,8 @@ namespace App\Services;
 use App\Models\Exchange;
 use App\Models\UserExchange;
 use Butschster\Kraken\Client;
+use Butschster\Kraken\Contracts\Order as OrderContract;
+use Butschster\Kraken\Order;
 
 
 class Kraken implements ExchangeInterface
@@ -15,9 +17,9 @@ class Kraken implements ExchangeInterface
     protected $id = 'kraken';
     protected $account_id = null;
 
-    public function __construct( $account)
+    public function __construct($account)
     {
-        $client=new\GuzzleHttp\Client();
+        $client = new\GuzzleHttp\Client();
         $this->api = new Client($client, $account->credentials['apiKey'] ?? '', $account->credentials['apiSecret'] ?? '');
     }
 
@@ -54,19 +56,31 @@ class Kraken implements ExchangeInterface
         try {
             $assets = $this->api->request('AssetPairs');
             if ($assets) {
-                $data['symbols'] = array_map(function ($item) {
-                    return [
+                $data['symbols'] =array_values(array_map(function ($item) {
+                    return array_merge($item, [
                         'symbol' => $item['altname'],
                         'baseAsset' => $item['base'],
                         'quoteAsset' => $item['quote'],
                         'baseName' => $item['base'],
                         'quoteName' => $item['quote'],
-                        'orderTypes' => []
-                    ];
-                }, $assets);
+                        'orderTypes' => [
+                            'market',
+                            'limit',
+                            'stop-loss',
+                            'take-profit',
+                            'stop-loss-profit',
+                            'stop-loss-profit-limit' .
+                            'stop-loss-limit',
+                            'take-profit-limit',
+                            'trailing-stop',
+                            'trailing-stop-limit',
+                            'stop-loss-and-limit',
+                            'settle-position'
+                        ]]);
+                }, $assets));
             }
         } catch (\Exception $e) {
-
+            $data = $e->getMessage();
         }
 
         return response()->json($data);
@@ -74,7 +88,18 @@ class Kraken implements ExchangeInterface
 
     public function createOrder(array $data)
     {
-        // TODO: Implement createOrder() method.
+        try {
+            $side = $data['side'] == 'BUY' ? OrderContract::TYPE_BUY : OrderContract::TYPE_SELL;
+
+            $order = new Order($data['symbol'], $side, $data['type'], (float)$data['quantity']);
+            $orderStatus = $this->api->addOrder($order);
+        } catch (\Exception $e) {
+            $orderStatus = $e->getMessage();
+        }
+
+
+        return $orderStatus;
+
     }
 
     public function cancelOrder($order_id)
@@ -92,6 +117,23 @@ class Kraken implements ExchangeInterface
      */
     public function getAllOrders(string $symbol)
     {
-        // TODO: Implement getAllOrders() method.
+        $response = $this->api->getClosedOrders()->toArray();
+        $orders = [];
+
+        if (!empty($response)) {
+            $orders = array_map(function ($item) {
+                return [
+                    'symbol'=>$item['descr']['pair'],
+                    'side'=>$item['descr']['type'],
+                    'type'=>$item['descr']['ordertype'],
+                    'executedQty'=>$item["vol"],
+                    'price'=>$item['descr']['price'],
+                    'time'=>$item["opentm"],
+                    'status'=>$item["status"]
+                ];
+            }, $response);
+        }
+
+        return response()->json(array_values($orders));
     }
 }
