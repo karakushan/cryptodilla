@@ -15,10 +15,10 @@ class Poloniex implements ExchangeInterface
     protected $id = 'poloniex';
     protected $account_id = null;
 
-    public function __construct($account= null)
+    public function __construct($account = null)
     {
 
-        $this->api = new Client($account->credentials['apiKey']??'', $account->credentials['apiSecret']??'');
+        $this->api = new Client($account->credentials['apiKey'] ?? '', $account->credentials['apiSecret'] ?? '');
     }
 
     /**
@@ -26,16 +26,16 @@ class Poloniex implements ExchangeInterface
      */
     public function account()
     {
-        $balance=$this->api->returnBalances();
-        if (is_array($balance)){
-            $account['balances'] = array_map(function ($item,$key) {
+        $balance = $this->api->returnBalances();
+        if (is_array($balance)) {
+            $account['balances'] = array_map(function ($item, $key) {
                 return [
                     'asset' => $key,
                     'free' => $item,
                     'locked' => $item,
                 ];
 
-            }, $balance,array_keys($balance));
+            }, $balance, array_keys($balance));
         }
 
         return response()->json($account);
@@ -46,21 +46,23 @@ class Poloniex implements ExchangeInterface
      */
     public function exchangeInfo()
     {
-        $data=[];
+        $data = [];
         try {
             $info = $this->api->returnTicker();
-            $data['symbols'] = array_map(function ($item,$key) {
-                $pair=explode('_',$key);
+            $data['symbols'] = array_map(function ($item, $key) {
+                $pair = explode('_', $key);
                 return [
-                    'symbol' => $pair[0].$pair[1],
+                    'symbol' => $pair[0] . $pair[1],
                     'baseAsset' => $pair[0],
-                    'quoteAsset' =>$pair[1],
+                    'quoteAsset' => $pair[1],
                     'baseName' => $pair[0],
                     'quoteName' => $pair[1],
-                    'orderTypes' => [],
+                    'orderTypes' => [
+                         'limit'
+                    ],
                     'key' => $key,
                 ];
-            }, $info,array_keys($info));
+            }, $info, array_keys($info));
 
         } catch (\Exception $e) {
             $data = $e->getMessage();
@@ -71,7 +73,19 @@ class Poloniex implements ExchangeInterface
 
     public function createOrder(array $data)
     {
-        // TODO: Implement createOrder() method.
+        try {
+            $symbol=$data['baseAsset'].'_'.$data['quoteAsset'];
+            if ($data['side'] == 'BUY') {
+                $order = $this->api->buy($symbol, (float)$data['price'], (float)$data['quantity']);
+            } else {
+                $order = $this->api->sell($data['symbol'], (float)$data['price'], (float)$data['quantity']);
+            }
+        } catch (\Exception $e) {
+            $order = $e->getMessage();
+        }
+
+
+        return response()->json($order);
     }
 
     public function cancelOrder($order_id)

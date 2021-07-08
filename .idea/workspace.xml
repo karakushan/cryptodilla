@@ -19,13 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="hit btc ордера">
+    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="создание ордера Kraken">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/Kraken.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Kraken.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/ActiveOrders.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ActiveOrders.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Poloniex.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Poloniex.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -433,14 +429,7 @@
       <workItem from="1625466316188" duration="11038000" />
       <workItem from="1625598406457" duration="8304000" />
       <workItem from="1625639375780" duration="7818000" />
-      <workItem from="1625692373344" duration="5253000" />
-    </task>
-    <task id="LOCAL-00017" summary="ws">
-      <created>1617351469119</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1617351469119</updated>
+      <workItem from="1625692373344" duration="11023000" />
     </task>
     <task id="LOCAL-00018" summary="pusher js chat">
       <created>1617531776222</created>
@@ -778,7 +767,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625646732100</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="создание ордера Kraken">
+      <created>1625734141390</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1625734141391</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -800,7 +796,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="widgets in admin" />
     <MESSAGE value="fix errors" />
     <MESSAGE value="создал сервис враппер для бирж" />
     <MESSAGE value="news translations" />
@@ -825,7 +820,8 @@
     <MESSAGE value="include bittrex" />
     <MESSAGE value="получения валютных пар по всем биржам" />
     <MESSAGE value="hit btc ордера" />
-    <option name="LAST_COMMIT_MESSAGE" value="hit btc ордера" />
+    <MESSAGE value="создание ордера Kraken" />
+    <option name="LAST_COMMIT_MESSAGE" value="создание ордера Kraken" />
   </component>
   <component name="WindowStateProjectService">
     <state x="509" y="144" key="#Deployment" timestamp="1625062842073">
@@ -864,54 +860,54 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1623667443659" />
-    <state width="1877" height="388" key="GridCell.Tab.0.bottom" timestamp="1625733269795">
+    <state width="1877" height="193" key="GridCell.Tab.0.bottom" timestamp="1625751288760">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="388" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1625733269795" />
-    <state width="1877" height="388" key="GridCell.Tab.0.center" timestamp="1625733269794">
+    <state width="1877" height="193" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1625751288760" />
+    <state width="1877" height="193" key="GridCell.Tab.0.center" timestamp="1625751288760">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="388" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1625733269794" />
-    <state width="1877" height="388" key="GridCell.Tab.0.left" timestamp="1625733269794">
+    <state width="1877" height="193" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1625751288760" />
+    <state width="1877" height="193" key="GridCell.Tab.0.left" timestamp="1625751288760">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="388" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1625733269794" />
-    <state width="1877" height="388" key="GridCell.Tab.0.right" timestamp="1625733269795">
+    <state width="1877" height="193" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1625751288760" />
+    <state width="1877" height="193" key="GridCell.Tab.0.right" timestamp="1625751288760">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="388" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1625733269795" />
-    <state width="1877" height="388" key="GridCell.Tab.1.bottom" timestamp="1625733269795">
+    <state width="1877" height="193" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1625751288760" />
+    <state width="1877" height="193" key="GridCell.Tab.1.bottom" timestamp="1625751288762">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="388" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1625733269795" />
-    <state width="1877" height="388" key="GridCell.Tab.1.center" timestamp="1625733269795">
+    <state width="1877" height="193" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1625751288762" />
+    <state width="1877" height="193" key="GridCell.Tab.1.center" timestamp="1625751288761">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="388" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1625733269795" />
-    <state width="1877" height="388" key="GridCell.Tab.1.left" timestamp="1625733269795">
+    <state width="1877" height="193" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1625751288761" />
+    <state width="1877" height="193" key="GridCell.Tab.1.left" timestamp="1625751288761">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="388" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1625733269795" />
-    <state width="1877" height="388" key="GridCell.Tab.1.right" timestamp="1625733269795">
+    <state width="1877" height="193" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1625751288761" />
+    <state width="1877" height="193" key="GridCell.Tab.1.right" timestamp="1625751288761">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="388" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1625733269795" />
-    <state width="1877" height="388" key="GridCell.Tab.2.bottom" timestamp="1625733269795">
+    <state width="1877" height="193" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1625751288761" />
+    <state width="1877" height="193" key="GridCell.Tab.2.bottom" timestamp="1625751288762">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="388" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1625733269795" />
-    <state width="1877" height="388" key="GridCell.Tab.2.center" timestamp="1625733269795">
+    <state width="1877" height="193" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1625751288762" />
+    <state width="1877" height="193" key="GridCell.Tab.2.center" timestamp="1625751288762">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="388" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1625733269795" />
-    <state width="1877" height="388" key="GridCell.Tab.2.left" timestamp="1625733269795">
+    <state width="1877" height="193" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1625751288762" />
+    <state width="1877" height="193" key="GridCell.Tab.2.left" timestamp="1625751288762">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="388" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1625733269795" />
-    <state width="1877" height="388" key="GridCell.Tab.2.right" timestamp="1625733269795">
+    <state width="1877" height="193" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1625751288762" />
+    <state width="1877" height="193" key="GridCell.Tab.2.right" timestamp="1625751288762">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="388" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1625733269795" />
+    <state width="1877" height="193" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1625751288762" />
     <state width="217" height="457" key="HiddenNamespacesPopup" timestamp="1622047170813">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -928,10 +924,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1625304315226" />
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1625646733946">
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1625734142998">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1625646733946" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1625734142998" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1625644282909">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -977,9 +973,14 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/app/Services/Kraken.php</url>
-          <line>100</line>
-          <option name="timeStamp" value="2" />
+          <url>file://$PROJECT_DIR$/app/Services/Poloniex.php</url>
+          <line>87</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Services/Poloniex.php</url>
+          <line>20</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
