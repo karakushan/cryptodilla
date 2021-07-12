@@ -11,7 +11,7 @@ class Hitbtc implements ExchangeInterface
 {
     protected $api;
     protected $public_client;
-    protected $use_testnet = true;
+    protected $use_testnet = false;
     protected $base_url_public;
     protected $protected_api_url;
     protected $api_key;
@@ -35,15 +35,21 @@ class Hitbtc implements ExchangeInterface
      */
     public function account()
     {
-        $balance = $this->api->getBalances();
-        $account['balances'] = collect(array_map(function ($item) {
-            return [
-                'asset' => $item['currency'],
-                'free' => $item['available'],
-                'locked' => $item['reserved'],
-            ];
+        try {
+            $balance = $this->api->getBalances();
+            $account['balances'] = collect(array_map(function ($item) {
+                return [
+                    'asset' => $item['currency'],
+                    'free' => $item['available'],
+                    'locked' => $item['reserved'],
+                ];
 
-        }, $balance))->toArray();
+            }, $balance))->toArray();
+
+        } catch (\Exception $e) {
+            $account = $e->getMessage();
+        }
+
 
         return response()->json($account);
     }

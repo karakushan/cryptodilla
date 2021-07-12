@@ -19,18 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="poloniex test">
+    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="починил откр. ордера bittrex">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExchangeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExchangeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/Binance.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Binance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/Bittrex.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Bittrex.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/ActiveOrders.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ActiveOrders.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/SelectExchangeWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/SelectExchangeWidget.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/SelectPair.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/SelectPair.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/Trading.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/Trading.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Hitbtc.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Hitbtc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Poloniex.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Poloniex.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -445,14 +437,7 @@
       <workItem from="1625639375780" duration="7818000" />
       <workItem from="1625692373344" duration="11104000" />
       <workItem from="1625757018140" duration="111000" />
-      <workItem from="1626033076241" duration="22989000" />
-    </task>
-    <task id="LOCAL-00019" summary="fix chat">
-      <created>1617532809774</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1617532809774</updated>
+      <workItem from="1626033076241" duration="24737000" />
     </task>
     <task id="LOCAL-00020" summary="подключил вкладку  - история торгов">
       <created>1619103266726</created>
@@ -790,7 +775,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625752044496</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="починил откр. ордера bittrex">
+      <created>1626109673610</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1626109673610</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -812,7 +804,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="создал сервис враппер для бирж" />
     <MESSAGE value="news translations" />
     <MESSAGE value="переключение языков в админке" />
     <MESSAGE value="починил dropdown" />
@@ -837,7 +828,8 @@
     <MESSAGE value="hit btc ордера" />
     <MESSAGE value="создание ордера Kraken" />
     <MESSAGE value="poloniex test" />
-    <option name="LAST_COMMIT_MESSAGE" value="poloniex test" />
+    <MESSAGE value="починил откр. ордера bittrex" />
+    <option name="LAST_COMMIT_MESSAGE" value="починил откр. ордера bittrex" />
   </component>
   <component name="WindowStateProjectService">
     <state x="509" y="144" key="#Deployment" timestamp="1625062842073">
@@ -876,54 +868,54 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1623667443659" />
-    <state width="1877" height="196" key="GridCell.Tab.0.bottom" timestamp="1626106599827">
+    <state width="1877" height="258" key="GridCell.Tab.0.bottom" timestamp="1626111163258">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="196" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1626106599827" />
-    <state width="1877" height="196" key="GridCell.Tab.0.center" timestamp="1626106599827">
+    <state width="1877" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1626111163258" />
+    <state width="1877" height="258" key="GridCell.Tab.0.center" timestamp="1626111163257">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="196" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1626106599827" />
-    <state width="1877" height="196" key="GridCell.Tab.0.left" timestamp="1626106599827">
+    <state width="1877" height="258" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1626111163257" />
+    <state width="1877" height="258" key="GridCell.Tab.0.left" timestamp="1626111163253">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="196" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1626106599827" />
-    <state width="1877" height="196" key="GridCell.Tab.0.right" timestamp="1626106599827">
+    <state width="1877" height="258" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1626111163253" />
+    <state width="1877" height="258" key="GridCell.Tab.0.right" timestamp="1626111163258">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="196" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1626106599827" />
-    <state width="1877" height="154" key="GridCell.Tab.1.bottom" timestamp="1626106575241">
+    <state width="1877" height="258" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1626111163258" />
+    <state width="1877" height="154" key="GridCell.Tab.1.bottom" timestamp="1626111163213">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="154" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1626106575241" />
-    <state width="1877" height="154" key="GridCell.Tab.1.center" timestamp="1626106575241">
+    <state width="1877" height="154" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1626111163213" />
+    <state width="1877" height="154" key="GridCell.Tab.1.center" timestamp="1626111163213">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="154" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1626106575241" />
-    <state width="1877" height="154" key="GridCell.Tab.1.left" timestamp="1626106575241">
+    <state width="1877" height="154" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1626111163213" />
+    <state width="1877" height="154" key="GridCell.Tab.1.left" timestamp="1626111163213">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="154" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1626106575241" />
-    <state width="1877" height="154" key="GridCell.Tab.1.right" timestamp="1626106575241">
+    <state width="1877" height="154" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1626111163213" />
+    <state width="1877" height="154" key="GridCell.Tab.1.right" timestamp="1626111163213">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="154" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1626106575241" />
-    <state width="1877" height="154" key="GridCell.Tab.2.bottom" timestamp="1626106575242">
+    <state width="1877" height="154" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1626111163213" />
+    <state width="1877" height="154" key="GridCell.Tab.2.bottom" timestamp="1626111163214">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="154" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1626106575242" />
-    <state width="1877" height="154" key="GridCell.Tab.2.center" timestamp="1626106575242">
+    <state width="1877" height="154" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1626111163214" />
+    <state width="1877" height="154" key="GridCell.Tab.2.center" timestamp="1626111163213">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="154" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1626106575242" />
-    <state width="1877" height="154" key="GridCell.Tab.2.left" timestamp="1626106575241">
+    <state width="1877" height="154" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1626111163213" />
+    <state width="1877" height="154" key="GridCell.Tab.2.left" timestamp="1626111163213">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="154" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1626106575241" />
-    <state width="1877" height="154" key="GridCell.Tab.2.right" timestamp="1626106575242">
+    <state width="1877" height="154" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1626111163213" />
+    <state width="1877" height="154" key="GridCell.Tab.2.right" timestamp="1626111163213">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="154" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1626106575242" />
+    <state width="1877" height="154" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1626111163213" />
     <state width="217" height="457" key="HiddenNamespacesPopup" timestamp="1622047170813">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -940,10 +932,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1625304315226" />
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1625752046440">
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1626109675086">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1625752046440" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1626109675086" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1625644282909">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

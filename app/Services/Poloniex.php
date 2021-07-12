@@ -11,7 +11,7 @@ use poloniex\api\Poloniex as Client;
 class Poloniex implements ExchangeInterface
 {
     protected $api;
-    protected $use_testnet = true;
+    protected $use_testnet = false;
     protected $id = 'poloniex';
     protected $account_id = null;
 
