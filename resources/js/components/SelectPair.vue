@@ -4,7 +4,7 @@
             <details
                 data-dropdown
                 class="cs--interface__dropdown cs--dashboard-form__input-wrapper cs--dashboard-form__input--arrow"
-                :open="dropdownOpen"
+                ref="detail"
             >
                 <summary
                     class="cs--interface__dropdown-btn cs--dashboard-form__input"
@@ -123,12 +123,14 @@
                     <div class="cs--table-wrapper">
                         <table class="cs--table cs--table--bordered">
                             <tbody>
-                            <tr v-for="pair in filteredCurrencies" @click.prevent="setSymbol(pair)">
+                            <tr v-for="pair in filteredCurrencies" @click.prevent="setActiveSymbol(pair)">
                                 <td data-label="Name" class="no-wrap">
                                     <div class="cs--table__card">
                                         <img :src="getSymbolMeta(pair, 'logo_url')" alt=""/>
                                         <div class="cs--table__card-content">
-                                            <span class="cs--table__card-title">{{pair.baseAsset }} - {{ pair.quoteAsset }}</span>
+                                            <span class="cs--table__card-title">{{
+                                                    pair.baseAsset
+                                                }} - {{ pair.quoteAsset }}</span>
                                             <span class="cs--table__card-abbr">{{ pair.baseName }}</span>
                                         </div>
                                     </div>
@@ -137,7 +139,7 @@
                                 <td data-label="Circulating Supply" class="no-wrap">
                                     <div class="cs--table__card-content">
                                 <span class="cs--table__card-title"
-                                >670.05K EUR</span
+                                >{{ pair.volume_1day }}</span
                                 >
                                         <span class="cs--table__card-abbr"
                                         >24h volume</span
@@ -148,10 +150,10 @@
                                 <td data-label="24h Volume" class="no-wrap">
                                     <div class="cs--table__card-content">
                                 <span class="cs--table__card-title"
-                                >30,045.56 EUR</span
+                                >{{ pair.price }} {{ pair.quoteAsset }}</span
                                 >
                                         <span class="cs--table__card-abbr"
-                                        >30,054.567 EUR</span
+                                        >Price</span
                                         >
                                     </div>
                                 </td>
@@ -286,7 +288,10 @@ export default {
     },
     methods: {
         ...mapActions(['setSymbol']),
-
+        setActiveSymbol(symbol) {
+            this.setSymbol(symbol)
+            this.$refs.detail.removeAttribute('open')
+        },
         getSymbolMeta(symbol, meta) {
             if (!this.appData) return null
 

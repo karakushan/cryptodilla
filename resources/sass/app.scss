@@ -8,3 +8,21 @@
 .mb-2{
     margin-bottom: 2rem;
 }
+
+.cs--btn-sm{
+    padding: 6px 16px;
+    font-size: 11px;
+    white-space: nowrap;
+    border-radius: 3px;
+    color: var(--color-white);
+    font-weight: 700;
+    border: none;
+
+    &.btn-success{
+        background-color: var(--color-green-30);
+    }
+
+    &.btn-warning{
+        background-color: var(--color-red);
+    }
+}

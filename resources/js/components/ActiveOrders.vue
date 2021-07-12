@@ -15,7 +15,7 @@
                     type="button"
                     :class="{'cs--btn':true, 'cs--btn--tab':true,'cs--btn--tab--active':tab=='filled'}"
                 >
-                    {{ $__("Filled") }}
+                    {{ $__("Filled") }}/{{ $__("Closed") }}
                 </button>
             </div>
         </div>
@@ -66,6 +66,13 @@
                     <td data-label="Status" class="cs--color-success">
                         <span>{{ order.status }}</span>
                     </td>
+                    <td data-label="Action">
+                        <button type="button" class="cs--btn-sm btn-warning" @click.prevent="closeOrder(order.id)"
+                                v-if="['open','OPEN'].indexOf(order.status)!==-1">{{
+                                $__("Close")
+                            }}
+                        </button>
+                    </td>
                 </tr>
 
                 </tbody>
@@ -75,6 +82,8 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
+
 export default {
     name: "ActiveOrders",
     data: () => ({
@@ -88,10 +97,31 @@ export default {
             }
         },
     },
-    methods: {},
+    methods: {
+        closeOrder(order_id) {
+            axios
+                .post('/terminal/exchange/cancel-order/bittrex', {
+                    order_id: order_id,
+                    account_id: this.activeExchangeAccount.id
+                })
+                .then(response => {
+                    if (response.status == 200 && response.data) {
+                        this.$emit('order_closed')
+                    }
+                })
+                .catch(error => {
+                    // console.log(error.response);
+                    console.log(error.response.data);
+                })
+                .finally(() => {
+                    // Will be executed upon completion catch & then
+                });
+        }
+    },
     computed: {
+        ...mapGetters(['activeExchangeAccount']),
         tabOrders() {
-            let statuses = ['FILLED', 'filled','closed'];
+            let statuses = ['FILLED', 'filled', 'closed', 'CLOSED'];
             if (this.tab == 'open') {
                 return this.orders.filter((item) => {
                     return statuses.indexOf(item.status) === -1

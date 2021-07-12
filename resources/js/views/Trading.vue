@@ -10,7 +10,7 @@
 
                 <OrdersHistoryWidget :pair="symbol.symbol" :quote-asset="symbol.quoteAsset" v-if="symbol"/>
 
-                <ActiveOrders :orders="orders"/>
+                <ActiveOrders v-on:order_closed="getOrders();getAccount()" :orders="orders"/>
 
 
                 <section class="cs--interface__block cs--interface__block--balance">
@@ -54,7 +54,8 @@
                             </div>
                         </vue-custom-scrollbar>
                         <form>
-                            <div class="cs--dashboard-form__item" v-if="['MARKET','market','stopMarket'].indexOf(order.type)===-1">
+                            <div class="cs--dashboard-form__item"
+                                 v-if="['MARKET','market','stopMarket'].indexOf(order.type)===-1">
                                 <label
                                     for="dashboard--price"
                                     class="cs--dashboard-form__label"
@@ -76,7 +77,8 @@
                                 </div>
                             </div>
 
-                            <div class="cs--dashboard-form__item" v-if="['STOP_LOSS_LIMIT','stopLimit','stopMarket'].indexOf(order.type)!==-1">
+                            <div class="cs--dashboard-form__item"
+                                 v-if="['STOP_LOSS_LIMIT','stopLimit','stopMarket'].indexOf(order.type)!==-1">
                                 <label
                                     for="dashboard--stop-price"
                                     class="cs--dashboard-form__label"
@@ -389,7 +391,15 @@ export default {
                     if (response.status == 200 && response.data) {
                         this.setExchangeInfo(response.data)
                         if (Object.keys(response.data.symbols).length) {
-                            this.setSymbol(response.data.symbols[Object.keys(response.data.symbols)[0]])
+                            let filtered = response.data.symbols.filter((item) => {
+                                return item.symbol == 'BTCUSDT'
+                            })
+
+                            if(filtered.length){
+                                this.setSymbol(filtered[0])
+                            }else{
+                                this.setSymbol(response.data.symbols[Object.keys(response.data.symbols)[0]])
+                            }
                         }
 
                     }

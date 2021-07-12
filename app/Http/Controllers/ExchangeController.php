@@ -9,10 +9,13 @@ use App\Models\Exchange;
 use App\Models\UserExchange;
 use Illuminate\Http\Request;
 use App\Services\ExchangeConnector;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Cache;
 
 
 class ExchangeController extends Controller
 {
+    const DAY_IN_SECONDS = 86400;
 
     /**
      * Display a listing of the resource.
@@ -126,7 +129,33 @@ class ExchangeController extends Controller
      */
     public function getExchangeInfo($slug, ExchangeConnector $connector)
     {
-        return $connector->connect($slug)->exchangeInfo();
+        $info = [];
+        $symbols = Cache::remember('exchange_info_symbols_' . $slug, self::DAY_IN_SECONDS, function () use ($slug) {
+            $result = Http::withHeaders([
+                'X-CoinAPI-Key' => env('COINAPI_KEY', "1CE51657-79CA-47DB-A6F3-D8CA15550B08")
+            ])->get('https://rest.coinapi.io/v1/symbols/' . mb_strtoupper($slug));
+
+            return $result->json();
+        });
+
+        $info['symbols'] = array_map(function ($item) {
+            return array_merge(
+                $item,
+                [
+                    'symbol' => $item['asset_id_base'] . $item['asset_id_quote'],
+                    'symbolExchange' => $item['symbol_id_exchange'],
+                    'baseAsset' => $item['asset_id_base'],
+                    'quoteAsset' => $item['asset_id_quote'],
+                    'baseName' => $item['asset_id_base'],
+                    'quoteName' => $item['asset_id_quote'],
+                    'orderTypes' => [
+                        'limit', 'market', 'stopLimit', 'stopMarket'
+                    ]
+                ]
+            );
+        }, $symbols);
+
+        return $info;
     }
 
 
@@ -232,13 +261,23 @@ class ExchangeController extends Controller
         return response()->json($exchanges);
     }
 
-    public function cancelOrder($slug, Request $request)
+    /**
+     * Отменяет ордер
+     *
+     * @param $slug
+     * @param Request $request
+     * @param ExchangeConnector $connector
+     * @return mixed
+     */
+    public function cancelOrder($slug, Request $request, ExchangeConnector $connector)
     {
-        return $this->{$slug . 'CancelOrder'}($request->all());
+        $account = UserExchange::findOrFail((int)$request->input('account_id'));
+        return $connector->connect($slug,$account)->cancelOrder($request->input('order_id'));
     }
 
 
-    public function ticker($slug,ExchangeConnector $connector){
+    public function ticker($slug, ExchangeConnector $connector)
+    {
         return $connector->connect($slug)->ticker();
     }
 
@@ -262,27 +301,11 @@ class ExchangeController extends Controller
     public function marketOverview(Request $request)
     {
 
-//        $metadata = \Cache::remember('coin_market_cryptocurrency_info', 86400, function () {
-//            $response = \Http::withHeaders([
-//                'Accepts' => 'application/json',
-//                'X-CMC_PRO_API_KEY' => env('COINMARKET_API_KEY')
-//            ])->get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/info',['id'=>'']);
-//
-//            return $response->json();
-//        });
-
-//        $response = \Http::withHeaders([
-//            'Accepts' => 'application/json',
-//            'X-CMC_PRO_API_KEY' => env('COINMARKET_API_KEY')
-//        ])->get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/info',['id'=>'']);
-//
-//        $metadata = $response->json();
-
-
-        $response = \Http::withHeaders([
+        $headers = [
             'Accepts' => 'application/json',
-            'X-CMC_PRO_API_KEY' => env('COINMARKET_API_KEY')
-        ])
+            'X-CMC_PRO_API_KEY' => env('COINMARKET_API_KEY', 'f4be32d2-af27-4c62-8bc5-0c6a51154d7e')
+        ];
+        $response = \Http::withHeaders($headers)
             ->get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest');
         $currencies = $response->json();
 

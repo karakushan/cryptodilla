@@ -12,6 +12,7 @@ class Bittrex implements ExchangeInterface
     protected $api;
     protected $api_key;
     protected $api_secret;
+    const BASE_URL = 'https://api.bittrex.com/v3';
 
     public function __construct($account)
     {
@@ -94,23 +95,20 @@ class Bittrex implements ExchangeInterface
         return (int)((int)$sec * 1000 + ((float)$usec * 1000));
     }
 
-    public function createOrder(array $data)
+    /**
+     * Отправляет запрос на получение выполнгение секретных данных
+     *
+     * @param string $url
+     * @param array $request_data
+     * @param string $method
+     * @return \GuzzleHttp\Promise\PromiseInterface|\Illuminate\Http\Client\Response
+     */
+    protected function send(string $url, array $request_data = [], $method = 'POST')
     {
         $timestamp = $timestamp = time() * 1000;
-        $request_data = [
-            "marketSymbol" => $data['quoteAsset'] . '-' . $data['baseAsset'],
-            "direction" => $data['side'],
-            "type" => $data['type'],
-            "quantity" => (float)$data['quantity'],
-            'timeInForce' => $data['type'] == 'MARKET' ? 'FILL_OR_KILL' : 'GOOD_TIL_CANCELLED'
-        ];
-        if ($data['type'] != 'MARKET') {
-            $request_data["limit"] = (float)$data['price'];
-        }
 
-        $contentHash = hash('sha512', json_encode($request_data));
-        $url = 'https://api.bittrex.com/v3/orders';
-        $method = 'POST';
+        $contentHash = hash('sha512', !empty($request_data) ? json_encode($request_data) : '');
+        $url = self::BASE_URL . $url;
         $preSignature = ($timestamp . $url . $method . $contentHash);
         $signature = hash_hmac('sha512', $preSignature, $this->api_secret);
         $headers = array(
@@ -120,11 +118,62 @@ class Bittrex implements ExchangeInterface
             'Api-Signature' => $signature,
             'Content-Type' => "application/json"
         );
-        $response = Http::withHeaders($headers)->post($url, $request_data);
+
+        $request = Http::withHeaders($headers);
+
+        switch ($method) {
+
+            case 'GET':
+                $response = $request->get($url, $request_data);
+                break;
+            case 'POST':
+                $response = $request->post($url, $request_data);
+                break;
+            case 'DELETE':
+                $response = $request->delete($url, $request_data);
+                break;
+            case 'PUT':
+                $response = $request->put($url, $request_data);
+                break;
+
+            default :
+                $response = null;
+                break;
+
+        }
+        return $response;
+    }
+
+    /**
+     * Создает заказ
+     *
+     * @param array $data
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
+    public function createOrder(array $data)
+    {
+
+        $request_data = [
+            "marketSymbol" => $data['baseAsset'] . '-' . $data['quoteAsset'],
+            "direction" => $data['side'],
+            "type" => $data['type'],
+            "quantity" => (float)$data['quantity'],
+            'timeInForce' => $data['type'] == 'MARKET' ? 'FILL_OR_KILL' : 'GOOD_TIL_CANCELLED'
+        ];
+        if ($data['type'] != 'MARKET') {
+            $request_data["limit"] = (float)$data['price'];
+        }
+
+        $response = $this->send('/orders', $request_data);
+
         $status_code = $response->status();
         $response_body = $response->json();
 
-        if ($status_code != 200) {
+        if ($response->successful()) {
+            $message = __('Order successfully opened!');
+            $order = $response_body;
+            $status_code = 200;
+        } else {
             if (isset($response_body['data'])) {
                 $response_body['data'] = array_map(function ($item) {
                     return $item[0];
@@ -145,7 +194,11 @@ class Bittrex implements ExchangeInterface
 
     public function cancelOrder($order_id)
     {
-        // TODO: Implement cancelOrder() method.
+        $response = $this->send('/orders/' . $order_id, [], 'DELETE');
+
+        $response->throw();
+
+        return $response->json();
     }
 
     public function cancelAllOrders()
@@ -158,6 +211,21 @@ class Bittrex implements ExchangeInterface
      */
     public function getAllOrders(string $symbol)
     {
-        // TODO: Implement getAllOrders() method.
+        $orders_open = (array)$this->send('/orders/closed', [], 'GET')->json();
+        $orders_closed = (array)$this->send('/orders/open', [], 'GET')->json();
+        $orders = array_merge($orders_open, $orders_closed);
+
+        if (!empty($orders) && is_array($orders)) {
+            $orders = array_map(function ($item) {
+                $item['symbol'] = $item['marketSymbol'];
+                $item['side'] = $item['direction'];
+                $item['executedQty'] = $item['quantity'];
+                $item['time'] = $item['createdAt'];
+                $item['price'] = $item['limit'];
+                return $item;
+            }, $orders);
+        }
+
+        return $orders;
     }
 }

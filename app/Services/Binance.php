@@ -7,6 +7,7 @@ use App\Events\ExchangeTickerEvent;
 use App\Models\Exchange;
 use App\Models\UserExchange;
 use Binance\API;
+use Illuminate\Support\Facades\Http;
 
 class Binance implements ExchangeInterface
 {
@@ -41,6 +42,10 @@ class Binance implements ExchangeInterface
 
     public function exchangeInfo()
     {
+        $symbols=Http::withHeaders([
+            'X-CoinAPI-Key'=>'1CE51657-79CA-47DB-A6F3-D8CA15550B08'
+        ])->get('https://rest.coinapi.io/v1/assets')->json();
+
         $info = $this->api->exchangeInfo();
         $info['symbols'] = array_values($info['symbols']);
 
