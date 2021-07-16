@@ -45,7 +45,7 @@ class Kraken implements ExchangeInterface
             $account['balances'] = [];
         }
 
-        return response()->json($account);
+        return response()->json(compact('account'));
     }
 
     /**
@@ -113,7 +113,7 @@ class Kraken implements ExchangeInterface
 
     }
 
-    public function cancelOrder($order_id)
+    public function cancelOrder($order_id, $symbol = '')
     {
         // TODO: Implement cancelOrder() method.
     }

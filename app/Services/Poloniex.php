@@ -39,7 +39,7 @@ class Poloniex implements ExchangeInterface
             }, $balance, array_keys($balance));
         }
 
-        return response()->json($account);
+        return response()->json(compact('account'));
     }
 
     /**
@@ -110,7 +110,7 @@ class Poloniex implements ExchangeInterface
         return response()->json(compact('order', 'message'), $status);
     }
 
-    public function cancelOrder($order_id)
+    public function cancelOrder($order_id, $symbol = '')
     {
         // TODO: Implement cancelOrder() method.
     }

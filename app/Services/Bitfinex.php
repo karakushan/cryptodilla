@@ -40,7 +40,7 @@ class Bitfinex implements ExchangeInterface
             $account['balances'] = [];
         }
 
-        return response()->json($account);
+        return response()->json(compact('account'));
     }
 
     /**
@@ -103,7 +103,7 @@ class Bitfinex implements ExchangeInterface
         return response()->json(compact('order','message'),$code);
     }
 
-    public function cancelOrder($order_id)
+    public function cancelOrder($order_id, $symbol = '')
     {
         // TODO: Implement cancelOrder() method.
     }

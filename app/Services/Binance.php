@@ -19,21 +19,26 @@ class Binance implements ExchangeInterface
 
     public function __construct($account)
     {
-        $api_key = $account && !empty($account->credentials['apiKey']) && !$this->use_testnet
-            ? $account->credentials['apiKey'] : env('MIX_BINANCE_API_KEY');
-        $api_secret = $account && !empty($account->credentials['apiSecret']) && !$this->use_testnet
-            ? $account->credentials['apiSecret'] : env('MIX_BINANCE_API_SECRET');
-
         $this->api = new API(
-            $api_key,
-            $api_secret,
+            $account->credentials['apiKey'] ?? '',
+            $account->credentials['apiSecret'] ?? '',
             $this->use_testnet
         );
     }
 
     public function account()
     {
-        return response()->json($this->api->account());
+        try {
+            $account = $this->api->account();
+            $code = 200;
+            $message = '';
+        } catch (\Exception $e) {
+            $account = null;
+            $message = $e->getMessage();
+            $code = 419;
+
+        }
+        return response()->json(compact('account', 'message'), $code);
     }
 
     public function connector(string $apiKey, string $apiSecret, $demo = false, $data = [])
@@ -45,7 +50,7 @@ class Binance implements ExchangeInterface
     {
         $info = $this->api->exchangeInfo();
         $info['symbols'] = array_map(function ($item) {
-            $currency = Currency::where('slug',mb_strtolower($item['baseAsset']))->first();
+            $currency = Currency::where('slug', mb_strtolower($item['baseAsset']))->first();
             if ($currency && isset($currency->logo_url)) {
                 $item['logo_url'] = $currency->logo_url;
             }
@@ -105,9 +110,10 @@ class Binance implements ExchangeInterface
         }
     }
 
-    public function cancelOrder($order_id)
+    public function cancelOrder($order_id, $symbol = '')
     {
-        // TODO: Implement cancelOrder() method.
+        $response = $this->api->cancel($symbol, $order_id);
+        return $response;
     }
 
     public function cancelAllOrders()
@@ -117,6 +123,13 @@ class Binance implements ExchangeInterface
 
     public function getAllOrders($symbol)
     {
-        return response()->json($this->api->orders($symbol));
+        $orders = $this->api->orders($symbol);
+        $orders = array_map(function ($item) {
+            $item['id'] = $item['clientOrderId'];
+
+            return $item;
+        }, $orders);
+
+        return response()->json($orders);
     }
 }

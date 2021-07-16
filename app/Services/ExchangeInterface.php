@@ -18,7 +18,7 @@ interface ExchangeInterface
 
     public function createOrder(array $data);
 
-    public function cancelOrder($order_id);
+    public function cancelOrder($order_id, $symbol = '');
 
     public function cancelAllOrders();
 

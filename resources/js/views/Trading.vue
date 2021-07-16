@@ -225,6 +225,7 @@ export default {
             if (newValue) {
                 this.wsSymbolTick.close()
                 this.symbolTickerStream()
+                this.getOrders()
             }
         },
         'symbol.orderTypes': function (newValue) {
@@ -296,10 +297,7 @@ export default {
                 })
                 .then(response => {
                     if (response.status == 200 && response.data) {
-                        this.orders = response.data.filter((item) => {
-                            return item.status !== 'NEW'
-                        })
-                            .sort((a, b) => {
+                        this.orders = response.data.sort((a, b) => {
                                 if (a.time > b.time) return -1
                                 if (a.time < b.time) return 1
                                 return 0
@@ -415,12 +413,18 @@ export default {
                 .get('/terminal/exchange/account/' + this.activeExchangeAccount.id)
                 .then(response => {
                     if (response.status == 200 && response.data) {
-                        this.setAccount(response.data)
+                        this.setAccount(response.data.account)
                     }
                 })
                 .catch(error => {
                     // console.log(error.response);
-                    console.log(error.response.data);
+                    // console.log(error.response.data);
+                    this.$notify.error({
+                        position: 'top right',
+                        title: this.$__('Ошибка'),
+                        msg: error.response.data.message,
+                        timeout: 3000
+                    })
                 });
         },
         getExchanges() {

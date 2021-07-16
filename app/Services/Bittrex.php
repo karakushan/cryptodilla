@@ -50,7 +50,7 @@ class Bittrex implements ExchangeInterface
             ];
         }
 
-        return response()->json($account);
+        return response()->json(compact('account'));
     }
 
     /**
@@ -193,7 +193,7 @@ class Bittrex implements ExchangeInterface
         return response(compact('message', 'order'), $status_code);
     }
 
-    public function cancelOrder($order_id)
+    public function cancelOrder($order_id, $symbol = '')
     {
         $response = $this->send('/orders/' . $order_id, [], 'DELETE');
 
@@ -222,7 +222,7 @@ class Bittrex implements ExchangeInterface
                 $item['side'] = $item['direction'];
                 $item['executedQty'] = $item['quantity'];
                 $item['time'] = $item['createdAt'];
-                $item['price'] = $item['limit'];
+                $item['price'] = $item['limit'] ?? 0;
                 return $item;
             }, $orders);
         }

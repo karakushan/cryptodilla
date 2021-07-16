@@ -125,7 +125,7 @@ export default {
                 })
                 .finally(() => {
                     this.process = false;
-                    this.$router.push('/')
+                    window.location.href = '/terminal';
                 });
         }
     },

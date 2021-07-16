@@ -12,7 +12,7 @@ class Hitbtc implements ExchangeInterface
 {
     protected $api;
     protected $public_client;
-    protected $use_testnet = false;
+    protected $use_testnet = true;
     protected $base_url_public;
     protected $protected_api_url;
     protected $api_key;
@@ -51,8 +51,7 @@ class Hitbtc implements ExchangeInterface
             $account = $e->getMessage();
         }
 
-
-        return response()->json($account);
+        return response()->json(compact('account'));
     }
 
     /**
@@ -66,7 +65,7 @@ class Hitbtc implements ExchangeInterface
             if (!empty($markets) && is_array($markets)) {
                 $data['status'] = 1;
                 $data['symbols'] = array_map(function ($item) {
-                    $item=[
+                    $item = [
                         'symbol' => $item['id'],
                         'baseAsset' => $item['baseCurrency'],
                         'quoteAsset' => $item['quoteCurrency'],
@@ -76,7 +75,7 @@ class Hitbtc implements ExchangeInterface
                             'limit', 'market', 'stopLimit', 'stopMarket'
                         ]
                     ];
-                    $currency = Currency::where('slug',mb_strtolower($item['baseAsset']))->first();
+                    $currency = Currency::where('slug', mb_strtolower($item['baseAsset']))->first();
                     if ($currency && isset($currency->logo_url)) {
                         $item['logo_url'] = $currency->logo_url;
                     }
@@ -112,9 +111,19 @@ class Hitbtc implements ExchangeInterface
         return $order;
     }
 
-    public function cancelOrder($order_id)
+    public function cancelOrder($order_id, $symbol = '')
     {
-        // TODO: Implement cancelOrder() method.
+
+        try {
+            $client = new \Hitbtc\ProtectedClient($this->api_key, $this->api_secret, $this->use_testnet);
+            $order = $client->getHttpClient()->delete('/api/2/order/'+$order_id);
+            $message = __('Order canceled successfully');
+        } catch (Exception $e) {
+
+            $message = $e->getMessage();
+        }
+
+        return response()->json(compact('order', 'message'));
     }
 
     public function cancelAllOrders()
@@ -131,7 +140,7 @@ class Hitbtc implements ExchangeInterface
             ->get($this->protected_api_url . '/history/order')->json();
 
         return array_map(function ($item) {
-            $item['executedQty'] = $item['quantity'];
+            $item['executedQty'] = $item['quantity'] ?? 0;
             $item['time'] = $item['createdAt'];
             return $item;
         }, $result);

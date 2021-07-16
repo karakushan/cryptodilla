@@ -67,7 +67,7 @@ Route::group(['prefix' => 'terminal', 'middleware' => ['auth', 'verified', 'perm
         Route::post('create-order/{slug}', [ExchangeController::class, 'createOrder']);
         Route::post('get-orders', [ExchangeController::class, 'getOrders']);
         Route::post('get-open-orders/{slug}', [ExchangeController::class, 'getOpenOrders']);
-        Route::post('cancel-order/{slug}', [ExchangeController::class, 'cancelOrder']);
+        Route::post('cancel-order', [ExchangeController::class, 'cancelOrder']);
         Route::post('set-active-account', [ExchangeController::class, 'setActiveAccount']);
         Route::get('ticker/{slug}', [ExchangeController::class, 'ticker']);
     });

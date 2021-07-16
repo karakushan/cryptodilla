@@ -68,7 +68,7 @@
                     </td>
                     <td data-label="Action">
                         <button type="button" class="cs--btn-sm btn-warning" @click.prevent="closeOrder(order.id)"
-                                v-if="['open','OPEN'].indexOf(order.status)!==-1">{{
+                                v-if="['OPEN','NEW'].indexOf(order.status.toUpperCase())!==-1">{{
                                 $__("Close")
                             }}
                         </button>
@@ -100,9 +100,10 @@ export default {
     methods: {
         closeOrder(order_id) {
             axios
-                .post('/terminal/exchange/cancel-order/bittrex', {
+                .post('/terminal/exchange/cancel-order', {
                     order_id: order_id,
-                    account_id: this.activeExchangeAccount.id
+                    account_id: this.activeExchangeAccount.id,
+                    symbol: this.symbol.symbol,
                 })
                 .then(response => {
                     if (response.status == 200 && response.data) {
@@ -111,7 +112,13 @@ export default {
                 })
                 .catch(error => {
                     // console.log(error.response);
-                    console.log(error.response.data);
+                    // console.log(error.response.data);
+                    this.$notify.error({
+                        position: 'top right',
+                        title: this.$__('Ошибка'),
+                        msg: error.response.data.message,
+                        timeout: 3000
+                    })
                 })
                 .finally(() => {
                     // Will be executed upon completion catch & then
@@ -119,7 +126,7 @@ export default {
         }
     },
     computed: {
-        ...mapGetters(['activeExchangeAccount']),
+        ...mapGetters(['activeExchangeAccount', 'symbol']),
         tabOrders() {
             let statuses = ['FILLED', 'filled', 'closed', 'CLOSED'];
             if (this.tab == 'open') {

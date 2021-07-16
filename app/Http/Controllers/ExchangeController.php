@@ -243,10 +243,11 @@ class ExchangeController extends Controller
      * @param ExchangeConnector $connector
      * @return mixed
      */
-    public function cancelOrder($slug, Request $request, ExchangeConnector $connector)
+    public function cancelOrder(Request $request, ExchangeConnector $connector)
     {
         $account = UserExchange::findOrFail((int)$request->input('account_id'));
-        return $connector->connect($slug,$account)->cancelOrder($request->input('order_id'));
+        return $connector->connect($account->exchange->slug, $account)
+            ->cancelOrder($request->input('order_id'), $request->input('symbol'));
     }
 
 
