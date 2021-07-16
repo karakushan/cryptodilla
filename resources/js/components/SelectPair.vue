@@ -10,7 +10,7 @@
                     class="cs--interface__dropdown-btn cs--dashboard-form__input"
                 >
                     <div class="cs--interface__dropdown-btn-img">
-                        <img src="/img/crypto-icon/btc.svg" alt=""/>
+                        <img :src="symbol.logo_url" :alt="symbol.symbol" v-if="symbol.logo_url"/>
                     </div>
                     <b>{{ symbol.baseAsset }} - {{ symbol.quoteAsset }}</b>
                     <span class="cs--interface__dropdown-btn-text">Market</span>
@@ -126,7 +126,7 @@
                             <tr v-for="pair in filteredCurrencies" @click.prevent="setActiveSymbol(pair)">
                                 <td data-label="Name" class="no-wrap">
                                     <div class="cs--table__card">
-                                        <img :src="getSymbolMeta(pair, 'logo_url')" alt=""/>
+                                        <img :src="pair.logo_url" :alt="pair.symbol" v-if="pair.logo_url"/>
                                         <div class="cs--table__card-content">
                                             <span class="cs--table__card-title">{{
                                                     pair.baseAsset
@@ -139,7 +139,7 @@
                                 <td data-label="Circulating Supply" class="no-wrap">
                                     <div class="cs--table__card-content">
                                 <span class="cs--table__card-title"
-                                >{{ pair.volume_1day }}</span
+                                >{{ pair.volume }}</span
                                 >
                                         <span class="cs--table__card-abbr"
                                         >24h volume</span
@@ -166,7 +166,7 @@
                                     data-label="24h % Change"
                                     class="cs--color-success"
                                 >
-                                    <b>+2.40%</b>
+                                    <b>{{ pair.change }}%</b>
                                 </td>
 
                                 <td data-label="Chart (24h)" class="">

@@ -129,33 +129,7 @@ class ExchangeController extends Controller
      */
     public function getExchangeInfo($slug, ExchangeConnector $connector)
     {
-        $info = [];
-        $symbols = Cache::remember('exchange_info_symbols_' . $slug, self::DAY_IN_SECONDS, function () use ($slug) {
-            $result = Http::withHeaders([
-                'X-CoinAPI-Key' => env('COINAPI_KEY', "1CE51657-79CA-47DB-A6F3-D8CA15550B08")
-            ])->get('https://rest.coinapi.io/v1/symbols/' . mb_strtoupper($slug));
-
-            return $result->json();
-        });
-
-        $info['symbols'] = array_map(function ($item) {
-            return array_merge(
-                $item,
-                [
-                    'symbol' => $item['asset_id_base'] . $item['asset_id_quote'],
-                    'symbolExchange' => $item['symbol_id_exchange'],
-                    'baseAsset' => $item['asset_id_base'],
-                    'quoteAsset' => $item['asset_id_quote'],
-                    'baseName' => $item['asset_id_base'],
-                    'quoteName' => $item['asset_id_quote'],
-                    'orderTypes' => [
-                        'limit', 'market', 'stopLimit', 'stopMarket'
-                    ]
-                ]
-            );
-        }, $symbols);
-
-        return $info;
+        return $connector->connect($slug)->exchangeInfo();;
     }
 
 

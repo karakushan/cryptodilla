@@ -6,6 +6,7 @@ namespace App\Services;
 use App\Models\Exchange;
 use App\Models\UserExchange;
 use poloniex\api\Poloniex as Client;
+use App\Models\Currency;
 
 
 class Poloniex implements ExchangeInterface
@@ -51,17 +52,27 @@ class Poloniex implements ExchangeInterface
             $info = $this->api->returnTicker();
             $data['symbols'] = array_map(function ($item, $key) {
                 $pair = explode('_', $key);
-                return [
-                    'symbol' => $pair[0] . $pair[1],
-                    'baseAsset' => $pair[0],
-                    'quoteAsset' => $pair[1],
-                    'baseName' => $pair[0],
-                    'quoteName' => $pair[1],
+                $baseAsset = $pair[1];
+                $quoteAsset = $pair[0];
+                $item=[
+                    'symbol' => $baseAsset . $quoteAsset,
+                    'baseAsset' => $baseAsset,
+                    'quoteAsset' => $quoteAsset,
+                    'baseName' => $baseAsset,
+                    'quoteName' => $quoteAsset,
+                    'price' => $item['last'] ?? '',
+                    'volume' => $item['baseVolume'] ?? '',
+                    'change' => $item['percentChange'] ?? '',
                     'orderTypes' => [
-                         'limit'
+                        'limit'
                     ],
                     'key' => $key,
                 ];
+                $currency = Currency::where('slug',mb_strtolower($baseAsset))->first();
+                if ($currency && isset($currency->logo_url)) {
+                    $item['logo_url'] = $currency->logo_url;
+                }
+                return $item;
             }, $info, array_keys($info));
 
         } catch (\Exception $e) {
@@ -73,19 +84,30 @@ class Poloniex implements ExchangeInterface
 
     public function createOrder(array $data)
     {
+        $symbol = $data['quoteAsset'] . '_' . $data['baseAsset'];
+        $quantity = $data['quantity'];
+        $price = $data['price'];
         try {
-            $symbol=$data['baseAsset'].'_'.$data['quoteAsset'];
+
             if ($data['side'] == 'BUY') {
-                $order = $this->api->buy($symbol, (float)$data['price'], (float)$data['quantity']);
+                $order = $this->api->buy($symbol, $price, $quantity, [
+                    'total' => $quantity
+                ]);
             } else {
-                $order = $this->api->sell($data['symbol'], (float)$data['price'], (float)$data['quantity']);
+                $order = $this->api->sell($symbol, $price, $quantity, [
+                    'total' => $quantity
+                ]);
             }
+            $status = 200;
+            $message = $order;
         } catch (\Exception $e) {
-            $order = $e->getMessage();
+            $order = null;
+            $message = $e->getMessage();
+            $status = 419;
         }
 
 
-        return response()->json($order);
+        return response()->json(compact('order', 'message'), $status);
     }
 
     public function cancelOrder($order_id)
@@ -103,45 +125,7 @@ class Poloniex implements ExchangeInterface
      */
     public function getAllOrders(string $symbol)
     {
-        // TODO: Implement getAllOrders() method.
+        $orders=$this->api->returnTradeHistory('all');
+        return response()->json($orders);
     }
-
-    function getApiKey()
-    {
-        $credentials = $this->getUserCredentials();
-
-        $key = !empty($credentials['apiKey']) && !$this->use_testnet
-            ? $credentials['apiKey']
-            : env('MIX_POLINIEX_API_KEY');
-
-        return $key;
-    }
-
-    public function getApiSecret()
-    {
-        $credentials = $this->getUserCredentials();
-
-        return !empty($credentials['apiSecret']) && !$this->use_testnet
-            ? $credentials['apiSecret']
-            : env('MIX_POLINIEX_API_SECRET');
-    }
-
-    public function getUserCredentials()
-    {
-        $exchange = Exchange::where('slug', $this->account_id)->first();
-
-        if (!$exchange) return $exchange;
-
-        $user_id = auth()->id();
-
-        $user_exchange = UserExchange::where([
-            ['user_id', $user_id],
-            ['exchange_id', $exchange->id],
-        ])
-            ->first();
-
-        return $user_exchange ? $user_exchange->credentials : null;
-    }
-
-
 }

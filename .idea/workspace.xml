@@ -19,10 +19,22 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="починил откр. ордера bittrex">
+    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="отключил демо">
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_07_16_103350_delete_column_to_user_id_from_ticket_messages.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExchangeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExchangeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/TicketMessage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/TicketMessage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Binance.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Binance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Bitfinex.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Bitfinex.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Bittrex.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Bittrex.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Services/Hitbtc.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Hitbtc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Kraken.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Kraken.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Services/Poloniex.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Poloniex.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/SelectPair.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/SelectPair.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/Trading.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/Trading.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -274,7 +286,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/vendor/karakushan/crud-generator/composer.json" />
     <property name="database.data.extractors.current.export.id" value="SQL Inserts" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/img" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -285,19 +297,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\public\img" />
+      <recent name="E:\OSPanel\domains\cryptotrade.loc" />
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\dashboard" />
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\app\Http\Requests" />
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\js\views" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\OSPanel\domains\cryptotrade.loc\packages\karakushan" />
       <recent name="E:\OSPanel\domains\cryptotrade.loc\vendor\karakushan\crud-generator" />
       <recent name="E:\OSPanel\domains\cryptotrade.loc\vendor\karakushan\crud-generator\src\commands" />
       <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\js\views" />
       <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\admin" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\OSPanel\domains\cryptotrade.loc" />
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\dashboard" />
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\app\Http\Requests" />
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\js\views" />
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\dashboard\currency" />
     </key>
   </component>
   <component name="RunManager" selected="npm.watch">
@@ -343,8 +355,8 @@
     </configuration>
     <list>
       <item itemvalue="npm.hot" />
-      <item itemvalue="npm.watch" />
       <item itemvalue="npm.prod" />
+      <item itemvalue="npm.watch" />
       <item itemvalue="PHP Web Page.cryptotrade.loc" />
       <item itemvalue="PHPUnit.phpunit.xml" />
     </list>
@@ -437,14 +449,10 @@
       <workItem from="1625639375780" duration="7818000" />
       <workItem from="1625692373344" duration="11104000" />
       <workItem from="1625757018140" duration="111000" />
-      <workItem from="1626033076241" duration="24737000" />
-    </task>
-    <task id="LOCAL-00020" summary="подключил вкладку  - история торгов">
-      <created>1619103266726</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1619103266726</updated>
+      <workItem from="1626033076241" duration="25366000" />
+      <workItem from="1626194829139" duration="10356000" />
+      <workItem from="1626257095771" duration="12000" />
+      <workItem from="1626417305943" duration="3979000" />
     </task>
     <task id="LOCAL-00021" summary="отмена ордера">
       <created>1619383974457</created>
@@ -782,7 +790,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626109673610</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="отключил демо">
+      <created>1626111548220</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1626111548220</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -804,7 +819,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="news translations" />
     <MESSAGE value="переключение языков в админке" />
     <MESSAGE value="починил dropdown" />
     <MESSAGE value="добавил панель настроек" />
@@ -829,7 +843,8 @@
     <MESSAGE value="создание ордера Kraken" />
     <MESSAGE value="poloniex test" />
     <MESSAGE value="починил откр. ордера bittrex" />
-    <option name="LAST_COMMIT_MESSAGE" value="починил откр. ордера bittrex" />
+    <MESSAGE value="отключил демо" />
+    <option name="LAST_COMMIT_MESSAGE" value="отключил демо" />
   </component>
   <component name="WindowStateProjectService">
     <state x="509" y="144" key="#Deployment" timestamp="1625062842073">
@@ -868,54 +883,54 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1623667443659" />
-    <state width="1877" height="258" key="GridCell.Tab.0.bottom" timestamp="1626111163258">
+    <state width="1877" height="171" key="GridCell.Tab.0.bottom" timestamp="1626420789400">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1626111163258" />
-    <state width="1877" height="258" key="GridCell.Tab.0.center" timestamp="1626111163257">
+    <state width="1877" height="171" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1626420789400" />
+    <state width="1877" height="171" key="GridCell.Tab.0.center" timestamp="1626420789400">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="258" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1626111163257" />
-    <state width="1877" height="258" key="GridCell.Tab.0.left" timestamp="1626111163253">
+    <state width="1877" height="171" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1626420789400" />
+    <state width="1877" height="171" key="GridCell.Tab.0.left" timestamp="1626420789400">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="258" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1626111163253" />
-    <state width="1877" height="258" key="GridCell.Tab.0.right" timestamp="1626111163258">
+    <state width="1877" height="171" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1626420789400" />
+    <state width="1877" height="171" key="GridCell.Tab.0.right" timestamp="1626420789400">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="258" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1626111163258" />
-    <state width="1877" height="154" key="GridCell.Tab.1.bottom" timestamp="1626111163213">
+    <state width="1877" height="171" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1626420789400" />
+    <state width="1877" height="171" key="GridCell.Tab.1.bottom" timestamp="1626420789400">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="154" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1626111163213" />
-    <state width="1877" height="154" key="GridCell.Tab.1.center" timestamp="1626111163213">
+    <state width="1877" height="171" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1626420789400" />
+    <state width="1877" height="171" key="GridCell.Tab.1.center" timestamp="1626420789400">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="154" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1626111163213" />
-    <state width="1877" height="154" key="GridCell.Tab.1.left" timestamp="1626111163213">
+    <state width="1877" height="171" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1626420789400" />
+    <state width="1877" height="171" key="GridCell.Tab.1.left" timestamp="1626420789400">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="154" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1626111163213" />
-    <state width="1877" height="154" key="GridCell.Tab.1.right" timestamp="1626111163213">
+    <state width="1877" height="171" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1626420789400" />
+    <state width="1877" height="171" key="GridCell.Tab.1.right" timestamp="1626420789400">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="154" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1626111163213" />
-    <state width="1877" height="154" key="GridCell.Tab.2.bottom" timestamp="1626111163214">
+    <state width="1877" height="171" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1626420789400" />
+    <state width="1877" height="171" key="GridCell.Tab.2.bottom" timestamp="1626420789400">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="154" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1626111163214" />
-    <state width="1877" height="154" key="GridCell.Tab.2.center" timestamp="1626111163213">
+    <state width="1877" height="171" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1626420789400" />
+    <state width="1877" height="171" key="GridCell.Tab.2.center" timestamp="1626420789400">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="154" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1626111163213" />
-    <state width="1877" height="154" key="GridCell.Tab.2.left" timestamp="1626111163213">
+    <state width="1877" height="171" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1626420789400" />
+    <state width="1877" height="171" key="GridCell.Tab.2.left" timestamp="1626420789400">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="154" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1626111163213" />
-    <state width="1877" height="154" key="GridCell.Tab.2.right" timestamp="1626111163213">
+    <state width="1877" height="171" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1626420789400" />
+    <state width="1877" height="171" key="GridCell.Tab.2.right" timestamp="1626420789400">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="154" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1626111163213" />
+    <state width="1877" height="171" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1626420789400" />
     <state width="217" height="457" key="HiddenNamespacesPopup" timestamp="1622047170813">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -932,10 +947,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1625304315226" />
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1626109675086">
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1626111549759">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1626109675086" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1626111549759" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1625644282909">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -956,10 +971,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1622721712669" />
-    <state x="512" y="249" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1625148365570">
+    <state x="512" y="249" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1626211023276">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="512" y="249" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1040@0.0.1920.1040" timestamp="1625148365570" />
+    <state x="512" y="249" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1040@0.0.1920.1040" timestamp="1626211023276" />
     <state x="667" y="181" width="585" height="534" key="find.popup" timestamp="1625075561444">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -976,5 +991,16 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="769" y="387" key="webDeployment.PermissionsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1625062635019" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Services/Poloniex.php</url>
+          <line>109</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

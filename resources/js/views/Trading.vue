@@ -117,6 +117,7 @@
                                         type="text"
                                         class="cs--dashboard-form__input"
                                         placeholder=""
+                                        required
                                     />
                                 </div>
                                 <ul class="qty-percent">

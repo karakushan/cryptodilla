@@ -4,6 +4,7 @@
 namespace App\Services;
 
 use App\Events\ExchangeTickerEvent;
+use App\Models\Currency;
 use App\Models\Exchange;
 use App\Models\UserExchange;
 use Binance\API;
@@ -42,12 +43,14 @@ class Binance implements ExchangeInterface
 
     public function exchangeInfo()
     {
-        $symbols=Http::withHeaders([
-            'X-CoinAPI-Key'=>'1CE51657-79CA-47DB-A6F3-D8CA15550B08'
-        ])->get('https://rest.coinapi.io/v1/assets')->json();
-
         $info = $this->api->exchangeInfo();
-        $info['symbols'] = array_values($info['symbols']);
+        $info['symbols'] = array_map(function ($item) {
+            $currency = Currency::where('slug',mb_strtolower($item['baseAsset']))->first();
+            if ($currency && isset($currency->logo_url)) {
+                $item['logo_url'] = $currency->logo_url;
+            }
+            return $item;
+        }, array_values($info['symbols']));
 
         return response()->json($info);
     }

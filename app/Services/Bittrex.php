@@ -65,11 +65,12 @@ class Bittrex implements ExchangeInterface
             if (isset($markets['result'])) {
                 $data['symbols'] = array_map(function ($item) {
                     return [
-                        'symbol' => str_replace('-', '', $item['MarketName']),
-                        'baseAsset' => $item['BaseCurrency'],
-                        'quoteAsset' => $item['MarketCurrency'],
+                        'symbol' => $item['MarketCurrency'].$item['BaseCurrency'],
+                        'baseAsset' =>  $item['MarketCurrency'],
+                        'quoteAsset' =>$item['BaseCurrency'],
                         'baseName' => $item['BaseCurrencyLong'],
                         'quoteName' => $item['MarketCurrencyLong'],
+                        'logo_url' => $item['LogoUrl'],
                         'orderTypes' => [
                             'LIMIT', 'MARKET', 'CEILING_LIMIT', 'CEILING_MARKET'
                         ]

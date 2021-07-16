@@ -4,6 +4,7 @@
 namespace App\Services;
 
 use Illuminate\Support\Facades\Http;
+use Lin\Bitfinex\Bitfinex as Bf;
 
 
 class Bitfinex implements ExchangeInterface
@@ -15,11 +16,15 @@ class Bitfinex implements ExchangeInterface
 
     private $api_key = "";
     private $api_secret = "";
+    protected $api;
 
     public function __construct($account)
     {
         $this->api_key = $account->credentials['apiKey'] ?? '';
         $this->api_secret = $account->credentials['apiSecret'] ?? '';
+        $this->api = new Bf($this->api_key, $this->api_secret);
+
+
     }
 
     /**
@@ -50,12 +55,12 @@ class Bitfinex implements ExchangeInterface
                 $data['status'] = 1;
                 $data['symbols'] = array_map(function ($item) {
                     return [
-                        'symbol' => $item[0].$item[1],
+                        'symbol' => $item[0] . $item[1],
                         'baseAsset' => $item[0],
                         'quoteAsset' => $item[1],
                         'baseName' => $item[0],
                         'quoteName' => $item[1],
-                        'orderTypes'=>[]
+                        'orderTypes' => []
                     ];
                 }, $markets[0]);
             } else {
@@ -79,7 +84,23 @@ class Bitfinex implements ExchangeInterface
 
     public function createOrder(array $data)
     {
-        // TODO: Implement createOrder() method.
+        try {
+            $order = $this->api->order()->postSubmit([
+                'type' => $data['type'],
+                'symbol' => $data['symbol'],
+                'price' => $data['price'],
+                'amount' => $data['quantity'],
+            ]);
+            $message = __('Ордер успешно создан');
+            $code = 200;
+
+        } catch (\Exception $e) {
+            $order=null;
+            $message = $e->getMessage();
+            $code = 419;
+        }
+
+        return response()->json(compact('order','message'),$code);
     }
 
     public function cancelOrder($order_id)

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "712822fc97e2132ac19ea7be4e42fb51",
+    "content-hash": "96d81a93f559d1803c6772ebc84f322d",
     "packages": [
         {
             "name": "armandgarot/laravel-workerman",

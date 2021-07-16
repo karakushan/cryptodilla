@@ -6,6 +6,7 @@ namespace App\Services;
 use Illuminate\Support\Facades\Http;
 use hitbtc\api\HitBTC as Hb;
 use Exception;
+use App\Models\Currency;
 
 class Hitbtc implements ExchangeInterface
 {
@@ -65,7 +66,7 @@ class Hitbtc implements ExchangeInterface
             if (!empty($markets) && is_array($markets)) {
                 $data['status'] = 1;
                 $data['symbols'] = array_map(function ($item) {
-                    return [
+                    $item=[
                         'symbol' => $item['id'],
                         'baseAsset' => $item['baseCurrency'],
                         'quoteAsset' => $item['quoteCurrency'],
@@ -75,6 +76,11 @@ class Hitbtc implements ExchangeInterface
                             'limit', 'market', 'stopLimit', 'stopMarket'
                         ]
                     ];
+                    $currency = Currency::where('slug',mb_strtolower($item['baseAsset']))->first();
+                    if ($currency && isset($currency->logo_url)) {
+                        $item['logo_url'] = $currency->logo_url;
+                    }
+                    return $item;
                 }, $markets);
             } else {
                 $data = [
