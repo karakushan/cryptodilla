@@ -12,7 +12,7 @@ class Hitbtc implements ExchangeInterface
 {
     protected $api;
     protected $public_client;
-    protected $use_testnet = true;
+    protected $use_testnet = false;
     protected $base_url_public;
     protected $protected_api_url;
     protected $api_key;
@@ -22,6 +22,8 @@ class Hitbtc implements ExchangeInterface
     {
         $this->api_key = $account->credentials['apiKey'] ?? '';
         $this->api_secret = $account->credentials['apiSecret'] ?? '';
+        $this->use_testnet = $account->is_demo ?? false;
+
         $this->api = new Hb($this->api_key, $this->api_secret, 2, $this->use_testnet);
         $this->base_url_public = $this->use_testnet ?
             'https://api.demo.hitbtc.com/api/2/public'
@@ -116,7 +118,7 @@ class Hitbtc implements ExchangeInterface
 
         try {
             $client = new \Hitbtc\ProtectedClient($this->api_key, $this->api_secret, $this->use_testnet);
-            $order = $client->getHttpClient()->delete('/api/2/order/'+$order_id);
+            $order = $client->getHttpClient()->delete('/api/2/order/' + $order_id);
             $message = __('Order canceled successfully');
         } catch (Exception $e) {
 

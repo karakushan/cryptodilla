@@ -203,7 +203,11 @@ class ExchangeController extends Controller
 
         UserExchange::updateOrInsert(
             ['user_id' => auth()->id(), 'exchange_id' => $request->input('exchange_id')],
-            ['credentials' => json_encode($credentials), 'title' => $request->input('title')]
+            [
+                'credentials' => json_encode($credentials),
+                'title' => $request->input('title'),
+                'is_demo' => $request->input('is_demo'),
+            ]
         );
 
         return response()->json(['message' => __('Данные биржи успешно привязаны к Вашему аккаунту!')]);

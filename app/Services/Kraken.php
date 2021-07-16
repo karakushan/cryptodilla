@@ -14,7 +14,6 @@ use App\Models\Currency;
 class Kraken implements ExchangeInterface
 {
     protected $api;
-    protected $use_testnet = true;
     protected $id = 'kraken';
     protected $account_id = null;
 

@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Http;
 class Binance implements ExchangeInterface
 {
     protected $api;
-    protected $use_testnet = true;
+    protected $use_testnet = false;
     protected $id = 'binance';
     protected $account_id = null;
 
@@ -22,7 +22,7 @@ class Binance implements ExchangeInterface
         $this->api = new API(
             $account->credentials['apiKey'] ?? '',
             $account->credentials['apiSecret'] ?? '',
-            $this->use_testnet
+            $account->is_demo ?? false
         );
     }
 

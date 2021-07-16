@@ -36,11 +36,12 @@ class UserExchange extends Model
 
     protected $table = 'user_exchanges';
 
-    protected $fillable = ['title', 'credentials', 'exchange_id', 'user_id', 'active'];
+    protected $fillable = ['title', 'credentials', 'exchange_id', 'user_id', 'active','is_demo'];
 
     protected $casts = [
         'credentials' => 'array',
         'active' => 'boolean',
+        'is_demo' => 'boolean',
     ];
 
 //    protected $hidden = ['credentials'];

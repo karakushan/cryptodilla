@@ -40,7 +40,7 @@ class Bitfinex implements ExchangeInterface
             $account['balances'] = [];
         }
 
-        return response()->json(compact('account'));
+        return response()->json(compact('account`'));
     }
 
     /**

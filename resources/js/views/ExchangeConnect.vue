@@ -11,8 +11,27 @@
                     <h2
                         class="cs--dashboard-form__title cs--dashboard-form__title--mark"
                     >
-                        Enter your API Key for {{ exchange.name }}
+                        {{ $__("Enter your API Key for") }} {{ exchange.name }}
                     </h2>
+
+                    <div class="cs--dashboard-form__item">
+                        <label
+                            for="dashboard--account-lable"
+                            class="cs--dashboard-form__label"
+                        >{{ $__("Account Label") }}</label
+                        >
+
+                        <div class="cs--dashboard-form__input-wrapper" data-postfix="">
+                            <input
+                                v-model="formData.title"
+                                id="dashboard--account-lable"
+                                type="text"
+                                class="cs--dashboard-form__input"
+                                placeholder="Label"
+                                required
+                            />
+                        </div>
+                    </div>
 
                     <div class="cs--dashboard-form__item">
                         <label
@@ -49,24 +68,10 @@
                             />
                         </div>
                     </div>
-
                     <div class="cs--dashboard-form__item">
-                        <label
-                            for="dashboard--account-lable"
-                            class="cs--dashboard-form__label"
-                        >{{ $__("Account Label") }}</label
-                        >
-
-                        <div class="cs--dashboard-form__input-wrapper" data-postfix="">
-                            <input
-                                v-model="formData.title"
-                                id="dashboard--account-lable"
-                                type="text"
-                                class="cs--dashboard-form__input"
-                                placeholder="Label"
-                                required
-                            />
-                        </div>
+                        <Switcher v-model="formData.is_demo" id="dashboard--account-is-demo">
+                            {{ $__("Demo mode") }}
+                        </Switcher>
                     </div>
 
                     <div class="cs--dashboard-form__btn-group">
@@ -86,6 +91,7 @@
 import {mapGetters} from "vuex";
 import Button from "../components/Button";
 import AsideFaq from "../components/AsideFaq";
+import Switcher from "../components/Switcher";
 
 export default {
     data() {
@@ -131,7 +137,8 @@ export default {
     },
     components: {
         Button,
-        AsideFaq
+        AsideFaq,
+        Switcher
     }
 }
 </script>
