@@ -19,8 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="change git action">
+    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="change git action #1">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -442,14 +444,7 @@
       <workItem from="1634806969687" duration="261000" />
       <workItem from="1635425541448" duration="100000" />
       <workItem from="1636020278943" duration="1477000" />
-      <workItem from="1636024391056" duration="495000" />
-    </task>
-    <task id="LOCAL-00025" summary="two factor auth page">
-      <created>1620312270113</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1620312270113</updated>
+      <workItem from="1636024391056" duration="2822000" />
     </task>
     <task id="LOCAL-00026" summary="сделал вкладку предпочтений пользователя">
       <created>1620486153780</created>
@@ -787,7 +782,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636024508553</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="change git action #1">
+      <created>1636024981161</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1636024981161</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -809,7 +811,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="market overview" />
     <MESSAGE value="fix error" />
     <MESSAGE value="faq item view" />
     <MESSAGE value="prev next news" />
@@ -834,13 +835,14 @@
     <MESSAGE value="отмена ордера" />
     <MESSAGE value="добавил возможнсть включения демо режима пользователем" />
     <MESSAGE value="change git action" />
-    <option name="LAST_COMMIT_MESSAGE" value="change git action" />
+    <MESSAGE value="change git action #1" />
+    <option name="LAST_COMMIT_MESSAGE" value="change git action #1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="178" key="#Deployment" timestamp="1636022109343">
+    <state x="552" y="178" key="#Deployment" timestamp="1636028725475">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="178" key="#Deployment/0.0.1920.1040@0.0.1920.1040" timestamp="1636022109343" />
+    <state x="552" y="178" key="#Deployment/0.0.1920.1040@0.0.1920.1040" timestamp="1636028725475" />
     <state width="1877" height="203" key="GridCell.Tab.0.bottom" timestamp="1636024656001">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -861,18 +863,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1636024552572" />
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1636024510892">
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1636024982625">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1636024510892" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1636024982625" />
     <state x="760" y="250" key="ftp.server.browser" timestamp="1636020481425">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="760" y="250" key="ftp.server.browser/0.0.1920.1040@0.0.1920.1040" timestamp="1636020481425" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1630655964528">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1636025058832">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1630655964528" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1636025058832" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

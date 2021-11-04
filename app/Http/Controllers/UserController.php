@@ -133,6 +133,11 @@ class UserController extends Controller
     public function google2fa()
     {
         $google2fa = new Google2FA();
+        $google2fa->setQrcodeService(
+            new \PragmaRX\Google2FAQRCode\QRCode\Bacon(
+                new \BaconQrCode\Renderer\Image\SvgImageBackEnd()
+            )
+        );
         $user = auth()->user();
         if (!$user->google2fa_secret) {
             $user->google2fa_secret = $google2fa->generateSecretKey();
