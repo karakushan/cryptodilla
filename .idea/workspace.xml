@@ -19,21 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="добавил возможнсть включения демо режима пользователем">
-      <change afterPath="$PROJECT_DIR$/config/recaptcha.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/cryptotrade.loc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cryptotrade.loc.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="change git action">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/validation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dashboard-auth.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dashboard-auth.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,9 +43,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="8863cb0f-0aed-413c-92bd-ef2ddb6b4ebc" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -291,7 +275,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="editing.templates" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="ts.external.directory.path" value="C:\Users\Vitaliy\AppData\Local\JetBrains\Toolbox\apps\PhpStorm\ch-0\202.7660.42\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -458,13 +442,7 @@
       <workItem from="1634806969687" duration="261000" />
       <workItem from="1635425541448" duration="100000" />
       <workItem from="1636020278943" duration="1477000" />
-    </task>
-    <task id="LOCAL-00024" summary="updated htaccess">
-      <created>1620202404684</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1620202404684</updated>
+      <workItem from="1636024391056" duration="495000" />
     </task>
     <task id="LOCAL-00025" summary="two factor auth page">
       <created>1620312270113</created>
@@ -802,7 +780,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626440258291</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="change git action">
+      <created>1636024508552</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1636024508553</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -824,7 +809,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fix switchery" />
     <MESSAGE value="market overview" />
     <MESSAGE value="fix error" />
     <MESSAGE value="faq item view" />
@@ -849,13 +833,38 @@
     <MESSAGE value="сделал прикрепление лого из админки для символов" />
     <MESSAGE value="отмена ордера" />
     <MESSAGE value="добавил возможнсть включения демо режима пользователем" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавил возможнсть включения демо режима пользователем" />
+    <MESSAGE value="change git action" />
+    <option name="LAST_COMMIT_MESSAGE" value="change git action" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Deployment" timestamp="1636022109343">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#Deployment/0.0.1920.1040@0.0.1920.1040" timestamp="1636022109343" />
+    <state width="1877" height="203" key="GridCell.Tab.0.bottom" timestamp="1636024656001">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="203" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1636024656001" />
+    <state width="1877" height="203" key="GridCell.Tab.0.center" timestamp="1636024656001">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="203" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1636024656001" />
+    <state width="1877" height="203" key="GridCell.Tab.0.left" timestamp="1636024656001">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="203" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1636024656001" />
+    <state width="1877" height="203" key="GridCell.Tab.0.right" timestamp="1636024656001">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="203" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1636024656001" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1636024552572">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1636024552572" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1636024510892">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1636024510892" />
     <state x="760" y="250" key="ftp.server.browser" timestamp="1636020481425">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
