@@ -36,7 +36,6 @@
                             type="text"
                             class="cs--reg-form__input @error('name') is-invalid @enderror"
                             name="name" value="{{ old('name') }}"
-                            required
                             autocomplete="name"
                             autofocus
                             placeholder="{{ __("Enter Your Name") }}"
@@ -73,7 +72,6 @@
                             class="cs--reg-form__input @error('email') is-invalid @enderror"
                             name="email"
                             value="{{ old('email') }}"
-                            required
                             autocomplete="email"
                             placeholder="{{ __("Enter Your E-mail") }}"
                         >
@@ -104,7 +102,7 @@
                         </div>
                         <input id="create-acc-pass" type="password"
                                class="cs--reg-form__input @error('password') is-invalid @enderror" name="password"
-                               required autocomplete="new-password" placeholder="{{ __("Enter Your Password") }}">
+                               autocomplete="new-password" placeholder="{{ __("Enter Your Password") }}">
                     </label>
                     @error('password')
                     <span class="invalid-feedback" role="alert">
@@ -134,11 +132,11 @@
                         </div>
 
                         <input id="create-acc-pass-repeat" type="password" class="cs--reg-form__input"
-                               name="password_confirmation" required autocomplete="new-password"
+                               name="password_confirmation" autocomplete="new-password"
                                placeholder="{{ __("Repeat Your Password") }}">
                     </label>
 
-                    <div class="cs--reg-form__term">
+                    <div class="cs--reg-form__term" style="margin-bottom: 15px;">
                         <label
                             for="create-acc-privacy"
                             class="cs--reg-form__checkbox-wrapper"
@@ -147,6 +145,8 @@
                                 id="create-acc-privacy"
                                 type="checkbox"
                                 class="cs--reg-form__checkbox"
+                                name="terms"
+                                value="1"
                             />
 
                             <svg
@@ -172,9 +172,28 @@
                             >.
                         </div>
                     </div>
+                    @error('terms')
+                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                    @enderror
                     <div class="cs--reg-form__recaptcha">
-                        <img src="./img/examples/recaptcha.png" alt=""/>
+                        {!! htmlFormSnippet([
+    "theme" => "light",
+    "size" => "normal",
+    "tabindex" => "3",
+    "callback" => "callbackFunction",
+    "expired-callback" => "expiredCallbackFunction",
+    "error-callback" => "errorCallbackFunction",
+]) !!}
+
+
                     </div>
+                    @error('g-recaptcha-response')
+                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                    @enderror
                     <button type="submit" class="cs--btn cs--btn--grad-blue">
                         {{ __("Create Account") }}
                     </button>
@@ -271,3 +290,7 @@
         </div>
     </div>
 @endsection
+
+@push('head')
+    {!! htmlScriptTagJsApi() !!}
+@endpush

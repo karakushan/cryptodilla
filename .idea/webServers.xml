@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="f6c8a148-5cb3-496c-a37d-a9192a202874" name="ex.profglobal.top" url="https://ex.profglobal.top">
-        <fileTransfer rootFolder="/home/admin/web/ex.profglobal.top/public_html" accessType="SFTP" host="f-shop.top" port="22" sshConfigId="6fc41396-a626-4998-8c16-0fd59d8d92e8" sshConfig="admin@f-shop.top:22 key" keyPair="true">
+        <fileTransfer rootFolder="/home/shopkit/sites/ex.profglobal.top" accessType="SFTP" host="shopkit.online" port="22" sshConfigId="3fe3eddf-7247-403e-b818-afb116579cab" sshConfig="root@shopkit.online:22 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>

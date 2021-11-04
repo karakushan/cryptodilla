@@ -5,25 +5,25 @@ on:
 name: Deploy to Production
 jobs:
   FTP-Deploy-Action:
-    name: FTP-Deploy-Action
+    name: 🚚 FTP-Deploy-Action
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 0
+          fetch-depth: 2
 
-      - name: FTP-Deploy-Action
-        uses: SamKirkland/FTP-Deploy-Action@3.1.0
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.1.0
         with:
-          ftp-server: ftp://185.25.116.236/web/ex.profglobal.top/public_html
-          ftp-username: ${{ secrets.FTP_USERNAME_PROD }}
-          ftp-password: ${{ secrets.FTP_PASSWORD_PROD }}
+          server: shopkit.online
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: /home/shopkit/sites/ex.profglobal.top
 
-      - name: Run scripts SSH
+      - name: Deploy to production
         uses: appleboy/ssh-action@master
         with:
-          username: ${{ secrets.FTP_USERNAME_PROD }}
-          host: 185.25.116.236
-          password: ${{ secrets.FTP_PASSWORD_PROD }}
-          script: 'cd /home/admin/web/ex.profglobal.top/public_html && ./server_deploy.sh'
-
+          username: ${{ secrets.FTP_USERNAME }}
+          host: 185.212.128.242
+          password: ${{ secrets.FTP_PASSWORD }}
+          script: 'cd /home/shopkit/sites/ex.profglobal.top && ./server_deploy.sh'

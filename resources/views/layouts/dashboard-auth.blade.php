@@ -28,6 +28,7 @@
         }
     </style>
     @stack('style')
+    @stack('head')
 </head>
 
 <body>

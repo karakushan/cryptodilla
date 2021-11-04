@@ -15,11 +15,10 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/barryvdh/laravel-debugbar" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/barryvdh/laravel-ide-helper" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/barryvdh/reflection-docblock" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/biscolab/laravel-recaptcha" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/brick/math" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/butschster/kraken-api-client" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/cboden/ratchet" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/cocur/slugify" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/codenix-sv/bitfinex-api" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/codenix-sv/bittrex-api" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/cviebrock/eloquent-sluggable" />

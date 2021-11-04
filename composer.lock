@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "96d81a93f559d1803c6772ebc84f322d",
+    "content-hash": "cfbd9f756131b4e6a20cff295d05d778",
     "packages": [
         {
             "name": "armandgarot/laravel-workerman",
@@ -158,6 +158,76 @@
             "description": "BaconQrCode is a QR code generator for PHP.",
             "homepage": "https://github.com/Bacon/BaconQrCode",
             "time": "2021-06-18T13:26:35+00:00"
+        },
+        {
+            "name": "biscolab/laravel-recaptcha",
+            "version": "5.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/biscolab/laravel-recaptcha.git",
+                "reference": "21018b259827e1446ea9d829ae423022a0e1025e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/biscolab/laravel-recaptcha/zipball/21018b259827e1446ea9d829ae423022a0e1025e",
+                "reference": "21018b259827e1446ea9d829ae423022a0e1025e",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^7.0|^8.0",
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "5.*|6.*",
+                "phpunit/phpunit": "^9.1"
+            },
+            "suggest": {
+                "biscolab/laravel-authlog": "It allows to handle logged-in users and force log-out if needed"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Biscolab\\ReCaptcha\\ReCaptchaServiceProvider"
+                    ],
+                    "aliases": {
+                        "ReCaptcha": "Biscolab\\ReCaptcha\\Facades\\ReCaptcha"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Biscolab\\ReCaptcha\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roberto Belotti",
+                    "email": "roby.belotti@gmail.com",
+                    "homepage": "https://biscolab.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Simple and painless Google reCAPTCHA package for Laravel framework",
+            "homepage": "https://biscolab.com/laravel-recaptcha",
+            "keywords": [
+                "captcha",
+                "laravel",
+                "recaptcha",
+                "validation"
+            ],
+            "support": {
+                "issues": "https://github.com/biscolab/laravel-recaptcha/issues",
+                "source": "https://github.com/biscolab/laravel-recaptcha/tree/v5.0.1"
+            },
+            "time": "2021-02-03T16:26:03+00:00"
         },
         {
             "name": "brick/math",
@@ -7538,115 +7608,6 @@
             "time": "2018-12-13T10:34:14+00:00"
         },
         {
-            "name": "cboden/ratchet",
-            "version": "v0.4.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ratchetphp/Ratchet.git",
-                "reference": "466a0ecc83209c75b76645eb823401b5c52e5f21"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ratchetphp/Ratchet/zipball/466a0ecc83209c75b76645eb823401b5c52e5f21",
-                "reference": "466a0ecc83209c75b76645eb823401b5c52e5f21",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/psr7": "^1.0",
-                "php": ">=5.4.2",
-                "ratchet/rfc6455": "^0.3",
-                "react/socket": "^1.0 || ^0.8 || ^0.7 || ^0.6 || ^0.5",
-                "symfony/http-foundation": "^2.6|^3.0|^4.0|^5.0",
-                "symfony/routing": "^2.6|^3.0|^4.0|^5.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.8"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Ratchet\\": "src/Ratchet"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Chris Boden",
-                    "email": "cboden@gmail.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Matt Bonneau",
-                    "role": "Developer"
-                }
-            ],
-            "description": "PHP WebSocket library",
-            "homepage": "http://socketo.me",
-            "keywords": [
-                "Ratchet",
-                "WebSockets",
-                "server",
-                "sockets",
-                "websocket"
-            ],
-            "time": "2020-07-07T15:50:14+00:00"
-        },
-        {
-            "name": "codenix-sv/bitfinex-api",
-            "version": "v1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/codenix-sv/bitfinex-api.git",
-                "reference": "952fd621addc5eb0c046b6b3bc606ef7ad5471c5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/codenix-sv/bitfinex-api/zipball/952fd621addc5eb0c046b6b3bc606ef7ad5471c5",
-                "reference": "952fd621addc5eb0c046b6b3bc606ef7ad5471c5",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "guzzlehttp/guzzle": "~6.0",
-                "php": "^7.2"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^8.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Codenixsv\\BitfinexApi\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Volodymyr Svyryd",
-                    "email": "codenix.sv@gmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "PHP client for Bitfinex API",
-            "homepage": "https://github.com/codenix-sv/bitfinex-api",
-            "keywords": [
-                "api",
-                "bitfinex",
-                "bitfinex-api",
-                "client",
-                "exchange",
-                "php",
-                "rest"
-            ],
-            "time": "2020-07-29T05:37:24+00:00"
-        },
-        {
             "name": "composer/composer",
             "version": "2.1.3",
             "source": {
@@ -10477,5 +10438,6 @@
     "platform": {
         "php": "^7.3|^8.0"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.1.0"
 }
