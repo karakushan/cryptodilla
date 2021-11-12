@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Response;
 use PragmaRX\Google2FAQRCode\Google2FA;
 use Hash;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -133,13 +134,8 @@ class UserController extends Controller
     public function google2fa()
     {
         $google2fa = new Google2FA();
-        $google2fa->setQrcodeService(
-            new \PragmaRX\Google2FAQRCode\QRCode\Bacon(
-                new \BaconQrCode\Renderer\Image\SvgImageBackEnd()
-            )
-        );
         $user = auth()->user();
-        if (!$user->google2fa_secret) {
+        if (!$user->google2fa_status) {
             $user->google2fa_secret = $google2fa->generateSecretKey();
             $user->save();
         }
@@ -152,7 +148,7 @@ class UserController extends Controller
 
         return response()->json([
             'secret' => $user->google2fa_secret,
-            'qrCodeUrl' => $qrCodeUrl
+            'qrCodeUrl' => '<img src="' . $qrCodeUrl . '" alt="QR code" width="200">'
         ]);
     }
 

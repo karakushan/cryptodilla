@@ -1,15 +1,18 @@
 <template>
     <div class="tradingview">
+        <Loader :active="!widget"/>
         <div id="tradingview_bd080"></div>
     </div>
 
 </template>
 
 <script>
+import Loader from "../components/Loader";
 export default {
     name: "TradingView",
     data() {
         return {
+            widget:null,
             panel: {
                 "autosize": true,
                 "symbol": this.pair,
@@ -36,13 +39,17 @@ export default {
     watch: {
         pair(newValue, oldValue) {
             this.panel.symbol = newValue
-            new TradingView.widget(this.panel)
+
+            this.widget=new TradingView.widget(this.panel)
         }
     },
     mounted() {
         if (this.pair) {
-            new TradingView.widget(this.panel)
+            this.widget = new TradingView.widget(this.panel)
         }
+    },
+    components:{
+        Loader
     }
 }
 </script>

@@ -1,10 +1,9 @@
 <template>
     <main class="cs--page cs--dashboard--interface">
-        <Loader :active="!load"/>
-        <div v-show="load" class="cs--container">
+        <div class="cs--container">
             <DashboardNav/>
             <div class="cs--interface">
-                <SelectPair :symbol="symbol" v-if="symbol"/>
+                <SelectPair :symbol="symbol"/>
 
                 <OrderBookWidget :symbol="symbol" v-if="symbol"/>
 
@@ -65,7 +64,7 @@
                                 <div
 
                                     class="cs--dashboard-form__input-wrapper cs--dashboard-form__input--postfix"
-                                    :data-postfix="symbol.quoteAsset"
+                                    :data-postfix="symbol.baseAsset"
                                 >
                                     <input
                                         v-model="order.price"
@@ -109,7 +108,7 @@
 
                                 <div
                                     class="cs--dashboard-form__input-wrapper cs--dashboard-form__input--postfix"
-                                    :data-postfix="symbol.baseAsset"
+                                    :data-postfix="symbol.quoteAsset"
                                 >
                                     <input
                                         id="dashboard--total"
@@ -180,8 +179,8 @@ export default {
             order: {
                 side: 'BUY',
                 type: 'MARKET',
-                quantity: 0,
-                price: 0,
+                quantity: '',
+                price: '',
                 stopPrice: ''
             },
             orderMessage: '',
@@ -458,11 +457,9 @@ export default {
 
     },
     mounted() {
+        this.load = true
         this.symbolTickerStream()
         this.getExchangeInfo()
-        setTimeout(() => {
-            this.load = true
-        }, 3000)
     }
 
 }

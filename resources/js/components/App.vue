@@ -35,15 +35,15 @@
                             data-dropdown
                             class="cs--dashboard-options__lang cs--dropdown"
                         >
-                            <summary class="cs--dropdown__btn">{{ data.lang }}</summary>
+                            <summary class="cs--dropdown__btn">{{ appData.lang }}</summary>
                             <ul class="cs--dropdown__list">
                                 <li class="cs--dropdown__item">
-                                    <button type="button">{{ data.lang }}</button>
+                                    <button type="button">{{ appData.lang }}</button>
                                 </li>
 
                                 <li class="cs--dropdown__item">
-                                    <a href="#" @click.prevent="setLocale(data.lang=='en'?'ru':'en')">{{
-                                            data.lang == 'en' ? 'ru' : 'en'
+                                    <a href="#" @click.prevent="setLocale(appData.lang=='en'?'ru':'en')">{{
+                                            appData.lang == 'en' ? 'ru' : 'en'
                                         }}</a>
                                 </li>
                             </ul>
@@ -103,13 +103,13 @@
                         </button>
                         <div class="cs--user-menu">
                             <div class="cs--user-menu__img">
-                                <img :src="data.user.avatar_url" :alt="data.user.name" v-if="data.user.avatar"
+                                <img :src="appData.user.avatar_url" :alt="appData.user.name" v-if="appData.user.avatar"
                                      width="28"/>
                                 <img src="/assets/images/users/profile.svg" alt="No Avatar" width="28" v-else>
 
                             </div>
                             <details data-dropdown class="cs--dropdown">
-                                <summary class="cs--dropdown__btn">{{ data.user.name }}</summary>
+                                <summary class="cs--dropdown__btn">{{ appData.user.name }}</summary>
                                 <ul class="cs--dropdown__list">
                                     <li class="cs--dropdown__item">
                                         <router-link to="/profile" tag="button">
@@ -435,16 +435,10 @@ export default {
         }
     },
     props: {
-        data: {
-            type: Object,
-            default() {
-                return {}
-            }
-        },
+
     },
     mounted() {
 
-        this.setData(this.data)
     },
     watch: {
         'appData.user.terminal_theme': function (newValue, oldValue) {
@@ -452,7 +446,7 @@ export default {
         }
     },
     methods: {
-        ...mapActions(['setData','updateAppData']),
+        ...mapActions(['updateAppData']),
         logout() {
             axios
                 .post('/logout', {})

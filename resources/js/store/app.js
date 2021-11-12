@@ -5,10 +5,15 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        data: [],
+        data: {...window.appData},
         exchangeInfo: null,
         account: null,
-        symbol: null,
+        symbol: {
+            symbol:'BTCUSDT',
+            baseAsset:'BTC',
+            quoteAsset:'USDT',
+            logo_url:'/storage/avatars/6aw8CvZCXvdYXJInCp4nUCCXdIsEg7TtGuryY2rq.svg'
+        },
         activeExchangeAccount: null,
         bots: {
             macd: {

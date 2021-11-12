@@ -53,6 +53,7 @@ import Ticket from "./views/Ticket";
 import VueRouter from 'vue-router'
 import VueNotify from 'vuejs-notify'
 import Button from "./components/Button";
+
 Vue.use(Button)
 import TwoFactorAuthDisable from  "./views/TwoFactorAuthDisable"
 import TwoFactorAuthDisabled from "./views/TwoFactorAuthDisabled";
@@ -109,8 +110,6 @@ const router = new VueRouter({
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('app', require('./components/App').default);
-
-
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

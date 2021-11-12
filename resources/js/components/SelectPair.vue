@@ -10,7 +10,7 @@
                     class="cs--interface__dropdown-btn cs--dashboard-form__input"
                 >
                     <div class="cs--interface__dropdown-btn-img">
-                        <img :src="symbol.logo_url" :alt="symbol.symbol" v-if="symbol.logo_url"/>
+                        <img :src="symbol.logo_url" :alt="symbol.symbol"/>
                     </div>
                     <b>{{ symbol.baseAsset }} - {{ symbol.quoteAsset }}</b>
                     <span class="cs--interface__dropdown-btn-text">Market</span>

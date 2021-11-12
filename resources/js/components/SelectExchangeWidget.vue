@@ -47,7 +47,7 @@ export default {
         }
     },
     computed: {
-        ...mapGetters(['appData', 'activeExchangeAccount'])
+        ...mapGetters(['activeExchangeAccount','appData'])
     },
     methods: {
         ...mapActions(['setActiveExchangeAccount','setExchange']),
