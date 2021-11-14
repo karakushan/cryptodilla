@@ -18,7 +18,7 @@ jobs:
           server: shopkit.online
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ./ex.profglobal.top/
+          server-dir: /home/shopkit/sites/ex.profglobal.top/
 
       - name: Deploy to production
         uses: appleboy/ssh-action@master

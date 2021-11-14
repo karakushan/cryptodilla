@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="fix">
       <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -461,14 +460,7 @@
       <workItem from="1636743802488" duration="8972000" />
       <workItem from="1636797129074" duration="23763000" />
       <workItem from="1636886888361" duration="84000" />
-      <workItem from="1636887124046" duration="15498000" />
-    </task>
-    <task id="LOCAL-00031" summary="подключил чат">
-      <created>1621946155628</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1621946155628</updated>
+      <workItem from="1636887124046" duration="16774000" />
     </task>
     <task id="LOCAL-00032" summary="перенес параметры в vuex store">
       <created>1621961550387</created>
@@ -806,7 +798,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636911410274</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="fix">
+      <created>1636912320092</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1636912320092</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -859,10 +858,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="178" key="#Deployment" timestamp="1636912075850">
+    <state x="552" y="178" key="#Deployment" timestamp="1636912415795">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="178" key="#Deployment/0.0.1920.1040@0.0.1920.1040" timestamp="1636912075850" />
+    <state x="552" y="178" key="#Deployment/0.0.1920.1040@0.0.1920.1040" timestamp="1636912415795" />
     <state x="536" y="165" key="#SSH_Configurations" timestamp="1636912074341">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -927,10 +926,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1636886908425" />
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1636911412546">
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1636912321506">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1636911412546" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1636912321506" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1636818547399">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
