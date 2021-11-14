@@ -38,6 +38,9 @@
 </template>
 
 <script>
+import binance from "../lib/binance";
+import {mapGetters} from 'vuex'
+
 export default {
     name: "OrdersHistoryWidget",
     data: () => ({
@@ -50,10 +53,6 @@ export default {
             type: Number,
             default: 12
         },
-        pair: {
-            type: String,
-            default: 'bnbusdt'
-        },
         quoteAsset: {
             type: String,
             default: 'USDT'
@@ -64,35 +63,22 @@ export default {
         },
     },
     methods: {},
+    watch: {
+        trades(newValue, oldValue) {
+            this.orders.unshift(newValue)
+            if (this.orders.length > this.limit) {
+                this.orders.splice(this.limit, this.orders.length - this.limit)
+            }
+        },
+        'symbol.symbol': function () {
+            this.orders = []
+        }
+    },
     mounted() {
-        let app = this
-        this.socket = new WebSocket(process.env.MIX_BINANCE_WS_URL + "/bnbusdt@trade");
-        this.socket.onopen = function (e) {
-            console.log("[open] Соединение установлено");
-        };
-
-        this.socket.onmessage = function (event) {
-            let trade = JSON.parse(event.data)
-            app.orders.unshift(trade)
-            if (app.orders.length > app.limit) {
-                app.orders.splice(app.limit, app.orders.length - app.limit)
-            }
-        };
-
-        this.socket.onclose = function (event) {
-            if (event.wasClean) {
-                console.log(`[close] Соединение закрыто чисто, код=${event.code} причина=${event.reason}`);
-            } else {
-                // например, сервер убил процесс или сеть недоступна
-                // обычно в этом случае event.code 1006
-                console.log('[close] Соединение прервано');
-            }
-        };
-
-        this.socket.onerror = function (error) {
-            console.log(`[error] ${error.message}`);
-        };
-    }
+    },
+    computed: {
+        ...mapGetters(['symbol', 'trades'])
+    },
 }
 </script>
 

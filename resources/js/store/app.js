@@ -9,10 +9,10 @@ export default new Vuex.Store({
         exchangeInfo: null,
         account: null,
         symbol: {
-            symbol:'BTCUSDT',
-            baseAsset:'BTC',
-            quoteAsset:'USDT',
-            logo_url:'/storage/avatars/6aw8CvZCXvdYXJInCp4nUCCXdIsEg7TtGuryY2rq.svg'
+            symbol: 'BTCUSDT',
+            baseAsset: 'BTC',
+            quoteAsset: 'USDT',
+            logo_url: '/storage/avatars/6aw8CvZCXvdYXJInCp4nUCCXdIsEg7TtGuryY2rq.svg'
         },
         activeExchangeAccount: null,
         bots: {
@@ -23,7 +23,9 @@ export default new Vuex.Store({
             }
         },
         symbolTick: null,
-        exchange: 'binance'
+        exchange: 'binance',
+        trades: null,
+        depths: {},
     },
     getters: {
         appData: state => {
@@ -50,9 +52,18 @@ export default new Vuex.Store({
         exchange: state => {
             return state.exchange
         },
+        trades: state => {
+            return state.trades
+        },
+        depths: state => {
+            return state.depths
+        },
 
     },
     mutations: {
+        SET_DEPTHS(state, payload) {
+            state.depths = payload
+        },
         SET_DATA(state, payload) {
             state.data = payload
         },
@@ -68,15 +79,23 @@ export default new Vuex.Store({
         SET_ACTIVE_EXCHANGE_ACCOUNT(state, payload) {
             state.activeExchangeAccount = payload
         },
-
         SET_SYMBOL_TICK(state, payload) {
             state.symbolTick = payload
         },
         SET_EXCHANGE(state, payload) {
             state.exchange = payload
         },
+        SET_TRADES(state, payload) {
+            state.trades = payload
+        },
     },
     actions: {
+        SET_TRADES({commit}, payload) {
+            commit('SET_TRADES', payload);
+        },
+        SET_DEPTHS({commit}, payload) {
+            commit('SET_DEPTHS', payload);
+        },
         updateAppData({commit}) {
             axios
                 .get('/terminal/', {})

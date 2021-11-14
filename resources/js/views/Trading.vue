@@ -168,6 +168,7 @@ import "vue-custom-scrollbar/dist/vueScrollbar.css"
 import SelectExchangeWidget from "../components/SelectExchangeWidget";
 import DashboardNav from "../components/DashboardNav";
 import Loader from "../components/Loader";
+import binance from "../lib/binance";
 
 export default {
     name: "Trading",
@@ -193,8 +194,6 @@ export default {
                 suppressScrollX: false,
                 wheelPropagation: false
             },
-            symbolTick: null,
-            wsSymbolTick: null,
             load: false
         }
     },
@@ -220,21 +219,26 @@ export default {
                 this.getOrders()
             }
         },
-        'symbol': function (newValue) {
-            if (newValue) {
-                this.wsSymbolTick.close()
-                this.symbolTickerStream()
-                this.getOrders()
-            }
-        },
-        'symbol.orderTypes': function (newValue) {
-            if (newValue.length) {
-                this.order.type = newValue[0]
-            }
+        symbol:{
+            handler(newValue){
+                if (newValue) this.getOrders()
+
+                binance.unsubscribeAll()
+                binance.trade(newValue.symbol, (e) => {
+                    this.SET_TRADES(e)
+                })
+                binance.depth(newValue.symbol, 10, (e) => {
+                    this.SET_DEPTHS(e)
+                })
+                binance.ticker(newValue.symbol, (e) => {
+                    this.setSymbolTick(e)
+                })
+            },
+            deep: true
         },
     },
     methods: {
-        ...mapActions(['setExchangeInfo', 'setAccount', 'setSymbol', 'setSymbolTick', '']),
+        ...mapActions(['setExchangeInfo', 'setAccount', 'setSymbol', 'setSymbolTick', 'SET_TRADES','SET_DEPTHS']),
         setQty(qtyPercent) {
             let balance = Array.from(this.account.balances).filter((item) => {
                 return item.asset == this.symbol.baseAsset
@@ -243,22 +247,6 @@ export default {
                 this.order.quantity = parseFloat(balance[0]['free']) * (qtyPercent / 100)
             }
 
-        },
-        symbolTickerStream() {
-            let symbol = this.symbol ? this.symbol.symbol : 'BNBBUSD'
-
-            let app = this
-            app.wsSymbolTick = new WebSocket('wss://stream.binance.com:9443/ws/' + symbol.toLowerCase() + '@ticker');
-
-            app.wsSymbolTick.onmessage = function (event) {
-                let tick = JSON.parse(event.data)
-                document.title = parseFloat(tick.c) + ' - ' + tick.s + ' @ ' + app.exchange.toUpperCase()
-                app.setSymbolTick(tick)
-
-            };
-            app.wsSymbolTick.onerror = function (error) {
-                console.log(`[error] ${error.message}`);
-            };
         },
         cancelOrder(order) {
             if (!confirm('Вы действительно хотите отменить ордер?')) return
@@ -287,7 +275,7 @@ export default {
             return name.replace(/_/g, ' ')
         },
         getOrders() {
-            if (!this.symbol) return
+            if (!this.symbol || !this.activeExchangeAccount) return
 
             axios
                 .post('/terminal/exchange/get-orders/', {
@@ -309,7 +297,7 @@ export default {
                 });
         },
         getOpenOrders() {
-            if (!this.symbol) return
+            if (!this.symbol || !this.activeExchangeAccount) return
 
             axios
                 .post('/terminal/exchange/get-open-orders/' + this.exchange, {
@@ -453,13 +441,20 @@ export default {
             return this.symbol.symbol;
         }
     },
-    created() {
-
-    },
     mounted() {
         this.load = true
-        this.symbolTickerStream()
+        binance.trade(this.symbol.symbol, (e) => {
+            this.SET_TRADES(e)
+        })
+         binance.depth(this.symbol.symbol, 10, (e) => {
+            this.SET_DEPTHS(e)
+        })
+        binance.ticker(this.symbol.symbol, (e) => {
+            this.setSymbolTick(e)
+        })
+
         this.getExchangeInfo()
+
     }
 
 }

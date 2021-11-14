@@ -19,23 +19,26 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="change git action #2">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="изменил поход">
+      <change afterPath="$PROJECT_DIR$/app/Events/ExchangeTradesEvent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/lib/binance.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExchangeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExchangeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Binance.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Binance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/websockets.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/dashboard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/SelectExchangeWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/SelectExchangeWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/OrderBookWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/OrderBookWidget.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/OrdersHistoryWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/OrdersHistoryWidget.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/SelectPair.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/SelectPair.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/TradingView.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/TradingView.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/store/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/views/Trading.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/Trading.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/dashboard-terminal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/dashboard-terminal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/terminal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/terminal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/channels.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/channels.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,8 +54,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="Vue Single File Component" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -284,24 +287,17 @@
     <property name="add_unversioned_files" value="$PROJECT_DIR$/vendor/karakushan/crud-generator/composer.json" />
     <property name="database.data.extractors.current.export.id" value="SQL-Insert-Statements.sql.groovy" />
     <property name="database.data.extractors.current.id" value="SQL-Insert-Statements.sql.groovy" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Events" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="ts.external.directory.path" value="C:\Users\Vitaliy\AppData\Local\JetBrains\Toolbox\apps\PhpStorm\ch-0\202.7660.42\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\public\img" />
-      <recent name="E:\OSPanel\domains\cryptotrade.loc" />
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\dashboard" />
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\app\Http\Requests" />
-      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\js\views" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\OSPanel\domains\cryptotrade.loc\packages\karakushan" />
       <recent name="E:\OSPanel\domains\cryptotrade.loc\vendor\karakushan\crud-generator" />
@@ -309,8 +305,15 @@
       <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\js\views" />
       <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\admin" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\app\Events" />
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\public\img" />
+      <recent name="E:\OSPanel\domains\cryptotrade.loc" />
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\resources\views\dashboard" />
+      <recent name="E:\OSPanel\domains\cryptotrade.loc\app\Http\Requests" />
+    </key>
   </component>
-  <component name="RunManager" selected="npm.watch">
+  <component name="RunManager" selected="npm.prod">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
@@ -341,6 +344,16 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="watch-poll" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="watch-poll" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="watch" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -357,12 +370,14 @@
       <item itemvalue="npm.watch" />
       <item itemvalue="PHP Web Page.cryptotrade.loc" />
       <item itemvalue="PHPUnit.phpunit.xml" />
+      <item itemvalue="npm.watch-poll" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.watch" />
         <item itemvalue="npm.prod" />
+        <item itemvalue="npm.watch" />
         <item itemvalue="npm.hot" />
+        <item itemvalue="npm.watch-poll" />
       </list>
     </recent_temporary>
   </component>
@@ -459,14 +474,10 @@
       <workItem from="1636020278943" duration="1477000" />
       <workItem from="1636024391056" duration="9890000" />
       <workItem from="1636036579995" duration="2362000" />
-      <workItem from="1636743802488" duration="8540000" />
-    </task>
-    <task id="LOCAL-00027" summary="начал google 2fa">
-      <created>1620506793974</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1620506793974</updated>
+      <workItem from="1636743802488" duration="8972000" />
+      <workItem from="1636797129074" duration="23763000" />
+      <workItem from="1636886888361" duration="84000" />
+      <workItem from="1636887124046" duration="11507000" />
     </task>
     <task id="LOCAL-00028" summary="сделал 2fa аутент.">
       <created>1620570083863</created>
@@ -804,7 +815,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636029365866</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="изменил поход">
+      <created>1636754300942</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1636754300948</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -826,7 +844,9 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="faq item view" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/packages/karakushan/crud-generator" />
+    </ignored-roots>
     <MESSAGE value="prev next news" />
     <MESSAGE value="ticket messaging" />
     <MESSAGE value="ticket messaging avatar" />
@@ -851,7 +871,8 @@
     <MESSAGE value="change git action" />
     <MESSAGE value="change git action #1" />
     <MESSAGE value="change git action #2" />
-    <option name="LAST_COMMIT_MESSAGE" value="change git action #2" />
+    <MESSAGE value="изменил поход" />
+    <option name="LAST_COMMIT_MESSAGE" value="изменил поход" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Deployment" timestamp="1636745784836">
@@ -866,62 +887,66 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1636033597991" />
-    <state width="1921" height="206" key="GridCell.Tab.0.bottom" timestamp="1636753237914">
+    <state width="1877" height="270" key="GridCell.Tab.0.bottom" timestamp="1636907889173">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="206" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1636753237914" />
-    <state width="1921" height="206" key="GridCell.Tab.0.center" timestamp="1636753237914">
+    <state width="1877" height="270" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1636907889173" />
+    <state width="1877" height="270" key="GridCell.Tab.0.center" timestamp="1636907889173">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="206" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1636753237914" />
-    <state width="1921" height="206" key="GridCell.Tab.0.left" timestamp="1636753237914">
+    <state width="1877" height="270" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1636907889173" />
+    <state width="1877" height="270" key="GridCell.Tab.0.left" timestamp="1636907889173">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="206" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1636753237914" />
-    <state width="1921" height="206" key="GridCell.Tab.0.right" timestamp="1636753237914">
+    <state width="1877" height="270" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1636907889173" />
+    <state width="1877" height="270" key="GridCell.Tab.0.right" timestamp="1636907889173">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="206" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1636753237914" />
-    <state width="1877" height="179" key="GridCell.Tab.1.bottom" timestamp="1636036555633">
+    <state width="1877" height="270" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1636907889173" />
+    <state width="1921" height="341" key="GridCell.Tab.1.bottom" timestamp="1636817372583">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="179" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1636036555633" />
-    <state width="1877" height="179" key="GridCell.Tab.1.center" timestamp="1636036555633">
+    <state width="1921" height="341" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1636817372583" />
+    <state width="1921" height="341" key="GridCell.Tab.1.center" timestamp="1636817372583">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="179" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1636036555633" />
-    <state width="1877" height="179" key="GridCell.Tab.1.left" timestamp="1636036555633">
+    <state width="1921" height="341" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1636817372583" />
+    <state width="1921" height="341" key="GridCell.Tab.1.left" timestamp="1636817372582">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="179" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1636036555633" />
-    <state width="1877" height="179" key="GridCell.Tab.1.right" timestamp="1636036555633">
+    <state width="1921" height="341" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1636817372582" />
+    <state width="1921" height="341" key="GridCell.Tab.1.right" timestamp="1636817372583">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="179" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1636036555633" />
-    <state width="1877" height="179" key="GridCell.Tab.2.bottom" timestamp="1636036555633">
+    <state width="1921" height="341" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1636817372583" />
+    <state width="1921" height="341" key="GridCell.Tab.2.bottom" timestamp="1636817372583">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="179" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1636036555633" />
-    <state width="1877" height="179" key="GridCell.Tab.2.center" timestamp="1636036555633">
+    <state width="1921" height="341" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1636817372583" />
+    <state width="1921" height="341" key="GridCell.Tab.2.center" timestamp="1636817372583">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="179" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1636036555633" />
-    <state width="1877" height="179" key="GridCell.Tab.2.left" timestamp="1636036555633">
+    <state width="1921" height="341" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1636817372583" />
+    <state width="1921" height="341" key="GridCell.Tab.2.left" timestamp="1636817372583">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="179" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1636036555633" />
-    <state width="1877" height="179" key="GridCell.Tab.2.right" timestamp="1636036555633">
+    <state width="1921" height="341" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1636817372583" />
+    <state width="1921" height="341" key="GridCell.Tab.2.right" timestamp="1636817372583">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="179" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1636036555633" />
-    <state x="461" y="165" key="SettingsEditor" timestamp="1636024552572">
+    <state width="1921" height="341" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1636817372583" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1636886908425">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1636024552572" />
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1636029367879">
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1636886908425" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1636754302917">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1636029367879" />
+    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1636754302917" />
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1636818547399">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1636818547399" />
     <state x="667" y="253" width="585" height="534" key="find.popup" timestamp="1636751619481">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -934,10 +959,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="821" y="411" key="publish.login/0.0.1920.1040@0.0.1920.1040" timestamp="1636745316572" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1636033449722">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1636903723788">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1636033449722" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1636903723788" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

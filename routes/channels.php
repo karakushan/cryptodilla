@@ -1,5 +1,6 @@
 <?php
 
+use App\Broadcasting\ExchangeChannel;
 use Illuminate\Support\Facades\Broadcast;
 
 /*
@@ -17,6 +18,4 @@ Broadcast::channel('chat', function ($user) {
     return $user;
 });
 
-Broadcast::channel('exchange', function ($tick) {
-    return $tick;
-});
+Broadcast::channel('exchange', ExchangeChannel::class);

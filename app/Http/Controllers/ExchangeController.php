@@ -255,9 +255,21 @@ class ExchangeController extends Controller
     }
 
 
-    public function ticker($slug, ExchangeConnector $connector)
+    /**
+     * Запускает вебсокеты для получения котировки в реальном времени
+     *
+     * @param $slug
+     * @param $symbol
+     * @param ExchangeConnector $connector
+     */
+    public function ticker($slug, $symbol, ExchangeConnector $connector)
     {
-        return $connector->connect($slug)->ticker();
+        return $connector->connect($slug)->ticker($symbol);
+    }
+
+    public function trades($slug, $symbol, ExchangeConnector $connector)
+    {
+        return $connector->connect($slug)->trades($symbol);
     }
 
     /**
@@ -289,5 +301,10 @@ class ExchangeController extends Controller
         $currencies = $response->json();
 
         return response()->json(compact('currencies'));
+    }
+
+    public function price($exchage, $symbol, ExchangeConnector $connector)
+    {
+        return $connector->connect($exchage)->price($symbol);
     }
 }

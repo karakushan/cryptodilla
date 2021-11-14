@@ -59,6 +59,7 @@ Route::group(['prefix' => 'terminal', 'middleware' => ['auth', 'verified', 'perm
 
     Route::get('/market-overview', [ExchangeController::class, 'marketOverview']);
     Route::get('/faq', [FaqController::class, 'getFaqs']);
+    Route::get('/price/{exchange}/{symbol}', [ExchangeController::class, 'price']);
 
     //  EXCHANGES
     Route::prefix('exchange')->group(function () {
@@ -88,6 +89,10 @@ Route::group(['prefix' => 'terminal', 'middleware' => ['auth', 'verified', 'perm
     // NEWS
     Route::get('/news', [NewsController::class, 'getNews']);
     Route::get('/news/{id}', [NewsController::class, 'getSingleNews']);
+
+    // WebSockets
+    Route::get('/ticker/{exchange}/{symbol}', [ExchangeController::class, 'ticker']);
+    Route::get('/trades/{exchange}/{symbol}', [ExchangeController::class, 'trades']);
 
     Route::resources([
         'ticket' => TicketController::class,

@@ -10,7 +10,7 @@
                     class="cs--interface__dropdown-btn cs--dashboard-form__input"
                 >
                     <div class="cs--interface__dropdown-btn-img">
-                        <img :src="symbol.logo_url" :alt="symbol.symbol"/>
+                        <img :src="'https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@d5c68edec1f5eaec59ac77ff2b48144679cebca1/svg/color/'+symbol.baseAsset.toLowerCase()+'.svg'" :alt="symbol.symbol"/>
                     </div>
                     <b>{{ symbol.baseAsset }} - {{ symbol.quoteAsset }}</b>
                     <span class="cs--interface__dropdown-btn-text">Market</span>
@@ -100,7 +100,7 @@
                                 </label>
                             </li>
 
-                            <li class="cs--card-filter__filter-item" v-for="cur in appData.currencies" v-if="appData">
+                            <li class="cs--card-filter__filter-item" v-for="cur in appData.currencies">
                                 <label
                                     :for="'curid-'+cur.slug"
                                     class="cs--card-filter__filter-label"
@@ -126,7 +126,7 @@
                             <tr v-for="pair in filteredCurrencies" @click.prevent="setActiveSymbol(pair)">
                                 <td data-label="Name" class="no-wrap">
                                     <div class="cs--table__card">
-                                        <img :src="pair.logo_url" :alt="pair.symbol" v-if="pair.logo_url"/>
+                                        <img :src="'https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@d5c68edec1f5eaec59ac77ff2b48144679cebca1/svg/color/'+pair.baseAsset.toLowerCase()+'.svg'"/>
                                         <div class="cs--table__card-content">
                                             <span class="cs--table__card-title">{{
                                                     pair.baseAsset
@@ -200,7 +200,7 @@
                 <span class="cs--color-secondary">{{ $__("24h price change") }}</span>
                 <div class="cs--interface__chart-stat">
                     <img src="/img/icon/progress-arrow-up.svg" alt=""/>
-                    <span class="cs--color-success">+{{ symbolTick.P }}%</span>
+                    <span :class="{'cs--color-success':parseFloat(symbolTick.P)>0,'cs--color-danger':parseFloat(symbolTick.P)<0}">{{ parseFloat(symbolTick.P).toFixed(2) }}%</span>
                     <img src="/img/icon/graph-line.svg" alt=""/>
                 </div>
             </div>
@@ -213,12 +213,12 @@
             <div class="cs--interface__chart-comment" v-if="symbolTick">
                 <span class="cs--color-secondary">{{ $__("24h Volume") }}</span>
                 <div class="cs--interface__chart-stat">
-                    <span>{{ symbol.quoteAsset }} {{ parseFloat(symbolTick.c) }}</span>
+                    <span>{{ parseFloat(symbolTick.v).toFixed(3) }}</span>
                 </div>
             </div>
         </div>
         <div class="cs--interface__chart">
-            <TradingView :pair="symbol.symbol" v-if="symbol"/>
+            <TradingView :pair="symbol.symbol"/>
         </div>
     </section>
 </template>
@@ -226,6 +226,7 @@
 <script>
 import TradingView from "./TradingView";
 import {mapGetters, mapActions} from "vuex";
+import binance from "../lib/binance";
 
 export default {
     name: "SelectPair",
@@ -236,8 +237,7 @@ export default {
             search: '',
             url: 'wss://stream.binance.com:9443/ws/',
             tick: null,
-            onlyFavorites: false
-
+            onlyFavorites: false,
         }
     },
     props: {
@@ -250,7 +250,7 @@ export default {
     },
     watch: {},
     computed: {
-        ...mapGetters(['appData', 'exchangeInfo', 'account', 'symbolTick']),
+        ...mapGetters(['appData', 'exchangeInfo', 'account','symbolTick']),
         favoritePairs() {
             if (this.appData) {
                 return this.appData.user.favorite_currencies ? this.appData.user.favorite_currencies : [];
