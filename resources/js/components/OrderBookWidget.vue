@@ -80,6 +80,7 @@ export default {
             this.oldPrice = parseFloat(e.c)
         },
         'symbol.symbol': function () {
+            this.priceInUSDT=0
             this.getAvgPrice(this.symbol.baseAsset + 'USDT')
         }
     },
@@ -92,10 +93,10 @@ export default {
     methods: {
         getAvgPrice() {
             axios
-                .get('/terminal/price/' + this.exchange + '/' + this.symbol.baseAsset + 'USDT', {})
+                .get('/terminal/price/'  + this.symbol.baseAsset , )
                 .then(response => {
                     if (response.status == 200) {
-                        this.priceInUSDT = parseFloat(response.data.price)
+                        this.priceInUSDT = parseFloat(response.data)
                     }
                 })
         }

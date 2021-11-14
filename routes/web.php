@@ -59,7 +59,7 @@ Route::group(['prefix' => 'terminal', 'middleware' => ['auth', 'verified', 'perm
 
     Route::get('/market-overview', [ExchangeController::class, 'marketOverview']);
     Route::get('/faq', [FaqController::class, 'getFaqs']);
-    Route::get('/price/{exchange}/{symbol}', [ExchangeController::class, 'price']);
+    Route::get('/price/{symbol}', [ExchangeController::class, 'price']);
 
     //  EXCHANGES
     Route::prefix('exchange')->group(function () {

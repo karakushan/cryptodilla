@@ -303,8 +303,16 @@ class ExchangeController extends Controller
         return response()->json(compact('currencies'));
     }
 
-    public function price($exchage, $symbol, ExchangeConnector $connector)
+    public function price($symbol, ExchangeConnector $connector)
     {
-        return $connector->connect($exchage)->price($symbol);
+        $price = Cache::remember('coinapi_price_usd_'.$symbol, 3600, function () use ($symbol) {
+            $response = Http::get('https://rest.coinapi.io/v1/exchangerate/' . $symbol . '/USD?apikey=' . env('COINAPI_KEY'));
+            $data = $response->json();
+            if ($response->ok() && isset($data['rate'])) {
+                return round(floatval($data['rate']), 4);
+            }
+        });
+
+        return response()->json($price);
     }
 }
