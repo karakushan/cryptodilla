@@ -35,6 +35,9 @@ Auth::routes();
 
 /* LANDING PAGE */
 Route::get('/', [PageController::class, 'homePage'])->name('homepage');
+Route::get('test', function (){
+    echo 'test';
+});
 Route::get('/google2fa-auth', [UserController::class, 'google2fa_page'])->name('google2fa');
 Route::post('/google2fa-validate', [UserController::class, 'google2fa_validate'])->name('google2fa_validate');
 Route::get('locale/{locale}', function ($locale) {
