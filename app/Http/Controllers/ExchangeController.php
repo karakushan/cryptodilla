@@ -94,6 +94,10 @@ class ExchangeController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'register_link'=>['url']
+        ]);
+
         $item = Exchange::findOrFail($id);
         $item->fill($request->all());
         $item->status = $request->has('status') ? intval($request->input('status')) : 0;
@@ -291,21 +295,21 @@ class ExchangeController extends Controller
 
     public function marketOverview(Request $request)
     {
+        $symbols = Cache::remember('market_assets', 3600, function () {
+            $response = Http::get('https://rest.coinapi.io/v1/assets', [
+                'apikey' => env('COINAPI_KEY')
+            ]);
+            if ($response->ok()) {
+                return $response->json();
+            }
+        });
 
-        $headers = [
-            'Accepts' => 'application/json',
-            'X-CMC_PRO_API_KEY' => env('COINMARKET_API_KEY', 'f4be32d2-af27-4c62-8bc5-0c6a51154d7e')
-        ];
-        $response = \Http::withHeaders($headers)
-            ->get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest');
-        $currencies = $response->json();
-
-        return response()->json(compact('currencies'));
+        return response()->json($symbols);
     }
 
     public function price($symbol, ExchangeConnector $connector)
     {
-        $price = Cache::remember('coinapi_price_usd_'.$symbol, 3600, function () use ($symbol) {
+        $price = Cache::remember('coinapi_price_usd_' . $symbol, 3600, function () use ($symbol) {
             $response = Http::get('https://rest.coinapi.io/v1/exchangerate/' . $symbol . '/USD?apikey=' . env('COINAPI_KEY'));
             $data = $response->json();
             if ($response->ok() && isset($data['rate'])) {

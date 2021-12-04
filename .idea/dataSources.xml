@@ -6,6 +6,7 @@
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/cryptotrade</jdbc-url>
+      <vm-options>&quot;-Djdk.tls.disabledAlgorithms=SSLv3, TLSv1.1, RC4, DES, MD5withRSA, DH keySize &lt; 1024, EC keySize &lt; 224, 3DES_EDE_CBC, anon, NULL, include jdk.disabled.namedCurves&quot;</vm-options>
     </data-source>
     <data-source source="LOCAL" name="shopkit_exchange@185.212.128.242" uuid="8ad75dc9-e5f5-4bb1-928f-0ed21671d84b">
       <driver-ref>mysql</driver-ref>

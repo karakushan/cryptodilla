@@ -53,6 +53,17 @@
                                 </div>
                             </div>
 
+                            <div class="form-group row">
+                                <label for="slug" class="col-sm-12 col-form-label">{{ __("Ссылка для регистрации") }}</label>
+                                <div class="col-sm-12">
+                                    <input type="text" name="register_link" class="form-control" id="register_link"
+                                           value="{{ old('register_link',isset($item) && isset($item->register_link) ? $item->register_link : '') }}">
+                                    @error('register_link')
+                                    <div class="invalid-feedback" style="display: block;">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+
 
                             <div class="form-group row">
                                 <label for="user-address" class="col-sm-12 col-form-label">{{ __("Статус") }}</label>
@@ -61,6 +72,8 @@
                                            value="1" {{  $item->status ? 'checked':''  }} />
                                 </div>
                             </div>
+
+
                             <div class="form-group mt-4">
                                 <button type="submit" class="btn btn-lg btn-primary"><i
                                         class="feather icon-send mr-2"></i>

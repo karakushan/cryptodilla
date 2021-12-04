@@ -25,14 +25,14 @@
                         </ul>
                         <div class="cs--exchange-card__btn-group">
                             <a
-                                href="javascript:void(0)"
+                                :href="exchange.register_link"
                                 class="cs--btn cs--btn--grad-blue"
+                                target="_blank"
                             >{{ $__("Open") }}</a
                             >
                             <router-link
                                 :to="{
                                     name:'ConnectExchange',
-
                                     params: {exchange: exchange,id:exchange.id}
                                 }"
 

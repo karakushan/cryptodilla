@@ -10,7 +10,9 @@
                     class="cs--interface__dropdown-btn cs--dashboard-form__input"
                 >
                     <div class="cs--interface__dropdown-btn-img">
-                        <img :src="'https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@d5c68edec1f5eaec59ac77ff2b48144679cebca1/svg/color/'+symbol.baseAsset.toLowerCase()+'.svg'" :alt="symbol.symbol"/>
+                        <img
+                            :src="'https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@d5c68edec1f5eaec59ac77ff2b48144679cebca1/svg/color/'+symbol.baseAsset.toLowerCase()+'.svg'"
+                            :alt="symbol.symbol"/>
                     </div>
                     <b>{{ symbol.baseAsset }} - {{ symbol.quoteAsset }}</b>
                     <span class="cs--interface__dropdown-btn-text">Market</span>
@@ -126,7 +128,7 @@
                             <tr v-for="pair in filteredCurrencies" @click.prevent="setActiveSymbol(pair)">
                                 <td data-label="Name" class="no-wrap">
                                     <div class="cs--table__card">
-                                        <img :src="'https://cdn.jsdelivr.net/gh/atomiclabs/cryptocurrency-icons@d5c68edec1f5eaec59ac77ff2b48144679cebca1/svg/color/'+pair.baseAsset.toLowerCase()+'.svg'"/>
+                                        <img/>
                                         <div class="cs--table__card-content">
                                             <span class="cs--table__card-title">{{
                                                     pair.baseAsset
@@ -150,7 +152,7 @@
                                 <td data-label="24h Volume" class="no-wrap">
                                     <div class="cs--table__card-content">
                                 <span class="cs--table__card-title"
-                                >{{ pair.price }} {{ pair.quoteAsset }}</span
+                                >{{ assets.find(a => a.asset_id == pair.baseAsset) }} {{ pair.quoteAsset }}</span
                                 >
                                         <span class="cs--table__card-abbr"
                                         >Price</span
@@ -200,7 +202,10 @@
                 <span class="cs--color-secondary">{{ $__("24h price change") }}</span>
                 <div class="cs--interface__chart-stat">
                     <img src="/img/icon/progress-arrow-up.svg" alt=""/>
-                    <span :class="{'cs--color-success':parseFloat(symbolTick.P)>0,'cs--color-danger':parseFloat(symbolTick.P)<0}">{{ parseFloat(symbolTick.P).toFixed(2) }}%</span>
+                    <span
+                        :class="{'cs--color-success':parseFloat(symbolTick.P)>0,'cs--color-danger':parseFloat(symbolTick.P)<0}">{{
+                            parseFloat(symbolTick.P).toFixed(2)
+                        }}%</span>
                     <img src="/img/icon/graph-line.svg" alt=""/>
                 </div>
             </div>
@@ -218,7 +223,7 @@
             </div>
         </div>
         <div class="cs--interface__chart">
-            <TradingView :pair="symbol.symbol"/>
+<!--            <TradingView :pair="symbol.symbol"/>-->
         </div>
     </section>
 </template>
@@ -238,6 +243,7 @@ export default {
             url: 'wss://stream.binance.com:9443/ws/',
             tick: null,
             onlyFavorites: false,
+            assets: []
         }
     },
     props: {
@@ -250,7 +256,7 @@ export default {
     },
     watch: {},
     computed: {
-        ...mapGetters(['appData', 'exchangeInfo', 'account','symbolTick']),
+        ...mapGetters(['appData', 'exchangeInfo', 'account', 'symbolTick']),
         favoritePairs() {
             if (this.appData) {
                 return this.appData.user.favorite_currencies ? this.appData.user.favorite_currencies : [];
@@ -331,18 +337,24 @@ export default {
                         })
                     }
                 })
-                .catch(error => {
-                    // console.log(error.response);
-                    console.log(error.response.data);
-                })
                 .finally(() => {
                     this.inProcess = false
                 });
+        },
+        getAssetsInfo() {
+            axios
+                .get('/terminal/market-overview', {})
+                .then(response => {
+                    if (response.status == 200 && response.data) {
+                        this.assets = response.data
+                    }
+                })
+
         }
 
     },
-    mounted() {
-
+    async mounted() {
+        // this.getAssetsInfo()
     }
 }
 </script>

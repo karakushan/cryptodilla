@@ -219,8 +219,8 @@ export default {
                 this.getOrders()
             }
         },
-        symbol:{
-            handler(newValue){
+        symbol: {
+            handler(newValue) {
                 if (newValue) this.getOrders()
 
                 binance.unsubscribeAll()
@@ -238,7 +238,7 @@ export default {
         },
     },
     methods: {
-        ...mapActions(['setExchangeInfo', 'setAccount', 'setSymbol', 'setSymbolTick', 'SET_TRADES','SET_DEPTHS']),
+        ...mapActions(['setExchangeInfo', 'setAccount', 'setSymbol', 'setSymbolTick', 'SET_TRADES', 'SET_DEPTHS']),
         setQty(qtyPercent) {
             let balance = Array.from(this.account.balances).filter((item) => {
                 return item.asset == this.symbol.baseAsset
@@ -285,10 +285,10 @@ export default {
                 .then(response => {
                     if (response.status == 200 && response.data) {
                         this.orders = response.data.sort((a, b) => {
-                                if (a.time > b.time) return -1
-                                if (a.time < b.time) return 1
-                                return 0
-                            })
+                            if (a.time > b.time) return -1
+                            if (a.time < b.time) return 1
+                            return 0
+                        })
                     }
                 })
                 .catch(error => {
@@ -381,19 +381,15 @@ export default {
                                 return item.symbol == 'BTCUSDT'
                             })
 
-                            if(filtered.length){
+                            if (filtered.length) {
                                 this.setSymbol(filtered[0])
-                            }else{
+                            } else {
                                 this.setSymbol(response.data.symbols[Object.keys(response.data.symbols)[0]])
                             }
                         }
 
                     }
                 })
-                .catch(error => {
-                    // console.log(error.response);
-                    console.log(error.response.data);
-                });
         },
         getAccount() {
             axios
@@ -431,7 +427,7 @@ export default {
                     });
             })
 
-        }
+        },
     },
     computed: {
         ...mapGetters(['appData', 'account', 'exchangeInfo', 'symbol', 'activeExchangeAccount', 'exchange']),
@@ -443,17 +439,18 @@ export default {
     },
     mounted() {
         this.load = true
+        this.getExchangeInfo()
+
         binance.trade(this.symbol.symbol, (e) => {
             this.SET_TRADES(e)
         })
-         binance.depth(this.symbol.symbol, 10, (e) => {
+        binance.depth(this.symbol.symbol, 10, (e) => {
             this.SET_DEPTHS(e)
         })
         binance.ticker(this.symbol.symbol, (e) => {
             this.setSymbolTick(e)
         })
 
-        this.getExchangeInfo()
 
     }
 

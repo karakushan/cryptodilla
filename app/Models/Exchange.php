@@ -43,7 +43,7 @@ class Exchange extends Model
     protected $table = 'exchanges';
 
     protected $fillable = [
-        'name', 'logo', 'status', 'slug', 'description',
+        'name', 'logo', 'status', 'slug', 'description','register_link'
     ];
 
     protected $appends = [

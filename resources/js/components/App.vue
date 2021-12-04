@@ -459,7 +459,7 @@ export default {
                 });
         },
         setLocale(lang = 'en') {
-            window.location.href = '/locale/' + lang
+            window.location.href = '/locale/' + lang +'?ref='+window.location.href 
         },
         changeColorScheme() {
             axios
