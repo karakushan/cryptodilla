@@ -19,12 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="доб поле реф ссылки">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5035001f-1a51-453c-b284-da206a5db2ea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5035001f-1a51-453c-b284-da206a5db2ea.xml" afterDir="false" />
+    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="fix errors">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/SelectPair.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/SelectPair.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -486,14 +483,7 @@
       <workItem from="1636969240374" duration="5000" />
       <workItem from="1638649680093" duration="4242000" />
       <workItem from="1638701076481" duration="342000" />
-      <workItem from="1641316866951" duration="900000" />
-    </task>
-    <task id="LOCAL-00035" summary="лог активности пользователя">
-      <created>1622215888202</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1622215888202</updated>
+      <workItem from="1641316866951" duration="2284000" />
     </task>
     <task id="LOCAL-00036" summary="сделал возможность отключения 2fa">
       <created>1622231403166</created>
@@ -831,7 +821,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638653747129</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="fix errors">
+      <created>1641317855495</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1641317855495</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -855,7 +852,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/packages/karakushan/crud-generator" />
     </ignored-roots>
-    <MESSAGE value="change workflow #2" />
     <MESSAGE value="change workflow #3" />
     <MESSAGE value="remove package" />
     <MESSAGE value="make service provider" />
@@ -880,7 +876,8 @@
     <MESSAGE value="fix 3" />
     <MESSAGE value="test" />
     <MESSAGE value="доб поле реф ссылки" />
-    <option name="LAST_COMMIT_MESSAGE" value="доб поле реф ссылки" />
+    <MESSAGE value="fix errors" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix errors" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
