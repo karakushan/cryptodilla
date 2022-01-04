@@ -223,7 +223,7 @@
             </div>
         </div>
         <div class="cs--interface__chart">
-<!--            <TradingView :pair="symbol.symbol"/>-->
+            <TradingView :pair="symbol.symbol"/>
         </div>
     </section>
 </template>
