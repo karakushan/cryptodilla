@@ -23,7 +23,7 @@ jobs:
       - name: Deploy to production
         uses: appleboy/ssh-action@master
         with:
-          username: ${{ secrets.FTP_USERNAME }}
+          username: root
           host: 185.212.128.242
-          password: ${{ secrets.FTP_PASSWORD }}
-          script: 'cd /home/shopkit/sites/ex.profglobal.top && ./server_deploy.sh'
+          key: ${{ secrets.DEPLOY_KEY }}
+          script: 'cd /home/shopkit/sites/shopkit.online && ./server_deploy.sh'
