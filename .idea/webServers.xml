@@ -9,6 +9,13 @@
           </advancedOptions>
         </fileTransfer>
       </webServer>
+      <webServer id="43ac8297-cb08-4239-b6af-07a865aeb9cb" name="terminal.cryptor.link" url="http://terminal.cryptor.link">
+        <fileTransfer rootFolder="/var/www/html" accessType="SFTP" host="92.255.111.170" port="22" sshConfigId="554d763f-9cf0-4e8d-9626-4baf504890c8" sshConfig="terminal.cryptor.link">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </project>

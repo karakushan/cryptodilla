@@ -19,8 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="fix errors">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
+    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="change workflow">
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -483,21 +484,8 @@
       <workItem from="1636969240374" duration="5000" />
       <workItem from="1638649680093" duration="4242000" />
       <workItem from="1638701076481" duration="342000" />
-      <workItem from="1641316866951" duration="2284000" />
-    </task>
-    <task id="LOCAL-00036" summary="сделал возможность отключения 2fa">
-      <created>1622231403166</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1622231403166</updated>
-    </task>
-    <task id="LOCAL-00037" summary="bot settings">
-      <created>1622409883346</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1622409883346</updated>
+      <workItem from="1641316866951" duration="3030000" />
+      <workItem from="1641488076806" duration="2345000" />
     </task>
     <task id="LOCAL-00038" summary="widgets in admin">
       <created>1622496478452</created>
@@ -828,7 +816,21 @@
       <option name="project" value="LOCAL" />
       <updated>1641317855495</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="change workflow">
+      <created>1641319370232</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1641319370232</updated>
+    </task>
+    <task id="LOCAL-00086" summary="change workflow">
+      <created>1641319499697</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1641319499698</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -852,7 +854,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/packages/karakushan/crud-generator" />
     </ignored-roots>
-    <MESSAGE value="change workflow #3" />
     <MESSAGE value="remove package" />
     <MESSAGE value="make service provider" />
     <MESSAGE value="included exchanges" />
@@ -877,7 +878,8 @@
     <MESSAGE value="test" />
     <MESSAGE value="доб поле реф ссылки" />
     <MESSAGE value="fix errors" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix errors" />
+    <MESSAGE value="change workflow" />
+    <option name="LAST_COMMIT_MESSAGE" value="change workflow" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
