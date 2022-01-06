@@ -19,10 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="change workflow">
+    <list default="true" id="07f0bba2-f880-490c-86d6-3a5410c4a2a9" name="Default Changelist" comment="deleted workflow">
       <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -485,14 +485,7 @@
       <workItem from="1638649680093" duration="4242000" />
       <workItem from="1638701076481" duration="342000" />
       <workItem from="1641316866951" duration="3030000" />
-      <workItem from="1641488076806" duration="2345000" />
-    </task>
-    <task id="LOCAL-00038" summary="widgets in admin">
-      <created>1622496478452</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1622496478452</updated>
+      <workItem from="1641488076806" duration="5286000" />
     </task>
     <task id="LOCAL-00039" summary="fix errors">
       <created>1622548108487</created>
@@ -830,7 +823,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641319499698</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="deleted workflow">
+      <created>1641490865374</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1641490865375</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -854,7 +854,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/packages/karakushan/crud-generator" />
     </ignored-roots>
-    <MESSAGE value="remove package" />
     <MESSAGE value="make service provider" />
     <MESSAGE value="included exchanges" />
     <MESSAGE value="get account balance functionality" />
@@ -879,7 +878,8 @@
     <MESSAGE value="доб поле реф ссылки" />
     <MESSAGE value="fix errors" />
     <MESSAGE value="change workflow" />
-    <option name="LAST_COMMIT_MESSAGE" value="change workflow" />
+    <MESSAGE value="deleted workflow" />
+    <option name="LAST_COMMIT_MESSAGE" value="deleted workflow" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
